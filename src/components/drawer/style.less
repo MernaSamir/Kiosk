@@ -1,0 +1,22 @@
+.numpad {
+    display      : grid;
+    grid-template: '. . .''. . .''. . .''. . .';
+    grid-gap     : 1vh;
+    width        : 30vw;
+}
+
+.drawer {
+    :global{
+        .ant-drawer-content-wrapper{
+            height: 50vh !important;
+        }
+        .ant-drawer-body{
+            display: flex;
+            justify-content: center;
+            padding: 0%;
+            .react-simple-keyboard{
+                width: 100vw;
+            }
+        }
+    }
+}

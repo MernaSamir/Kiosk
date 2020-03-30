@@ -1,0 +1,158 @@
+@import '~@assets/style-settings.less';
+@import '~@assets/Colors.less';
+
+
+.FB_Main{
+    padding: 1%;
+    overflow: -webkit-paged-y;
+}
+
+.FB_header{
+    .FontSettings(0.9vw,@fontSubcolor);
+    font-size: 1vw;
+    font-weight: bold;
+    line-height: 1.22;
+    letter-spacing: normal;
+    text-align: left;
+    color: @fontSubMainColor;
+    margin-bottom: 1%;
+}
+
+.FB_HeaderBr{
+    border: 0.5px solid @formHorzintalLine;
+    margin-bottom: 1%;
+}
+
+/* Layout 1 */
+.layout1_grid_container {
+    display: grid;
+    grid-template:'.';
+    // grid-gap: 3%;
+
+}
+
+.layout1_grid_container > div {
+    text-align: left;
+    padding: 0 0;
+  }
+
+
+  /* Layout 2 */
+.layout2_grid_container {
+    display: grid;
+    grid-template:'. .';
+    // grid-gap: 3%;
+    padding: 1%;
+}
+
+.layout2_grid_container > div {
+    text-align: left;
+    padding: 0 0;
+    margin: 0 3%;
+  }
+
+
+/* Layout 3 */
+.layout3_grid_container {
+    display: grid;
+    grid-template:'. . .';
+    // grid-gap: 3%;
+    padding: 1%;
+
+}
+
+.layout3_grid_container > div {
+    text-align: left;
+    padding: 0 0;
+    margin: 0 3%;
+  }
+
+
+  /* Layout 4 */
+.layout4_grid_container {
+    display: grid;
+    grid-template:'. . . .';
+    grid-gap: 2%;
+    padding: 2%;
+}
+
+.layout4_grid_container > div {
+    text-align: left;
+    padding: 0 0;
+    margin: 0 4%;
+  }
+
+  /* Layout 5 */
+.layout5_grid_container {
+    display: grid;
+    grid-template:'. . . . .';
+    grid-gap: 2%;
+    padding: 2%;
+}
+
+.layout5-grid-container > div {
+    text-align: left;
+    padding: 0 0;
+    margin: 0 4%;
+  }
+
+
+
+/* sales-items-grid-container */
+
+.item3 {
+    grid-area: myArea;
+  }
+
+
+.sales_items_grid_container {
+    display: grid;
+    grid-template:
+    '. . myArea'
+    '. . myArea';
+    grid-gap: 1%;
+    padding: 1%;
+}
+
+
+.sales-items-grid-container > div {
+    text-align: left;
+    padding: 0 0;
+    margin: 0 3%;
+  }
+
+/* sales-items-has-grid-container */
+
+.sales_items_has_grid_container {
+    display: grid;
+    grid-template:
+    '.';
+    grid-gap: 1%;
+    padding: 1%;
+}
+.sales_items_has_grid_container>.collapse_table_td>div {
+    display: flex;
+    justify-content: space-around;
+    justify-items: left;
+}
+
+.sales_items_has_grid_container > div {
+    text-align: left;
+    padding: 0 0;
+    margin: 0 3%;
+  }
+
+
+  /* dialog */
+  .footer {
+    padding: 10px 16px;
+    text-align: right;
+    background: transparent;
+    border-top: 1px solid #e8e8e8;
+    border-radius: 0 0 4px 4px;
+  }
+
+  .footer > button {
+    margin: 0 5px 0 5px;
+  }
+

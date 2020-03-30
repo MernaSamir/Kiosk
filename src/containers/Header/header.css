@@ -1,0 +1,214 @@
+/* .app_header{
+    height: 7%;
+    background-color: #ffffff;
+    display: grid;
+    grid-template-columns: 45% 55%;
+    grid-template-columns: 45% 65%;
+    margin-bottom: 0.5%
+  } */
+.header-TW .header-btn {
+    width: 14.5vw;
+}
+.header-logo{
+    height: 100%;
+    display: flex;
+  }
+.logo-img{
+    max-height: 85%;
+    align-self: center;
+}
+.myContainer{
+    padding-right: 1.5%;
+    padding-left: 1.5%;
+    margin-right: auto;
+    margin-left: auto;
+}
+.header-btns{
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+.shift{
+    font-family: lato;
+    color: #e43f42;
+    font-size: 2.3vh;
+    align-self: center;
+    margin: 0;
+}
+
+.header-btn{
+    height: 55%;
+    align-self: center;
+    background-image: linear-gradient(to bottom, #faf8f8, #ebe9e9);
+    border-radius: 25px;
+    width: 13vw;
+    border: #d5d5d5 .5px;
+    color: #e43f42;
+    font-size: 2.3vh;
+    box-shadow: 0 0 3px 0 rgba(180, 178, 178, 0.5);
+    position: relative;
+
+}
+.user-btn{
+    height: 55%;
+    align-self: center;
+    background-image: linear-gradient(to bottom, #faf8f8, #ebe9e9);
+    border-radius: 25px;
+    width: 5vh;
+    border: #d5d5d5 .5px;
+    color: #e43f42;
+    font-size: 2.3vh;
+    box-shadow: 0 0 3px 0 rgba(180, 178, 178, 0.5);
+    position: relative
+}
+.ant-popover-content{
+
+    width: 12vw;
+}
+.user-btn:hover .user-header-icon{
+color: #ffffff
+}
+.user-btn:focus{
+    outline: 0;
+}
+.header-btn:hover{
+    background-image: linear-gradient(to bottom, #ed2326, #db3e40);
+    color: #ffffff;
+    font-family: lato-bold;
+}
+.header-DI{
+    height: 7%;
+    background-color: #ffffff;
+    display: grid;
+    grid-template-columns: 31% 69%;
+    margin-bottom: 0.5%
+}
+@media only screen and (max-width:800px){
+    .shift{
+        font-size: 2vh;
+
+    }
+
+    .header-btn{
+
+        font-size: 2vh;
+
+
+    }
+
+}
+#admin{
+    width: 16%
+}
+.user-header-icon{
+    color: #e43d3f;
+    align-self: center;
+    font-size: 3vh
+}
+.header-btn:focus{
+    outline: 0;
+}
+.dropbtn {
+    background-color: #4CAF50;
+    color: white;
+    padding: 16px;
+    font-size: 16px;
+    border: none;
+}
+
+.dropdown {
+    /* height: 60%; */
+    align-self: center;
+    background-image: linear-gradient(to bottom, #faf8f8, #ebe9e9);
+    border-radius: 25px;
+    width: 27%;
+    border: #d5d5d5 .5px;
+    color: #e43f42;
+    box-shadow: 0 0 3px 0 rgba(180, 178, 178, 0.5);
+    position: relative;
+}
+.dropdown:focus{
+    outline: 0;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #ffffff;
+    box-shadow: 0 1.5px 3px 0 rgba(0, 0, 0, 0.16);
+    z-index: 1;
+    width: 100%;
+    border: 1px solid #e43d3f;
+    text-align: left;
+    top:105%;
+}
+
+.dropdown-content a {
+    color: #e43d3f;
+    font-size: 1.1rem;
+    padding: 4% 2%;
+    text-decoration: none;
+    display: block;
+    /* text-indent: 3%; */
+    display: flex;
+    /* font-weight: bold; */
+    font-family: lato;
+    align-self: center;
+}
+
+.check{
+    justify-content: flex-end;
+    display: none;
+    color: #e43d3f;
+    align-self: center;
+    font-size: 1.1rem;
+    padding-top: 2%;
+}
+
+.icon{
+    align-self: center;
+    border: 1px solid green;
+    /* line-height: 5vh; */
+}
+.dropdown-content-row{
+    display: flex;
+    justify-content: space-between;
+    padding-left: 5%;
+    padding-right: 5%;
+    margin-left: auto;
+    margin-right: auto
+}
+.dropdown-content .dropdown-content-row:hover a{
+    font-family: lato-bold;
+}
+.dropdown-content .dropdown-content-row:hover{
+    background-color: #fbfbfb;
+}
+/* .dropdown-content-row:hover .check{
+    display: inline-block;
+    font-family: lato-bold;
+} */
+
+.dropdown:hover .dropdown-content {display: block;}
+
+.dropdown:hover .dropbtn {background-color: #3e8e41;}
+
+.mood-icon{
+    margin-left: 5%;
+}
+
+@font-face {
+    font-family: KeplerStd-Capt;
+}
+@font-face {
+    font-family: lato;
+    src: url(../../Fonts/Fonts\ for\ Citrenna/Lato-Regular.ttf);
+}
+@font-face {
+    font-family: lato-bold;
+    src: url(../../Fonts/Fonts\ for\ Citrenna/Lato-Bold.ttf);
+}
+@font-face {
+    font-family: lato-semi;
+    src: url(../../Fonts/Fonts\ for\ Citrenna/Lato-Semibold.ttf);
+}

@@ -1,0 +1,166 @@
+@import '~@assets/Colors.less';
+
+.table_div{
+    height: auto;
+    height: 49vh;
+    margin-bottom: 1vh;
+    .shared{
+        text-align: center;
+        font-size: 1rem;
+        
+        align-self: center;
+        color: @RegularBlack;
+
+    }
+    tbody::-webkit-scrollbar {
+        height: 1%;
+        width: .8%;
+    }
+    tbody::-webkit-scrollbar-thumb {
+        background: #9d9a9a;
+        border-radius: 25px;
+    }
+
+    tbody{
+        overflow-y: auto;
+        display: block;
+        max-height: 43vh;
+        height: 43vh;
+    
+    }
+    thead {
+        display: table;
+        width: 100%;
+     }
+     tbody tr {
+        display: table;
+        width: 100%;
+     }
+     table{
+        table-layout: fixed;
+        border-collapse: separate;
+        border-spacing: 2px 3px;
+     }
+     thead {
+        table-layout: fixed;
+        tr{
+            box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.07);
+            height: 5vh;
+            margin-bottom: 1%;
+        }
+     }
+     tbody tr {
+        table-layout: fixed;
+     }
+     th, td {
+        width: auto;
+
+     }
+    
+     th{
+         &:nth-child(2){
+            min-width: 48%;
+            width: 48%;
+            max-width: 48%;
+            text-align: center;
+            overflow: hidden;
+            padding: 0;
+         }
+        font-size: 1.2rem;
+        background-color: #ffffff;
+        color: @RegularBlack;
+        font-family: lora;
+        min-width:11%;
+        width: 11%;
+        max-width: 11%;
+        text-align: center;
+        position: relative;
+        
+     }
+     .moveHere{
+        box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.07);
+        border: 1px  dashed #d3d3d3;
+        display: flex;
+        align-items: center;
+        background-color: @baleGrey;
+        p{
+            
+            color:@HeadersGray;
+            font-size: 1rem;
+            text-align: center;
+            margin: 0 auto;
+            font-weight: bold;
+        }
+     }
+     .note{
+        box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.07);
+        border: 1px  dashed #d3d3d3;
+        display: flex;
+        align-items: center;
+        background-color: @baleGrey;
+        p{
+            
+            color:@mainColor;
+            font-size: 1rem;
+            text-align: center;
+            margin: 0 auto;
+            font-weight: bold;
+        }
+     }
+     .mod{
+         td{
+             color: @HeadersGray;
+             font-size: .8rem;
+             &:first-child{
+                padding-left: 1.2rem;
+             }
+         }
+     }
+     .active{
+         td{
+            background-color: @mainColor;
+             color: @WhiteBG;
+         }
+     }
+     .border{
+         td{
+            &:first-child{
+                border-left: solid 1px #d3d3d3;
+            }
+            &:last-child{
+                border-right: solid 1px #d3d3d3;
+            }
+             border-top: solid 1px #d3d3d3;
+             border-bottom: solid 1px #d3d3d3;
+             background-color: @trBorder;
+         }
+     }
+     tr{
+         height: 6vh;
+         td{
+           
+             font-size: 1rem;
+            color: #0a0a0a;
+            
+            min-width:11%;
+            width: 11%;
+            max-width: 11%;
+            text-align: center;
+            position: relative;
+            &:last-child{
+                font-weight: bold;
+                font-size: 1.1rem
+            }
+            &:nth-child(2){
+                min-width: 48%;
+                width: 48%;
+                max-width: 48%;
+                text-align: center;
+                overflow: hidden;
+                padding: 0;
+             }
+         }
+
+     }
+    
+}

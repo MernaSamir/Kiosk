@@ -1,0 +1,49 @@
+@import '~@assets/Colors.less';
+
+.table{
+    height: 86%;
+    
+    table{
+        width: 100%;
+
+        thead{
+            tr{
+                height: 4vh;
+                background-color: @forgetPassMsg;
+                
+
+                th{
+                    text-align: center;
+                    
+                    font-size: 1.5vh;
+                    font-weight: normal;
+                    color: #ffffff;
+                }
+            }
+        }
+
+        tbody{
+
+            .busy{
+                background-color: #d0ecfd;
+            }
+
+            tr{
+                height: 6vh;
+                
+
+                td{
+                    text-align: center;
+                    
+                    font-size: 1.5vh;
+                    font-weight: normal;
+                    color: @RegularBlack;
+                }
+
+                #period{
+                    color: @headerFont
+                }
+            }
+        }
+    }
+}

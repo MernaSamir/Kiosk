@@ -1,0 +1,25 @@
+@import '~@assets/Colors.less';
+.allPayIn{
+    height: 55vh;
+    .inputButton{
+        div{
+            display: flex;
+            justify-content: flex-start;
+            button{
+                border: solid 1px #e0e0e0;
+                background-image: linear-gradient(to bottom, @WhiteBG, #f2f2f2);
+                border-radius: 2.5px;
+                padding: 1vw;
+                min-width: 9vw;
+                
+                font-size: 1rem;
+                text-align: center;
+                color: @RegularBlack;
+                
+                &:focus{
+                    outline: 0
+                }
+            }
+        }  
+    }
+}

@@ -1,0 +1,39 @@
+@import '~@assets/Colors.less';
+
+.btn{
+    background-image: linear-gradient(to bottom, #ffffff, #f2f2f2);
+    width: 32%;
+    /* height: 100%; */
+    border: 2px solid #e0e0e0;
+    border-radius: 7px;
+    display: flex;
+    span{
+        
+        font-weight: bold;
+        color:@grayFont;
+        font-size: 1.8vh;
+        margin-left: 10%;
+        text-align: center;
+        width: 50%;
+        align-self: center;
+    }
+    img{
+        max-height: 80%;
+        width: 30%;
+        margin-left: 5%;
+    }
+    .fire{
+        width: 20%;
+    }
+    &:focus{
+        outline: 0;
+    }
+
+
+}
+.active{
+    background-image: linear-gradient(to bottom, @mainColor, @mainColor);
+    span{
+        color: @WhiteBG;
+    }
+}

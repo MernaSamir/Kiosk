@@ -1,0 +1,42 @@
+.Quantity_Change_number{
+    width: 70%;
+    height: auto;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-items: center;
+    flex-wrap: nowrap;
+    justify-content: space-around;  
+    align-items: center;
+    padding: 0 1%;
+    // padding: 0.5rem;
+    margin-bottom: 1rem;
+}
+.quantityContainer{
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-items: center;
+    margin: auto;
+    margin-bottom: 1rem;
+    justify-content: space-around;
+    .area{
+         grid-area: myArea;
+    }
+    div{
+        &:nth-child(1){
+            display: grid;
+            grid-template:'. . .''. . .''. . .''. . .';
+            grid-gap: 1vh;
+        }
+        &:nth-child(2){
+            display: grid;
+            grid-template:'. .''. .''. .''myArea myArea';
+            grid-gap: 1vh;
+        }
+    }
+}

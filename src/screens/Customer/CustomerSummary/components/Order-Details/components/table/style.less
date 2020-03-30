@@ -1,0 +1,101 @@
+@import '~@assets/Colors.less';
+.tableCo
+{
+    background-color:  @WhiteBG;
+    display: flex;
+    flex-direction: column;
+    height: 99%;
+
+    .tableDiv{
+        overflow-y: scroll;
+        height: 32vh;
+        background-color: @WhiteBG;
+        table{
+            width:100%;
+            border-collapse: separate;
+            thead{
+                tr{
+                    height: 4vh;
+                    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.07);
+                    th{
+                        font-family: Lora;
+                        font-size: 0.8rem;
+                        color: @RegularBlack;
+
+                        &:nth-child(1){
+                            width: 12%;
+                            font-weight: bold;
+                        }
+                        &:nth-child(2){
+                            width: 13%;
+                        }
+                        &:nth-child(3){
+                            width: 48%;  
+                        }
+                        
+                    }
+                }
+            }
+            tbody{
+                tr{
+                    height: 4vh;
+                    td{
+                        font-family: Lora;
+                        font-size: 0.8rem;
+                        color: @RegularBlack;
+                        padding: 0.8vw;
+
+                        &:nth-child(1){
+                            width: 10%;
+                            font-weight: bold;
+                        }
+                        &:nth-child(2){
+                            width: 13%;
+                        }
+                        &:nth-child(3){
+                            width: 50%;
+                        }
+                        .check{
+                            input{
+                                padding: 0.8vw;
+                                border: 2px solid @mainColor;
+                            }
+                        }
+                    }
+
+                }
+
+            }
+
+            
+
+        }
+    }
+    .tableDiv::-webkit-scrollbar {
+        height: 1%;
+        width:  1%;
+    }
+    .tableDiv::-webkit-scrollbar-thumb {
+        background: @listScroll;
+        border-radius: 25px;
+    }
+    
+    .startOrd{
+        font-size: 0.9rem;
+        align-self: center;
+        width: 13vw;
+        border: 1px solid @GrayBorder;
+        border-radius: 45px;
+        color: @RegularBlack;
+        background-image: linear-gradient(to bottom,  @WhiteBG, @darkWite);
+        outline: none;
+        padding: 1vh;
+        font-weight: 600;
+        
+        margin-bottom: 3%;
+
+        &:focus{
+            outline: 0
+        }
+    }
+}

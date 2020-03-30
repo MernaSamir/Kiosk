@@ -1,0 +1,156 @@
+@import '~@assets/Colors.less';
+
+.table{
+    width: 100%;
+
+    table{
+        width: 100%;
+        
+        thead{
+            tr{
+                height: 4vh;
+                background-color: @forgetPassMsg;
+                
+    
+                th{
+                    text-align: center;
+                    
+                    font-size: 1.5vh;
+                    font-weight: normal;
+                    color: #ffffff;
+                    border-right: 1px solid #ffffff;
+    
+                    &:first-child{
+                        width: 4%;
+                        min-width: 4%;
+                        max-width: 4%;
+                    }
+    
+                    &:nth-child(2){
+                        width: 30%;
+                        min-width: 30%;
+                        max-width: 30%;
+                    }
+    
+                    &:nth-child(3){
+                        width: 10%;
+                        min-width: 10%;
+                        max-width: 10%;
+                    }
+    
+                    &:nth-child(4), &:nth-child(5), &:nth-child(6){
+                        width: 12%;
+                        min-width: 12%;
+                        max-width: 12%;
+                    }  
+
+                    &:nth-child(7){
+                        width: 16%;
+                        min-width: 16%;
+                        max-width: 16%;
+                    }
+
+                    &:first-child ,:last-child{
+                        border-right: none;
+                    }
+                }
+            }
+        }
+        
+        tbody{
+    
+            tr{
+                background-color: #ffffff;
+                height: 6vh;
+                
+    
+                td{
+                    text-align: center;
+                    
+                    font-size: 1.5vh;
+                    font-weight: normal;
+                    color: @RegularBlack;
+                    border-right: 1px solid #ffffff;
+    
+                    &:first-child{
+                        width: 4%;
+                        min-width: 4%;
+                        max-width: 4%;
+                    }
+    
+                    &:nth-child(2){
+                        width: 30%;
+                        min-width: 30%;
+                        max-width: 30%;
+                    }
+    
+                    &:nth-child(3){
+                        width: 10%;
+                        min-width: 10%;
+                        max-width: 10%;
+                    }
+    
+                    &:nth-child(4), &:nth-child(5), &:nth-child(6){
+                        width: 12%;
+                        min-width: 12%;
+                        max-width: 12%;
+                    }  
+
+                    &:nth-child(7){
+                        width: 16%;
+                        min-width: 16%;
+                        max-width: 16%;
+
+
+                        .status_btn{
+                            height: 4vh;
+                            display: flex;
+                            justify-content: space-around;
+                            
+                            button{
+                                color: @mainColor;
+                                height: 95%;
+                                width: 30%;
+                                border-radius: 24.5px;
+                                box-shadow: 0 0 4px 0 rgba(199, 190, 190, 0.5);
+                                border: solid 1px @GrayBorder;
+                                background-image: linear-gradient(to bottom, #ffffff, #f7f7f7);
+                            }
+
+                            .active{
+                                background-image: linear-gradient(to bottom, @mainColor, @mainColor);
+                                color: #ffffff;
+                            }
+                        }
+                    }
+    
+                    &:first-child ,:last-child{
+                        border-right: none;
+                    }
+    
+                    .icon{
+                        align-self: center;
+                        font-size: 1.5vh;
+                        color: @RegularBlack;
+                    }
+                }
+    
+                #item{
+                        width: 50%;
+                        min-width: 50%;
+                        max-width: 50%;
+                    }
+    
+                #note{
+                        width: 40%;
+                        min-width: 40%;
+                        max-width: 40%;
+                    }
+    
+                #period{
+                    color: @headerFont
+                }
+            }
+        }
+    }
+}

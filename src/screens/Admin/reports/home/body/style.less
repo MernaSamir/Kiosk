@@ -1,0 +1,42 @@
+@import '~@assets/Colors.less';
+
+.body_container{
+    width:100%;
+    padding: 0% 5%;
+
+    .reports_div{
+        display: flex;
+        justify-content: flex-start;
+        flex-direction: row;
+        flex-wrap: wrap;
+        margin: 0 auto;
+        .nav{
+            margin-right: 2%;
+        }
+        .report_btn{
+            width: 8rem;
+            height: 8rem;
+            border-radius: 5px;
+            box-shadow: 0 1.5px 3px 0 rgba(0, 0, 0, 0.16);
+            border: solid 0.5px #e1e1e1;
+            background-color: #ffffff;
+            display: flex;
+            justify-content: space-around;
+            flex-direction: column;
+            outline: none;
+            align-items: center;
+
+            .img{
+                align-self: center;
+            }
+
+            p{
+                align-self: center;
+                font-size: 2vh;
+                color: @forgetPassMsg;
+            }
+        }
+    }
+
+
+}

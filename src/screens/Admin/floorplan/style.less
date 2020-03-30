@@ -1,0 +1,57 @@
+@import '~@assets/Colors.less';
+
+.container{
+    height: 100%;
+    padding: 2%;
+    .inner{
+        background-color: @WhiteBG;
+        border-radius: 5px;
+        margin: 0 auto;
+        height: 100%;
+        .title{
+            height: 15vh;
+            display: flex;
+            padding: 2%;
+            justify-content: flex-start;
+            p{
+                color: @black;
+                align-self: center;
+                // margin: 0 auto;
+                font-size: 1.5rem;
+                text-align: center;
+                font-weight: bold;
+    
+                    }
+        }
+    }
+    .options_div{
+        align-self: center;
+        display: flex;
+        justify-content: flex-start;
+        flex-wrap: wrap;
+        height: 86%;
+        width: 80%;
+        padding: 2% 0% 0% 2%;
+        margin: 0 0;
+    
+        .options_btn{
+            height: 17vh;
+            width: 17%;
+            padding: 1% 0%;
+            margin-right: 3%;
+            box-shadow: 0 1.5px 3px 0 rgba(0, 0, 0, 0.16);
+            border: solid 0.5px #e1e1e1;
+            background-color: #ffffff;
+            outline: none;
+    
+            p{
+                font-size: 2vh;
+                margin: 0;
+                padding: 10% 0%;
+                color: @forgetPassMsg;
+                text-align: center;
+            }
+        }
+    }
+    
+}

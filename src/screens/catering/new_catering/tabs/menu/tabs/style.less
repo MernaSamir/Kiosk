@@ -1,0 +1,92 @@
+
+@import '~@assets/Colors.less';
+.container{
+
+    .p{
+        width:  100%;
+        
+        font-size: 1.1rem;
+        font-weight: bold;
+        text-align: left;
+        color: @RegularBlack;
+        background: @WhiteBG;
+        border-radius: 7.5px;
+        margin: 0;
+        padding: 1.5% 2% 1%;    }
+    // .form{
+    //     display: flex;
+    //     padding-left: 3%;
+    //     .first{
+    //         display: flex;
+    //         padding: 0.8vw;
+    //         width: 44%;
+    //         justify-content: space-between;
+    //         align-items: center;
+    //         label{
+    //             
+    //             font-size: 0.9rem;
+    //             font-weight: bold;
+    //             color: @HeadersGray;
+    //             text-align: left;
+    //         }
+    //         input{
+    //             width: 19vw;
+    //             border-radius: 2.5px;
+    //             border: 1px solid @listBackButtonBorder;
+    //             background-color: @WhiteBG;
+    //             
+    //             font-size: 1rem;
+    //             color: @mainColor;
+    //             font-weight: bold;
+    //             padding: 0.8vw;
+    //             }
+    //     }
+    // }
+
+    .startBtn{
+        box-shadow: 0 0 2px 0 rgba(199, 190, 190, 0.5);
+        border: solid 0.5px @GrayBorder;
+        background-image: linear-gradient(to bottom, @WhiteBG, @darkWite);
+        
+        font-size: 0.9rem;
+        text-align: center;
+        color: @mainColor;
+        border-radius: 5vw;
+        width: 13vw;
+        height: 5vh;
+        align-self: center;
+        margin: 1.5% 2% 0%;
+
+    }
+    .table{
+        display: flex;
+        flex-direction: column;
+
+    }
+    .inputButton{
+        div{
+
+            display: flex;
+            flex-direction: row;
+            width: 100%;
+            justify-content: center;
+            justify-items: center;
+            button{
+                border: solid 1px #e0e0e0;
+                background-image: linear-gradient(to bottom, #ffffff, #f2f2f2);
+                border-radius: 2.5px;
+                padding: 1vw;
+                /* margin: 0 1%; */
+                min-width: 7vw;
+                
+                font-size: 1rem;
+                text-align: center;
+                &:focus{
+                    outline: 0
+                }
+            }
+        }
+
+        
+    }
+}

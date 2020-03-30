@@ -1,0 +1,32 @@
+@import '~@assets/Colors.less';
+
+.container{
+    display: flex;
+    flex-direction: column;
+    height: 68vh;
+
+    .btns{
+        align-self: flex-end;
+        display: flex;
+        justify-content: space-between;
+        width: 25%;
+        height: 10%;
+    
+        button{
+            align-self: center;
+            width: 45%;
+            height: 70%;
+            border-radius: 18px;
+            box-shadow: 0 0 2px 0 rgba(80, 80, 80, 0.28);
+            border: solid 0.5px rgba(179, 176, 176, 0.34);
+            background-image: linear-gradient(to bottom, #f3f0f0, #ebe9e9);
+            color: @RegularBlack;
+        }
+    
+        #save{
+            border: solid 0.5px rgba(179, 176, 176, 0.34);
+            background-image: linear-gradient(to bottom, @mainColor, @mainColor);
+            color: #ffffff;
+        }
+    }
+}

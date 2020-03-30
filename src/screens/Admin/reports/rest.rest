@@ -1,0 +1,26 @@
+### Receipt
+
+POST http://192.168.100.131:8000/api/v1/orders/receipt/post_statistics/ HTTP/1.1
+content-type: application/json
+  
+{
+    "groupby": "details__item__sales_item",
+    "filter": [
+        {
+            "field": "details__id",
+            "eq": "contains",
+            "val": ""
+        },
+        {
+            "field": "created_at",
+            "eq": "gte",
+            "val": "2016-02-11"
+        },
+        {
+            "field": "created_at",
+            "eq": "lte",
+            "val": "2019-03-11"	
+        }
+        ],
+    "eval": []
+}

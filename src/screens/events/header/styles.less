@@ -1,0 +1,145 @@
+@import '~@assets/Colors.less';
+
+.second{
+    display: flex;
+    justify-content: space-between;
+    padding: 0.5% 2%;
+
+    .left{
+        width: 30%;
+        display: flex;
+        align-items: center;
+
+        .list{
+            width: 4vw;
+            height: 3.5vw;
+            padding: 1%;
+            box-shadow: 0 0 2px 0 rgba(199, 190, 190, 0.5);
+            border: solid 0.5px #e1e1e1;
+            background-image: linear-gradient(to bottom, #ffffff, #f7f7f7);
+            color: #d73f7c;
+
+            &:focus{
+                outline: 0
+            }
+        }
+
+        .calendar{
+            width: 4vw;
+            height: 3.5vw;
+            padding: 1%;
+            box-shadow: 0 0 2px 0 rgba(199, 190, 190, 0.5);
+            border: solid 0.5px #e1e1e1;
+            background-image: linear-gradient(to bottom, #ffffff, #f7f7f7);
+            color: #d73f7c;
+
+            &:focus{
+                outline: 0
+            }
+        } 
+
+        .active{
+            background-image:  linear-gradient(to bottom,#d73f7c, #d73f7c);
+            color: #ffffff;
+            &:focus{outline: 0}
+         }
+    }
+
+    .between{
+        width: 40%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        .Datepicker{
+            display: flex;
+            width: auto;
+            justify-content: center;
+            border: 0.5px solid @GrayBorder;
+            border-radius: 5vw;
+
+            button{
+                border-radius: 0 5vw 5vw 0;
+                color: @mainColor;
+                background-color: @WhiteBG;
+                width: 4vw;
+                box-shadow: 0 0 2px 0 rgba(199, 190, 190, 0.5);
+                border: 0.5px solid @GrayBorder;
+        
+                &:focus{
+                    outline: 0
+                }
+
+                &:nth-child(1){
+                    border-radius: 5vw 0 0 5vw;   
+                }
+
+                &:nth-child(2){
+                    border-radius: 0 5vw 5vw 0; 
+                }
+            }
+
+            .picker{
+
+                div{
+                    height: 100%;
+
+                    input{
+                        text-align: center;
+                        font-size: 1rem;
+                        font-weight: bold;
+                        color: @mainColor;
+                        height: 100%;
+                    }
+                }
+            }
+        }
+    }
+
+    .right{
+        width: 30%;
+        display: flex;
+        justify-content: flex-end;
+        padding: 2%;
+ 
+        .reserBtns{
+            box-shadow: 0 0 2px 0 rgba(199, 190, 190, 0.5);
+            border: solid 0.5px #e1e1e1;
+            background-image: linear-gradient(to bottom, #ffffff, #f7f7f7);
+            
+            font-size: 0.9rem;
+            text-align: center;
+            color: #d73f7c;
+            border-radius: 5vw;
+            padding: 2.5%;
+            width: 54%;
+
+            &:focus{
+                outline: 0
+            }
+        }
+
+        .active{
+           background-image:  linear-gradient(to bottom,#d73f7c, #d73f7c);
+           color: #ffffff;
+           &:focus{outline: 0}
+        }
+    }
+}
+
+.third{
+    display: flex;
+    padding: 0 2%;
+    justify-content: space-between;
+
+    .search{
+        width: 70%;
+        display: flex;
+        align-items: center;
+        display: flex;   
+
+        input{
+            padding: 1%;
+        }         
+    }
+}

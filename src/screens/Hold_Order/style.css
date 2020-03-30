@@ -1,0 +1,85 @@
+.HO_main{
+    width: 99vw;
+    height: 91vh;
+    background-color: #f5f5f5;
+    /* padding: 1%; */
+}
+
+.HO_up{
+    width: 100%;
+    height: 15%;
+    background-color: #f5f5f5;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.HO_Search{
+    width: 75%;
+    height: 40%;
+    background-color: #ffffff;
+    border: 0.5px solid #e1e1e1;
+    border-radius: 50px; 
+    align-items: center;
+    justify-content: center;
+    align-content: center;
+    display: flex;
+    flex-direction: row;
+    padding: 1vh 0;
+    margin-right: 7vw;
+}
+
+.HO_input{
+    width: 100%;
+    height: 100%;
+    border: none;
+    margin: 0.2vh 2vw;
+}
+.HO_input::placeholder{color: #ed2d30;}
+
+.HO_pagination-div{
+    width: 12%;
+    height: 40%;
+    display: flex;
+    justify-content: space-between;
+    align-items:center;
+}
+
+.HO_pagination-btn{
+    /* height: 50%; */
+    width: 25%;
+    text-align: center;
+    border-radius: 15px;
+    border: 1px solid #f7f7f7;
+    box-shadow: 0 0 2px 0 rgba(199, 190, 190, 0.5);
+    background-image: linear-gradient(to bottom, #ffffff, #f7f7f7);
+    color: #e43f42;
+    align-self: center;
+}
+
+.HO_pagination-div p{
+    align-self: center;
+}
+
+.HO_TableDiv{
+    width: 100%;
+    height: 70%;
+    background-color: #f5f5f5;
+    margin-top: 2vh;
+}
+
+.HO_tableDiv_th{
+    background-color: #f5f5f5;
+    
+    font-size: 1vw;
+    font-weight: 600;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 0.8;
+    letter-spacing: normal;
+    text-align: left;
+    color: #7b7b7b;
+    margin: 2vh;
+    padding-left: 2%;
+}
+

@@ -1,0 +1,62 @@
+.Container{
+    padding: 2% 1% 0% 1%;
+    margin: 0 0;
+    height: 14%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    align-content: center;
+    display: flex;
+    text-align: center;
+    justify-content: space-between;
+    /* justify-items: center; */
+}
+
+.insideC{
+    width: 33%;
+    height: 100%;
+}
+
+.headers{
+    color: #fe534c;
+    
+    font-size: 2.5vh;
+}
+
+.input{
+    border: 1px solid lightgrey;
+    width: 70%;
+    height: 30%;
+    border-radius: 5.5px;
+    text-align: center;
+    font-size: 0.8rem;
+    color: gray;   
+    margin-top: 4.7%;
+    justify-content: center;
+    align-items: center;
+}
+
+#input{
+    margin: 0;
+}
+
+#due{
+    color: black;
+}
+
+textarea:focus, input:focus {
+    color: gray;
+}
+.change{
+    border: 1px solid lightgrey;
+    background-color: #ffffff;
+    height: 45%;
+    width: 70%;
+    border-radius: 5.5px;
+    margin: 0 auto;
+    margin-top: 5%;
+    font-size: 0.8rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

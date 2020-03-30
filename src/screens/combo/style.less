@@ -1,0 +1,52 @@
+@import '~@assets/Colors.less';
+
+.container{
+    background-color: @WhiteBG;
+    height: 97%;
+    width: 54%;
+    margin: 0 auto;
+    border-radius: 3px;
+    .comboContaimer{
+        min-height: 74vh;
+        max-height: 74vh;
+        height: 74vh;
+    }
+    .combo{
+        width: 96%;
+        margin: 0 auto;
+        display: flex;
+        margin-bottom: 2%;
+        flex-wrap: wrap;
+        button{
+            color: @black;
+            background-color: @WhiteBG;
+            border: 1.5px solid @GrayBorder;
+            border-radius: 5px;
+            
+            font-size: 1vw;
+            text-align: center;
+            height: 10vh;
+            width: 9vw;
+            margin-right: 3%;
+            margin-bottom: 1%;
+            &:nth-child(5){
+                margin-right: 0%;
+
+            }
+        }
+        .active{
+            color: @WhiteBG;
+            background-color: @mainColor;
+        }
+        .alter{
+            color: @mainColor;
+            border: 1.5px solid @mainColor;
+        }
+        .disabled{
+            color: @GrayBorder;
+            border: 1.5px solid @GrayBorder;
+
+        }
+    }
+    
+}

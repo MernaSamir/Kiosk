@@ -1,0 +1,223 @@
+.receipt{
+    height: auto;
+    width: 20%;
+    border: 1px solid;
+    text-align: center;
+    background-color: #ffffff;
+}
+
+.receipt .mode{
+    height: 25px;
+    font-weight: bold;
+    font-size: 2.2vh;
+    margin: 0;
+}
+
+.receipt .all{
+    height: auto;
+    padding-left: 2%;
+    padding-right: 2%;
+    margin-left: 0;
+    margin-right: 0;
+    /* background-color: lightcoral; */
+}
+
+.all .logo{
+    height: 60px;
+    display: flex;
+    justify-content: space-around;
+    /* background-color: skyblue; */
+}
+
+.logo div{
+    height: 100%;
+    width: 100%;
+    background-color: gray;
+    text-align: center;
+    display: flex;
+    justify-content: space-around;
+}
+
+.logo div p{
+    margin: 0;
+    align-self: center;
+}
+
+.all .details{
+    height: 70px;
+    display: flex;
+    justify-content: flex-start;
+    margin-bottom: 3%;
+}
+
+.details .left , .details .right{
+    width: 40%;
+    height: 100%;
+}
+
+.details .left{
+    margin-right: 15%;
+}
+
+.left div ,.right div{
+    display: flex;
+}
+
+.left p , .right p{
+    font-size: 2vh;
+    margin: 0;
+    margin-right: 2%;
+}
+
+#bold{
+    font-weight: bold
+}
+
+.table-header{
+    height: 2vh;
+    width: 100%;
+    text-align: center;
+    border-bottom: 1.5px solid black;
+}
+
+.table-header .q-table{
+    min-width: 10%;
+    width: 10%;
+
+    /* border: 1px solid red; */
+}
+
+.table-header .item-table{
+    min-width: 40%;
+    width: 40%;
+    /* border: 1px solid red; */
+}
+
+.table-header .size-table{
+    min-width: 10%;
+    width: 10%;
+    /* border: 1px solid red; */
+}
+
+.table-header .each-table{
+    min-width: 20%;
+    width: 20%;
+    /* border: 1px solid red; */
+}
+
+.table-header .total-table{
+    min-width: 20%;
+    width: 20%;
+    /* border: 1px solid red; */
+}
+
+.table-header span{
+    color: black;
+    font-size: 2vh;
+    font-weight: bold;
+}
+
+.table-row{
+    height: 2vh;
+    text-align: center;
+    border-bottom: 1px solid #eeeced;
+    /* vertical-align: top; */
+}
+
+.table-row span{
+    color: black;
+    font-size: 2vh;
+}
+
+.all tr:last-child{
+    border-bottom: 1.5px solid gray;
+}
+
+.bill-receipt{
+    padding-top: 1%;
+    padding-bottom: 1%;
+    margin-top: 0;
+    margin-bottom: 0;
+    height: 75px;
+    /* background-color: rebeccapurple; */
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid gray;
+}
+
+.bill-receipt .left-bill{
+    width: 65%;
+    height: 100%;
+}
+
+.left-bill div{
+    display: flex;
+    justify-content: space-between;
+}
+
+.left-bill div p{
+    margin: 0;
+    font-size: 2vh;
+}
+
+.right-bill{
+    width: 30%;
+}
+
+.right-bill .total-squre{
+    width: 95%;
+    height: 96%;
+    border: 1px solid #b8b8b8;
+    text-align: center;
+}
+
+.total-squre h3{
+    margin: 0;
+    vertical-align: middle;
+}
+
+.cash{
+    height: 40px;
+    /* background-color: aqua; */
+}
+
+.cash div{
+    display: flex;
+    justify-content: space-between;
+}
+
+.cash div p{
+    margin: 0;
+    font-size: 2vh;
+}
+
+.qr{
+    height: 40px;
+    display: flex;
+    justify-content: space-around;
+}
+
+.qr div{
+    height: 95%;
+    width: 45%;
+    background-color: grey;
+    text-align: center;
+    display: flex;
+    justify-content: space-around;
+}
+
+.qr div p{
+    align-self: center;
+    margin: 0;
+    font-size: 2.5vh;
+}
+
+.greeting{
+    height: 50px;
+}
+
+.greeting p{
+    margin: 0;
+    color: black;
+    font-size: 2vh;
+}

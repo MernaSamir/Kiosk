@@ -1,0 +1,89 @@
+@import '~@assets/Colors.less';
+
+.btn_img{
+    max-height: 80%;
+    width: 30%;
+    margin-left: 5%;
+}
+
+
+
+    /* The actual popup */
+    .popuptext {
+        display: none;
+        width: 10vw;
+        max-height: 27vw;
+        overflow-y: scroll;
+        overflow-x: none;
+        background-color:#f8f8f8;
+        color: #fff;
+        text-align: center;
+        border-radius: 6px;
+        border: 1.5px solid @mainColor;
+        padding: 8px 0;
+        position: absolute;
+        z-index: 10;
+        top: 0%;
+        left: 99.8%;
+       
+        &::-webkit-scrollbar {
+            height: 1%;
+            width: 1vw;
+        }
+
+        &::-webkit-scrollbar-thumb {
+            background: #9d9a9a;
+            border-radius: 25px;
+        }
+
+        span{
+            display: block;
+            color: @mainColor;
+            font-size: 1.2rem;
+            
+        }
+    }
+
+
+.show {
+    /* visibility: visible; */
+    display: block;
+    -webkit-animation: fadeIn 1s;
+    animation: fadeIn 1s;
+}
+
+.popuptext_btn{
+    color: @mainColor;
+    background-image: linear-gradient(to bottom, #ffffff, #e6e6e6) ;
+    border-radius: 50%;
+    width: 7vw;
+    text-align: center;
+    border: 1px solid #ffffff;
+    height: 7vw;
+    margin-top: 6%;
+
+    &:focus{
+        outline: 0;
+    }
+
+    span{
+        font-size: 1rem;
+        padding: 10% 0%
+    }
+}
+.popup_icon{
+    color: @mainColor;
+    font-size: 1.5rem;
+}
+
+@media only screen and (max-width:1100px){
+    .popuptext {
+        width: 15vw;
+        max-height: 40vw;
+        
+    }
+    .popuptext_btn{
+        width: 12vw;
+        height: 12vw;
+    }
+}

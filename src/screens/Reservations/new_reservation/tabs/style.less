@@ -1,0 +1,221 @@
+@import '~@assets/Colors.less';
+.basicDiv{
+    display: flex;
+    flex-direction: column;
+    min-height: 35.5vh;
+    max-height: 35.5vh;
+    overflow-y: scroll;
+    background: @WhiteBG; 
+
+    .p{
+        display: block;
+        
+        font-size: 1rem;
+        font-weight: bold;
+        text-align: left;
+        color: @RegularBlack;
+        background: @WhiteBG;
+        border-radius: 7.5px;
+        margin: 0;
+        padding: 0.5% 4% 0%;
+    }
+    .form{
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: flex-start;
+        background: @WhiteBG;
+        padding: 0% 3%;
+        .buttonpop{
+            display: flex;
+            flex-direction: column;
+            padding: 0.8vw;
+            min-width: 8%;
+            justify-content: space-between;
+            label{
+                
+                font-size: 1rem;
+                font-weight: bold;
+                color: @fontMainColor;
+            }
+            button{
+            width: 15vw;
+            border-radius: 5.5px;
+            border: 1px solid @listBackButtonBorder;
+            background-color: @WhiteBG;
+            
+            font-size: 1rem;
+            color: @mainColor;
+            font-weight: bold;
+            padding: 0.8vw;
+            }
+        }
+        .timepick{
+            width: 20%;
+            display: flex;
+            flex-direction: column;
+            padding: 0.8vw;
+            justify-content: space-between;
+            label{
+                
+                font-size: 1rem;
+                font-weight: bold;
+                color: @fontMainColor;
+            }
+            span{
+
+                input{
+                     width: 15vw; 
+                    border-radius: 2.5px;
+                    border: 1px solid @listBackButtonBorder;
+                    background-color: @WhiteBG;
+                    
+                    font-size: 1rem;
+                    color:  @mainColor;
+                    font-weight: bold;
+                    padding: 1.6vw;
+                    display: flex;
+                    justify-content: space-between;
+                }    
+
+            }        
+        }
+        .duration{
+            display: flex;
+            flex-direction: column;
+            padding: 0.8vw;
+            min-width: 16%;
+            justify-content: space-between;
+            label{
+                
+                font-size: 1rem;
+                font-weight: bold;
+                color: @fontMainColor;
+            }
+            input{
+                border-radius: 2.5px;
+                border: 1px solid;
+                border: solid 1px #d3d3d3;
+                width: 5vw;
+                min-height: 6vh;
+                text-align: center;
+                color: #000000;
+                
+                font-size: 1rem;
+            }
+        }
+    }
+}
+.noteDiv{
+    display: flex;
+    flex-direction: row;
+    min-height: 30vh;
+    max-height: 37vh;
+    width: 100%;
+    overflow-y: scroll;
+    background: @WhiteBG; 
+    padding: 2% 5%;
+    .left{
+        display: flex;
+        width: 50%;
+        flex-direction: column;
+        &:nth-child(1){
+
+            .deposite{
+                padding: 5% 0% 0% 0%;
+                display: flex;
+                flex-direction: column;
+                label{
+                    
+                    font-size: 1rem;
+                    font-weight: bold;
+                    text-align: left;
+                    color: @HeadersGray;
+                }
+                input{
+                    border-radius: 4.5px;
+                    border: 1px solid;
+                    border: solid 1px @listBackButtonBorder;
+                    width: 15vw;
+                    min-height: 7vh;
+                    text-align: center;
+                    color: @RegularBlack;
+                    
+                    font-size: 1rem;                    
+                }
+
+                
+            }
+            p{
+                
+                font-size: 1rem;
+                font-weight: bold;
+                text-align: left;
+                margin: 0;
+                &:nth-child(1){
+                    color: @HeadersGray;
+                    background: @WhiteBG;
+                }
+                &:nth-child(2){
+                    color: @RegularBlack;
+                    background: @WhiteBG;
+                    padding-top: 3%;
+                }
+            }
+        }
+    }
+    .note{
+        display: flex;
+        width: 50%;
+        label{
+            color: @HeadersGray;
+            background: @WhiteBG;
+            
+            font-size: 1rem;
+            font-weight: bold;
+            text-align: left;
+            margin: 0;
+        }
+        form{
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+            div{
+                width: 100%;
+                display: flex;
+                padding: 0%;
+               &:nth-child(1){
+                width: 100%;
+                display: flex;
+                padding: 0%;
+               }
+
+            }
+            p{
+                min-width: 28vw;
+            }
+        }
+        input[type="text"]{
+            border-radius: 7.5px;
+            border: 1px solid;
+            border: solid 1px #d3d3d3;
+            min-width: 30vw;
+            min-height: 13vh; 
+            text-align: left;
+            color:@RegularBlack;
+            
+            font-size: 1rem; 
+        }
+    }
+        
+        
+}
+::-webkit-scrollbar {
+    height: 1%;
+    width: .5%;
+}
+::-webkit-scrollbar-thumb {
+    background: @listScroll;
+    border-radius: 25px;
+}
+   

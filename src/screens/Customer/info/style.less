@@ -1,0 +1,353 @@
+@import '~@assets/Colors.less';
+.contaier{
+    padding: 0.5% 1% 0% 1%;
+    .header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    .tabs{
+        display: flex;
+        .navHeader{
+            color:@RegularBlack;
+            padding: 23px;
+            background-color: @WhiteBG;
+            border-right:1px solid @GrayBorder;
+            span{
+                font-size: 1rem;
+                
+
+            }
+        }
+        .active{
+            color: @mainColor;
+            background-color: @mainColor;
+            color: @WhiteBG;
+        }
+    }
+    .button{
+        padding-right: 5%;
+        display: flex;
+        justify-content: space-evenly;
+        width: 32%;
+        align-items: center;
+        height: 100%;
+        button{
+            width: 40%;
+            border-radius: 5vw;
+            padding: 6px;
+            border: none;
+            
+            &:nth-child(2){
+                color: @WhiteBG;
+                background:  @mainColor;
+                border: 1px solid @mainColor;
+            }
+            &:nth-child(1){
+                color: #090505;
+                font-weight: 300;
+                border: solid 0.5px @GrayBorder;
+                background-image: linear-gradient(to bottom, @WhiteBG, #f7f7f7);
+            }
+
+        }
+
+
+        
+    }
+    
+    }
+.p{
+    display: block;
+    
+    font-size: 1.1rem;
+    font-weight: bold;
+    text-align: left;
+    color: @RegularBlack;
+    background: #ffffff;
+    border-radius: 7.5px;
+    margin: 0;
+    padding: 0.5% 4% 0%;
+}
+
+}
+
+.fields{
+    display: flex;
+    flex-direction: column;
+    overflow-y: scroll;
+    background: @WhiteBG;
+    height: 100%;
+    .addDiv{
+        display: flex;
+        justify-content: flex-end;
+        padding: 1% 1% 0% 1%; 
+       align-items: center;
+        
+        .end{
+            display: flex;
+            width: 50%;
+            justify-content: space-around;
+            align-items: center;
+            .addNewBtn{
+                font-size: 1rem;
+                color:  @RegularBlack;;
+                width: 11vw;
+                border-radius: 30px;
+                border: 1px solid #e1e1e1;
+                background-image: linear-gradient(to bottom, @WhiteBG, #f7f7f7);
+                margin-right: 2%;
+                padding: 2%;
+            }
+
+        }
+    }
+    
+
+   
+    .form{
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: flex-start;
+        background: @WhiteBG;
+        padding: 0% 3%;
+        .organName{
+            display: flex;
+            flex-direction: column;
+            padding: 1%;
+           label{
+            
+            font-size: 1rem;
+            font-weight: bold;
+            color: @fontMainColor;
+            text-align: left;
+            }
+            input{
+                border-radius: 7.5px;
+                border: 1px solid;
+                border: solid 1px #d3d3d3;
+                width: 41vw;
+                min-height: 6vh;
+                text-align: center;
+                color: @RegularBlack;
+                
+                font-size: 1rem;
+            }
+        }
+        .contacts
+        {
+            form{
+                display: flex;
+                align-items: center;
+                flex-wrap: wrap;
+                flex-direction: column;
+                div{
+                    width: 100%;
+                    display: flex;
+                    padding: 0%;
+                    align-items: center;
+                   &:nth-child(1){
+                    width: 100%;
+                    display: flex;
+                    padding: 0%;
+                    align-items: center;
+                   }
+    
+                }
+            }
+           
+            label{
+                
+                font-size: 1rem;
+                font-weight: bold;
+                color: #707070;
+                width: 100%;
+                padding: 1% 3% 0%;
+                height: 2vh;
+            }
+            input[type="text"]{
+                border-radius: 7.5px;
+                border: 1px solid;
+                border: solid 1px #d3d3d3;
+                min-width: 8vw;   
+                min-height: 6vh;    
+                text-align: center;
+                color:@RegularBlack;
+                
+                font-size: 1rem; 
+            }
+       
+        }
+        .buttonpop{
+            display: flex;
+            flex-direction: column;
+            padding: 0.8vw;
+            min-width: 8%;
+            justify-content: space-between;
+            label{
+                
+                font-size: 1rem;
+                font-weight: bold;
+                color: @fontMainColor;
+            }
+            button{
+            width: 15vw;
+            border-radius: 2.5px;
+            border: 1px solid @listBackButtonBorder;
+            background-color: @WhiteBG;
+            
+            font-size: 1rem;
+            color: @mainColor;
+            font-weight: bold;
+            height: 5vh;
+            margin: 0%;
+            }
+        }
+        .occasion
+        {
+            display: flex;
+            flex-direction: column;
+            padding: 0.8vw;
+            min-width: 19%;
+            justify-content: space-between;
+            label {
+                
+                font-size: 1rem;
+                font-weight: bold;
+
+            }
+            select{
+                height: 60%;
+                border-radius: 2.5px;
+                border: 1px solid;
+                border: solid 1px #d3d3d3;
+                min-height: 6vh;
+                color: @RegularBlack;
+                
+                font-size: 1rem;
+                background-color: @WhiteBG;
+            }
+        }
+        .Select{
+            display: flex;
+            flex-direction: column;
+            padding: 0.8vw;
+            min-width: auto;
+            justify-content: space-between;
+            label{
+                
+                font-size: 1rem;
+                font-weight: bold;
+                color: @fontMainColor;
+            }
+            div{
+                div{
+                    div{
+                        width: 14vw;
+                        height: 5vh;
+
+                    }
+                }
+            }
+        }
+        .small{
+            width: 13vw;
+            display: flex;
+            flex-direction: column;
+            padding: 0.8vw;
+            label{
+                
+                font-size: 1rem;
+                font-weight: bold;
+                color: @fontMainColor;
+                text-align: left;
+                }
+                input{
+                    border-radius: 2.5px;
+                    border: 1px solid;
+                    border: solid 1px @listBackButtonBorder;
+                    width: 9vw;
+                    min-height: 6vh;
+                    text-align: center;
+                    color: @RegularBlack;
+                    
+                    font-size: 1rem;
+                }
+        }
+        .SelectStreet{
+            display: flex;
+            flex-direction: column;
+            padding: 0.8vw;
+            min-width: 21vw;
+            justify-content: space-between;
+            label{
+                
+                font-size: 1rem;
+                font-weight: bold;
+                color: @fontMainColor;
+            }
+            div{
+                height: 5vh;
+                align-items: center;
+                display: flex;
+                div{
+                    div{
+                        div{
+                            width: 14vw;
+                            height: 5vh;
+    
+                        }
+                    }
+                }
+            }
+           
+        }
+    }
+    .footerCon{
+        display: flex;
+        justify-content: flex-end;
+        padding: 2% 1% 2% 1%;
+        align-items: center; 
+    }
+
+   
+}
+.btnss{
+    background-color: @WhiteBG;
+    border-radius: 25px;
+    width: 30vw;
+    border: #959aa9 1.5px;
+    color: @mainColor;
+    font-size: 1rem;
+    box-shadow: 0 0 2px 0 #959aa9;
+    position: relative;
+    outline: none;
+    padding: 0.5%;
+    margin-left: 1.2%;
+
+}
+
+
+.activess{
+   border-radius: 25px;
+   width: 30vw;
+   border:1.2px  solid @mainColor ;
+   font-size: 1rem;
+   box-shadow: 0 0 2px 0 @mainColor;
+   position: relative;
+   outline: none;
+   background-color: @WhiteBG;
+   color: @mainColor ;
+   padding: 0.5%;
+   margin-left: 1.2%;
+
+}
+.fields::-webkit-scrollbar {
+    height: 1%;
+    width: .8%;
+}
+.fields::-webkit-scrollbar-thumb {
+    background: @listScroll;
+    border-radius: 25px;
+}

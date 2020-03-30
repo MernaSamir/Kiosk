@@ -1,0 +1,114 @@
+.orders-container{
+    margin: 0;
+    height: 100%;
+}
+.admin-order-contanier{
+    width:100%;
+    display: grid;
+    grid-template-columns: 55% 45%;
+    height: 100%;
+
+}
+.orders-header{
+
+    width: 100%;
+    height: 10%;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 3%;
+}
+.orders-header .pag-div{
+    width: 30%;
+}
+.orders-header .pag-div .pag-btn{
+    width: 20%;
+}
+
+.btn-search{
+    align-self: center;
+    height: 65%;
+    width: 7%;
+    border: none;
+    border-radius: 45px;
+    box-shadow: 0 0 2px 0 rgba(199, 190, 190, 0.5);
+    background-image: linear-gradient(to bottom, #ffffff, #f7f7f7);
+    outline: none;
+}
+
+.icon{
+    font-size: 1.1rem;
+    color: #d73f7c;
+    border: none;
+}
+
+.day-pag-div{
+    align-self: center;
+    display: flex;
+    justify-content: flex-end;
+    width: 50%;
+    height: 100%;
+}
+
+.day-pag-div .day-div{
+    align-self: center;
+    display: flex;
+    justify-content: space-between;
+    width: 55%;
+    height: 100%;
+}
+
+.day-div .header-btn{
+    align-self: center;
+    height: 100%;
+    width: 50%;
+}
+
+.day-pag-div p{
+    align-self: center;
+    margin: 0;
+    font-size: 2.5vh;
+    font-weight: bold;
+    margin-right: 4%;
+}
+.orders-container .customer-list .emptywidth{
+    width: 5%;
+    
+}
+.orders-container .customer-list .th-name{
+    font-size: 1.1vw;
+    height: 100%;
+    width: 100%;
+}
+.th-name{
+    /* border: 1px solid */
+}
+.customer-list-body .icon{
+    width: 5%;
+    text-align: left;
+    padding-left: 2%;
+}
+.td-num{
+    color: #a0a0a0;
+    font-family: lato-semi;
+    font-size: 1.1rem;
+    font-weight: 400;
+}
+.admin-order-table tbody::-webkit-scrollbar {
+    width: .8%
+}
+.admin-order-table tbody::-webkit-scrollbar-thumb {
+    background: #9d9a9a; 
+    border-radius: 10px;
+}
+.admin-order-table tbody {
+    overflow-y: auto;
+    display: block;
+    max-height: 68vh; 
+ }
+ .admin-name{
+    margin: 0;
+    align-self: flex-end;
+    color: #000000;
+    font-size: 1.3vw;
+    font-weight: bold;
+ }

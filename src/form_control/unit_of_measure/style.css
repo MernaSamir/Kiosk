@@ -1,0 +1,87 @@
+.unit_input{
+    width: 100%;
+    height:29%;
+    border-radius: 3.5px;
+    background-color: #ffffff;
+border: 1px solid #9a9a9a;
+    
+    font-size: 1.5rem;
+    font-weight: bold;
+    font-style: normal;
+    text-align: left;
+    color: #2b2b2b;
+    text-align: center
+}
+.unit_div{
+    width: 178px;
+    height: 48px;
+    border-radius: 3.5px;
+    background-color: #ffffff;
+    border-color:#9a9a9a;
+    
+}
+.units_container{
+    display: grid;
+    grid-template-columns: 30% 60%;
+    grid-column-gap: 5%;
+    padding: 5%;
+    height: 50%;
+   
+}
+.input_select{
+    display: flex;
+    flex-direction: column;
+    padding: 2%;
+}
+.tableCont
+{
+    width: 100%;
+    height: 100%;
+    border-radius: 4px;
+    border:  1px solid #e3e3e3;
+    background-color: #ffffff;
+    margin-top: 4%;
+    padding: 7% 0%;
+
+    
+}
+.tableCont2
+{
+    width: 100%;
+    height: 100%;
+    border-radius: 4px;
+    border:  1px solid #e3e3e3;
+    background-color: #ffffff;
+    margin-top: 4%; 
+}
+.UnitsTable{
+    width:50%; 
+}
+.utable{
+    opacity: 0.77;
+    
+    font-size: 1rem;
+    text-align: left;
+    color: #151515; 
+}
+.secondcolumn{
+    display: flex;
+    justify-content: space-around;
+    margin-top: 20%;
+}
+.h_style{
+   padding: 4%
+}
+.unit_select{
+    width: 100%;
+    height: 100%;
+    border-radius: 4px;
+    border:  1px solid #e3e3e3;
+}
+.p_style{
+    font-size: 1rem;
+    font-weight: normal;
+    font-style: normal;
+    text-align: left;
+    color: #707070;
+}

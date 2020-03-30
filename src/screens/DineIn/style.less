@@ -1,0 +1,105 @@
+@import '~@assets/Colors.less';
+
+.header{
+    display: flex;
+    justify-content: space-between;
+    height: 10%;
+}
+@media screen and (max-width:1100px){
+    .header{
+        height: 13%;
+    }
+}
+.contanier{
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 2.5%;
+    padding-right: 2.5%;
+    
+}
+.body{
+    height: 91.7vh;
+    position: relative;
+}
+.grid{
+    width:75vw; 
+    display: flex;
+    // border: 1px solid;
+    flex-wrap: wrap;
+    margin: 0 auto;
+    max-height: 70vh;
+    overflow-y: scroll;
+}
+.background{
+    background-color: @BodyBackground;
+    max-height: 80vh;
+    overflow: scroll;
+    margin: 0 auto;
+    position: relative;
+    ::-webkit-scrollbar {
+        width: 5px;
+      }
+      ::-webkit-scrollbar-thumb {
+        background: #306ab2;
+        border-radius: 25px;
+      }
+   
+
+}
+.tableGrid{
+    width: 95%;
+    margin: 0 auto;
+    display: flex;
+     background-color: @WhiteBG;
+    border-radius: 7px;
+
+}
+.cell{
+    width: 3vw;
+    height: 3vw;
+    &:hover{
+        background-color: @mainColor
+    }
+}
+.gridRadius{
+    align-self: center;
+    background-color: @WhiteBG;
+    margin: 0 auto;
+    border-radius: 7px;
+    width: 100%;
+
+    
+    
+}
+.gridRadius::-webkit-scrollbar {
+    height: 1%;
+    width: .5%;
+  }
+  .gridRadius:-webkit-scrollbar-thumb {
+    background: #306ab2;
+    border-radius: 25px;
+  }
+.popup{
+    width:20vh;
+    height: 20vh;
+    position: absolute;
+    z-index: 5;
+    left: 50%;
+    height: 50%;
+    background-color: @WhiteBG;
+    border: 1px solid;
+}
+@media screen and (max-width:1100px){
+    .grid{
+        width:95vw; 
+        height: 100%;
+        display: flex;
+        // border: 1px solid;
+        flex-wrap: wrap;
+        margin: 0 auto
+    }
+    .cell{
+        width: 3.8vw;
+        height: 3.8vw;
+    }
+}

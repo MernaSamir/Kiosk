@@ -1,0 +1,7 @@
+.agenda-item-description{
+    border : 1px solid #d73f7c;
+    
+}
+.agenda-item-description small {
+    color: #d73f7c;
+}

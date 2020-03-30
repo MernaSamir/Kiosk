@@ -1,0 +1,85 @@
+@import '~@assets/Colors.less';
+
+.footer{
+    height: 17vh;
+    .calculations{
+        height: 9vh;
+        display: flex;
+        justify-content: space-between;
+        margin-left: 1.5%;
+        margin: 0 auto;
+        padding: 0% 3%;
+        margin-top: 2%;
+        // margin-bottom: 1vh;
+
+        p {
+            margin: 0;
+        }
+    }
+    
+    .calc_details{
+        align-self: center;
+        display: flex;
+        justify-content: space-between;
+        width: 50%;
+    
+        div p{
+            
+            font-size: .8rem;
+            color: #777777;
+            text-align: left;
+            margin-bottom: 1.5%;
+            font-weight: bold;
+        
+        }
+    }
+    
+    .total {
+        align-self: center;
+        margin-left: 2%;
+        p{
+            
+            font-weight: bold;
+            span{
+                font-weight: bolder;
+            }
+            
+            &:nth-child(1){
+                font-size: 1.1rem;
+                color: #000000;
+            }
+            &:nth-child(2){
+                color: @brown;
+                font-size: 1rem;
+            }
+        }
+    
+       
+    }
+}
+.pay{
+    height: 7vh;
+    display: flex;
+    flex-direction: column;
+    span{
+        color: @mainColor;
+        
+        font-size: .8rem;
+        font-weight: bold;
+        margin: 0 auto;
+    }
+    button{
+        height: 5.5vh;
+        width: 15vw;
+        box-shadow: 0 0 2px 0 rgba(199, 190, 190, 0.5);
+        border: solid 1px @GrayBorder;
+        background-image: linear-gradient(to bottom, @WhiteBG,@darkWite);
+        color: @mainColor;
+        
+        font-size: 1rem;
+        font-weight: bold;
+        margin: 0 auto;
+        align-self: center;
+        border-radius: 25px;
+    }
+}

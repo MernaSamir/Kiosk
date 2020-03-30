@@ -1,0 +1,41 @@
+@import '~@assets/Colors.less';
+.container{
+    height: 15vh;
+    display: flex;
+    justify-content: space-between;
+    padding: 1% 3%;
+    margin: 0;
+    align-items: center;
+        .details{
+            width: 60%;
+            display: flex;
+            div{
+                margin-right: 5%;
+            }
+            p{
+                color: @calc;
+                font-weight: bold;
+                font-size: .8rem;
+                margin: 0;
+            }
+        }
+        .total{
+            width: 40%;
+            p{
+                color: @calc;
+                font-weight: bold;
+                font-size: 1rem;
+                margin: 0;
+                text-align: right;
+                &:nth-child(1){
+                    font-size:1.1rem ;
+                    color: @black;
+                }
+                &:nth-child(2){
+                    font-size:1rem ;
+                    color: @mainColor;
+                }
+            }
+        }
+    
+}

@@ -1,0 +1,40 @@
+@import '~@assets/style-settings.less';
+@import '~@assets/Colors.less';
+
+.table_list{
+    height: 85vh;
+    border: 0.5px solid @listBorder;
+    border-radius: 0.7vw;
+    background-color: @listBackground;
+    margin-right: 5%;
+    margin-left: 2%;
+    box-shadow: 1.5px 1.5px 1px 0 rgba(0, 0, 0, 0.05);
+
+    .btn_div{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        button{
+            width: 85%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 100%;
+            border-radius: 1px;
+            color: @mainColor;
+            font-size: 1vw;
+            font-family: NunitoSans;
+            font-weight: bold;
+            border: solid 0.5px @mainColor;
+            background-color: #ffffff;
+            outline: none;
+        }
+        .active{
+            background-color: @mainColor;
+            color: #ffffff;
+        }
+    }
+}
+
+

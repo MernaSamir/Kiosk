@@ -1,0 +1,31 @@
+@import '~@assets/Colors.less';
+.button{
+    display: flex;
+    justify-content: flex-end;
+    width: 100%;
+    align-items: center;
+    height: 12vh;
+    button{
+        width: 13%;
+        border-radius: 5vw;
+        padding: 12px;
+        
+        margin-left: 3%;
+        &:nth-child(1){
+            color: @WhiteBG;
+            background:  @mainColor;
+            border: 1px solid @mainColor;
+    
+        }
+        &:nth-child(2){
+            color: #090505;
+            font-weight: 300;
+            border: solid 0.5px @GrayBorder;
+            background-image: linear-gradient(to bottom, @WhiteBG, #f7f7f7);
+        }
+
+    }
+   
+
+    
+}

@@ -1,0 +1,57 @@
+@import '~@assets/Colors.less';
+
+.combo{
+    td{
+        &:first-child{
+            font-size: 1.5rem;
+            // padding: 2% 6%;
+        }
+        color: @black;
+        
+        font-size: 1rem;
+        text-align: center;
+        &:last-child{
+            color: @mainColor;
+        }
+    }
+}
+.alter{
+    td{
+        font-weight: bold;
+        &:first-child{
+            font-size: 1.5rem;
+            // padding: 2% 6%;
+        }
+        color: @black;
+        
+        font-size: 1rem;
+        text-align: center;
+        &:last-child{
+            color: @mainColor;
+        }
+    }
+}
+.clickedRow{
+    background-image: linear-gradient(to bottom, @mainColor, @mainColor);
+    color:#ffffff ;
+    position:'relative';
+}
+.clickedRow td{
+    &:first-child{
+        font-size: 2.3vh;
+        padding: 2% 8%;
+    }
+    color: @WhiteBG;
+    
+    font-size: 1rem;
+    text-align: center;
+    button{
+        background-color: #ffffff;
+        color : @mainColor;
+    }
+
+}
+.clickedRow .tableIcon{
+    color: #ffffff;
+   
+}

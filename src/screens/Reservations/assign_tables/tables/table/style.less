@@ -1,0 +1,186 @@
+@import '~@assets/Colors.less' ;
+.Rectangle{
+    background-color: @WhiteBG;
+    border: 0.5px solid @headerFont;
+    position: absolute;
+    border-radius: 2.5px;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    padding: 0.1px;
+
+}
+.Square{
+    background-color: @WhiteBG;
+    border: 0.5px solid @headerFont;
+    position: absolute;
+    border-radius: 2.5px;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    padding: 0.1px;
+
+}
+
+.Circle{
+    background-color: @WhiteBG;
+    border: 0.5px solid @headerFont;
+    position: absolute;
+    border-radius: 50%;
+    display: flex;
+    justify-content: space-around;
+    flex-direction: column;
+}
+.start{
+    padding: 0.1px;
+    display: flex;
+    flex-direction: column;
+    span{
+        
+        font-size: 1rem;
+        margin-left: 10%;
+        color: @RegularBlack;
+        font-weight: bold;
+    }
+}
+.Circle{
+    .start{
+        .tableTitle{
+            text-align: center;
+            margin-left: 0;
+            margin: 0 auto;
+        }
+            span{
+                margin-left: 25%;
+            }
+        }
+
+    
+    
+    .status{
+        width: 60%
+    }
+}
+
+
+.tableTitle{
+    
+    color: @RegularBlack;
+    height: auto;
+    font-size: 1rem;
+    font-weight: bold;
+    text-align: left;
+    margin-left: 10%;
+    max-width: 75%;
+    margin-top: 1%;
+    width: 100%;
+    overflow:hidden;
+    display:inline-block;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.tableFlex{
+    display: flex;
+    margin-bottom: 10%;
+    justify-content: flex-end;
+}
+.end{
+    display: flex;
+    justify-content: flex-end;
+    width: 50%
+}
+.icon{
+    font-size: 1.5rem;
+    margin-right: 10%;
+}
+.flexColumns{
+    display: flex;
+    justify-content: space-around;
+    flex-direction: column;
+    margin-top: 10%;
+
+}
+
+.guest{
+    color: @RegularBlack;
+    font-size: 1rem;
+    
+    display: block;
+    margin-left: 10%;
+
+}
+.guestround{
+    color: @RegularBlack;
+    font-size: 1rem;
+    
+    display: block;
+    margin: 0 auto;
+}
+
+.time{
+    margin: 0 auto;
+    border-radius: 3px;
+    width: 60%;
+    display: flex;
+    margin-bottom: 5%;
+    background-color: @headerFont;
+    flex-direction: column;
+    span{
+        color: @WhiteBG;
+        font-family: lato-bold;
+        font-weight: bold;
+        text-align: center;
+        margin: 0 auto;
+        font-size: .7rem;
+    
+    }
+}
+.status{
+    width: 100%;
+    margin: 0 auto;
+    margin-bottom: 4%;
+    height: 3vh;
+    display: flex;
+    justify-content: space-between;
+    span{
+        
+        height: auto;
+        font-size: .7rem;
+        font-weight: bold;
+        text-align: center;
+        align-self: center;
+        color: @forgetPassMsg;
+        margin: 0 auto;
+
+        
+    }
+    img{
+        align-self: center;
+        max-height: 70%;
+        max-width: 50%;
+    }
+}
+.selected{
+    border:1.5px solid @mainColor;
+    .tableTitle{
+        color: @mainColor;
+    }
+}
+@media only screen and (max-width:1100px){
+    .status{
+        width: 100%;
+        margin: 0 auto;
+        margin-bottom: 4%;
+        height: 3vh;
+        display: flex;
+        justify-content: space-between;
+        span{
+            font-size: 0.5rem;
+           
+    
+            
+        }
+        
+    }
+}

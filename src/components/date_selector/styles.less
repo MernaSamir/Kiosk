@@ -1,0 +1,40 @@
+@import '~@assets/Colors.less';
+.Datepicker{
+    display: flex;
+    width: auto;
+    justify-content: center;
+    border: 0.5px solid @GrayBorder;
+    border-radius: 5vw;
+    button{
+        border-radius: 0 5vw 5vw 0;
+        color: @mainColor;
+        background-color: @WhiteBG;
+        box-shadow: 0 0 2px 0 rgba(199, 190, 190, 0.5);
+        border: 0.5px solid @GrayBorder;
+        height: 3.2vw;
+        width: 2.2vw;
+
+        &:focus{
+            outline: 0
+        }
+        &:nth-child(1){
+            border-radius: 5vw 0 0 5vw;   
+        }
+        &:nth-child(2){
+            border-radius: 0 5vw 5vw 0; 
+        }
+    }
+    .picker{
+        div{
+            height: 100%;
+            input{
+                text-align: center;
+                font-size: 1rem;
+                font-weight: bold;
+                color: @mainColor;
+                height: 100%;
+            }
+        }
+    }
+
+}

@@ -1,0 +1,144 @@
+@import '~@assets/Colors.less';
+
+.login_container{ 
+    height: 100vh;
+    background-image: @defultBackground;
+    .form{
+    }
+
+    .empty_login{
+        height: 6%;
+    }
+    .btn{
+        display: flex;
+        justify-content: flex-end;
+        width: 39%;
+        margin: 0 auto;
+        button{
+            text-align: center;
+            width: 6vw;
+            height: 4vh;
+            border-radius: 5px;
+            background: @mainColor;
+            color: @WhiteBG;
+            font-family: NunitoSans;
+            border:none;
+            }
+    }
+
+    .logo{
+        height: 10%;
+        display: flex;
+        justify-content: space-evenly;
+
+        .logo_img{
+            align-self: center;
+        }
+    }
+
+    .input_tag{
+        height: 18%;
+        margin: auto;
+        display: flex;
+        justify-content: center;
+
+        .inputs{
+            width: 50%;
+            display: flex;
+            justify-content: space-around;
+            .input{
+                display: flex;
+                flex-direction: column;
+                padding: 0.8vw;
+                width: 90%;
+            justify-content: space-between;
+            p{
+                text-align: center;
+            }
+
+            &:focus-within label{
+                    color: @mainColor;
+            }
+
+                label{
+                    font-family: NunitoSans;
+                    font-size: 1rem;
+                    font-weight: bold;
+                    color: @fontMainColor;
+                    text-align: center;
+                }
+
+                input{
+                    border-radius: 8px;
+                    border: solid 1px #d3d3d3;
+                    min-width: 15vw;
+                    min-height: 6vh;
+                    text-align: center;
+                    color: #000000;
+                    font-family: NunitoSans;
+                    font-size: 1rem;
+                    margin: 0 auto;
+                    &:focus-within{
+                        border: solid 1px @mainColor;
+                    }
+                }
+    }
+
+            // &:focus-within label {
+            //     color: @mainColor;
+            // }
+
+            // &:focus-within .msg{
+            //     color: @forgetPassMsg;
+            // }
+
+            // label{
+            //     font-size: 2vh;
+            //     color: @fontMainColor;
+
+            //     &:focus{
+            //         color: @mainColor;
+            //     }
+            // }
+            
+            input{
+                display: block;
+                height: 33%;
+                width: 90%;
+                border: 1.5px solid @fontSubcolor;
+                border-radius: 5.5px;
+                color: @mainColor;
+                
+                &:focus{
+                    outline: 0 none;
+                    border-color: @mainColor;
+                }
+            }
+        }
+
+        .msg{
+            width: 75%;
+            font-size: 1.6vh;
+            color: @forgetPassMsg;
+            text-align: center;
+        }
+    }
+    
+    .error_msg{
+        text-align: center;
+        font-size: 0.8rem;
+        color: @fontSubcolor;
+        animation: fadeIn 1s infinite alternate;
+        width: 100%;
+    }
+    .keyboard{
+    // margin-left: -4%;
+    width: 100%;
+    }
+} 
+
+@keyframes fadeIn { 
+    from { opacity: 0; } 
+}
+
+

@@ -1,0 +1,303 @@
+/*  .MainDiv{
+    box-shadow: 0 1.5px 3px 0 rgba(0, 0, 0, 0.33);
+    background-color: #ffffff;
+    border: 0.5px solid  #e73a3c;
+}  */
+.popUpHeader{
+    margin: 5% auto;
+    
+    font-size: 1.3vw;
+    font-weight: bold;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 1;
+    letter-spacing: normal;
+    color: #e73a3c;
+    display: inline-block;
+    /* margin-left: 42%; */
+}
+/* .HOLabels{
+    width: 30%;
+    height: 40%;
+    ;
+    font-size: 13px;
+    font-weight: bold;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 1.19;
+    letter-spacing: normal;
+    text-align: center;
+    color: black;
+
+}
+.HOInputs{
+    width: 90%;
+    height:6vh;
+    border-radius:5px;
+    border: 0.5px solid  #e73a3c;
+    background-image: linear-gradient(to bottom, #ffffff, #fafafa);
+    color:#707070;
+    ;
+    font-size: 100%;
+    font-weight: normal;
+    font-style: normal;
+    font-stretch: normal;
+    letter-spacing: normal;
+    text-align: center;
+}
+.Notes{
+    margin-left: 7%;
+}
+.NoteInputs{
+    width: 85%;
+    height:20vh;
+    border-radius:5px;
+    border: 0.5px solid  #e73a3c;
+    background-image: linear-gradient(to bottom, #ffffff, #fafafa);
+    color:#707070;
+    ;
+    font-size: 100%;
+    font-weight: normal;
+    font-style: normal;
+    font-stretch: normal;
+    letter-spacing: normal;
+}
+.HOokBtn{
+    width: 25%;
+    height: 2%;
+    padding: 2% 2%;
+    border-radius: 12.3px;
+    box-shadow: 0 0 2px 0 rgba(80, 80, 80, 0.28);
+    background-color: #e73a3c;
+    border: 1px solid #e0e0e0;
+    ;
+    font-size: 80%;
+    font-weight: Bold;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 1.11;
+    letter-spacing: normal;
+    text-align: center;
+    color: #e0e0e0;
+    margin: 8%;
+    margin-left: 35%;
+    cursor: pointer;
+} */
+/* /////////Fire Pop Up//////////// */
+.TimeDiv{
+    margin:5%;
+}
+.NumDiv{
+    margin:5%;
+    margin-left:9%;
+}
+.TimeLabel{
+    width: 10%;
+    height: 20%;
+    
+    font-size: 12px;
+    font-weight: bold;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 1.19;
+    letter-spacing: normal;
+    text-align: center;
+    color: #707070;
+    margin: 5%;
+    margin-left:20%;
+}
+.TimeInput{
+    width: 40%;
+    height:4vh;
+    border-radius: 12.3px;
+    box-shadow: 0 0 2px 0 rgba(199, 190, 190, 0.5);
+    background-image: linear-gradient(to bottom, #ffffff, #fafafa);
+    color: #e43f42;
+    
+    font-size: 100%;
+    font-weight: normal;
+    font-style: normal;
+    font-stretch: normal;
+    letter-spacing: normal;
+    text-align: center;
+    border: 1px ;
+    align-self: center;
+}
+.TimeInput:focus{
+    outline: 0;
+}
+.NoteLabelDiv{
+    margin: 1%;
+    margin-left:15%;
+    width: 80%;
+    height: auto;
+}
+/* ///////Search/////// */
+.PopUpLabel{
+
+    
+    line-height: 1.33;
+    font-size: 14px;
+    font-weight: bold;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 1.19;
+    letter-spacing: normal;
+    text-align: center;
+    color: #707070;
+    margin: 2% 2% 2% 18%;
+    /* margin-left:18%; */
+}
+.SearchLabelDiv{
+    display: flex;
+    justify-content: space-between;
+    /* margin: 2%;
+    margin-left:-35%; */
+}
+.KeyboardDiv{
+    margin:5%;
+}
+.SearchInputs{
+    width: 50%;
+    height:6vh;
+    border-radius:5px;
+    border: 1px solid  #e73a3c;
+    background-image: linear-gradient(to bottom, #ffffff, #fafafa);
+    color:#707070;
+    
+    font-size: 100%;
+    font-weight: normal;
+    font-style: normal;
+    font-stretch: normal;
+    letter-spacing: normal;
+    text-align: center;
+}
+.TextArea{
+    width: 60%;
+    height:10vh;
+    border-radius:5px;
+    border: 1px solid  #e73a3c;
+    background-image: linear-gradient(to bottom, #ffffff, #fafafa);
+    color:#707070;
+    
+    font-size: 100%;
+    font-weight: normal;
+    font-style: normal;
+    font-stretch: normal;
+    letter-spacing: normal;
+    text-align: initial;
+    margin-left:-5%;
+    resize: none;
+}
+.ButtonsDiv{
+    /* width: 50%; */
+    /* height: auto; */
+    margin-left: 63%;
+    height: 5vh;
+}
+.ButtonsDiv .OkBtn{
+    height: 100%;
+    width: 25%;
+    margin-left: 10%
+}
+.ButtonsDiv .CancelBtn{
+    height: 100%;
+    width: 25%;
+
+}
+/* /////////Discount///////// */
+.TestDiv{
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+.DiscountDiv{
+    width: 100%;
+    height: auto;
+    margin-left: -30%;
+}
+.DisTypeLabel{
+    width: 10%;
+    height: 20%;
+    align-self: center;
+    
+    font-size: 0.9vw;
+    font-weight: bold;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 1.19;
+    letter-spacing: normal;
+    text-align: center;
+    color: #707070;
+    margin: 3%;
+}
+.DisTypeInput{
+    align-self: center;
+    width: 35%;
+    height:5vh;
+    border-radius: 7px;
+    box-shadow: 0 0 2px 0 rgba(199, 190, 190, 0.5);
+    background-image: linear-gradient(to bottom, #ffffff, #fafafa);
+    color: #e43f42;
+    
+    font-size: 100%;
+    font-weight: normal;
+    font-style: normal;
+    font-stretch: normal;
+    letter-spacing: normal;
+    text-align: center;
+    margin-right: 1%;
+    border: 1px;
+}
+.InputTypeBtn{
+    width: 22%;
+    height: 8vh;
+    align-self: center;
+    border-radius: 5.5px;
+    background-image: linear-gradient(to bottom, #ffffff, #f2f2f2);
+    margin: 1%;
+    ;
+    font-size: 90%;
+    font-weight: normal;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 1.19;
+    letter-spacing: normal;
+    text-align: center;
+    color: #ed2d30;
+    border: 1px solid #e0e0e0;
+}
+.InputTypeBtn:focus{
+    background-image: linear-gradient(to bottom, #ed2d30, #ed2d30);
+    color: #ffffff;
+    outline: 0;
+}
+
+.NumDiscountDiv{
+    margin:5%;
+    /* margin-left:20%; */
+}
+.NumDiscountDiv .popupCalculator{
+    width: 38vh;
+    /* border: 1px solid; */
+}
+.DiscoustSumbitButtons{
+    width: 38vh;
+    height: 7vh;
+    /* border: 1px solid; */
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+}
+.DiscoustSumbitButtons .CancelBtn{
+    height: 90%;
+    border-radius: 12px;
+}
+.DiscoustSumbitButtons .OkBtn{
+    height: 90%;
+    color: #ffffff;
+    border-radius: 12px;
+
+}

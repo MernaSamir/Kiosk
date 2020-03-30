@@ -1,0 +1,167 @@
+@import '~@assets/Colors.less';
+
+.header{
+    display: flex;
+
+    .due ,.change{
+        width: 22%;
+        display: flex;
+        flex-direction: column;
+        padding: 0.8vw;
+        justify-content: space-between;
+    }
+
+    label{
+        margin: 0;
+        
+        font-size: 1rem;
+        font-weight: bold;
+        color: #2b2b2b;
+        text-align: left;
+    }
+}
+
+.afterheader{
+    padding: 0% 2% ;
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+
+    .leftside{
+        width: 40%;
+        height: 57vh;
+
+        p{
+            
+            color: #000000;
+            font-size: 1rem;
+            margin: 0;
+            text-align: center;
+        }
+
+        .setting{
+            height: 100%;
+            width: 100%;
+
+            div {
+                height: 100%;
+                display: flex;
+
+                div{
+                    height: 100%;
+                    overflow-y: scroll;
+                    overflow-x: hidden;
+                    display: flex;
+                    flex-direction: row;
+                    width: 100%;
+                    justify-content: flex-start;
+                    flex-wrap: wrap;
+                    justify-items: center;
+
+                    &::-webkit-scrollbar {
+                        height: 1%;
+                        width: 4%;
+                    }
+
+                    &::-webkit-scrollbar-thumb {
+                        background: #9d9a9a;
+                        border-radius: 25px;
+                    }
+
+                    button{
+                        border-radius: 2.5px;
+                        border: solid 1px #e1e1e1;
+                        background-image: linear-gradient(to bottom, #ffffff, #f2f2f2);
+                        width: 9vw;
+                        height: 6vw;
+                        padding: 0;
+                        margin: 2%;
+                        font-size: 1rem;
+                    }
+                }
+            }
+        }
+
+    }
+
+    .flexColumns{
+        width: 55%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        @media screen and (min-width:1200px){
+            width: 40%;
+        }
+        .calcContainer{
+            width:100%;
+            margin: 0 auto;    
+        }
+    }
+    
+        .rightside{
+            .donediv{
+                padding: 5%;
+            .done{
+        border-radius: 2.5px;
+        box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.2);
+        border: solid 0.5px #e0e0e0;
+        background-color: #d73f7c;
+        
+        font-size: 1rem;
+        font-weight: bold;
+        text-align: center;
+        color: #ffffff;
+        min-width:20vw ;
+        padding: 15px;
+        &:focus{
+            outline: 0
+        }
+    }
+
+    }
+}
+.numPad{
+    // div{
+
+    //     display: grid;
+    //     grid-template:'. . .''. . .''. . .''. . .';
+    //     grid-gap: 2%;
+    // }
+}
+}
+
+.types{
+    height: 0vh;
+}
+
+
+
+.submit{
+    width: 100%;
+    margin: 0 auto;
+    
+    font-size: 1rem;
+    font-weight: bold;
+    text-align: center;
+    color: @WhiteBG;
+    background-color: @mainColor;
+    border-radius: 5px;
+    height: 8vh;
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.2);
+    border: solid 0.5px #e0e0e0;
+    margin-top: 2vh;
+}
+
+.numPad{
+    height: auto;
+}
+
+@media only screen and (max-width:1100px){
+    .flexColumns{
+        width: 50%;
+    }
+
+    .types{
+        height: 4vh;
+    }
+}

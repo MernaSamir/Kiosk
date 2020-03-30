@@ -1,0 +1,66 @@
+@import '~@assets/Colors.less';
+.date{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    label{
+        
+        font-size: 1.2rem;
+        font-weight: bold;
+        color: @RegularBlack;
+        text-align: center;
+        margin: 0%;
+    }
+    input{
+
+        border-radius: 2.5px;
+        border: solid 0.5px  @mainColor;
+        background-color: @WhiteBG;
+        width: 27vw;
+        padding: 2%;
+        margin-top: 20px;
+        
+        font-size: 1rem;
+        text-align: center;
+        color: @RegularBlack;
+
+    }
+}
+.cal{
+    display: flex;
+    justify-content: center;
+    padding-top: 4%;
+    
+}
+.saveBtns{
+    display: flex;
+    justify-content: space-around;
+    width: 50%;
+    margin: 0 auto;
+    height: fit-content;
+    margin-top: 3%;
+    button{
+        border-radius: 20px;
+        box-shadow: 0 0 2px 0 rgba(80, 80, 80, 0.28);
+        border: solid 0.5px rgba(179, 176, 176, 0.34);
+        width: 40%;
+        height: 5vh;
+        
+        font-size: 1.5rem;
+        &:focus{
+            outline: 0;
+        }
+        &:nth-child(1){
+            background-image: linear-gradient(to bottom, @linerBackgroun2, @linerBackgroun2);
+            color:@btnColor
+        }
+        &:nth-child(2){
+            background-image: linear-gradient(to bottom, @mainColor, @mainColor);
+            color:@WhiteBG
+        }
+
+    }
+    
+}

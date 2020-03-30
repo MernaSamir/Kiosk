@@ -1,0 +1,55 @@
+@import '~@assets/Colors.less';
+
+.cat_popup {
+    position: relative;
+    display: inline-block;
+}
+
+.subcat_row{
+    height: 8%;
+    width: 100%;
+
+    .sub_active{
+        width: 20%;
+        height: 100%;
+        background:  #ffffff;
+        color: @mainColor;
+        border-bottom: 5px solid @mainColor;
+        outline: none;
+        border-right: #ffffff;
+        border-left: #ffffff;
+        border-top: #ffffff;
+        box-shadow: 0 1px 0px 0 rgba(0, 0, 0, 0.22);
+        font-weight: bold;
+        font-size: 2vh;
+        text-align: center;
+        padding: 0;
+    }
+
+    .sub{
+        background:  #ffffff;
+        width: 20%;
+        height: 100%;
+        border-right: #ffffff;
+        border-left: #ffffff;
+        border-top: #ffffff;
+        border-bottom: 5px solid #ffffff;
+        box-shadow: 0 1px 0px 0 rgba(0, 0, 0, 0.22);
+        color: #888888;
+        font-weight: bold;
+        font-size: 2vh;
+        text-align: center;
+        padding: 0;
+
+        &:focus{
+            color: @mainColor;
+            border-bottom: 5px solid @mainColor;
+            outline: none;
+        }
+
+        .icon{
+            color: @mainColor;
+            font-size: 2.5vh;
+        }
+    }
+}

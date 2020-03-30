@@ -1,0 +1,46 @@
+@import '~@assets/Colors.less';
+
+.body_container{
+    padding: 0% 4% 0% 6%;
+    margin: 0;
+    height: 75%;
+
+    .stations_div{
+        height: 100%;
+        display: flex;
+        justify-content: flex-start;
+        flex-wrap: wrap;
+
+        .station_btn{
+            width: 16%;
+            height: 32%;
+            border-radius: 5px;
+            box-shadow: 0 1.5px 3px 0 rgba(0, 0, 0, 0.16);
+            border: solid 0.5px #e1e1e1;
+            background-color: #ffffff;
+            display: flex;
+            justify-content: space-around;
+            flex-direction: column;
+            outline: none;
+            align-items: center;
+            margin-right: 2%;
+            align-items: center;
+
+            &:nth-child(5n+0){
+                margin-right: 0;
+            }
+
+            .img{
+                align-self: center;
+            }
+
+            p{
+                align-self: center;
+                font-size: 2vh;
+                color: @forgetPassMsg;
+            }
+        }
+    }
+
+
+}

@@ -1,0 +1,67 @@
+@import '~@assets/Colors.less';
+
+.container{
+    height: 91.7%;
+    padding: 2%;
+    margin: 0;
+    // background-color: @WhiteBG;
+
+    .card{
+        height: 100%;
+        border: 1px solid #c5c1c1;
+        border-radius: 12px;
+        background-color: @WhiteBG;
+        padding: 2% 1% 2% 3%;
+        overflow-y: scroll;
+
+       .info{
+            height: 90%;
+            padding: 2% 0 0 0;
+            margin: 0;
+            display: flex;
+            justify-content: space-between;
+            background-color: @WhiteBG;
+
+            .infogrid{
+                width: 32%;
+            }
+       }
+    }
+
+    .btns{
+        display: flex;
+        justify-content: space-between; 
+        padding-top: 2%;
+        button{
+            align-self: center;
+            font-size: 2vh;
+            font-weight: bold;
+            color: @mainColor;
+            width: 45%;
+            height: 6vh;
+            border-radius: 30px;
+            border: 1px solid #e1e1e1;
+            background-image: linear-gradient(to bottom, @WhiteBG, #f7f7f7);
+        }
+    }
+    .card::-webkit-scrollbar {
+        height: 1%;
+        width: .5%;
+    }
+
+    .card::-webkit-scrollbar-thumb {
+        background: @listScroll;
+        border-radius: 25px;
+    }
+
+    .button{
+        font-size: 1rem;
+        color:  @RegularBlack;;
+        width:12.1vw;
+        padding: 3.7% 0%;
+        border-radius: 30px;
+        border: 1px solid #e1e1e1;
+        background-image: linear-gradient(to bottom, @WhiteBG, #f7f7f7);
+        height: 6vh;
+    }
+}

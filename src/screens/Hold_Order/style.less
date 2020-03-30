@@ -1,0 +1,145 @@
+@import '~@assets/Colors.less';
+
+.HO_main{
+    width: 99vw;
+    height: 91vh;
+    background-color: @BodyBackground;
+
+    .HO_up{
+        width: 100%;
+        height: 12%;
+        // background-color: #f5f5f5;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        .HO_Search{
+            width: 70%;
+            height: 40%;
+            background-color: #ffffff;
+            border: 0.5px solid #e1e1e1;
+            border-radius: 8px; 
+            box-shadow: 0 0 2px 0 rgba(199, 190, 190, 0.5);
+            border: solid 0.5px #e1e1e1;
+            align-items: center;
+            justify-content: center;
+            align-content: center;
+            display: flex;
+            flex-direction: row;
+            padding: 1vh 0;
+            margin-right: 7vw;
+
+            .HO_input{
+                width: 100%;
+                height: 100%;
+                border: none;
+                // margin: 0.2vh 2vw;
+                text-indent: 2%;
+                outline: none;
+
+                &::placeholder{
+                    color: @mainColor;
+                    font-size: 2vh;
+                }
+            }
+
+            .icon{
+                color: @mainColor;
+            }
+        }
+
+        .HO_addnew_div{
+            width: 10%;
+            height: 40%;
+            
+
+            .HO_addnew_btn{
+                height: 100%;
+                width: 90%;
+                border-radius: 25px;
+                border: 1px solid #f7f7f7;
+                box-shadow: 0 0 2px 0 rgba(199, 190, 190, 0.5);
+                background-image: linear-gradient(to bottom, #ffffff, #f7f7f7);
+                color: @mainColor;
+                font-size: 1.5vh;
+                outline: none;
+            }
+        }
+
+        .HO_pagination_div{
+            width: 12%;
+            height: 40%;
+            display: flex;
+            justify-content: space-between;
+            align-items:center;
+
+            .HO_pagination_btn{
+                align-self: center;
+                width: 35%;
+                height: 100%;
+                text-align: center;
+                border-radius: 25px;
+                border: 1px solid #f7f7f7;
+                box-shadow: 0 0 2px 0 rgba(199, 190, 190, 0.5);
+                background-image: linear-gradient(to bottom, #ffffff, #f7f7f7);
+                color: @mainColor;
+                align-self: center;
+
+                .btn_icon{
+                    color: @mainColor;
+                    font-size: 2.5vh;
+                }
+                
+            }
+
+            p{
+               align-self: center;
+               margin: 0;
+            }
+        }
+    }
+
+    .HO_TableDiv{
+        width: 100%;
+        height: 70%;
+        // background-color: #f5f5f5;
+        margin-top: 2vh;
+
+        tr{
+            &:nth-child(odd){
+                background-color: #ffffff;
+            }
+            &:nth-child(even){
+                background-color: #f0f5fc;
+            }
+        }
+
+        .HO_tableDiv_th{
+            background-color: @BodyBackground;
+            // background-color: #f5f5f5;
+            
+            font-size: 1vw;
+            font-weight: 600;
+            font-style: normal;
+            font-stretch: normal;
+            line-height: 0.8;
+            letter-spacing: normal;
+            text-align: left;
+            color: #7b7b7b;
+            margin: 2vh;
+            padding-left: 2%;
+        }
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+

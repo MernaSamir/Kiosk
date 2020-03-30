@@ -1,0 +1,68 @@
+@import '~@assets/Colors.less';
+
+
+.mood_icon{
+    margin-left: 5%;
+}
+
+.dropdown_list{
+    position: absolute;
+    top: 100%;
+    width: 100%;
+    height: auto;
+    background-color: #ffffff;
+    border: 1px solid @mainColor;
+    left: 0;
+    z-index: 11;
+
+    .dropdown_row{
+        width: 100%;
+        height: 5vh;
+        display: flex;
+        justify-content: space-between;
+        padding-left: 6%;
+        padding-right: 6%;
+        margin-left: auto;
+        margin-right: auto;
+
+        .dropdown_check{
+            justify-content: flex-end;
+            color: @mainColor;
+            align-self: center;
+            font-size: 1.7rem;
+            padding-top: 2%;
+            display: none;
+        }
+     
+        &:hover{
+             background-color: @submenuBackgroundActive;
+     
+             span{
+             font-weight: bold
+             }
+     
+             .dropdown-check{
+             font-size: 1.9rem
+             }
+         }
+     
+        span{
+             color: @mainColor;
+             font-size: .9rem;
+             
+             font-weight: normal;
+             align-self: center;
+         }
+     }
+}
+
+// @media screen and (max-width:1100px){
+//     .dropdown_list{
+//     .dropdown_row{
+//         span{
+//             font-size: 1.5rem;
+//         }
+//     }
+// }
+
+// }

@@ -1,0 +1,120 @@
+@import '~@assets/Colors.less';
+.second{
+    display: flex;
+    justify-content: space-between;
+    padding: 0% 2%;
+    .left{
+        display: flex;
+        justify-content: space-between;
+        width: 6%;
+        align-items: center;
+        .list{
+            width: 3vw;
+            height: 3vw;
+            padding: 1%;
+            box-shadow: 0 0 2px 0 rgba(199, 190, 190, 0.5);
+            border: solid 0.5px #e1e1e1;
+            background-image: linear-gradient(to bottom, #ffffff, #f7f7f7);
+            color: #d73f7c;
+            &:focus{
+                outline: 0
+            }
+        }
+        .calendar{
+            width: 3vw;
+            height: 3vw;
+            padding: 1%;
+            box-shadow: 0 0 2px 0 rgba(199, 190, 190, 0.5);
+            border: solid 0.5px #e1e1e1;
+            background-image: linear-gradient(to bottom, #ffffff, #f7f7f7);
+            color: #d73f7c;
+            &:focus{
+                outline: 0
+            }
+        } 
+        .active{
+            background-image:  linear-gradient(to bottom,#d73f7c, #d73f7c);
+            color: #ffffff;
+            &:focus{outline: 0}
+          
+         }
+        
+    }
+    .between{
+        display: flex;
+        align-items: center;
+        padding-left: 28%;
+        width: 50%;
+        .Datepicker{
+            display: flex;
+            width: auto;
+            justify-content: center;
+            border: 0.5px solid @GrayBorder;
+            border-radius: 5vw;
+            button{
+                border-radius: 0 5vw 5vw 0;
+                color: @mainColor;
+                background-color: @WhiteBG;
+                width: 4vw;
+                box-shadow: 0 0 2px 0 rgba(199, 190, 190, 0.5);
+                border: 0.5px solid @GrayBorder;
+        
+                &:focus{
+                    outline: 0
+                }
+                &:nth-child(1){
+                    border-radius: 5vw 0 0 5vw;   
+                }
+                &:nth-child(2){
+                    border-radius: 0 5vw 5vw 0; 
+                }
+            }
+            .picker{
+                div{
+                    height: 100%;
+                    input{
+                        text-align: center;
+                        font-size: 1rem;
+                        font-weight: bold;
+                        color: @mainColor;
+                        height: 100%;
+                    }
+                }
+            }
+        
+        }
+
+    }
+    .right{
+        display: flex;
+        justify-content: space-between;
+        width: 32%;
+        padding: 1.5%;
+ 
+        .reserBtns{
+            box-shadow: 0 0 2px 0 rgba(199, 190, 190, 0.5);
+            border: solid 0.5px #e1e1e1;
+            background-image: linear-gradient(to bottom, #ffffff, #f7f7f7);
+            
+            font-size: 0.9rem;
+            text-align: center;
+            color: #d73f7c;
+            border-radius: 5vw;
+            padding: 2.5%;
+            width: 45%;
+            &:focus{
+                outline: 0
+            }
+        }
+
+        .active{
+           background-image:  linear-gradient(to bottom,#d73f7c, #d73f7c);
+           color: #ffffff;
+           &:focus{outline: 0}
+         
+        }
+    }
+
+
+}
+

@@ -1,0 +1,87 @@
+@import '~@assets/Colors.less';
+
+.allCon{
+    padding: 2%;
+    background-color: @WhiteBG;
+    height: 87%;
+    margin: 2%;
+    .header{
+        display: flex;
+        justify-content: space-between;
+        p{
+            margin: 0;
+            
+            font-size: 1rem;
+            &:nth-child(1){
+                font-weight: 600;
+                text-align: left;
+                color: @RegularBlack;
+            }
+            &:nth-child(2){
+                font-weight: 600;
+                text-align: right;
+                color: @headerFont;
+            }
+        }
+    }
+    .eventCon{
+        display: flex;
+        justify-content: flex-start;
+        padding-top: 2%;
+        flex-wrap: wrap;
+        .eventDiv{
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+            width:  15vw;
+            height: 20vh;
+            border-radius: 5px;
+            border: solid 1px #959aa9;
+            background-color: #ffffff;
+            padding: 1%;
+            margin: 1%;
+            p{
+                text-align: center;
+                font-weight: 600;
+                font-size: 1rem;
+            }
+            .hour{
+                color: @headerFont;
+            }
+            .name{
+                color:@forgetPassMsg;
+            }
+            .startBtn{
+                box-shadow: 0 0 2px 0 rgba(199, 190, 190, 0.5);
+                border: solid 0.5px @GrayBorder;
+                background-image: linear-gradient(to bottom, @WhiteBG, @darkWite);
+                
+                font-size: 0.9rem;
+                text-align: center;
+                color: @mainColor;
+                border-radius: 5vw;
+                width: 13vw;
+                height: 5vh;
+                align-self: center;
+                margin-top: 2%;
+            }
+            .actionsDiv{
+                display: flex;
+                justify-content: space-between;
+                .actions{
+                    border-radius: 5vw;
+                    color: @mainColor;
+                    background-color: @WhiteBG;
+                    width: 4.5vw;
+                    height: 3.5vw;
+                    box-shadow: 0 0 2px 0 rgba(199, 190, 190, 0.5);
+                    border: solid 0.5px @GrayBorder;
+                    &:focus{
+                        outline: 0
+                    }
+                }
+            }
+
+        }
+    }
+}

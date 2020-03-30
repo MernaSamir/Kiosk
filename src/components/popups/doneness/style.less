@@ -1,0 +1,54 @@
+@import '~@assets/Colors.less';
+
+.container{
+    padding: 2%;
+    margin: 0;
+    height: 30vh;
+
+    .title{
+        height: 10%;
+        display: flex;
+        justify-content: space-around;
+
+        p{
+            margin: 0;
+            align-self: center;
+            font-size: 1.5rem;
+            color: @RegularBlack;
+            
+        }
+    }
+
+    .btns{
+        padding: 2%;
+        margin: 0;
+        height: 90%;
+        display: flex;
+        justify-content: flex-start;
+        flex-wrap: wrap;
+
+        button{
+            height: 28%;
+            width: 20%;
+            margin-right: 2%;
+            border-radius: 12px;
+            background-color: #ffffff;
+            color: @mainColor;
+            box-shadow: 0 0 2px 0 rgba(199, 190, 190, 0.5);
+            border: solid 0.5px @GrayBorder;
+
+            &:nth-child(4n){
+                margin-right: 0;
+            }
+        }
+    }
+}
+
+@media screen and (min-width:1024px){
+    .btns{
+        button{
+            height: 26%;
+            width: 25%;
+        }
+    }
+}

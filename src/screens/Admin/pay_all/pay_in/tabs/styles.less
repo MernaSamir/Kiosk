@@ -1,0 +1,75 @@
+@import '~@assets/Colors.less';
+.tabDiv{
+    display: flex;
+    flex-direction: column;
+    padding: 4% 0% 0% 8%;
+    .time{
+        
+        font-size: 1.2rem;
+        font-weight: 600;
+        color: @RegularBlack;
+        margin: 0;
+        padding: 1%;
+        &:nth-child(2){
+            padding-top: 14%;
+
+        }
+    }
+    .div{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        padding: 2% 0;
+        label{
+            
+            font-size: 1rem;
+            font-weight: bold;
+            color: @HeadersGray;
+            align-self: center;
+            width: 7vw;
+        }
+        div{
+            div{
+                div{
+                    width: 14vw;
+                    height: 6vh;
+
+                }
+            }
+        }
+        input{
+            width: 14vw;
+            padding: 3%;
+            text-align: center;
+            border: none;
+            border-radius: 2.5px;
+            border: solid 1px @mainColor;
+            background-color: @WhiteBG;
+        }
+    }
+    .tipsPayO{
+        padding-top: 9%;
+        width: 24vw;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        label{
+            
+            font-size: 1rem;
+            font-weight: bold;
+            color: @HeadersGray;
+            align-self: center;
+        }
+        input{
+            width: 11vw;
+            padding: 4%;
+            text-align: center;
+            border: none;
+            border-radius: 2.5px;
+            border: solid 1px @mainColor;
+            background-color: @WhiteBG;
+        }
+
+    }
+
+}

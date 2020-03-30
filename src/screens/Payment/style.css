@@ -1,0 +1,156 @@
+/* Payment */
+
+
+.upper_section{
+    width: 90%;
+    height: 80%;
+    margin: auto;
+    margin-top: 5%;
+    border-radius: 15px;
+    background-color: #ffffff;
+    padding: 1% 0%;
+    border: 0.5px solid rgba(112, 112, 112, 0.46); 
+}
+
+.text10{
+    width: 20%;
+    height: 5%;
+    margin: auto;
+    padding-top: 5%;
+    font-size: 62.5%;
+    font-weight: bold;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 1;
+    letter-spacing: normal;
+    text-align: center;
+    color: #e73a3c;
+    align-content: center;
+    justify-content: center;
+    align-items: auto;
+}
+
+.upper_section_types{
+    width: 90%;
+    height: 20%;
+    margin: auto;
+    display: flex;
+    align-content: center;
+    flex-direction: row;
+    flex-wrap: wrap;
+    /* justify-content: center; */
+    margin-top: 2%;
+}
+
+
+.upper_section_br{
+    width: 90%;
+    height: 1px;
+    margin: auto;
+    box-shadow: 0 -1px 2px 0 rgba(0, 0, 0, 0.22);
+    background-color: #dddddd;
+    margin-top: 2%;
+    margin-bottom: 2%;
+}
+
+.upper_section_contianer{
+    width: 90%;
+    height: 80%;
+    margin: auto;
+    display: flex;
+    align-content: center;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: center;
+    margin-top: 1%;
+    margin-bottom: 1%;
+}
+
+.upper_section_contianer_left{
+    width: 50%;
+    height: auto;
+}
+
+.text11{
+    width: 36px;
+    height: 13px;
+    font-family: Humanist521BT-Roman;
+    font-size: 11px;
+    font-weight: normal;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 0.91;
+    letter-spacing: normal;
+    text-align: center;
+    color: #e73a3c;
+    padding-top: 5%;
+    padding-bottom: 8%;
+}
+
+.text9-5{
+    width: 21px;
+    height: 11px;
+    font-family: Humanist521BT-Roman;
+    font-size: 9.5px;
+    font-weight: normal;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 0.84;
+    letter-spacing: normal;
+    text-align: left;
+    color: #ed2326;
+    padding-top: 6%;
+    padding-bottom: 7%;
+}
+
+.text14-5{
+    font-family: Humanist521BT;
+    font-size: 14.5px;
+    font-weight: bold;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 1.21;
+    letter-spacing: normal;
+    text-align: center;
+    color: #ed2d30;
+    margin-bottom: 1%;
+}
+
+.upper_section_contianer_left_box{
+    width: 90%;
+    height: auto;
+    margin: auto;
+    border-radius: 5.5px;
+    background-color: #ffffff;
+    font-family: Humanist521BT-Roman;
+    font-size: 9.5px;
+    font-weight: normal;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 1.16;
+    letter-spacing: normal;
+    text-align: center;
+    justify-content: center;
+    display: flex;
+    color: #ed2d30;
+    border: 1px solid #ed2d30;
+    margin-top: 3%;
+    margin-bottom: 3%;
+    padding: 4% 2%;
+}
+
+.upper_section_contianer_right{
+    width: 50%;
+    height: 100%;
+}
+
+.pad{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-content: center;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    background-color: #f8f8f8;
+}

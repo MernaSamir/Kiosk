@@ -1,0 +1,11 @@
+import {lazy} from 'react';
+export const select = lazy(()=>import('./main'));
+// export const select_plus = lazy(()=>import('./plus'));
+export const select_multi = lazy(()=>import('./multi'));
+export const nativeSelect = lazy(()=>import('./native'));
+export const tree_select = lazy(()=>import('./Tree'));
+export const tree = lazy(()=>import('./Tree/tree_check'));
+export const Tab = lazy(()=>import('./tab'));
+export const datePicker = lazy(()=>import('./date_picker'));
+export const timePicker = lazy(()=>import('./time_picker'));
+export const Radiobtn = lazy(()=>import('./radio_button'));

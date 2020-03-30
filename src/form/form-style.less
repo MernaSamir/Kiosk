@@ -1,0 +1,38 @@
+@import '~@assets/style-settings.less';
+@import '~@assets/Colors.less';
+
+.form{
+    width: 100%;
+    // height: 146px;
+    height: 85vh;
+    opacity: 1;
+    border-radius:1vw;
+    background-color: @formBackground;
+    border: 1px solid @formBorder;
+     margin-Bottom: 1%;
+    //  padding: 1%;
+    //  margin: auto;
+     overflow-y: auto;
+     overflow-x: auto;
+
+}
+
+.form::-webkit-scrollbar {
+    width: 1%;
+}
+
+  /* Track */
+.form::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+  /* Handle */
+.form::-webkit-scrollbar-thumb {
+    background: @formScroll;
+    border-radius: 5px;
+}
+
+  /* Handle on hover */
+.form::-webkit-scrollbar-thumb:hover {
+    background: @formScrollHover;
+}

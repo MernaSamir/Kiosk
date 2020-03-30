@@ -1,0 +1,67 @@
+@import '~@assets/Colors.less';
+
+.shapesContainer{
+        display: flex;
+       flex-direction: column;
+        width: 65%;
+        margin: 0 auto;
+
+    div{
+        display: flex;
+        justify-content: space-between;
+
+    }
+    p{
+        font-size: 1.1rem;
+        color: @HeadersGray;
+        
+        text-align: left;
+        margin-bottom: 2%;
+        font-weight: bold
+    }
+}
+.flexCol{
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    .shape{
+            display:flex;
+            div{
+                &:focus{
+                    background-color: @mainColor
+                }
+            }
+        }
+    
+    label{
+        font-size: .8vw;
+        
+        color: @HeadersGray;
+        font-weight: bold;
+        text-align: center;
+    }
+      
+    
+}
+.rectangle{
+    height: 12vh;
+    width: 9vh;
+    background-color: @tableBorders;
+    border-radius: 2.5px;
+    margin: 0 auto;
+
+}
+.circle{
+    height: 12vh;
+    width: 12vh;
+    background-color: @tableBorders;
+    border-radius: 50%;
+    margin: 0 auto
+}
+.square{
+    height: 10vh;
+    width: 10vh;
+    background-color: @tableBorders;
+    border-radius: 2.5px;
+    margin: 0 auto
+}

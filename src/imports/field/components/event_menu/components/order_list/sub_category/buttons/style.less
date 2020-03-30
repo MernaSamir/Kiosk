@@ -1,0 +1,142 @@
+@import '~@assets/Colors.less';
+
+.empty_subcatnotsticky{
+    
+    .subcat{
+        height: 83%;
+        display: flex;
+        justify-content: space-evenly;
+        flex-wrap: wrap;
+
+        .subcat_btn{
+            width: 18%;
+            height: 18%;
+            border: 1px solid @mainColor;
+            border-radius: 6px;
+            background-image: linear-gradient(to bottom, #ffffff, #e6e6e6);
+            font-size: 1.1rem;
+            color: @fontSubMainColor;
+            position: relative;
+            
+
+            p{
+                margin: 0;
+                font-size: 1rem;
+            }
+
+            .icon{
+                right: -1px;
+                top: 10%;
+                position: absolute;
+            }
+        }
+
+
+    }
+}
+
+.empty_subcat{
+
+    .subcat{
+        height: 89%;
+        display: flex;
+        justify-content: space-evenly;
+        flex-wrap: wrap;
+        
+        .subcat_btn{
+            width: 18%;
+            height: 16%;
+            border: 0.7px solid @fontSubMainColor;
+            border-radius: 6px;
+            background-image: linear-gradient(to bottom, #ffffff, #e6e6e6);
+            color: @fontSubMainColor;
+            font-size: 1.2rem;
+            
+
+            &:focus{
+                outline: none;
+            }
+        }
+    }
+}
+
+.subcat{
+        height: 77.5%;
+        background-color: #ffffff;
+        padding-top: 2%;
+        padding-left: 1%;
+        display: flex;
+        justify-content: flex-start;
+        flex-wrap: wrap;
+        align-content: flex-start;
+        width: 93%;
+
+    .subcat_btn{
+        width: 19%;
+        height: 14%;
+        border: 1.5px solid @mainColor;
+        margin-right: 1%;
+        border-radius: 5px;
+        background-color: #ffffff;
+        // background-image: linear-gradient(to bottom, #ffffff, #e6e6e6);
+        color: @fontSubMainColor;
+        margin-bottom: 1%;
+        outline: none;
+        position: relative;
+        font-size: 1vw;
+        
+        font-weight: bold;
+
+        p{
+            margin: 0;
+            font-size: 1rem;
+
+        }
+    
+        .icon{
+            right: 6%;
+            top: 10%;
+            position: absolute;
+            color: @mainColor ;
+        }
+    }
+}
+
+@media only screen and (max-width: 1100px) {
+    .subcat{
+        height: 77.5%;
+        background-color: #ffffff;
+        padding-top: 2%;
+        padding-left: 1%;
+        display: flex;
+        justify-content: flex-start;
+        flex-wrap: wrap;
+        align-content: flex-start;
+        width: 93%;
+    
+        .subcat_btn{
+            width: 19%;
+            height: 18%;
+            border: 1.5px solid @mainColor;
+            margin-right: 1%;
+            border-radius: 5px;
+            background-color: #ffffff;
+            color: @fontSubMainColor;
+            margin-bottom: 1%;
+            outline: none;
+            position: relative;
+            font-size: 1.4vw;
+            p{
+                margin: 0;
+                font-size: 1.2rem;
+    
+            }
+        
+            .icon{
+                right: 10%;
+                top: 10%;
+                position: absolute;
+            }
+        }
+    }
+  }

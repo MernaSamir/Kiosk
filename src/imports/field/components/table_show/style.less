@@ -1,0 +1,78 @@
+@import '~@assets/Colors.less';
+.table{
+    background-color: @WhiteBG;
+    width: 100%;
+    box-shadow: 0 1.5px 3px 0 rgba(199, 190, 190, 0.5);
+    border-bottom: solid 0.3px #e1e1e1;
+    thead{
+        display: table;
+        width: 100%;
+        tr{
+            height: 7vh;
+            th{
+                background-color: @WhiteBG;
+                color: @headerFont;  
+                
+                font-size: 1rem;
+                text-align: left;
+            }
+        }
+    }
+
+    // tr{
+
+    //     height: 7vh;
+
+    // }
+
+    .name{
+        width: 15%;
+        }
+    .note{
+        width: 7%;
+        text-align: center;
+    }
+    tbody{
+        overflow-y: auto;
+        display: block;
+        max-height: 52vh;
+        overflow-x: hidden;
+        &::-webkit-scrollbar {
+            width: 5px;
+        }
+          /* Handle */
+          &::-webkit-scrollbar-thumb {
+              background: @listScroll; 
+              border-radius: 10px;
+        }
+          
+          /* Handle on hover */
+          &::-webkit-scrollbar-thumb:hover {
+              background: @listScrollHover; 
+        }
+        tr{
+            height: 7vh;
+            table-layout: fixed;
+            display: table;
+            width: 100%;
+            &:nth-child(even){
+                background-color: @TableCustomer;
+            }
+            &:nth-child(odd){
+                background-color: @WhiteBG;
+            }
+            td{
+                
+                
+                font-size: 1rem;
+                font-weight: 600;
+                text-align: center;
+                color: @RegularBlack;
+                margin-left: 1%;
+            }
+        }
+    }
+
+
+
+}

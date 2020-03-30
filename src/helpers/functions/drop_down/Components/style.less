@@ -1,0 +1,99 @@
+@import '~@assets/Colors.less';
+
+.container{
+    position: relative;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+
+    p{
+        margin: 0;
+        align-self: center;
+        font-size: 0.9rem;
+        
+        margin-right: 6%;
+    }
+}
+
+.inner{
+    position: absolute;
+    height: fit-content;
+    width: 16.4%;
+    box-shadow: 0 1.5px 3px 0 rgba(0, 0, 0, 0.16);
+    border: solid 0.5px #d73f7c;
+    background-color: #ffffff;
+    z-index: 5;
+
+    .btns{
+        height: 6vh;
+        display: flex;
+        justify-content: space-between;
+
+        button{
+            height: 100%;
+            width: 50%;
+            border: solid 1px @mainColor;
+            background-color: #ffffff;
+            color: @RegularBlack;
+        }
+
+        .activebtn{
+            background-color: @mainColor;
+            color: #ffffff;
+        }
+    }
+
+    .row{
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        width: 99%;
+        text-align: center;
+        margin: 0 auto;
+        height: 5vh;
+       font-size: 0.8rem
+    }
+
+    .activerow{
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        width: 99%;
+        height: 5vh;
+        background-color: #fff0fb;
+        color: @mainColor;
+       font-size: 0.8rem;
+       text-align: center;
+        margin: 0 auto;
+       
+    }
+
+    .add{
+        margin-top: 2%;
+        height: 4vh;;
+        align-items: center;
+        display: flex;
+        justify-content: space-around;
+        flex-direction: column;
+
+        .border{
+            height: 2%;
+            width: 75%;
+            background-color: @HeadersGray;
+        }
+
+        div{
+            height: 90%;
+            width: 65%;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            color: @HeadersGray;
+
+            p{
+                margin: 0;
+                font-size: 1.5vh;
+            }
+        }
+    }
+}

@@ -1,0 +1,131 @@
+.tableCollapse-container{
+    /* height: 45%; */
+    /* height: auto; */
+    height: 40vh;
+    min-height: 40vh;
+    padding-left: 1%;
+    padding-right: 1%;
+    margin-left: 0;
+    margin-right: 0;
+    background-color: #ffffff;
+    /* background-color: yellow;
+    overflow: hidden;
+    overflow-y: scroll; */
+}
+
+.collapse-tr-first-child{
+    height: 6vh;
+    border-bottom: 1px solid #931066;
+}
+
+.collapse-tr{
+    border-bottom: 1px solid #e3e3e3;
+    height: 6vh;
+}
+
+.first-th{
+    width: 20%;
+    /* min-width: 15vw; */
+    text-align: left;
+    color: #707070;
+    font-size: 2vh;
+    /* background-color: #931066; */
+}
+
+.second-th{
+    width: 5%;
+    min-width: 5%;
+    text-align: center;
+    color: #707070;
+    font-size: 2vh;
+}
+
+.first-th .inner-div {
+    /* display: flex; */
+    height: 100%;
+    /* width: 100%; */
+    /* min-width: 12vw; */
+    display: flex;
+    justify-content: space-between;
+    padding-right: 10px;
+    /* background-color: aquamarine; */
+}
+
+.first-th .inner-div-small{
+    height: 100%;
+    width: 55%;
+    display: flex;
+    margin-left: 6%;
+    /* justify-content: space-around; */
+}
+
+.first-th .inner-div .radio-btn , .first-th .inner-div-small .radio-btn {
+    align-self: center;
+}
+
+.first-th .inner-div p , .first-th .inner-div-small p { 
+    align-self: center;
+    margin: 0;
+    font-size: 1.5vh;
+}
+
+.first-th .inner-div .icon{
+    align-self: center;
+    font-size: 2vh;
+}
+
+.n-th{
+    /* width: 15%;
+    min-width: 15%; */
+    padding-left: 2%;
+    padding-right: 2%;
+    margin-left: 0;
+    margin-right: 0;
+    text-align: center;
+    color: #707070;
+    font-weight: normal;
+    opacity: 0.99;
+    font-size: 1.5vh;
+    text-align: center;
+    white-space: nowrap;
+}
+
+.n-td{
+    width: 8%;
+    /* min-width: 15%; */
+    text-align: center;
+    color: #707070;
+    font-weight: normal;
+    opacity: 0.99;
+    font-size: 2vh;
+    text-align: center;
+}
+
+.n-td .collapse-input{
+    height: 4vh;
+    width: 70%;
+    font-size: 2vh;
+    color: #707070;
+    /* text-indent: 12%; */
+    text-align: right;
+    padding-right: 3%;
+    border-radius: 2.5px;
+    border: 1px solid #e3e3e3;
+}
+
+/* .first-td-small{
+    width: 35%;
+    min-width: 35%;
+    color: #707070;
+    font-size: 2vh;
+    display: flex;
+} */
+
+/* .first-td-small div{
+    height: 100%;
+    width: 70%;
+    padding-left: 3%;
+    display: flex;
+    justify-content: space-around;
+} */
+

@@ -1,0 +1,101 @@
+@import '~@assets/Colors.less';
+
+.reserv_list{
+    padding: 2%;
+    margin: 1% 3%;
+    background-color: @WhiteBG;
+    thead{
+        tr{
+            height: 7vh;
+            th{
+                background-color: @WhiteBG;
+            }
+        }
+    }
+
+    .trs{
+        &:nth-child(even){
+            background-color: @TableCustomer;
+        }
+        &:nth-child(odd){
+            background-color: @WhiteBG;
+        }
+        height: 7vh;
+
+    }
+    th{
+   
+        
+        font-size: 1rem;
+        line-height: 0.8;
+        color: @headerFont;
+       
+    }
+    .name{
+        width: 16%;
+        }
+    .phone{
+        width: 12%;    }
+    .date{
+        width: 7%;
+        text-align: center;
+
+    }
+    .hour{
+        width: 12%;
+        text-align: center;
+
+    }
+    .note{
+        width: 8%;
+        text-align: center;
+    }
+    td{
+      
+        
+        font-size: 1rem;
+        font-weight: 600;
+        text-align: left;
+        color: @RegularBlack;
+        margin-left: 1%;
+    }
+    .guest{
+        padding: 1%;
+    }
+
+}
+.third{
+  align-self: center;
+  display: flex;
+  justify-content: space-between;
+  margin: 15px 21px;
+  border-bottom: 1px solid rgba(112, 112, 112, 0.46);
+  div{
+      display: flex;
+      padding: 0.5%;
+  p{
+      margin: 0;
+      text-align: center;
+      
+      font-size: 1rem;
+      color: #4c4b4b;
+      align-self: center;
+
+  }
+  button{
+      box-shadow: 0 0 2px 0 rgba(199, 190, 190, 0.5);
+      background-image: linear-gradient(to bottom, #ffffff, #f7f7f7);
+      border: 1px solid #e1e1e1;
+
+
+  }
+ 
+  button[type="picking"]
+  {
+      height: 2.2vw;
+      width: 2.2vw;
+
+  }
+
+}
+}

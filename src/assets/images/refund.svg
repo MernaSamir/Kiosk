@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 22.963 22.43">
+    <defs>
+        <style>
+            .cls-1,.cls-2{fill:#0b2a5d}.cls-2{font-size:12px;-Bold,Nunito Sans;font-weight:700}
+        </style>
+    </defs>
+    <g id="Group_1738" data-name="Group 1738" transform="translate(-143 -431.51)">
+        <g id="Group_1737" data-name="Group 1737" transform="translate(143 431.51)">
+            <path id="redo" d="M30.417 1.666h-2.159a.544.544 0 0 0-.546.569l.181 2.177A11.308 11.308 0 0 0 8 11.685 11.308 11.308 0 0 0 26.858 20a.541.541 0 0 0 .022-.788l-1.547-1.536a.548.548 0 0 0-.746-.025 7.955 7.955 0 1 1 1.357-10.415l-2.274-.22a.545.545 0 0 0-.573.542V9.7a.545.545 0 0 0 .546.543h6.773a.545.545 0 0 0 .546-.543V2.209a.545.545 0 0 0-.545-.543z" class="cls-1" transform="translate(-8 -.462)"/>
+            <text id="_" class="cls-2" data-name="$" transform="translate(10.767 15.338)">
+                <tspan x="-3.6" y="0">$</tspan>
+            </text>
+        </g>
+    </g>
+</svg>

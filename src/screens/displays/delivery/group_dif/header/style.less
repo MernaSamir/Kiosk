@@ -1,0 +1,77 @@
+@import '~@assets/Colors.less';
+
+.header{
+    height: 10vh;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    p{
+        align-self: center;
+        margin: 0;
+        // margin-left: 16%;
+        font-size: 2vh;
+        font-weight: bold;
+        
+        color: @RegularBlack;
+    }
+
+    .btns{
+        align-self: center;
+        height: 50%;
+        width: 30%;
+        display: flex;
+        justify-content: space-between;
+    }
+}
+
+.btn{
+    height: 90%;
+    width: 35%;
+    border-radius: 24px;
+    box-shadow: 0 0 4px 0 rgba(199, 190, 190, 0.5);
+    border: solid 1px #e1e1e1;
+    color: @mainColor;
+    background-image: linear-gradient(to bottom, @WhiteBG, @darkWite);
+}
+.active{
+    height: 90%;
+    width: 35%;
+    border-radius: 24px;
+    box-shadow: 0 0 4px 0 rgba(199, 190, 190, 0.5);
+    border: solid 1px #e1e1e1;
+    color: @WhiteBG;
+    background-image: linear-gradient(to bottom, @mainColor, @mainColor);
+
+}
+.pag_container{
+    width: 55%;
+    height: 90%;
+    display: flex;
+    justify-content: space-between;
+
+    button{
+        align-self: center;
+        display: flex;
+        justify-content: space-around;
+        width: 40%;
+        height: 100%;
+        border-radius: 24px;
+        border: 0.5px solid @GrayBorder;
+        
+        box-shadow: 0 0 2px 0 rgba(199, 190, 190, 0.5);
+        background-image: linear-gradient(to bottom, #ffffff, #f7f7f7);
+
+        .icon{
+            align-self: center;
+            font-size: 2vh;
+            color: @mainColor;
+        }
+    }
+
+    p{
+        align-self: center;
+        font-size: 1.5vh;
+        margin: 0;
+    }
+}

@@ -1,0 +1,239 @@
+.DiscountMain{
+    height: 100%;
+    float: right;
+    padding-right: 3%;
+    padding-left: 2%;
+    margin-right: 0;
+    margin-left: 0;
+    /* align-items: center;
+    align-content: center;
+    align-self: auto; */
+}
+
+.DicountFrame{
+    height: 95%;
+    border: 0.3px solid rgba(112, 112, 112, 0.46);
+    background-color: #ffffff;
+    border-radius: 15px;
+    margin-top: 3%;
+    /* padding-left: 1%;
+    padding-right: 1%;
+    margin-left: 0;
+    margin-right: 0; */
+    padding: 3%;
+    padding-top: 0;
+    padding-bottom: 0;
+}
+
+.FlexDiv{
+    height: 11%;
+    /* margin: 1%;
+    margin-left: 3%; */
+    display: flex;
+    justify-content: flex-start;
+    margin-bottom: 2%;
+}
+.discout-types{
+    height: 13%;
+    /* margin: 1%;
+    margin-left: 3%; */
+    display: flex;
+    justify-content: flex-start;
+    margin-bottom: 2%;
+    /* border: 1px solid; */
+    overflow-x: scroll;
+    width: 50vw;
+    
+}
+.discout-types::-webkit-scrollbar {
+    height: 5%;
+    width: 5%;
+}
+.discout-types::-webkit-scrollbar-thumb {
+    background: #9d9a9a; 
+    border-radius: 10px;
+}
+.DicountTitle{
+    /* margin: 2%; */
+    
+    font-size: 15px;
+    font-weight: bold;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 1.05;
+    letter-spacing: normal;
+    align-self: center;
+    color: #000000;
+    margin-left: 30%;
+}
+.DiscountLabel{
+    margin-left: 1%;
+    
+    font-size: 2vh;
+    font-weight: normal;
+    /* font-style: normal;
+    font-stretch: normal;
+    letter-spacing: normal; */
+    /* text-align: left; */
+    color: #e73a3c;
+    margin-bottom: 1%;
+    /* margin: 1%;
+    margin-left: 4%; */
+}
+.DiscountBtn{
+    width: 10vw;
+    min-width: 10vw;
+    height: 95%;
+    border-radius: 2.5px;
+    border: 1px solid #e6e6e6;
+    background-image: linear-gradient(to bottom, #ffffff, #e6e6e6);
+    margin-right: 1%;
+    
+    font-size: 2vh;
+    font-weight: normal;
+    font-style: normal;
+    font-stretch: normal;
+    /* line-height: 1.24; */
+    letter-spacing: normal;
+    text-align: center;
+    color: #707070;
+}
+
+
+
+.select-input{
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    outline: none;
+}
+
+.select-input{
+    width: 70%;
+    height: 70%;
+    font-size: 2vh;
+    text-indent: 3%;
+    border: 1px solid #e6e6e6;
+    border-radius: 5.5px;
+    background-color: #ffffff;
+    /* margin: 1%;
+    margin-left: 2%; */
+}
+
+.select-icon{
+    left: 65%;
+    top: 26%;
+    position: absolute;
+}
+
+.select-option{
+    color: #a0a0a0;
+}
+
+.GroupInput{
+    width: 44%;
+    height: 6vh;
+    font-size: 2vh;
+    text-indent: 4%;
+    border: 1px solid #a0a0a0;
+    border-radius: 5.5px;
+    background-color: #ffffff;
+    /* margin: 1%; */
+    margin-right: 1%;
+}
+.IDInput{
+    width: 25%;
+    height: 6vh;
+    font-size: 2vh;
+    text-indent: 4%;
+    border: 1px solid #a0a0a0;
+    border-radius: 5.5px;
+    background-color: #ffffff;
+    /* margin: 1%;
+    margin-left: 2%; */
+}
+.TypesBtn{
+    width: 15%;
+    height: 80%;
+    border: 1px solid #e6e6e6;
+    border-radius: 5.5px;
+    background-image: linear-gradient(to bottom, #ffffff, #f2f2f2);
+    
+    font-size: 2vh;
+    font-weight: normal;
+    font-style: normal;
+    font-stretch: normal;
+    /* line-height: 1.19; */
+    margin-right: 1%;
+    letter-spacing: normal;
+    text-align: center;
+    color: #ed2d30;
+}
+.TypesBtn:hover{
+    background-image: linear-gradient(to bottom, #a0a0a0, #a0a0a0);
+    color: #ffffff;
+}
+.Line{
+    width: 96%;
+    margin-left: 0;
+    opacity: 0.44;
+    box-shadow: 0 -1px 2px 0 rgba(0, 0, 0, 0.22);
+    background-color: #dddddd;
+}
+.AdditionBtn{
+    width: 20%;
+    height: 80%;
+    align-self: center;
+    border: 1px solid #e6e6e6;
+    border-radius: 5.5px;
+    background-image: linear-gradient(to bottom, #ffffff, #f2f2f2);
+    
+    font-size: 95%;
+    font-weight: normal;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 1.18;
+    letter-spacing: normal;
+    text-align: center;
+    color: #ed2d30;
+    margin-right: 1%;
+}
+.DiscountOK{
+    width: 22%;
+    height: 100%;
+    border: 1px solid #e6e6e6;
+    border-radius: 5.5px;
+    background-color: #ed2d30;
+    margin-left: 33%;
+    
+    font-size: 2vh;
+    font-weight: bold;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 1.36;
+    letter-spacing: normal;
+    text-align: center;
+    color: #ffffff;
+}
+.DropDownMenuDiv{
+    margin-top: 2%;
+    margin-bottom: 2%;
+}
+.DiscountSelect{
+    width: 70%;
+    height: 40%;
+    border: 1px solid  #a0a0a0;;
+    border-radius: 5.5px;
+    background-color: #ffffff;
+    
+    font-size: 100%;
+    font-weight: normal;
+    font-style: normal;
+    font-stretch: normal;
+    letter-spacing: initial;
+    color: #a0a0a0;
+}
+
+.MenuText{
+    margin-left: -44%;
+    margin-right: 1%;
+}

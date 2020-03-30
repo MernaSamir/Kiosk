@@ -1,0 +1,79 @@
+.Quantity_Change_number{
+    width: 70%;
+    height: auto;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-items: center;
+    flex-wrap: nowrap;
+    justify-content: space-around;  
+    align-items: center;
+    padding: 0 1%;
+    // padding: 0.5rem;
+    margin-bottom: 1rem;
+
+    .Quantity_Change_number_element{
+        width: auto;
+        height: auto;  
+        padding: 0;
+    }
+
+    .Quantity_Change_number_box{
+        width: 60%;
+        /* max-width: 10rem; */
+        height: 8vh;
+        border-radius: 0.4rem;
+        box-shadow: 0 0 8px 0 rgba(0, 0, 0, 0.09);
+        border: solid 1.5px #d73f7c;
+        background-color: #ffffff;
+        ;
+        font-size: 1.3rem;
+        font-weight: normal;
+        font-style: normal;
+        font-stretch: normal;
+        line-height: 1.2;
+        letter-spacing: normal;
+        text-align: center;
+        color: #d73f7c;
+        padding: 0 1%;
+        /* padding: 0rem 3rem; */
+    }
+}
+
+.quantityContainer{
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-items: center;
+    margin: auto;
+    margin-bottom: 1rem;
+    justify-content: space-around;
+
+    .area{
+         grid-area: myArea;
+    }
+
+    div{
+
+        &:nth-child(1){
+            display: grid;
+            grid-template:'. . .''. . .''. . .''. . .';
+            grid-gap: 1vh;
+        }
+
+        &:nth-child(2){
+            display: grid;
+            grid-template:'. .''. .''. .''myArea myArea';
+            grid-gap: 1vh;
+        }
+        
+        .dummy{
+            width: 11vh;
+            height: 11vh;
+        }
+    }
+}

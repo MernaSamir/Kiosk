@@ -1,0 +1,228 @@
+.txtInputContainer
+{
+    width:13%;
+    height: 17vh;
+    /* border:2px solid yellow; */
+    margin-right: 40px;
+    /* margin-bottom: 40px; */
+
+}
+.title
+{
+    /* margin: 0; */
+    font-family: lato;
+    font-size: 2vh;
+    font-weight: bold;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 1.33;
+    letter-spacing: normal;
+    text-align: left;
+    color: #707070;
+}
+.txtInput
+{
+    width: 100%;
+    height: 43%;
+    border-radius: 5.5px;
+    background-color: #ffffff;
+    border:1px solid #d3d3d3;
+    outline: none;
+    text-indent: 10%;
+}
+.txtInput:focus
+{
+    border:1px solid #ed2d30; 
+}
+/* ************************************* */
+.txtInputPlusContainer
+{
+    width:19%;
+    height: 17vh;
+    /* border:2px solid yellow; */
+    margin-right: 20px;
+    /* margin-bottom: 40px; */
+}
+.txtAreaPlusContainer{
+    width:100%;
+    height: 22vh;
+    margin-right: 20px;
+    margin-bottom: .5rem;
+}
+.txtAreaPlusContainer .container2{
+    height:100%;
+    width: 100%;
+    display: flex;
+}
+.txtAreaPlusContainer .areaForTxt{
+    width: 92%;
+}
+.txtAreaPlusContainer .btnPlus{
+    margin-left: 2%;
+    /* margin: 0; */
+    height: 4vh;
+    width: 4vh;
+}
+.container2{
+    height:51%;
+    width: 100%;
+    display: flex;
+}
+.txtInputPlus
+{
+    width: 68%;
+    height: 80%;
+    border-radius: 5.5px;
+    background-color: #ffffff;
+    border:1px solid #d3d3d3;
+    outline: none;
+    text-indent: 10%;
+}
+.txtInputPlus:focus
+{
+    border:1px solid #ed2d30; 
+    color: #ed2d30;
+}
+.btnPlus
+{
+    align-self: center;
+    width: 13%;
+    margin-left: 6%;
+    border-radius: 50px;
+    height: 55%;
+    background-color: #eeecec;
+    border: 0.7px solid #ffffff;
+    box-shadow: 0 0 0 3px #eeecec;
+    display: flex;
+    justify-content: space-around;
+}
+.btnPlusExtra
+{
+    background-color: #eeecec;
+    width: 2.5%;
+    height:4vh;
+    border-radius: 55px;
+    border: 0.7px solid #ffffff;
+    box-shadow: 0 0 0 3px #eeecec;
+    align-self: center;
+    display: flex;
+    justify-content: space-around;
+
+
+}
+.btnPlus .icon
+{
+    font-size: 1.8vh;
+    color: #e33f41;
+    align-self: center;
+    border: none;
+}
+/* ********************************************************** */
+.txtInputSelect
+{
+    width: 100%;
+    height: 43%;
+    border-radius: 5.5px;
+    background-color: #ffffff;
+    border:1px solid #d3d3d3;
+    outline: none;
+    text-indent: 10%;
+}
+.txtInputSelect:focus
+{
+    border:1px solid #ed2d30; 
+    color: #ed2d30;
+}
+/* ****************************************** */
+.txtAreaContainer
+{
+    width:18%;
+    height: 20vh;
+    /* border:2px solid yellow; */
+    margin-right: 40px;
+
+}
+.areaForTxt
+{
+    width: 100%;
+    height: 70%;
+    border-radius: 5.5px;
+    background-color: #ffffff;
+    border:1px solid #d3d3d3;
+    outline: none;
+    padding-left: 2%
+    /* text-indent: 10%; */
+}
+.areaForTxt:focus{
+    border: 1px solid #ed2d30;
+    border-radius: 5.5px;
+}
+.adminemptydiv{
+    height: 5%;
+    width: 100%;
+    /* border: 1px solid */
+}
+.selectsmall{
+    width: 5%
+}
+.contactViewTitles{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    width: 97%;
+}
+.txtInputPlus::placeholder{
+    color: #000;
+    font-size: 2vh;
+    font-family: lato
+}
+.txtInputSelect {
+    color: #000;
+    font-size: 2vh;
+    font-family: lato
+
+}
+.areaForTxt::placeholder{
+    color: #000;
+    font-size: 2vh;
+    font-family: lato
+
+}
+.title-label
+{
+    font-family: lato;
+  font-size: 2vh;
+  font-weight: bold;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 0.89;
+  letter-spacing: normal;
+  text-align: left;
+  color: #e33e40;
+}
+@media screen and (max-width:800px){
+    .txtInputContainer{
+        width: 17%;
+        margin-right: 15px;
+    }
+    .mainViewTitles{
+        padding-top: 2%
+    }
+    .txtInputPlusContainer{
+        width: 25%;
+        margin-right: 0px;
+        
+    }
+    .txtInputPlus{
+        width: 75%;
+    }
+    .btnPlus{
+        height: 45%;
+    }
+    .txtAreaContainer{
+        width: 25%;
+    }
+
+}
+
+

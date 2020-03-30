@@ -1,0 +1,61 @@
+@import '~@assets/Colors.less';
+
+.all {
+    display        : flex;
+    flex-direction : column;
+    width          : 100%;
+    padding        : 5%;
+    justify-content: center;
+
+    .title {
+
+        
+        font-size  : 1.2rem;
+        font-weight: bold;
+        color      : @RegularBlack;
+        text-align : center;
+        margin     : 0%;
+
+    }
+
+    .msg {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        width: 100%;
+        padding: 6%;
+
+        .first {
+            
+            font-size  : 1rem;
+            font-weight: bold;
+            color      : @RegularBlack;
+            text-align : left;
+            margin     : 0%;
+        }
+
+
+    }
+
+
+    .button {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        button {
+            box-shadow   : 0 0 2px 0 rgba(80, 80, 80, 0.28);
+            border       : solid 0.5px rgba(179, 176, 176, 0.34);
+            border-radius: 5vw;
+            padding      : 2.5%;
+            width        : 15vw;
+            color        : @WhiteBG;
+            background   : @mainColor;
+
+            &:focus {
+                outline: 0
+            }
+        }
+    }
+
+
+}

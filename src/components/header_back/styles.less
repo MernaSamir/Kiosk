@@ -1,0 +1,73 @@
+@import '~@assets/Colors.less';
+
+.first{
+    // padding: 1% 44% 0% 2%;
+    justify-content: space-between;
+    display: flex;
+    width: 50%;
+    align-items: center;
+    align-self: flex-start;
+    .bakebtn{
+        display: flex;
+        border: 1px solid #e0e0e0;
+        border-radius: 6px;
+        background-color: #ffffff;
+        padding: 2.2%;
+        width: 9vw;
+
+        &:focus{
+            outline: 0
+        }
+
+        .icon{
+            font-size: 3vh;
+            color: #000000;
+            align-self: center;
+        }
+        p{
+            font-size: 2.2vh;
+            color: #707070;
+            margin-left:20%;
+        }
+    }
+    p{
+        
+        font-size: 1.2rem;
+        font-weight: bold;
+        text-align: center;
+        color: #000000;
+        margin: 0;
+    }
+
+
+}
+
+.btn{
+     align-self: center;
+     background-color: #f0f7ff;
+     border-radius: 25px;
+     width: 20vw;
+     border: #959aa9 1.5px;
+     color: #000000;
+     font-size: 2.5vh;
+     box-shadow: 0 0 2px 0 #959aa9;
+     position: relative;
+     outline: none;
+     padding: 1%;
+ }
+
+
+.active{
+    align-self: center;
+    border-radius: 25px;
+    width: 20vw;
+    border:1.2px  solid @mainColor ;
+    font-size: 2.5vh;
+    box-shadow: 0 0 2px 0 @mainColor;
+    position: relative;
+    outline: none;
+    background-color: @WhiteBG;
+    color: @mainColor ;
+    padding: 1%;
+
+}

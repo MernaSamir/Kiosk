@@ -1,0 +1,89 @@
+@import '~@assets/Colors.less';
+.receiptCon{
+    max-width: 78mm;
+    .headerCon{
+        padding: 0 0.2rem;
+        font-family: Tahoma;
+        margin: 0.2rem;
+        h1{
+            font-weight: bold;
+            font-size: 0.5rem;
+            margin-bottom: 0;
+            padding: 0;
+            text-align: center;
+        }
+        div{
+            display: flex;
+            width: 100%;
+            section{
+                min-width: 50%;
+                p{
+                    margin: 0;
+                    font-size: 0.4rem;
+                    font-weight: 200;
+                    color: #000;
+                    color: #000;
+                }
+            }
+        }
+    }  
+    .TableDiv{
+        font-family: Tahoma;
+        justify-content: center;
+         table{
+            width: 98%;
+            margin: 1%;
+            td{
+                padding: 0;
+            }
+            tr{
+                padding: 0%;
+                td{
+                    font-weight: 500;
+                    // &:nth-child(2){text-align: left;}
+    
+                    // font-size: 0.5rem;
+                }
+                &.modifier{
+                    td{
+                        font-size: .4rem;
+                        color: @HeadersGray;
+                    }
+                }
+                &.note{
+                    td{
+                        font-size: .4rem;
+                        &:nth-child(1){ width: 100%}
+                    }
+                }
+                td, th{
+                    padding: 0%;
+                    font-size: 0.5rem;
+                    // 
+                    color: @RegularBlack;
+                    text-align: center;
+                    margin: 0;
+                    &:nth-child(1){ width: 1rem}
+                    &:nth-child(2){width: 5rem;text-align: left;}
+                    &:nth-child(3){width: 1rem;}
+    
+                }
+            }
+            thead{
+                tr{
+                   td{ 
+                        font-size: 1rem;
+                    }
+                }
+            }
+            
+        }
+    }
+    
+    .void{
+        td{
+            text-decoration: line-through;
+        }
+    }
+}
+

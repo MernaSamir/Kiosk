@@ -1,0 +1,65 @@
+@import '~@assets/Colors.less';
+
+.body{
+    height: 90%;
+
+    .msg{
+        height: 10%;
+
+        p{
+            margin: 0;
+            align-self: center;
+            font-size: 1.5vh;
+            color: @headerFont;
+        }
+    }
+
+    .chains{
+        height: 90%;
+        display: flex;
+        justify-content: flex-start;
+
+        button{
+            display: flex;
+            justify-content: space-between;
+            flex-direction: column;
+            align-items: center;
+            margin-right: 3%;
+            padding: 2.5% 2%;
+            width: 16%;
+            height: 40%;
+            border-radius: 10px;
+            box-shadow: 0 1.5px 3px 0 rgba(0, 0, 0, 0.16);
+            border: solid 0.5px @GrayBorder;
+            background-color: #ffffff;
+
+            &:last-child{
+                margin-right: 0;
+            }
+        }
+
+        @media screen and (max-width: 1300px) {
+            button{
+                display: flex;
+                justify-content: space-between;
+                flex-direction: column;
+                align-items: center;
+                margin-right: 3%;
+                padding: 2.5% 2%;
+                width: 20%;
+                height: 40%;
+                border-radius: 10px;
+                box-shadow: 0 1.5px 3px 0 rgba(0, 0, 0, 0.16);
+                border: solid 0.5px @GrayBorder;
+                background-color: #ffffff;
+
+                &:last-child{
+                    margin-right: 0;
+                }
+            }
+            
+        } 
+    }
+    
+}
+

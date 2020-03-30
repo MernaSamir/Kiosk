@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 25.219 18">
+    <defs>
+        <style>
+            .cls-1{fill:#943879}.cls-2{fill:none;stroke:#943879}
+        </style>
+    </defs>
+    <g id="Group_2449" data-name="Group 2449" transform="translate(-284.466 -745.763)">
+        <path id="concierge-bell" d="M12.2 64h-1.852a.719.719 0 0 0-.719.719v.719a.719.719 0 0 0 .719.719h.719l-1 .833a10.061 10.061 0 0 0-8.629 9.953H12.2zm0 14.381H.719A.719.719 0 0 0 0 79.1v1.438a.719.719 0 0 0 .719.719H12.2z" class="cls-1" transform="translate(284.5 682.199)"/>
+        <g id="Group_2442" data-name="Group 2442" transform="translate(-361.172 250)">
+            <g id="Group_2442-2" data-name="Group 2442" transform="translate(640.138 496.263)">
+                <path id="concierge-bell-2" d="M13.623 66.946v-.821h.757a.734.734 0 0 0 .757-.708v-.708A.734.734 0 0 0 14.38 64H9.839a.734.734 0 0 0-.757.708v.708a.734.734 0 0 0 .757.708h.761v.821a10.15 10.15 0 0 0-9.082 9.8h21.187a10.15 10.15 0 0 0-9.082-9.799zm9.839 11.221H.757a.734.734 0 0 0-.757.708v1.417A.734.734 0 0 0 .757 81h22.705a.734.734 0 0 0 .757-.708v-1.417a.734.734 0 0 0-.757-.708z" class="cls-2" data-name="concierge-bell" transform="translate(6 -64)"/>
+            </g>
+        </g>
+    </g>
+</svg>

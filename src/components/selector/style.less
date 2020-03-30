@@ -1,0 +1,61 @@
+@import '~@assets/Colors.less';
+
+
+
+.dropdown-row:hover{
+    background-color: #fbfbfb
+}
+.dropdown-row:hover span{
+   font-weight: bold
+}
+.dropdown-row:hover .dropdown-check{
+   font-size: 2.7vh
+}
+.dropdown-row span{
+    color: #e43d3f;
+    font-size: 2.2vh;
+    ;
+    font-weight: normal;
+    align-self: center;
+
+}
+.dropdown-check{
+   justify-content: flex-end;
+   color: #e43d3f;
+   align-self: center;
+   font-size: 2vh;
+   padding-top: 2%;
+   display: none;
+}
+
+
+
+
+.icon{
+    margin-left: 14%;
+}
+
+.selector_list{
+    left: 23%;
+    position: absolute;
+    margin-top: 1%;
+    padding-left: 1%;
+    width: 20%;
+    height: auto;
+    background-color: #ffffff;
+    border: 1px solid @mainColor;
+    z-index: 11;
+    display: flex;
+    flex-direction: column;
+
+    .save{
+        align-self: center;
+        width: 50%;
+        height: 10%;
+        border-radius: 12px;
+        border: 1.5px solid @mainColor;
+        background-color: @mainColor;
+        color: #ffffff;
+    }
+}
+

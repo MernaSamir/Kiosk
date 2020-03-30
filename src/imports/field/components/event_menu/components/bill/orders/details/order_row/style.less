@@ -1,0 +1,239 @@
+@import '~@assets/Colors.less';
+.row{
+    td{
+        color: #0a0a0a;
+            
+            font-size: 1.3rem;
+            font-weight: bold;
+            text-align: center;
+            &:last-child{
+                color: @mainColor;
+            }
+    }
+}
+.modifier{
+    td{
+        // &:first-child{
+        //     padding: 2% 8%;
+        // }
+        
+        color: @grayFont;
+        
+        font-size: 0.8rem;
+        text-align: center;
+        font-weight: bold;
+    }
+}
+.borderBottom{
+    border-bottom: 7px solid #f8f8f8;
+}
+.thWidth{
+    min-width:11%;
+    width: 11%;
+    max-width: 11%;
+    text-align: center;
+    position: relative;
+
+}
+.thBigWidth{
+    min-width: 48%;
+    width: 48%;
+    max-width: 48%;
+    text-align: center;
+    // overflow: hidden;
+    padding: 0;
+}
+.itemName{
+    color: #0a0a0a;
+    
+    font-size: 1.3rem;
+    font-weight: bold;
+    text-align: center;
+}
+.leftPadding{
+    padding-left: 2%;
+}
+.tableIcon{
+    text-align: center;
+    font-size: 1.7vw;
+    font-weight: bold;
+    color: @mainColor;
+}
+.orderBtn{
+    background-color: @mainColor;
+    color: @WhiteBG;
+    font-size: 0.8rem;
+    width: 4.5vh;
+    height: 4.5vh;
+    box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.5);
+    border: 2px solid @mainColor;
+    border-radius: 50%;
+    align-self: center;
+    text-align: center;
+    padding: 2% 4%;
+
+}
+.orderBtn:focus{
+    outline: 0;
+}
+.clickedRow{
+    background-image: linear-gradient(to bottom, @mainColor, @mainColor);
+    color:#ffffff ;
+    position:'relative';
+}
+.clickedRow td{
+    border: none;
+    color: #ffffff;
+    
+    font-size: 1.3rem;
+    font-weight: bold;
+    text-align: center;
+    button{
+        background-color: #ffffff;
+        color : @mainColor;
+    }
+}
+td{
+    img{
+        max-width: 75%;
+        max-height: 3vh;
+    }
+}
+.clickedRow .tableIcon{
+    
+   color: @WhiteBG;
+}
+.btnClicked{
+    background-color: #ffffff;
+    color : @mainColor;
+}
+.modifierItemName{
+    color: #707070;
+    
+    font-size: 1.7vh;
+    font-weight: bold;
+    text-align: center;
+}
+.modifierIcon{
+    border: 2px solid @grayFont;
+    border-radius: 50%;
+    margin: 0 auto;
+    width: 3vh;
+    height: 3vh;
+    display: flex;
+    
+    .icon{
+    color: @grayFont;
+    text-align: center;
+    font-size: 1.1rem;
+    font-weight: bold;
+    margin: 0 auto;
+    align-self: center
+  
+    
+
+}
+}
+
+.popup {
+    position: relative;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    z-index: 10;
+
+    /* The actual popup */
+    .popuptext {
+        display: none;
+        width: 7vw;
+        max-height: 28vw;
+        // overflow-y: scroll;
+        // overflow-x: none;
+        background-color:#f8f8f8;
+        color: #fff;
+        text-align: center;
+        border-radius: 6px;
+        border: 1.5px solid @mainColor;
+        padding: 8px 0;
+        position: absolute;
+        z-index: 10;
+        top: 0%;
+        left: 99.8%;
+        
+        &::-webkit-scrollbar {
+            height: 1%;
+            width: .3vw;
+        }
+
+        &::-webkit-scrollbar-thumb {
+            background: #9d9a9a;
+            border-radius: 25px;
+        }
+
+        span{
+            display: block;
+            color: @mainColor;
+            font-size: 2.5vh;
+            
+        }
+    }
+
+    .show {
+        /* visibility: visible; */
+        display: block;
+        -webkit-animation: fadeIn 1s;
+        animation: fadeIn 1s;
+    }
+}
+
+.popuptext-btn{
+    color: @mainColor;
+    background-image: linear-gradient(to bottom, #ffffff, #e6e6e6) ;
+    border-radius: 50%;
+    width: 6vw;
+    text-align: center;
+    border: 1px solid #ffffff;
+    height: 6vw;
+    margin-top: 6%;
+
+    &:focus{
+        outline: 0;
+    }
+
+    span{
+        font-size: 2.1vh;
+        padding: 10% 0%
+    }
+}
+
+.popup-icon{
+    color: @mainColor;
+}
+
+.collapse_div{
+    height: 40vh;
+    // overflow: scroll;
+}
+
+.firedIcon{
+
+    color: orange !important;
+    font-size: 20px;
+
+}
+.firedWidth{
+    min-width: 20px;
+    color :orange !important ;
+}
+
+
+
+.notes{
+    text-align: center;
+    font-size: 1.1rem;
+    
+    color: #707070;
+    height: 1.5vw !important;
+    background-color: @BodyBackground;
+}

@@ -1,0 +1,1 @@
+export {EditCatring as default} from './index'

@@ -1,0 +1,67 @@
+{
+  "presets": [
+    [
+      "@babel/env",
+      {
+        "targets": { 
+          "browsers": [ "Android >= 4" ],
+          "node": "current"
+        }
+      }
+    ],
+    "@babel/preset-react"
+  ],
+  "plugins": [
+    "@babel/transform-runtime",
+    "@babel/plugin-transform-spread",
+    "@babel/proposal-class-properties",
+    [
+      "@babel/plugin-proposal-decorators",
+      {
+        "legacy": true
+      }
+    ],
+    "syntax-dynamic-import",
+    [
+      "transform-imports",
+      {
+        // "react-icons": {
+        //   "transform": "transform-imports-react-icons/index.js"
+        // },
+        "lodash": {
+          "transform": "lodash/${member}",
+          "preventFullImport": true
+        },
+
+        "moment": {
+          "transform": "moment/${member}",
+          "preventFullImport": false
+        }
+      }
+    ],
+    [
+      "import",
+      {
+        "libraryName": "antd",
+        "style": true
+      },
+      "ant"
+    ],
+    [
+      "import",
+      {
+        "libraryName": "react-icons",
+        "camel2DashComponentName": false
+      },
+      "react-icons"
+    ],
+    [
+      "module-resolver",
+      {
+        "root": [
+          "./src"
+        ]
+      }
+    ]
+  ]
+}

@@ -1,0 +1,57 @@
+pipeline {
+  environment {
+    registry = "abdallahshakshak/xena-pos"
+    registryCredential = 'Docker-hub'
+    dockerImage = ''
+    VERSION= 'latest'
+  }  
+  agent any
+
+  tools {nodejs "nodejs"}
+
+  stages { 
+
+    stage('Cloning Git') {
+      steps {    
+        git branch: 'staging', credentialsId: 'git-lab', url: 'https://gitlab.com/newcuisine/xenapos.git'
+      }
+    }
+
+    stage('Install dependencies') {
+      steps {
+        sh 'npm install'
+      }
+    }
+
+    stage('build') {
+      steps {
+         sh './node_modules/.bin/webpack --config webpack.config.pro.js'
+      }
+    }
+    
+
+    stage('Building docker image') {
+      steps{
+        script {
+          dockerImage = docker.build registry + ":${VERSION}"
+        }
+      }
+    }
+    
+    stage('push docker Image') {
+      steps{
+        script {
+          docker.withRegistry( '', registryCredential ) {
+            dockerImage.push()
+          }
+        }
+      }
+    }
+    
+    stage('Remove Unused docker image') {
+      steps{
+        sh "docker rmi $registry:${VERSION}"
+      }
+    }
+  }
+}

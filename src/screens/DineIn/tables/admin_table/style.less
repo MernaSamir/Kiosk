@@ -1,0 +1,93 @@
+@import '~@assets/Colors.less' ;
+.tableRec{
+    background-image: linear-gradient(to bottom ,@WhiteBG, @WhiteBG);
+    position: absolute;
+    border: solid 1px rgba(112, 112, 112, 0.46);
+    border-radius: 2.5px;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    padding: 0.1px;
+
+}
+
+.round{
+    background-image: linear-gradient(to bottom ,@WhiteBG, @WhiteBG);
+    position: absolute;
+    border-radius: 50%;
+    border: solid 1px rgba(112, 112, 112, 0.46);
+    display: flex;
+    justify-content: space-around;
+    flex-direction: column;
+}
+.active{
+    background-image: linear-gradient(to bottom ,@mainColor, @mainColor);
+    .tableTitleCircle{
+        color: @WhiteBG
+    }
+    .tableTitle{
+        color: @WhiteBG;
+    }
+}
+.start{
+    padding: 0.1px;
+    display: flex;
+    flex-direction: column;
+}
+
+.tableTitle{
+    
+    height: auto;
+    font-size: 1.1rem;
+    font-weight: bold;
+    text-align: left;
+    margin-left: 10%;
+    width: 90%;
+    max-width: 90%;
+    margin-top: 1%;
+    color: @RegularBlack;
+    width: 100%;
+    overflow:hidden;
+    display:inline-block;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+.margin{
+    margin: 0 auto;
+    text-align: center;
+}
+.tableTitleCircle{
+    
+    height: auto;
+    font-size: 1.1rem;
+    font-weight: bold;
+    text-align: left;
+    margin-left: 10%;
+    width: 90%;
+    max-width: 90%;
+    margin-top: 1%;
+    color: @RegularBlack;
+    width: 100%;
+    overflow:hidden;
+    display:inline-block;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.tableFlex{
+    display: flex;
+    margin-bottom: 10%;
+    justify-content: flex-end;
+}
+.end{
+    display: flex;
+    justify-content: flex-end;
+    width: 50%
+}
+.icon{
+    font-size: 3.5vh;
+    margin-right: 10%;
+    color: @headerFont;
+}

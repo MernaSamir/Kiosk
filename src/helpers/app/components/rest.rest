@@ -1,0 +1,8 @@
+### post bulk
+POST http://localhost:8000/api/v1/orders/receipt/bulk/ HTTP/1.1
+content-type: application/json
+{
+    "data": [{
+        "order": ""
+    }]
+}

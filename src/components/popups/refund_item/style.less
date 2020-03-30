@@ -1,0 +1,172 @@
+@import '~@assets/Colors.less';
+
+.container{
+    width: 80%;
+    margin: 0 auto;
+    p{
+        color:@RegularBlack;
+        font-size: 1.1rem;
+        
+        font-weight: bold;
+        text-align: center;
+    }
+    .table{
+        height: fit-content;
+        min-height: 25vh;
+    }
+    table{
+        margin: 2% 0%;
+        width:100%;
+        tbody::-webkit-scrollbar {
+            height: 1%;
+            width: .8%;
+        }
+        tbody::-webkit-scrollbar-thumb {
+            background: #9d9a9a;
+            border-radius: 25px;
+        }
+
+        tbody{
+            overflow-y: auto;
+            display: block;
+            max-height: 50vh;
+            height: 40vh;
+            border: 1px solid;
+        
+        }
+        thead {
+            display: table;
+            width: 100%;
+         }
+         tbody tr {
+            display: table;
+            width: 100%;
+         }
+         thead {
+            table-layout: fixed;
+         }
+         tbody tr {
+            table-layout: fixed;
+         }
+         th, td {
+            width: auto;
+
+         }
+         tr{
+             td{
+                    font-size: 1.1rem;
+                    color: #0a0a0a;
+                    
+                    min-width:11%;
+                    width: 11%;
+                    max-width: 11%;
+                    text-align: center;
+                    position: relative;
+                    font-weight: bold;
+                    &:nth-child(2){
+                        min-width:50%;
+                        width: 50%;
+                        max-width: 50%;
+                    }
+               
+                &:first-child{
+                    font-weight: bold;
+
+                }
+                &:last-child{
+                    font-weight: bold;
+                    font-size: 1.3vw
+                }
+             }
+
+         }
+    }
+    .payment{
+        p{
+            color:@RegularBlack;
+            font-size: 1rem;
+            
+            font-weight: bold;
+            text-align: left;
+            justify-content: space-between;
+        }
+        .first_div{
+            display: flex;
+            justify-content: space-between;
+            
+            font-weight: bold;
+            padding: 2%;
+            span{
+                font-weight: bolder;
+            }
+            
+            &:nth-child(1){
+                font-size: 1.7rem;
+                color: #000000;
+            }
+            &:nth-child(2){
+                color: @brown;
+                font-size: 1.1rem;
+            }
+           
+        }
+        .methods{
+            display: flex;
+           
+            .inputField{
+                display: flex;
+                flex-direction: column;
+                padding: 0.8rem;
+                justify-content: space-between;
+                align-self: center;
+                label{
+                    
+                    font-size: 1rem;
+                    font-weight: bold;
+                    color: @RegularBlack;
+                }
+                input{
+                    border-radius: 7.5px;
+                    border: solid 1px @RegularBlack;
+                    min-height: 5vh;
+                    text-align: center;
+                    color: #707070;
+                    
+                    font-size: 1rem;
+                }
+            }
+        }
+    }
+    .saveBtns{
+        display: flex;
+        justify-content: space-around;
+        width: 50%;
+        margin: 0 auto;
+        height: fit-content;
+        margin-top: 3%;
+        button{
+            border-radius: 20px;
+            box-shadow: 0 0 2px 0 rgba(80, 80, 80, 0.28);
+            border: solid 0.5px rgba(179, 176, 176, 0.34);
+            width: 40%;
+            height: 5vh;
+            
+            font-size: 2vh;
+            &:focus{
+                outline: 0;
+            }
+            &:nth-child(1){
+                background-image: linear-gradient(to bottom, @linerBackgroun2, @linerBackgroun2);
+                color:@btnColor
+            }
+            &:nth-child(2){
+                background-image: linear-gradient(to bottom, @mainColor, @mainColor);
+                color:@WhiteBG;
+            }
+    
+        }
+      
+        
+    }
+}
+

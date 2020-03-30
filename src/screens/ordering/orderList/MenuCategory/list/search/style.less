@@ -1,0 +1,47 @@
+@import '~@assets/Colors.less';
+
+.root{
+    height: 100%;
+    max-width: 55%;
+    width: 55%;
+}
+.main_cat_container{
+    padding-right: 2%;
+    padding-left: 1%;
+    margin-right: auto;
+    margin-left: auto;
+    height: 90.5%;
+    // height: fit-content;
+
+    .main_cat{
+        height: 100%;
+        border: 1.2px solid #dddddd;
+        border-radius: 15px;
+    }
+}
+ .subcat{
+     height: fit-content;
+     display: flex;
+     justify-content: flex-start;
+     flex-wrap: wrap;
+     padding: 2%;
+     min-height: 80%;
+     align-content: flex-start;
+
+     .subcat_btn{
+         margin: 0 1% 1% 0;
+         width: 19%;
+         height: 11vh;
+         border: 1px solid @mainColor;
+         border-radius: 6px;
+         background-color: #ffffff;
+         font-size: 1rem;
+         color: @fontSubMainColor;
+         
+         outline: none;
+
+         &:nth-child(5n+0){
+             margin-right: 0;
+         }
+    }
+}

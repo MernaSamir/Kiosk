@@ -1,0 +1,1 @@
+export {CustomerEdit as default } from './index'

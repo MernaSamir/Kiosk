@@ -1,0 +1,15 @@
+.all-combo{
+    height: auto;
+    background-color: lawngreen;
+}
+
+.iteminside{
+    height: auto;
+    background-color: brown;
+}
+
+.iteminside span{
+    display: block;
+
+}
+

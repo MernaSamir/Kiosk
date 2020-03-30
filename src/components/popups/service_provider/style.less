@@ -1,0 +1,94 @@
+@import '~@assets/Colors.less';
+
+.container{
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: column;
+    .p {
+        color      : @mainColor;
+        font-size  : 1.1rem;
+        
+        text-align : center;
+        font-weight: bold;
+    }
+    .select{
+        height: 10%;
+        width: 85%;
+    }
+    .saveBtns {
+        display        : flex;
+        justify-content: space-around;
+        width          : 100%;
+        margin         : 0 auto;
+        height         : fit-content;
+        margin-top     : 3%;
+
+        button {
+            border-radius: 20px;
+            box-shadow   : 0 0 2px 0 rgba(80, 80, 80, 0.28);
+            border       : solid 0.5px rgba(179, 176, 176, 0.34);
+            width        : 35%;
+            height       : 5vh;
+            font-family  : NunitoSans;
+            font-size    : 1rem;
+
+            &:focus {
+                outline: 0;
+            }
+
+            &:nth-child(1) {
+                background-image: linear-gradient(to bottom, @linerBackgroun2, @linerBackgroun2);
+                color           : @btnColor
+            }
+
+            &:nth-child(2) {
+                background-image: linear-gradient(to bottom, @mainColor, @mainColor);
+                color           : @WhiteBG
+            }
+
+        }
+    }
+    .btns{
+        height: 20%;
+        display: flex;
+        justify-content: flex-start;
+
+        button{
+            height: 60%;
+            width: 18%;
+            margin-right: 2%;
+            border: 1px solid @GrayBorder;
+            align-self: center;
+            border-radius: 24px;
+
+            &:last-child{
+                margin-right: 0;
+            }
+        }
+    }
+    .btnsContanier{
+        display: flex;
+        justify-content: flex-start;
+        width:100%;
+        flex-wrap: wrap;
+        overflow-y: scroll;
+        max-height: 50vh;
+        button{
+            width: 45%;
+            margin-bottom: 2%;
+            height: 7vh;
+            border-radius: 2.5px;
+            box-shadow: 0 0 2px 0 rgba(80, 80, 80, 0.28);
+            border: solid 1.5px rgba(179, 176, 176, 0.34);
+            background-color: #ffffff;
+            color:@RegularBlack;
+            font-size: 1.5rem;
+            font-weight: bold;
+            
+
+            &:nth-child(odd){
+                margin-right: 10%;
+            }
+        }
+    }
+}

@@ -1,0 +1,146 @@
+@import '~react-agenda/build/styles.css';
+@import '~react-datetime/css/react-datetime.css';
+@font-face {
+  font-family: KeplerStd-Capt;
+  src: url(./Fonts/Kepler-Std-Caption_26103.ttf);
+  font-family: Lato-Bold;
+  src: url(./Fonts/Lato-Bold.ttf);
+  font-family: Lato-Regular;
+  src: url(./Fonts/Lato-Regular.ttf);
+  font-family: Lato-Semibold;
+  src: url(./Fonts/Lato-Semibold.ttf);
+  font-family: NunitoSans;
+  src: url(./Fonts/Nunito_Sans/NunitoSans-Regular.ttf);
+  /*  */
+  
+  /* font-family: NunitoSans-bold;
+  src: url(./Fonts/Nunito_Sans/NunitoSans-Bold.ttf); */
+}
+@font-face{
+  
+  font-family: Lora;
+  src: url(./Fonts/lora/Lora-Regular.ttf);
+}
+@font-face{
+  
+  font-family: Helvetica;
+  src: url(./Fonts/Helvetica/helveticaneuelt-arabic-55-roman.ttf);
+}
+@media screen{
+ 
+
+
+}
+/* @media only screen and (min-device-width: 801px) and (min-width: 801px) and (max-width: 1024px) and (max-device-width: 1025px){
+  html, body {font-size: 1.3vw }
+} */
+
+@media only screen and (min-device-width: 0px) and (min-width: 0px) and (max-width: 801px) and (max-device-width: 801px){
+  html, body {font-size: 1.8vw }
+}
+@media only screen and (min-device-width: 801px) and (min-width: 801px) and (max-width: 1024px) and (max-device-width: 1025px){
+  html, body {font-size: 1.5vw }
+}
+@media only screen and (min-device-width: 1025px) and (min-width: 1024px) {
+  html, body {font-size: 1.1vw }
+}
+
+@media screen{
+  body *{
+    font-family: NunitoSans,Helvetica;
+  }
+  ::-webkit-scrollbar {
+    height: 1%;
+    width: .5%;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #306ab2;
+    border-radius: 25px;
+  }
+  .printing{
+    display: none;
+  }
+}
+form{
+  height: 100%;
+}
+.remove p{
+  text-decoration: line-through;
+}
+@media print{
+  /*html, body {
+    width: 100% !important;
+    height: auto !important;
+  }*/
+  html, body {font-size: 1cm }
+  .ant-modal-mask{
+    display: none;
+  }
+  .ant-modal-wrap{
+    display: none;
+  }
+
+  .no-printing{
+    display: none;
+  }
+  .printing{
+    display: block;
+  }
+  @page {
+     margin-top: 0cm;
+     margin-left: 0cm;
+     margin-right: 0cm;
+     margin-bottom: 0cm;
+     /*size: 72mm 200mm; */
+  }
+
+}
+.active{
+  background-color: #d73f7c !important;
+  color: white !important;
+  background-image: linear-gradient(to bottom, #d73f7c, #d73f7c) !important;
+
+}
+.active p{
+  color: white !important;
+}
+.alter{
+  border: 1px solid #d73f7c !important;
+}
+.disabled{
+  opacity: 0.7;
+}
+.hide {
+  display: none;
+}
+button{
+  outline: none;
+}
+
+.calculator-container{
+  height: 20%;
+  background-color: #f0f7ff;
+  border-radius: 12px;
+  border: 1px solid #f0f7ff;
+}
+
+.popup_text{
+  width: auto;
+  height: auto;
+  font-family: Lato;
+  font-size: 1rem;
+  font-weight: bold;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 1.33;
+  letter-spacing: normal;
+  text-align: center;
+  vertical-align: middle;
+  align-content: center;
+  align-items: center;
+  color: #024a5f;
+  margin: auto;
+}
+.ant-calendar-picker{
+  width: 100%
+}

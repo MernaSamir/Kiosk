@@ -1,0 +1,76 @@
+@import '~@assets/Colors.less';
+
+.alls {
+    height          : 100%;
+    background-color: @WhiteBG;
+    border          : 1px solid @Gray;
+    border-radius   : 10px;
+    display         : flex;
+    flex-direction  : column;
+    padding         : 1%;
+    margin          : 1%;
+
+    .header {
+        height         : 19%;
+        padding        : 2% 4%;
+        margin         : 0 0;
+        display        : flex;
+        justify-content: center;
+
+        p {
+            align-self : center;
+            font-size  : 1.5rem;
+            font-weight: bold;
+            color      : @RegularBlack;
+        }
+    }
+
+    .contall {
+        align-self     : center;
+        display        : flex;
+        justify-content: flex-start;
+        flex-wrap      : wrap;
+        min-height     : 86%;
+        max-height     : 86%;
+        width          : 80%;
+        padding        : 2% 0% 0% 2%;
+        margin         : 0 0;
+        overflow-y     : auto;
+
+        .tab {
+            height          : 26%;
+            width           : 17%;
+            padding         : 2% 0%;
+            margin-right    : 3%;
+            box-shadow      : 0 1.5px 3px 0 rgba(0, 0, 0, 0.16);
+            border          : solid 0.5px @GrayBorder;
+            background-color: @WhiteBG;
+            outline         : none;
+            display         : flex;
+            align-items     : center;
+
+            p {
+                font-size : 1.1rem;
+                margin    : 0;
+                padding   : 10% 1%;
+                color     : @forgetPassMsg;
+                text-align: center;
+            }
+        }
+
+        .contall::-webkit-scrollbar {
+            height: 1%;
+            width : .8%;
+        }
+
+        .contall::-webkit-scrollbar-thumb {
+            background   : @listScroll;
+            border-radius: 10px;
+        }
+
+        // &:nth-child(10n) {
+        //     margin-right: 0;
+        // }
+
+    }
+}

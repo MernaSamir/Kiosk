@@ -1,0 +1,78 @@
+@import '~@assets/Colors.less';
+
+.header{
+        width: 100%;
+        height: 13%;
+        display: flex;
+        justify-content: space-between;
+        padding-right: 1.5%;
+        padding-left: 1.5%;
+        margin-right: auto;
+        margin-left: auto;
+        .buttons{
+            display: flex;
+            width: 25vw;
+            justify-content: space-between;
+            .move{
+                background-image: linear-gradient(to bottom, @WhiteBG,@darkWite);
+                color: @mainColor;
+                height: 5.5vh;
+                width: 35%;
+                box-shadow: 0 0 2px 0 rgba(199, 190, 190, 0.5);
+                border: solid 1px @GrayBorder;
+                
+                font-size: 1rem;
+                font-weight: bold;
+                align-self: center;
+                border-radius: 25px;
+            }
+            .clicked{
+                background-image: linear-gradient(to bottom, @mainColor,@mainColor);
+                color: @WhiteBG;
+                height: 5.5vh;
+                width: 35%;
+                box-shadow: 0 0 2px 0 rgba(199, 190, 190, 0.5);
+                border: solid 1px @GrayBorder;
+                
+                font-size: 1rem;
+                font-weight: bold;
+                align-self: center;
+                border-radius: 25px;
+            }
+        }
+        .back{
+            background-color: transparent;
+            width: 8%;
+            height: 50%;
+            align-self: center;
+            border: 1px solid #e0e0e0;
+            border-radius: 5px;
+            span{
+                color: #707070;
+                font-size: 1rem;
+                font-weight: bold;
+                font-family: NunitoSans
+            }
+            .icon{
+                color: @black;
+                font-size: 1.5rem;
+                margin-right: 10%
+            }
+        }
+        p{
+            color: @black;
+            font-size: 2rem;
+            font-weight: bold;
+            
+            text-align: center;
+            margin: 0 auto;
+            align-self: center;
+        }
+    }
+
+.container{
+    padding-right: 1.5%;
+    padding-left: 1.5%;
+    margin-right: auto;
+    margin-left: auto;
+}

@@ -1,0 +1,81 @@
+@import '~@assets/Colors.less';
+
+.title{
+    padding: 0% 2.5% 0% 3%;
+    height: 8%;
+    display: flex;
+    justify-content: space-around;
+
+    p{
+        align-self: center;
+        margin: 0;
+        color: #000000;
+        font-size: 2.5vh;
+        font-weight: bold;
+        
+    }
+}
+
+.search_btn_pag_row{
+    padding: 0% 2.5% 0% 3%;
+    height: 8%;
+    display: flex;
+    justify-content: space-between;
+    .search{
+        width: 60%;
+        display: flex;
+        align-items: center;
+        display: flex;        
+    }
+    
+    .btn_pag_div{
+        width: 30%;
+        display: flex;
+        justify-content: space-between; 
+
+        .btn{
+            width: 11vw;
+            border-radius: 22px;
+            box-shadow: 0 0 2px 0 rgba(199, 190, 190, 0.5);
+            background-image: linear-gradient(to bottom, @WhiteBG, @darkWite);
+            border: 1px solid @GrayBorder;
+            color: @mainColor;
+            font-weight: 600;
+            outline: none;
+            
+        }
+        
+        .pag_div{
+            align-self: center;
+            width: 46%;
+            height: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            .pag_btn{
+                align-self: center;
+                height: 75%;
+                width: 34%;
+                border-radius: 20px;
+                box-shadow: 0 0 2px 0 rgba(199, 190, 190, 0.5);
+                background-image: linear-gradient(to bottom, @WhiteBG, @darkWite);
+                border: 1px solid @GrayBorder;
+                outline: none;
+                
+                .icon{
+                    font-size: 2vh;
+                    color: @mainColor;
+                }
+            }
+
+            p{
+                
+                font-size: 1.5vh;
+                color: @RegularBlack;
+                align-self: center;
+                margin: 0;
+            }
+        }
+    }
+}

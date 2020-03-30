@@ -1,0 +1,256 @@
+@import '~@assets/Colors.less';
+
+.empty_subcatnotsticky{
+    
+    .subcat{
+        height: 83%;
+        display: flex;
+        justify-content: space-evenly;
+        flex-wrap: wrap;
+
+        .subcat_btn{
+            width: 18%;
+            height: 18%;
+            border: 1px solid @mainColor;
+            border-radius: 6px;
+            background-image: linear-gradient(to bottom, #ffffff, #e6e6e6);
+            font-size: 1.1rem;
+            color: @fontSubMainColor;
+            position: relative;
+            
+
+            div{
+                height: 100%;
+                display: flex;
+                justify-content: space-around;
+                align-items: center;
+
+                p{
+                    margin: 0;
+                    font-size: 1.4vw;
+                }
+            }
+
+
+            .icon{
+                right: -1px;
+                top: 10%;
+                position: absolute;
+            }
+        }
+
+
+    }
+}
+
+.empty_subcat{
+
+    .subcat{
+        height: 89%;
+        display: flex;
+        justify-content: space-evenly;
+        flex-wrap: wrap;
+        
+        .subcat_btn{
+            width: 18%;
+            height: 16%;
+            border: 0.7px solid @fontSubMainColor;
+            border-radius: 6px;
+            background-image: linear-gradient(to bottom, #ffffff, #e6e6e6);
+            color: @fontSubMainColor;
+            font-size: 1.1rem;
+            
+
+            div{
+                height: 100%;
+                display: flex;
+                justify-content: space-around;
+                align-items: center;
+            }
+
+            &:focus{
+                outline: none;
+            }
+        }
+    }
+}
+
+.subcat{
+    height: 86.5%;
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+    border-bottom: 1.2px solid #dddddd;
+    background-color: #ffffff;
+    padding-top: 2%;
+    padding-right: 2%;
+    padding-left: 1%;
+    margin-right: auto;
+    margin-left: auto;
+    display: flex;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    align-content: flex-start;
+    width: 100%;
+    .subcat_btn{
+        width: 19%;
+        height: 14%;
+        border: 1.5px solid @mainColor;
+        margin-right: 1%;
+        border-radius: 5px;
+        background-color: #ffffff;
+        // background-image: linear-gradient(to bottom, #ffffff, #e6e6e6);
+        color: @fontSubMainColor;
+        margin-bottom: 1%;
+        outline: none;
+        position: relative;
+        font-size: 1vw;
+        
+        font-weight: bold;
+
+        div{
+            height: 100%;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+
+            p{
+                margin: 0;
+            }
+        }
+    
+        .icon{
+            right: 6%;
+            top: 10%;
+            position: absolute;
+            color: @mainColor ;
+        }
+    }
+}
+
+.subcat_item{
+    height: 78%;
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+    border-bottom: 1.2px solid #dddddd;
+    background-color: #ffffff;
+    padding-top: 2%;
+    padding-right: 2%;
+    padding-left: 1%;
+    margin-right: auto;
+    margin-left: auto;
+    display: flex;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    align-content: flex-start;
+    width: 100%;
+    .subcat_btn{
+        width: 19%;
+        height: 14%;
+        border: 1.5px solid @mainColor;
+        margin-right: 1%;
+        border-radius: 5px;
+        background-color: #ffffff;
+        // background-image: linear-gradient(to bottom, #ffffff, #e6e6e6);
+        color: @fontSubMainColor;
+        margin-bottom: 1%;
+        outline: none;
+        position: relative;
+        font-size: 1vw;
+        
+        font-weight: bold;
+
+        div{
+            height: 100%;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+
+            p{
+                margin: 0;
+            }
+        }
+    
+        .icon{
+            right: 6%;
+            top: 10%;
+            position: absolute;
+            color: @mainColor ;
+        }
+    }
+}
+
+@media only screen and (max-width: 1100px) {
+    .subcat{
+        height: 86.5%;
+        border-bottom-left-radius: 15px;
+        border-bottom-right-radius: 15px;
+        border-bottom: 1.2px solid #dddddd;
+        background-color: #ffffff;
+        padding-top: 2%;
+        padding-right: 2%;
+        padding-left: 1%;
+        margin-right: auto;
+        margin-left: auto;
+        display: flex;
+        justify-content: flex-start;
+        flex-wrap: wrap;
+        align-content: flex-start;
+    
+        .subcat_btn{
+            width: 19%;
+            height: 18%;
+            border: 1.5px solid @mainColor;
+            margin-right: 1%;
+            border-radius: 5px;
+            background-color: #ffffff;
+            color: @fontSubMainColor;
+            margin-bottom: 1%;
+            outline: none;
+            position: relative;
+            font-size: 1.4vw;
+
+            .icon{
+                right: 10%;
+                top: 10%;
+                position: absolute;
+            }
+        }
+    }
+
+    .subcat_item{
+        height: 78%;
+        border-bottom-left-radius: 15px;
+        border-bottom-right-radius: 15px;
+        border-bottom: 1.2px solid #dddddd;
+        background-color: #ffffff;
+        padding-top: 2%;
+        padding-right: 2%;
+        padding-left: 1%;
+        margin-right: auto;
+        margin-left: auto;
+        display: flex;
+        justify-content: flex-start;
+        flex-wrap: wrap;
+        align-content: flex-start;
+    
+        .subcat_btn{
+            width: 19%;
+            height: 18%;
+            border: 1.5px solid @mainColor;
+            margin-right: 1%;
+            border-radius: 5px;
+            background-color: #ffffff;
+            color: @fontSubMainColor;
+            margin-bottom: 1%;
+            outline: none;
+            position: relative;
+            font-size: 1.4vw;
+
+            .icon{
+                right: 10%;
+                top: 10%;
+                position: absolute;
+            }
+        }
+    }
+  }

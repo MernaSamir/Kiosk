@@ -1,0 +1,38 @@
+/* .card-collapse-container{
+    border: 1px solid #e0e0e0;
+    border-radius: 5.5px;
+    height: fit-content;
+    padding: 5% 5% 4% 5%;
+    margin: 0;
+}
+
+.card-collapse-header{
+    display: flex;
+    justify-content: space-between;
+    height: auto;
+}
+
+/* .card-collapse-header .title{
+    align-self: center;
+    color: #d73f7c;
+    font-weight: bold;
+    margin: 0;
+}
+
+.card-collapse-header .icon{
+    align-self: center;
+    color: #d73f7c;
+    font-size: 2.5vh;
+} */
+
+/* .card-collapse-body{
+    padding-top: 4%;
+    margin: 0;
+}
+
+@media only screen and (max-width: 800px) {
+    .card-collapse-container {
+        padding: 5% 5% 8% 5%;
+    }
+    
+  }  */

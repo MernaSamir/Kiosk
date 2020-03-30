@@ -1,0 +1,107 @@
+@import '~@assets/Colors.less';
+
+.first {
+    display    : flex;
+    align-items: center;
+    padding    : 1%;
+
+    .navHeader {
+        display: flex;
+        flex-direction: row;
+        .navHeaderBtn {
+            color           : @RegularBlack;
+            border: none;
+            padding         : 23px;
+            background-color: @WhiteBG;
+            width           : 10vw;
+            font-size       : 1rem;
+            font-weight     : bold;
+        }
+        .active {
+            color           : @mainColor;
+            background-color: @mainColor;
+            color           : @WhiteBG;
+            width           : 10vw;
+            padding         : 23px;
+    
+        }
+    }
+
+    
+
+    .p {
+
+        font-size  : 1.3rem;
+        font-weight: bold;
+        text-align : center;
+        color      : @RegularBlack;
+        margin     : 0;
+        width      : 55%;
+    }
+}
+
+.header {
+    width          : 100%;
+    display        : flex;
+    flex-direction : row;
+    justify-content: space-between;
+    padding        : 0% 2%;
+
+    .search {
+        width      : 40%;
+        display    : flex;
+        align-items: center;
+        display    : flex;
+    }
+
+    .paging {
+        display: flex;
+        width  : 13%;
+
+        p {
+            margin    : 0;
+            text-align: center;
+
+            font-size : 1rem;
+            color     : #4c4b4b;
+            align-self: center;
+            margin    : 0% 3%;
+
+        }
+
+        button[type="page"] {
+            width           : 3vw;
+            border-radius   : 5vw;
+            color           : @mainColor;
+            background-color: @WhiteBG;
+            width           : 3.5vw;
+            box-shadow      : 0 0 2px 0 rgba(199, 190, 190, 0.5);
+            border          : solid 0.5px @GrayBorder;
+
+            &:focus {
+                outline: 0
+            }
+        }
+    }
+
+    .btn {
+        width           : 13vw;
+        border-radius   : 22px;
+        box-shadow      : 0 0 2px 0 rgba(199, 190, 190, 0.5);
+        background-image: linear-gradient(to bottom, @WhiteBG, @darkWite);
+        border          : 1px solid @GrayBorder;
+        color           : @mainColor;
+        font-weight     : 600;
+        outline         : none;
+
+        display        : flex;
+        justify-content: space-around;
+        align-items    : center;
+        padding        : 10px;
+
+        p {
+            margin: 0%;
+        }
+    }
+
+}

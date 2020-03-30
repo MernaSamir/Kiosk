@@ -1,0 +1,28 @@
+@import '~@assets/Colors.less';
+
+.zones{
+    display: flex;
+    height: 100%;
+    width: 80%;
+    button{
+        background-image: linear-gradient(to bottom, @WhiteBG, @darkWite);
+        
+        font-size: 1.1rem;
+        font-weight: bold;
+        color: @RegularBlack;
+        width: 12%;
+        height: 100%;
+        border: solid 0.5px rgba(112, 112, 112, 0.2);
+        &:focus{
+            outline: 0;
+        }
+        &:nth-child(1){
+            border-top-left-radius: 8px;
+        }
+
+    }
+    .active{
+        background-image: linear-gradient(to bottom, @mainColor, @mainColor);
+        color:@WhiteBG;
+    }
+}

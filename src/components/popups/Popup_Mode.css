@@ -1,0 +1,84 @@
+
+/* Popup */
+.popup_text{
+    width: auto;
+    height: auto;
+    ;
+    font-size: 1rem;
+    font-weight: bold;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 1.33;
+    letter-spacing: normal;
+    text-align: center;
+    vertical-align: middle;
+    align-content: center;
+    align-items: center;
+    color: #024a5f;
+    margin: auto;
+}
+
+.popup_cat{
+    width: auto;
+    height: auto;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    align-content: center;
+    justify-content: center;
+    vertical-align: middle;
+    margin: auto;
+    padding: 1rem;
+    margin: 0;
+}
+
+.popup_cat_element{
+    width: 6.5rem;
+    height: 3.5rem;
+    margin: 0.5rem 0.5rem;
+    border-radius: 0.4rem;
+    box-shadow: 0 0 6px 0 rgba(0, 0, 0, 0.07);
+    border: solid 1px #024a60;
+    background-color: #fcfdff;
+    vertical-align: middle;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    ;
+    font-size: 0.7rem;
+    font-weight: bold;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 1.2;
+    letter-spacing: 1px;
+    text-align: center;
+    color: #024a60;
+    cursor: pointer;
+    padding: auto;
+    transition: color 0.3s, background-color 0.3s;
+}
+
+.popup_cat_element:hover{
+    background-color: #edf2f5;
+}
+.popup_cat_element:active{
+    transform: translateY(1px);
+}
+
+@media screen and (min-width:1024px){
+    .popup_cat_element{
+        width: 10.5rem;
+        height: 5.5rem;
+        margin: 0.5rem;
+        font-size: 1rem;
+    }
+
+    .popup_cat{
+        padding: auto;
+        
+    }
+    .popup_text{
+        font-size: 2rem;
+    }
+}

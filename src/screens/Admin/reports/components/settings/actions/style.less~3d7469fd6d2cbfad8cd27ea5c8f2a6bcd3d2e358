@@ -1,0 +1,29 @@
+@import '~@assets/Colors.less';
+.saveBtns{
+    display: flex;
+    justify-content: space-around;
+    width: 60%;
+    margin: 23px auto;
+    height: fit-content;
+    button{
+        border-radius: 20px;
+        box-shadow: 0 0 2px 0 rgba(80, 80, 80, 0.28);
+        border: solid 0.5px rgba(179, 176, 176, 0.34);
+        width: 40%;
+        height: 5vh;
+        
+        font-size: 2vh;
+        &:focus{
+            outline: 0;
+        }
+        &:nth-child(1){
+            background-image: linear-gradient(to bottom, @linerBackgroun2, @linerBackgroun2);
+            color:@btnColor
+        }
+        &:nth-child(2){
+            background-image: linear-gradient(to bottom, @mainColor, @mainColor);
+            color:@WhiteBG
+        }
+
+    }
+}

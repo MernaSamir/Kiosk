@@ -1,0 +1,64 @@
+@import '~@assets/Colors.less';
+.header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1% 2%;
+    p{
+
+        
+        font-size: 1.2rem;
+        font-weight: bold;
+        text-align: center;
+        color: @RegularBlack;
+        margin: 0;
+    
+    }
+    .bakebtn{
+        display: flex;
+        border: 1px solid #e0e0e0;
+        border-radius: 6px;
+        background-color: #ffffff;
+        padding: 1%;
+        width: 9vw;
+    
+        &:focus{
+            outline: 0
+        }
+    
+        .icon{
+            font-size: 3vh;
+            color: @RegularBlack;
+            align-self: center;
+        }
+        p{
+            font-size: 1.2rem;
+            color: @HeadersGray;
+            margin: 0%;
+            margin-left:20%;
+        }
+    }
+    .inputButton{
+        div{
+            display: flex;
+            justify-content: flex-end;
+            button{
+                border: solid 1px #e0e0e0;
+                background-image: linear-gradient(to bottom, @WhiteBG, @baleGrey);
+                border-radius: 2.5px;
+                padding: 1vw;
+                min-width: 9vw;
+                
+                font-size: 1rem;
+                text-align: center;
+                color: @RegularBlack;
+                
+                &:focus{
+                    outline: 0
+                }
+            }
+        }
+
+        
+    }
+}

@@ -1,0 +1,91 @@
+@import '~@assets/Colors.less';
+
+.cashier_popup_container{
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: column;
+    height: auto;
+    
+    .title_div{
+        align-self: center;
+        height: 15%;
+        margin-bottom: 4%;
+
+        p{
+            font-size: 1.2rem;
+            color: #d73f7c;
+            margin: 0 auto;
+            font-weight: bold;
+        }
+    }
+
+    .cash{
+        align-self: center;
+        width: 36vh;
+        height: 5vh;
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 2%;
+
+        .title{
+            font-weight: bold;
+            align-self: center;
+            font-size: 1.8rem;
+            color: #707070;
+            margin: 0;
+        }
+        
+        .cash_input{
+            align-self: center;
+            width: 75%;
+            height: 95%;
+            border: 1px solid #d3d3d3;
+            border-radius: 4.5px;
+            text-indent: 2%;
+            background-image: linear-gradient(to bottom, #ffffff, rgba(242, 242, 242, 0.33));
+            color: #d73f7c;
+            font-size: 2rem;
+            padding: 2%;
+        }
+    }
+
+    .popupCalculator{
+        width: 38vh;
+    }
+    
+}
+
+
+.cash-input::placeholder{
+    font-size: 1.2rem;
+    color: rgba(185, 30, 30, 0.47);
+}
+
+//last
+.last{
+    width: 91%;
+    padding: 3% 6% 0% 31%;
+    display: flex;
+    justify-content: space-between;
+      button{
+        box-shadow: 0 0 2px 0 rgba(80, 80, 80, 0.28);
+        border: solid 0.5px rgba(179, 176, 176, 0.34);
+        border-radius: 5vw;
+        padding: 3%;
+        width: 47%;
+        &:focus{
+            outline: 0
+        }
+    }
+    button[type="submit"]{
+        color: #ffffff;
+        background:  #d73f7c;
+    }
+    button[type="button"]{
+        color: #090505;
+        font-weight: 600;
+        box-shadow: 0 0 2px 0 rgba(80, 80, 80, 0.28);
+        border: solid 0.5px rgba(179, 176, 176, 0.34);
+        background-image: linear-gradient(to bottom, #f3f0f0, #ebe9e9);
+    }
+}

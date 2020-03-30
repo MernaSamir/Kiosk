@@ -1,0 +1,183 @@
+
+@import '~@assets/Colors.less';
+.container{
+    width: 97%;
+    margin: 0 auto;
+}
+.third{
+    margin-bottom: 0.7vh;
+    background-color: @WhiteBG;
+}
+.reserv_list{
+    padding: 2%;
+    // margin: 1% 3%;
+    width: 100%;
+    height: 75%;
+    tbody{
+        width: 100%;
+        height: 100%;
+
+    }
+    .trs{
+        width: 100%;
+       
+        &:nth-child(even){
+            background-color: @TableCustomer;
+        }
+        &:nth-child(odd){
+            background-color: @WhiteBG;
+        }
+    }
+   
+    tr{
+        height: 7vh;
+    }
+    td{
+      
+        
+        font-size: 1rem;
+        font-weight: 600;
+        text-align: left;
+        color: @RegularBlack;
+        margin-left: 1%;
+    }
+    .selected{
+        background-color: @mainColor;
+        td {
+            color:@WhiteBG
+        }
+    }
+    .name{
+        width: 47%;
+    }    
+    .table{
+        width: 13%;
+        text-align: center;
+    }
+    .date{
+        width:11%;
+        text-align: center;
+    }
+}
+.listDiv{
+    min-height: 68vh;
+}
+@media only screen and( max-width:1100px){
+    .reserv_list{
+    padding: 2%;
+    // margin: 1% 3%;
+    width: 100%;
+    height: 75%;
+    tbody{
+        height: 100%;
+    }
+    .trs{
+        width: 100%;
+        height: 7vh;
+        &:nth-child(even){
+            background-color: @TableCustomer;
+            
+        }
+        &:nth-child(odd){
+            background-color: @WhiteBG;
+        }
+    }
+    td{
+      
+        
+        font-size: 0.75rem;
+        font-weight: bold;
+        text-align: left;
+        color: @RegularBlack;
+        margin-left: 1%;
+    }
+    .name{
+        width: 31%;
+    }
+    .hour{
+        width: 17%;
+    }
+    .table{
+        width: 11%;
+    }
+    .date{
+        width:4%;
+    }
+}
+
+}
+.datepic{
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    border: 0.5px solid @GrayBorder;
+    margin-bottom: 2%;
+    button{
+        color: @mainColor;
+        background-color: @WhiteBG;
+        width: 4vw;
+        box-shadow: 0 0 2px 0 rgba(199, 190, 190, 0.5);
+        border: 0.5px solid @GrayBorder;
+
+        &:focus{
+            outline: 0
+        }
+    }
+    .picker{
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        height: 4vw;
+        span{
+            height: 100%;
+            width: 100%;
+            div{
+                height: 100%;
+                input{
+                    text-align: center;
+                    font-size: 1rem;
+                    font-weight: bold;
+                    color: @mainColor;
+                    height: 100%;
+                }
+            }
+        }
+        button
+        {
+          height: 100%;
+          width: 3.3vw;
+        }
+      
+    }
+}
+
+.saveBtns{
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+    margin: 0 auto;
+    height: fit-content;
+    margin-top: 3%;
+    button{
+        border-radius: 20px;
+        box-shadow: 0 0 2px 0 rgba(80, 80, 80, 0.28);
+        border: solid 0.5px rgba(179, 176, 176, 0.34);
+        width: 11vw;
+        height: 5vh;
+        
+        font-size: 1.2rem;
+        &:focus{
+            outline: 0;
+        }
+        &:nth-child(1){
+            background-image: linear-gradient(to bottom, @WhiteBG, @darkWite);
+            color:@mainColor
+        }
+        &:nth-child(2){
+            background-image: linear-gradient(to bottom, @mainColor, @mainColor);
+            color:@WhiteBG
+        }
+
+    }
+    
+}

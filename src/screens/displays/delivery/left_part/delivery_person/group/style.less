@@ -1,0 +1,47 @@
+@import '~@assets/Colors.less';
+
+.group{
+    height: 8%;
+    display: flex;
+    justify-content: space-between;
+
+    P{
+        align-self: center;
+        margin: 0;
+        font-size: 1.5vh;
+        
+        font-weight: 600;
+        color: #000000;
+    }
+
+    .btns{
+        align-self: center;
+        width: 45%;
+        height: 80%;
+        display: flex;
+        justify-content: space-between;
+
+        button{
+            align-self: center;
+            height: 85%;
+            width: 34%;
+            
+            font-size: 1.5vh;
+            font-weight: 600;
+            color: @mainColor;
+            box-shadow: 0 0 2px 0 rgba(199, 190, 190, 0.5);
+            border: solid 0.5px #e1e1e1;
+            background-image: linear-gradient(to bottom, #ffffff, #f7f7f7);
+
+            &:first-child{
+                border-top-left-radius: 6px;
+                border-bottom-left-radius: 6px;
+            }
+            
+            &:last-child{
+                border-top-right-radius: 6px;
+                border-bottom-right-radius: 6px;
+            }
+        }
+    }
+}

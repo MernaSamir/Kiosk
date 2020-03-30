@@ -1,0 +1,42 @@
+@import '~@assets/Colors.less';
+.contaier{
+    padding: 0.5% 1% 0% 1%;
+        .header{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        .tabs{
+            display: flex;
+            .navHeader{
+                color:@RegularBlack;
+                padding: 23px;
+                background-color: @WhiteBG;
+                border-right:1px solid @GrayBorder;
+                span{
+                    font-size: 1rem;
+                    
+                    font-weight:bold;
+                }
+            }
+            .active{
+                color: @mainColor;
+                background-color: @mainColor;
+                color: @WhiteBG;
+            }
+        }
+        
+        
+    }
+    ::-webkit-scrollbar {
+        height: 1%;
+        width: .8%;
+    }
+    ::-webkit-scrollbar-thumb {
+        background:@listScroll;
+        border-radius: 25px;
+    }  
+}
+    
+
+

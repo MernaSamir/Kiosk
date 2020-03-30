@@ -1,0 +1,213 @@
+.paymentT{
+    height: 86%;
+}
+
+.Takeaway-options{
+    height: 20%;
+    /* background-color: aqua; */
+    display: flex;
+    /* justify-content: center;
+    align-content: center;  
+    height: 100%; */
+
+}
+
+.upbtns{
+    display: flex;
+    justify-content: space-between;
+    margin: 0 auto;
+    height: 100%;
+    width: 35%;
+}
+
+.btn{
+    align-self: center;
+    border-radius: 10px;
+    border: 1px solid #e0e0e0;
+    background-image: linear-gradient(to bottom, #fafafa, #f1f1f1);
+    
+    font-size: 0.8rem;
+    text-align: center;
+    color: gray;
+    cursor: pointer;
+    height: 70%;
+    width: 45%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.eatIn{
+    padding-left: 3%;
+    margin-left: 0;
+    margin-left: -30%;
+    width: 30%;
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: column;
+    /* background-color: rebeccapurple; */
+}
+
+.eatIn p{
+    padding: 5% 0% 2% 0%;
+    margin: 0 0;
+    color: #b1adad;
+    font-size: 2vh;
+}
+
+.eatIn input{
+    width: 70%;
+    height: 46%;
+    border: 1px solid #b1adad;
+    border-radius: 5.5px;
+    outline: none;
+}
+
+.options-numeric{
+    display: grid;
+    grid-template-columns: 48% 42%;
+    grid-column-gap: 10%;
+    height: 80%;
+}
+
+.leftpay{
+    display: grid;
+    grid-template-rows: 80% 18%;
+    grid-row-gap: 2%;
+    height: 100%;
+}
+
+.options-paym{
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+#titlep{
+    text-align: center;
+    margin: 0;
+    /* align-self: center;
+    font-size: 0.9rem;
+    margin: 2% 0% 2% 0%;
+    color: #fe534c; */
+}
+
+.payTypesbts{
+    display: flex;
+    flex-wrap: wrap;
+    width: 90%;
+    justify-content: space-around;
+    align-content: center;
+    height: 88%;
+    margin: 0 auto;
+}
+
+.payTypesbts .btn{
+    border-radius: 5.5px;
+    border: 1px solid #e0e0e0;
+    background-image: linear-gradient(to bottom, #fafafa, #f1f1f1);
+    
+    font-size: 0.73rem;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    justify-content: space-around;
+    /* white-space: nowrap; */
+    color: gray;
+    cursor: pointer;
+    height: 16%;
+    width: 40%;
+    margin-bottom: 3%; 
+}
+
+.nump-done{
+    display: grid;
+    grid-template-rows: 88% 12%;
+    height: 100%;   
+}   
+
+.done{
+    /* display: flex;
+    flex-wrap: wrap; */
+    width: 90%;
+    /* justify-content: space-around; */
+    /* align-content: center; */
+    /* padding: 5px; */
+    height: 100%;
+    /* margin-left: 5%; */
+
+}
+.done .btn{
+    border-radius: 5.5px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    text-align: center;
+    margin-right: -2%;
+}
+
+
+.imgst
+{
+    margin-right: 10%;
+}
+/* input[type=checkbox] + label {
+    display: flex;
+    cursor: pointer;
+   justify-content: center;
+    align-items: center;
+    align-content: center;
+  } */
+  
+  /* input[type=checkbox] {
+  }
+  
+  input[type=checkbox] + label:before {
+    content: "\2714";
+    border: 1.3px solid #fe534c;
+    border-radius: 2px;
+    width: 9%;
+    height: 40%;
+    color: transparent;
+    justify-content: space-around;
+    text-align: center;
+    font-family: 'NunitoSans';
+    font-weight: bold;
+    font-size: 1.1rem;
+    margin: 4%;
+    font-family: 'NunitoSans';
+
+        
+
+  }
+ 
+ 
+  input[type=checkbox] + label:active:before {
+    transform: scale(0);
+  }
+  
+  input[type=checkbox]:checked + label:before {
+    background-color: #ffffff;
+    border-color: #fe534c;
+    color: #fe534c;
+  }
+  
+  input[type=checkbox]:disabled + label:before {
+    transform: scale(1);
+    border-color: #fe534c;
+  }
+  
+  input[type=checkbox]:checked:disabled + label:before {
+    transform: scale(1);
+    background-color: #fe534c;
+    border-color: #fe534c;
+  } */
+  @media screen and (max-width:800px){
+    .options-numeric{
+        display: grid;
+        grid-template-columns: 45% 55%;
+        grid-column-gap: 0%;
+        height: 80%;
+    }
+  }

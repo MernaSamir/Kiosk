@@ -1,0 +1,18 @@
+.back-squre{
+    height: 2%;
+    width: 10%;
+    background-color: #ffffff;
+    border: 1px solid #474747;
+    border-radius: 3px;
+    display: flex;
+    justify-content: space-around;
+}
+
+.in-squre{
+    height: 70%;
+    width: 70%;
+    background-color: #fe534c;
+    border-radius: 1.5px;
+    margin: 0 auto;
+    align-self: center;
+}

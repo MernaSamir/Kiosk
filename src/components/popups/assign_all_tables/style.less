@@ -1,0 +1,74 @@
+@import '~@assets/Colors.less';
+
+.container{
+    padding: 2% 4%;
+    margin: 0;
+    height: 50vh;
+    display: flex;
+    flex-direction: column;
+
+    .title{
+        height: 15%;
+        display: flex;
+        justify-content: space-around;
+
+        p{
+            
+            font-weight: bold;
+            margin: 0;
+            font-size: 1.5rem;
+            align-self: center;
+            color: @RegularBlack;
+        }
+    }
+
+    .waiters_div{
+        height: 70%;
+        display: flex;
+        flex-direction: column;
+
+        button{
+            
+            font-weight: 600;
+            align-self: center;
+            height: 18%;
+            width: 70%;
+            box-shadow: 0 0 2px 0 rgba(80, 80, 80, 0.28);
+            border: solid 0.5px rgba(179, 176, 176, 0.34);
+            background-color: #ffffff;
+            font-size: 1rem;
+            color: @RegularBlack;
+            margin-bottom: 1%;
+
+            &:last-child{
+                margin-bottom: 0;
+            }
+        }
+    }
+
+    .footer{
+        align-self: center;
+        height: 15%;
+        width: 50%;
+        display: flex;
+        justify-content: space-between;
+
+        button{
+            
+            align-self: center;
+            height: 70%;
+            width: 45%;
+            border-radius: 18px;
+            box-shadow: 0 0 2px 0 rgba(80, 80, 80, 0.28);
+            border: solid 0.5px rgba(179, 176, 176, 0.34);
+            background-image: linear-gradient(to bottom, #f3f0f0, #ebe9e9);
+            font-size: 1rem;
+            color: @RegularBlack;
+        }
+
+        #ok{
+            color: #ffffff;
+            background-image: linear-gradient(to bottom, @mainColor, @mainColor);
+        }
+    }
+}

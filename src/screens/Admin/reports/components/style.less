@@ -1,0 +1,66 @@
+@import '~@assets/Colors.less';
+
+.filter{
+    padding: 3% 0;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    div{
+        display: flex;
+        justify-content: space-around;
+        width: 100%;
+        padding-left: 5%;
+
+        p{
+            margin: 0;
+            align-self: center;
+            width: 30%;
+            
+            font-size: 1rem;
+            font-weight: bold;
+            color: @HeadersGray;
+        }
+    }
+    .shift{
+        width: 53%;
+        div{
+            width:100%
+        }
+    }
+}
+
+.header_container{
+    height: fit-content;
+    width: 100%;
+    padding: 2% 1% 0% 1%;
+    display: flex;
+    flex-direction: column;
+
+    .control_container {
+        background-color: #c3d4ea;
+        display: flex;
+      justify-content: space-between;
+        height: 86vh;
+    }
+
+    .inner{
+        width: 40%;
+        max-height: 80vh;
+        overflow: auto;
+        background-color: #ffffff;
+        border: 1px solid #cccccc;
+        border-radius: 10px;
+        display: flex;
+        flex-direction: column;
+     }
+}
+
+.inner::-webkit-scrollbar {
+    height: 1%;
+    width: 1%;
+}
+
+.inner::-webkit-scrollbar-thumb {
+    background: @listScroll;
+    border-radius: 25px;
+}

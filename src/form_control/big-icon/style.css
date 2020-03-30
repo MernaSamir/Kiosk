@@ -1,0 +1,10 @@
+.icons{
+    align-items:center;
+    height:100%;
+    width: 100%;
+    justify-content:center;
+    align-content:center ;
+    display:flex;
+    padding:  0% 50%;
+    margin-top: 30%;
+}

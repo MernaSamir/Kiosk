@@ -1,0 +1,102 @@
+@import '~@assets/Colors.less';
+
+.title{
+    padding: 0% 2.5% 0% 3%;
+    height: 8%;
+    display: flex;
+    justify-content: space-between;
+
+    p{
+        align-self: center;
+        margin: 0;
+        margin-left: 42%;
+        color: #000000;
+        font-size: 1.2rem;
+        font-weight: bold;
+        
+
+    }
+
+    button{
+        align-self: center;
+        height: 65%;
+        width: 5%;
+        border-radius: 20px;
+        box-shadow: 0 0 2px 0 rgba(199, 190, 190, 0.5);
+        background-image: linear-gradient(to bottom, #ffffff, #f7f7f7);
+        border: 1px solid #e1e1e1;
+        outline: none;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        color: @mainColor;
+        font-size: 2vh;
+    }
+}
+
+.search_btn_pag_row{
+    padding: 0% 2.5% 0% 3%;
+    height: 8%;
+    display: flex;
+    justify-content: space-between;
+
+    .search{
+        width: 55%;
+        display: flex;
+        align-items: center;
+        display: flex;        
+    }
+    
+    .btn_pag_div{
+        width: 45%;
+        display: flex;
+        justify-content: space-between; 
+
+        .btn{
+            align-self: center;
+            width: 42%;
+            border-radius: 22px;
+            box-shadow: 0 0 2px 0 rgba(199, 190, 190, 0.5);
+            background-image: linear-gradient(to bottom, #ffffff, #f7f7f7);
+            border: 1px solid #e1e1e1;
+            color: @mainColor;
+            font-weight: 600;
+            outline: none;
+            
+            margin: 0 2%;
+            padding: 1.6%
+        }
+        
+        .pag_div{
+            align-self: center;
+            width: 46%;
+            height: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            .pag_btn{
+                align-self: center;
+                height: 75%;
+                width: 34%;
+                border-radius: 20px;
+                box-shadow: 0 0 2px 0 rgba(199, 190, 190, 0.5);
+                background-image: linear-gradient(to bottom, #ffffff, #f7f7f7);
+                border: 1px solid #e1e1e1;
+                outline: none;
+                
+                .icon{
+                    font-size: 2vh;
+                    color: @mainColor;
+                }
+            }
+            p{
+                font-size: 1.5vh;
+                color: @RegularBlack;
+                align-self: center;
+                margin: 0;
+                
+            }
+        }
+    }
+}

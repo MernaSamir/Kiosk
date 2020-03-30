@@ -1,0 +1,26 @@
+.color-palette-container{
+    height: 55vh;
+    /* background-color: wheat; */
+    padding: 1%;
+    margin: 0;
+    display: flex;
+    justify-content: space-around;
+}
+
+.color-palette-container .colors-div{
+    align-self: center;
+    height: 55%;
+    width: 70%;
+    display: flex;
+    flex-wrap: wrap;
+    /* background-color: lightcoral; */
+}
+
+.colors-div .color-btn{
+    margin-right: 3%;
+    width: 30%;
+    height: 28%;
+    border: none;
+    border-radius: 5.5px;
+    outline: none;
+}

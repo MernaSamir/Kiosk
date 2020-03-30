@@ -1,0 +1,203 @@
+@import '~@assets/Colors.less';
+
+////customerList/index.js/////
+
+.customerList {
+    display         : flex;
+    justify-content : space-between;
+    align-items     : center;
+    flex-direction  : column;
+    background-color: @menuBackground;
+    form{
+        width: 100%;
+    }
+}
+
+////customerList/components/header.js////
+
+.header {
+    display        : flex;
+    justify-content: space-between;
+    width          : 100%;
+    padding        : 1%;
+
+    .right {
+        min-width      : 40%;
+        display        : flex;
+        justify-content: space-around;
+        align-items    : center;
+
+        .paging {
+            display: flex;
+            width  : 40%;
+
+            p {
+                margin     : 0;
+                text-align : center;
+                
+                font-size  : 1rem;
+                color      : #4c4b4b;
+                align-self : center;
+                margin     : 0% 3%;
+            }
+
+            button {
+                border-radius   : 5vw;
+                color           : @mainColor;
+                background-color: @WhiteBG;
+                width           : 4.5vw;
+                box-shadow      : 0 0 2px 0 rgba(199, 190, 190, 0.5);
+                border          : solid 0.5px @GrayBorder;
+                padding         : 5%;
+                outline         : none;
+            }
+        }
+
+        .button {
+            color           : @mainColor;
+            border-radius   : 5vw;
+            box-shadow      : 0 0 2px 0 rgba(199, 190, 190, 0.5);
+            border          : solid 0.5px @GrayBorder;
+            background-image: linear-gradient(to bottom, @listBackground, @appBackground);
+            padding         : 1%;
+            min-width       : 38%;
+            margin-left     : 8%;
+        }
+    }
+
+    .search {
+        width      : 55%;
+        display    : flex;
+        align-items: center;
+        display    : flex;
+    }
+}
+
+////customerList/components/table/index.js////
+
+.table_div {
+    width : 100%;
+    height: 82%;
+
+    table {
+        width          : 100%;
+        border-collapse: separate;
+        border-spacing : 0 1em;
+
+        thead {
+            tr {
+                th {
+                    height          : 2vh;
+                    background-color: @menuBackground;
+                    
+                    font-size       : 1rem;
+                    color           : @CustomerTextColor;
+                }
+            }
+        }
+
+        tbody {
+            .trs {
+                &:nth-child(even) {
+                    background-color: @TableCustomer;
+                }
+
+                &:nth-child(odd) {
+                    background-color: @WhiteBG;
+                }
+            }
+
+            tr {
+
+                td {
+                    height     : 3vh;
+                    color      : @RegularBlack;
+                    
+                    font-size  : 1rem;
+
+                    .container {
+                        border-right: 1px solid @CustomerTextColor;
+                        height      : 3vh;
+                        width       : 90%;
+                        align-items : center;
+                        display     : flex;
+                    }
+                }
+
+            }
+        }
+
+        .action {
+            width: 5%;
+        }
+
+        .emptywidth {
+            width: 3%;
+        }
+
+        .name {
+            width     : 16%;
+            min-width : 16%;
+            max-width : 16%;
+            text-align: left;
+        }
+
+        .addr {
+            width     : 20%;
+            min-width : 16%;
+            max-width : 20%;
+            text-align: left;
+
+        }
+
+        .group {
+            width     : 10%;
+            min-width : 10%;
+            max-width : 10%;
+            text-align: center;
+
+        }
+
+        .phone {
+            width     : 10%;
+            min-width : 10%;
+            max-width : 10%;
+            text-align: left;
+
+        }
+
+        .normal {
+            border-radius   : 5vw;
+            border          : solid 1px @Customerbutton;
+            color           : @Customerbutton;
+            background-color: @listBackground;
+            width           : 7vw;
+
+            &:focus {
+                outline: 0
+            }
+        }
+
+        .actions {
+            width           : 3vw;
+            border-radius   : 5vw;
+            color           : @mainColor;
+            background-color: @listBackground;
+            width           : 3.5vw;
+            height          : 2.5vw;
+            box-shadow      : 0 0 2px 0 rgba(199, 190, 190, 0.5);
+            border          : solid 0.5px @GrayBorder;
+            padding: 0;
+            font-size: 0.9rem;
+
+            &:focus {
+                outline: 0
+            }
+        }
+
+        .icons {
+            width     : 5%;
+            text-align: left;
+        }
+    }
+}

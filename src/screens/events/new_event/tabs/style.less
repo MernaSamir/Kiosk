@@ -1,0 +1,305 @@
+@import '~@assets/Colors.less';
+
+.basicDiv{
+    display: flex;
+    flex-direction: column;
+    overflow-y: scroll;
+    background: @WhiteBG; 
+    height: 100%;
+
+    .p{
+        display: block;
+        
+        font-size: 1rem;
+        font-weight: bold;
+        text-align: left;
+        color: @RegularBlack;
+        background: @WhiteBG;
+        border-radius: 7.5px;
+        margin: 0;
+        padding: 0.5% 4% 0%;
+    }
+
+    .form{
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: flex-start;
+        background: @WhiteBG;
+        padding: 0% 3%;
+
+        .buttonpop{
+            display: flex;
+            flex-direction: column;
+            padding: 0.8vw;
+            min-width: 8%;
+            justify-content: space-between;
+
+            label{
+                font-size: 1rem;
+                font-weight: bold;
+                color: @fontMainColor;
+            }
+
+            button{
+            width: 15vw;
+            border-radius: 5.5px;
+            border: 1px solid @listBackButtonBorder;
+            background-color: @WhiteBG;
+            font-size: 1rem;
+            color: @mainColor;
+            font-weight: bold;
+            padding: 0.8vw;
+            }
+        }
+        
+        .timepick{
+            width: 20%;
+            display: flex;
+            flex-direction: column;
+            padding: 0.8vw;
+            justify-content: space-between;
+
+            label{
+                font-size: 1rem;
+                font-weight: bold;
+                color: @fontMainColor;
+            }
+
+            span{
+
+                input{
+                     width: 15vw; 
+                    border-radius: 2.5px;
+                    border: 1px solid @listBackButtonBorder;
+                    background-color: @WhiteBG;
+                    font-size: 1rem;
+                    color:  @mainColor;
+                    font-weight: bold;
+                    padding: 1.6vw;
+                    display: flex;
+                    justify-content: space-between;
+                }    
+
+            }        
+        }
+
+        .duration{
+            display: flex;
+            flex-direction: column;
+            padding: 0.8vw;
+            min-width: 8%;
+            justify-content: space-between;
+
+            label{
+                font-size: 1rem;
+                font-weight: bold;
+                color: @fontMainColor;
+            }
+
+            input{
+                border-radius: 2.5px;
+                border: 1px solid;
+                border: solid 1px #d3d3d3;
+                width: 5vw;
+                min-height: 6vh;
+                text-align: center;
+                color: #000000;
+                font-size: 1rem;
+            }
+        }
+
+        .eventTBOX{
+             display: flex;
+            flex-direction: column;
+            padding: 0.8vw;
+            justify-content: space-between;
+
+            label{
+                font-size: 1rem;
+                font-weight: bold;
+                color: @fontMainColor;
+            }
+
+            input{
+                border-radius: 2.5px;
+                border: 1px solid;
+                border: solid 1px #d3d3d3;
+                width: 28vw;
+                min-height: 6vh;
+                text-align: center;
+                color: #000000;
+                font-size: 1rem;
+            }
+        }
+    }
+}
+
+.noteDiv{
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    // min-height: 35.5vh;
+    // max-height: 35.5vh;
+    width: 100%;
+    overflow-y: scroll;
+    background: @WhiteBG; 
+    padding: 2% 5%;
+
+    .p{
+        font-size: 1rem;
+        font-weight: bold;
+        text-align: left;
+        color: @RegularBlack;
+        margin-bottom: 28px;
+        width: 100%;
+    }
+
+    .note{
+        display: flex;
+        width: 50%;
+        flex-wrap: wrap;
+
+        label{
+            color: @HeadersGray;
+            background: @WhiteBG;
+            font-size: 1rem;
+            font-weight: bold;
+            text-align: left;
+            margin: 0;
+            width: 100%;
+        }
+
+        form{
+            display: flex;
+
+            div{
+                display: flex;
+                padding: 0%;
+            }
+
+            p{
+                min-width: 28vw;
+            }
+        }
+
+        input[type="text"]{
+            border-radius: 7.5px;
+            border: 1px solid;
+            border: solid 1px #d3d3d3;
+            width: 37vw;
+            min-height: 13vh; 
+            text-align: left;
+            color:@RegularBlack;
+            font-size: 1rem; 
+        }
+    }    
+}
+
+.DepositeDiv{
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    overflow-y: scroll;
+    background: @WhiteBG;
+
+    div{
+        display: flex;
+        flex-wrap: wrap;
+
+        .p{
+            width:  100%;
+            font-size: 1rem;
+            font-weight: bold;
+            text-align: left;
+            color: @RegularBlack;
+            background: @WhiteBG;
+            border-radius: 7.5px;
+            margin: 0;
+            padding: 0.5% 4% 0%;
+        }
+
+        .form{
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            justify-content: flex-start;
+            background: @WhiteBG;
+            padding: 0% 3%;
+            margin: 0 3%;
+
+            label{
+                font-size: 1rem;
+                font-weight: bold;
+                color: @headerFont;
+            }
+
+            .buttonpop{
+                display: flex;
+                flex-direction: column;
+                padding: 0.8vw;
+                min-width: 8%;
+                justify-content: space-between;
+
+                label{
+                    font-size: 1rem;
+                    font-weight: bold;
+                    color: @headerFont;
+                }
+
+                button{
+                    width: 15vw;
+                    border-radius: 2.5px;
+                    border: 1px solid @listBackButtonBorder;
+                    background-color: @WhiteBG;
+                    font-size: 1rem;
+                    color: @RegularBlack;
+                    font-weight: bold;
+                    padding: 0.8vw;
+                }
+            }
+        }
+
+        .depoBtn{
+            box-shadow: 0 0 2px 0 rgba(199, 190, 190, 0.5);
+            border: solid 0.5px #e1e1e1;
+            background-image: linear-gradient(to bottom, #ffffff, #f7f7f7);
+            font-size: 0.9rem;
+            text-align: center;
+            color: #d73f7c;
+            border-radius: 5vw;
+            width: 13vw;
+            height: 5vh;
+            align-self: center;
+            margin-top: 2%;
+
+            &:focus{
+                outline: 0
+            }
+        }
+
+        .Select{
+            display: flex;
+            flex-direction: column;
+            padding: 0.8vw;
+            min-width: auto;
+            justify-content: space-between;
+
+            label{
+                font-size: 1rem;
+                font-weight: bold;
+                color: @headerFont;
+            }
+
+            div{
+                div{
+                    div{
+                        width: 12vw;
+                        height: 5vh;
+                    }
+                }
+            }
+        }
+    }
+}
+

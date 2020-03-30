@@ -1,0 +1,87 @@
+@import '~@assets/Colors.less';
+
+.container {
+   width:100%;
+   background-color: @menuBackground;
+   display: flex;
+   color: black;
+   flex-direction: column;
+   justify-content: space-around;
+
+   .viewHeader{
+      text-align: center;
+   }
+
+   .orderName{
+      font-size: 1.5rem;
+      font-weight: bolder;
+  }
+
+  .statusBox{
+   background-color: white;
+   border: 1px solid black;
+   margin: 1%;
+   display: flex;
+   justify-content: center;
+  }
+
+   .btns{
+      align-self: center;
+      height: 4vh;
+      width: 32%;
+      display: flex;
+      justify-content: space-between;
+
+      button {
+         align-self: center;
+         height: 95%;
+         width: 40%;
+         border-radius: 18px;
+         box-shadow: 0 0 2px 0 rgba(199, 190, 190, 0.5);
+         border: solid 1.5px #959aa9;
+         outline: none;
+         background-color: @menuBackground;
+
+         &:focus{
+            border: solid 1.5px @mainColor;
+            color: @mainColor;
+         }
+      }
+   }
+}
+
+.table {
+   width: 100%;
+   text-align: center;
+
+   tr {
+      margin-bottom: 1%;
+      th {
+         color: @RegularBlack;
+         height: 5.5vh;
+      }
+      td {
+         border: 1.5px solid #ffffff;
+         font-weight:600; 
+         height: 5.5vh;
+      }
+   }
+   .late{
+      td{
+         background-color: @LateColor;
+         color: black;
+      }
+   }
+   .voided{
+      td{
+         background-color: @VoidColor;
+      }
+   }
+
+   .normal{
+      td{
+         background-color: @ReadyColor;
+         color: black;
+      }
+   }
+}

@@ -1,0 +1,56 @@
+.PC_main{
+    /* width: 20%; */
+}
+
+.cameraBox{
+    width: 15vw;
+    height: 15vw;
+    margin: 1% auto;
+    /* padding: 20% 1%; */
+    border: 0.5px solid #e6e6e6;
+    border-radius: 2.5px;
+    background-color: #ffffff;
+    display: flex;
+    justify-content: center;
+}
+
+.PC_flexBox{
+    width: 80%;
+    margin: 2% auto;
+    padding: 1%;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.ColorPicker{
+  width: 4vw;
+  height: 4vw;
+  border-radius: 0.2vw;
+  margin: 1% 2%;
+  cursor: pointer;
+  border: 0.5px solid #e6e6e6;
+}
+
+.colors{
+  width: 3vw;
+  height: 3vw;
+  border-radius: 0.2vw;
+  margin: 1vw;
+  cursor: pointer;
+  border: 0.5px solid #e6e6e6;
+}
+
+.PC_comment{
+    width: 4vw;
+  height: 4vw;
+  border: 0.5px solid #e6e6e6;
+  border-radius: 0.2vw;
+  padding: 3%;
+  margin: 1% 10%;
+  display: flex;
+  justify-content: center; 
+  align-items: center;
+}

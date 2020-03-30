@@ -1,0 +1,112 @@
+@import '~@assets/style-settings.less';
+@import '~@assets/Colors.less';
+
+.parent_container{
+    height: 2.5vw;
+    padding-left: 5%;
+    padding-right: 5%;
+    margin-left: 1px;
+    display: flex;
+    justify-content: space-between;
+    // background-color: @listItemsBackground;  
+    cursor: pointer;
+}
+
+.parent_p{
+    .FontSettings(0.9vw,@fontSubcolor);
+    margin: 0;
+    font-size: 1vw;
+    align-self: center;
+}
+
+
+/* ///////////row.js/////////////// */
+
+.row_container{
+    height: 2.5vw;
+    padding-left: 2%;
+    margin-left: 1px;
+    display: flex;
+    justify-content: space-between; 
+    cursor: pointer;
+
+    p{
+        .FontSettings(0.9vw,@fontSubcolor);
+        margin: 0;
+        font-size: 1vw;
+        align-self: center;
+    }
+}
+
+.parent_icon{
+    margin-right: 5%;
+    align-self: center;
+    font-size: 2.5vh;
+}
+
+.row_container_active{
+    height: 2.5vw;
+    padding-left: 2%;
+    margin-left: 1px;
+    // background-color: @listActiveItemBackground;
+    display: flex;
+    justify-content: flex-start; 
+    cursor: pointer;
+
+    p{
+        .FontSettings(0.9vw,@fontSubcolor);
+        margin: 0;
+        font-size: 1vw;
+        color: #c32c68;
+        align-self: center;
+    }
+}
+
+.row_container_layer3{
+    display: flex;
+    flex-direction: column;
+    padding-left: 8%;
+    // background-color: @listItemsBackground;
+}
+
+.msg_div, .active_msg_div{
+    height: 7vh;
+    padding: 3% 0% 3% 2%;
+    margin: 0;
+
+    .firstrow{
+        height: 35%;
+        display: flex;
+        justify-content: space-between;
+
+        p{
+            align-self: center;
+            font-size: 1vw;
+            color: @HeadersGray;
+            margin: 0;
+            font-family: NunitoSans;
+            font-weight: bold;
+        }
+
+        #date{
+            color: @RegularBlack;
+        }
+    }
+
+    .secrow{
+        height: 60%;
+        display: flex;
+        justify-content: space-around;
+
+        p{
+            align-self: center;
+            font-size: 1vw;
+            color: @HeadersGray;
+            margin: 0;
+        }
+    }
+}
+
+.active_msg_div{
+    // background-color: @listActiveItemBackground;
+}

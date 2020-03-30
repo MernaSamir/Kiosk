@@ -1,0 +1,156 @@
+@import '~@assets/Colors.less';
+.header_container{
+    display: flex;
+    flex-direction: column;
+    padding: 0% .2em;
+    .Header{
+        table{
+            tr{
+                color: #000000;
+                font-size: .9em;
+                width: 100%;
+                font-family: Tahoma;
+            }
+        }
+        border-bottom: 2px solid #707070 ;
+
+    }
+    .details{
+        border-bottom: 2px solid #707070 ;
+        .title{
+            font-family: Tahoma;
+            font-size: 1em;
+            margin: 0;
+            color: #000000;
+            font-weight: normal;
+
+        }
+        table{
+            tr{
+                height: 1vh;
+            }
+            thead{
+                tr{
+                    width: 100%;
+                    th{
+                        font-size: 1em;
+                        font-family: Tahoma;
+                        color: #000000;
+                        min-width: 10em;
+                        font-weight: normal;
+                        &:nth-child(2){
+                            text-align: right;
+                        }
+                        
+                    }
+                }
+                .modesHead{
+                    width: 100%;
+                    th{
+                        font-size: .9em;
+                        font-family: Tahoma;
+                        color: #000000;
+                        text-align: left  !important; 
+                        
+                    }
+                }
+
+            }
+            .modesBody{
+                td{
+                    font-size: 1em;
+                    font-family: Tahoma;
+                    color: #000000;
+                    &:nth-child(1){
+                        width: 6em;
+                    }
+                }
+            }
+
+             .tbody_item{
+                .key{
+                    font-size: 1em;
+                    font-family: Tahoma;
+                    color: #000000;
+                    text-align: center;
+
+
+
+                }
+                .value{
+                    text-align: right;
+                    font-size: 1em;
+                    color: #000000;
+                    font-family: Tahoma;
+                    text-align: left;
+
+
+
+                }
+            }
+        } 
+        
+        
+    }
+
+    .footer{
+        margin-top: .2em;
+        margin-bottom: .1em;
+        height: fit-content;
+
+        p{
+            margin: 0;
+            font-size: 1em;
+            text-align: center;
+        }
+    }
+   
+}
+
+.control_container{
+    padding: 2% 1.5%;
+    margin: 0 0;
+    height: 100%;
+    
+   
+}
+@media only screen and (max-width: 800px){
+    .control_container{
+        padding: 3% 2.5%;
+        margin: 0 0;
+    }
+}
+
+.inner{
+    height: 100%;
+    background-color: #ffffff;
+    border: 1px solid #cccccc;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+
+    
+}
+
+.title_div{
+    padding: 3% 4%;
+    margin: 0 0;
+    display: flex;
+    width: 100%;
+    justify-content: center;        
+
+    p{
+        align-self: center;
+        margin: 0%;
+        font-size: 2vh;
+    }
+    .title{
+        align-self: center;
+        font-size: 2.5vh;
+        font-weight: bold;
+        color: @RegularBlack;
+    }
+}
+
+
+

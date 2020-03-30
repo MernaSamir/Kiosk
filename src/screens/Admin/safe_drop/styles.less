@@ -1,0 +1,146 @@
+@import '~@assets/Colors.less';
+form{
+    height: fit-content;
+    .form{
+        background-color: @WhiteBG;
+        padding: 2%;
+        height: 95%;
+        margin: 0% 2%;
+        border-radius: 1vw;
+        border-radius: 7.5px;
+        border: solid 0.3px rgba(112, 112, 112, 0.4);
+        .p{
+
+            
+            font-size: 1.1rem;
+            font-weight: 600;
+            text-align: left;
+            color: @headerFont;
+            margin: 0%;
+            padding: 1%;
+        }
+        .tabDiv{
+            display: flex;
+            justify-content: space-around;
+            height: 60vh;
+            border: solid 0.5px @GrayBorder;
+            background-color: @rowBackground2;
+            .left{
+                display: flex;
+                flex-direction: column;
+                width: 50%;
+                padding-top: 0vw;
+                justify-content: space-around;
+                margin: 5% 0 0%;
+            
+                .time{
+                    
+                    font-size: 1.2rem;
+                    font-weight: 600;
+                    color: @RegularBlack;
+                    margin: 0;
+                    padding: 1%;
+                    &:nth-child(2){
+                        font-weight: bold;
+                        font-size: 1.3rem;
+
+
+                    }
+                }
+               
+                .tipsPayO{
+                    width: 20vw;
+                    display: flex;
+                    align-items: center;
+                    justify-content: space-between;
+                    label{
+                        
+                        font-size: 1rem;
+                        font-weight: bold;
+                        color: @HeadersGray;
+                        align-self: center;
+                    }
+                    input{
+                        width: 11vw;
+                        padding: 4%;
+                        text-align: center;
+                        border: none;
+                        border-radius: 2.5px;
+                        border: solid 1px @mainColor;
+                        background-color: @WhiteBG;
+                        color: @mainColor;
+                    }
+
+                }
+                .footer{
+                    display: flex;
+                    justify-content: space-between;
+                    .note{
+                        width: 5vw;
+                        div{
+                            button{
+                                box-shadow: 0 0 2px 0 rgba(80, 80, 80, 0.28);
+                                border: solid 0.5px rgba(179, 176, 176, 0.34);
+                                border-radius: 5vw;
+                                min-width: 3vw;
+                                min-height: 2.5vw;
+                                color: @mainColor;
+                                background-color: @WhiteBG;
+                                font-size: 1.2rem;
+                                padding: 0;
+                                width: 5vw;
+                            }
+                        }
+                    }
+                    
+                    button{
+                        box-shadow: 0 0 2px 0 rgba(80, 80, 80, 0.28);
+                        border: solid 0.5px rgba(179, 176, 176, 0.34);
+                        border-radius: 5vw;
+                        width: 26%;
+                        background-color:@WhiteBG;
+                        font-size: 1rem;
+                        font-weight: bold;
+                        color: @RegularBlack;
+                        &:focus{
+                            outline: 0
+                        }
+                       
+                        
+
+
+                    }
+                    .save{
+                        display: flex;
+                        justify-content: flex-end;
+                        button{
+                            width: 11vw;
+                            &:nth-child(1){
+                                margin-right: 1%;
+                                background-image: linear-gradient(to bottom, @linerBackgroun1, @linerBackgroun2);
+                            }
+                            &:nth-child(2){
+                                color: @WhiteBG;
+                                background-color: @mainColor
+                            }
+                        }
+                    }
+                }
+            }
+            .right{
+                display: flex;
+                align-items: center;
+                .numPad{
+                    div{
+
+                        display: grid;
+                        grid-template:'. . .''. . .''. . .''. . .';
+                        grid-gap: 2%;
+                    }
+                
+                }
+        }
+
+        }
+    }
+}

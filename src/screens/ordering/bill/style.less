@@ -1,0 +1,78 @@
+@import '~@assets/Colors.less';
+
+.myContainer{
+    padding-right: 1.5%;
+    padding-left: 1.5%;
+    margin-right: auto;
+    margin-left: auto;
+
+    .order{
+        height: 80%;
+        // background-image: linear-gradient(to bottom, #ffffff, #f1edef   );
+        background-color: #ffffff;
+    }
+}
+
+.bill{
+    background-color: @menuBackground;
+    height: 100%;
+    padding: .1px;
+}
+
+.payment_bill{
+    height: 100%;
+    width: 100%;
+    background-color: #eeeced;
+    box-shadow: 0px 3px 8px #ccc;
+}
+
+.order{
+    height: 73%;
+    width: 100%;
+    // background-image: linear-gradient(to bottom, #ffffff, #f6f6f6    );
+    /* border: 1px solid; */
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.07);
+    margin-bottom: 1%;
+}
+
+.dineIn_order{
+    height: 60%;
+    width: 100%;
+    background-image: linear-gradient(to bottom, #ffffff, #f6f6f6    );
+    /* border: 1px solid; */
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.07);
+    margin-bottom: 1%;
+}
+
+.popup {
+    position: relative;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    z-index: 10;
+}
+
+.collapse_div{
+    height: 40vh;
+    overflow: scroll;
+}
+
+.hidescroll {
+    &::-webkit-scrollbar {
+        height: 1%;
+        width: .6rem;
+    }
+    &::-webkit-scrollbar-thumb {
+        background: #9d9a9a;
+        border-radius: 25px;
+    }
+ }
+
+
+@media only screen and (min-width:900px){
+    
+    .order{
+        height: 72%;
+    }
+}

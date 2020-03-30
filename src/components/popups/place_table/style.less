@@ -1,0 +1,62 @@
+
+@import '~@assets/Colors.less';
+.popup{
+    width: 30vw;
+    margin: 0 auto;
+    background-color: #ffffff;
+    display: flex;
+    flex-direction: column;
+   
+    .divIcon{
+        display: flex;
+        margin: 3% 0%;
+        .icon{
+            margin: 0 auto;
+            font-size: 4rem;
+            color:@darkBlue ;
+            text-align: center
+        }
+    }
+    
+    .first{
+        color:@RegularBlack;
+        
+        font-size: 1.7rem;
+        font-weight: bold;
+         text-align: center;
+    
+    
+    }
+    .second {
+        color:@HeadersGray;
+        font-size: 1.3rem;
+        font-weight: normal;
+        
+        text-align: center;
+    
+}
+    button{
+        border-radius: 20px;
+        box-shadow: 0 0 2px 0 rgba(80, 80, 80, 0.28);
+        border: solid 0.5px rgba(179, 176, 176, 0.34);
+        width: 40%;
+        height: 5vh;
+        
+        font-size: 1.5rem;
+        background-image: linear-gradient(to bottom, @mainColor, @mainColor);
+        color:@WhiteBG;
+        margin: 0 auto;
+    }
+}
+.hide{
+    display: none;;
+}
+.show{
+    display: block;
+}
+@media screen and(max-width:1100px){
+    // .popup{
+    //     width: 40rem;
+    //     left: 30%;
+    // }
+}

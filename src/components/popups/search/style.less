@@ -1,0 +1,126 @@
+@import '~@assets/Colors.less';
+
+.header{
+    padding: 2%;
+    display: flex;
+    flex-direction: column;
+
+    p{
+        color: @RegularBlack;
+        font-size: 1.2rem;
+        
+        text-align: center;
+        margin: auto;
+        font-weight: bold;  
+    } 
+}
+
+.SearchLabelDiv{
+    height: 15vh;
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+
+    .inputField{
+        height: 60%;
+        display: flex;
+        flex-direction: row;
+        padding: 0.8vw;
+        min-width: 80%;
+        justify-content: space-between;
+        align-self: center;
+        width: 100%;
+        margin: 0 auto;
+    
+        label{
+            
+            font-size: 1rem;
+            font-weight: bold;
+            color: @RegularBlack;
+            text-align: center;
+            align-self: center;
+            min-width: 10vw;
+        }
+    
+        input{
+            border-radius: 2.5px;
+            border: 1px solid;
+            border: solid 1px @listBackButtonBorder;
+            min-width: 70%;
+            min-height: 5vh;
+            text-align: center;
+            color: @RegularBlack;
+            
+            font-size: 1rem;
+            margin: 0 auto;
+            height: 90%;
+    
+            &:focus{
+                outline: 0;
+            }
+        }
+    }
+
+    .selectFiled{
+        height: 45%;
+        min-width: 80%;
+        display: flex;
+        justify-content: space-around;
+        width: 80%;
+        margin: 0 auto;
+
+        select{
+            align-self: center;
+            border-radius: 7.5px;
+            border: 1px solid;
+            border: solid 1px #d3d3d3;
+            min-width: 30%;
+            min-height: 5vh;
+            text-align: center;
+            color: @RegularBlack;
+            
+            font-size: 1rem;
+            margin: 0;
+            height: 90%;
+
+            &:focus{
+                outline: 0;
+            }
+        }
+        p{
+            margin: 0;
+        }
+    }
+}
+.saveBtns{
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+    margin: 0 auto;
+    height: fit-content;
+    margin-top: 3%;
+    button{
+        border-radius: 20px;
+        box-shadow: 0 0 2px 0 rgba(80, 80, 80, 0.28);
+        border: solid 0.5px rgba(179, 176, 176, 0.34);
+        width: 29%;
+        height: 6vh;
+        
+        font-size: 1rem;
+        &:focus{
+            outline: 0;
+        }
+        &:nth-child(1){
+            background-image: linear-gradient(to bottom, @linerBackgroun2, @linerBackgroun2);
+            color:@btnColor
+        }
+        &:nth-child(2){
+            background-image: linear-gradient(to bottom, @mainColor, @mainColor);
+            color:@WhiteBG;
+        }
+
+    }
+  
+    
+}
+

@@ -1,0 +1,87 @@
+@import '~@assets/Colors.less';
+.container{
+ width: 80%;
+ display: flex;
+ justify-content: flex-start;
+ align-items: center;
+}
+.inputDiv{
+
+    input{
+        border-radius: 5px;
+        border: 1px solid;
+        border: solid 1px #d3d3d3;
+        min-width: 12vw;
+        min-height: 4vh;
+        text-align: center;
+        color: #000000;
+        font-size: 1rem;
+        margin: 0vw .5vw;
+    }
+}
+.icons_div{
+    height: 90%;
+    width: 50%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    
+
+    .fav_btn , .calc_btn , .search_btn , .card_btn, .info_btn  {
+        height: 90%;
+        width: 18%;
+        text-align: center;
+        border-radius: 20px;
+        border: 1px solid #f7f7f7;
+        box-shadow: 0 0 2px 0 rgba(199, 190, 190, 0.5);
+        background-image: linear-gradient(to bottom, #ffffff, #f7f7f7);
+        color: @mainColor;
+        outline: none;
+    }
+
+    .active_action{
+        height: 90%;
+        width: 18%;
+        text-align: center;
+        border-radius: 20px;
+        border: 1px solid #f7f7f7;
+        color: #ffffff;
+        box-shadow: 0 0 2px 0 rgba(199, 190, 190, 0.5);
+        background-image: linear-gradient(to bottom, @mainColor, @mainColor);
+        outline: none;
+    }
+}
+
+
+@media only screen and (max-width: 800px) {
+    .icons_div{
+        height: 100%;
+        width: 50%;
+        display: flex;
+        justify-content: space-between;
+    
+        .fav_btn , .calc_btn , .search_btn , .card_btn, info_btn  {
+            height: 95%;
+            width: 23%;
+            text-align: center;
+            border-radius: 15px;
+            border: 1px solid #f7f7f7;
+            box-shadow: 0 0 2px 0 rgba(199, 190, 190, 0.5);
+            background-image: linear-gradient(to bottom, #ffffff, #f7f7f7);
+            color: @mainColor;
+            outline: none;
+        }
+    
+        .active_action{
+            height: 95%;
+            width: 20%;
+            text-align: center;
+            border-radius: 15px;
+            border: 1px solid #f7f7f7;
+            color: #ffffff;
+            box-shadow: 0 0 2px 0 rgba(199, 190, 190, 0.5);
+            background-image: linear-gradient(to bottom, @mainColor, @mainColor);
+            outline: none;
+        }
+    }
+  }

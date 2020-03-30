@@ -1,0 +1,27 @@
+@import '~@assets/Colors.less';
+
+
+ .subcat{
+     height: fit-content;
+     display: flex;
+     justify-content: flex-start;
+     flex-wrap: wrap;
+     padding: 2%;
+
+     .subcat_btn{
+         margin: 0 2% 2% 0;
+         width: 13vh;
+         height: 8vh;
+         border: 1px solid @mainColor;
+         border-radius: 6px;
+         background-color: #ffffff;
+         font-size: 1.1rem;
+         color: @fontSubMainColor;
+         
+         outline: none;
+
+         &:nth-child(5n+0){
+             margin-right: 0;
+         }
+    }
+}

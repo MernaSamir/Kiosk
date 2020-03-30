@@ -1,0 +1,113 @@
+@import '~@assets/Colors.less';
+
+.moveSeatContiner{
+    display: flex;
+    flex-direction: column;
+    .btnsContanier{
+        display: flex;
+        justify-content: flex-start;
+        width:100%;
+        flex-wrap: wrap;
+        button{
+            
+            width: 45%;
+            margin-bottom: 2%;
+            height: 7vh;
+            border-radius: 2.5px;
+            box-shadow: 0 0 2px 0 rgba(80, 80, 80, 0.28);
+            border: solid 1.5px rgba(179, 176, 176, 0.34);
+            background-color: #ffffff;
+            color:#000000;
+            font-size: 1.5rem;
+            
+            &:focus{
+                outline: 0;
+            }
+            &:nth-child(odd){
+                margin-right: 5%;
+            }
+            
+        }
+        .all{
+            font-size: 1.6rem;
+            font-weight: bold; 
+            width: 100%;
+            background-color: @mainColor;
+            color: @WhiteBG;
+        }
+        .none{
+            font-size: 1.6rem;
+            font-weight: bold; 
+            width: 100%;
+            background-color: @WhiteBG;
+            color:@black;
+        }
+        
+     
+       
+
+    }
+    .checkbox{
+        margin: 0 auto;
+        display: flex;
+        width:50%;
+        justify-content: space-around;
+    }
+}
+.title{
+    color: @mainColor;
+    font-size: 1.6rem;
+    
+    font-weight: bold;
+    text-align: center;
+    margin: 0 auto;
+    width: 55%;
+    margin-bottom: 3%;
+}
+
+.seatTitle{
+    color: #707070;
+    font-size: 1.3rem;
+    
+    font-weight: bold;
+    text-align: left;
+    margin-bottom: 3%;
+}
+.compined{
+    color: @mainColor;
+    font-size: 1.1rem;
+    
+    font-weight: bold;
+    margin: 0;
+}
+
+.saveBtns{
+    display: flex;
+    justify-content: space-around;
+    width: 50%;
+    margin: 0 auto;
+    height: fit-content;
+    margin-top: 3%;
+    button{
+        border-radius: 20px;
+        box-shadow: 0 0 2px 0 rgba(80, 80, 80, 0.28);
+        border: solid 0.5px rgba(179, 176, 176, 0.34);
+        width: 40%;
+        height: 5vh;
+        
+        font-size: 2vh;
+        &:focus{
+            outline: 0;
+        }
+        &:nth-child(1){
+            background-image: linear-gradient(to bottom, @linerBackgroun2, @linerBackgroun2);
+            color:@btnColor
+        }
+        &:nth-child(2){
+            background-image: linear-gradient(to bottom, @mainColor, @mainColor);
+            color:@WhiteBG
+        }
+
+    }
+    
+}

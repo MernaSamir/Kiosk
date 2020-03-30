@@ -1,0 +1,127 @@
+.orders_container{
+    margin: 0;
+    height: 100%;
+}
+
+.admin_order_contanier{
+    width:100%;
+    display: grid;
+    grid-template-columns: 55% 45%;
+    height: 100%;
+}
+
+.orders_header{
+    width: 100%;
+    height: 10%;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 3%;
+    
+    .pag_div{
+       width: 30%;
+
+       .pag_btn{
+           width: 20%;
+       }
+    }
+}
+
+
+.btn_search{
+    align-self: center;
+    height: 65%;
+    width: 7%;
+    border: none;
+    border-radius: 45px;
+    box-shadow: 0 0 2px 0 rgba(199, 190, 190, 0.5);
+    background-image: linear-gradient(to bottom, #ffffff, #f7f7f7);
+    outline: none;
+}
+
+.icon{
+    font-size: 1.1rem;
+    color: #d73f7c;
+    border: none;
+}
+
+.day_pag_div{
+    align-self: center;
+    display: flex;
+    justify-content: flex-end;
+    width: 50%;
+    height: 100%;
+
+    .day_div{
+        align-self: center;
+        display: flex;
+        justify-content: space-between;
+        width: 55%;
+        height: 100%;
+
+        .header_btn{
+            align-self: center;
+            height: 100%;
+            width: 50%;
+        }
+    }
+
+    p{
+        align-self: center;
+        margin: 0;
+        font-size: 2.5vh;
+        font-weight: bold;
+        margin-right: 4%;
+    }
+}
+
+.orders_container{
+    .customer_list {
+        .emptywidth{
+            width: 5%;
+        }
+
+        .th_name{
+            font-size: 1.1vw;
+            height: 100%;
+            width: 100%;
+        }
+    }
+}
+
+.customer_list_body{
+    .icon{
+        width: 5%;
+        text-align: left;
+        padding-left: 2%;
+    }
+}
+
+.td_num{
+    color: #a0a0a0;
+    font-family: lato-semi;
+    font-size: 1.1rem;
+    font-weight: 400;
+}
+
+.admin_order_table{
+    tbody{
+        overflow-y: auto;
+        display: block;
+        max-height: 68vh; 
+        &::-webkit-scrollbar {
+            width: .8%
+        }
+        &::-webkit-scrollbar-thumb {
+            background: #9d9a9a; 
+            border-radius: 10px;
+        }
+    }
+}
+
+.admin_name{
+margin: 0;
+align-self: flex-end;
+color: #000000;
+font-size: 1.3vw;
+font-weight: bold;
+}

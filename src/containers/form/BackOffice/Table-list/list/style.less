@@ -1,0 +1,23 @@
+@import '~@assets/style-settings.less';
+@import '~@assets/Colors.less';
+
+.collapse_div{
+    max-height: 72vh;
+    overflow-y: scroll;
+}
+    .collapse_div::-webkit-scrollbar {
+        width: 2.2%;
+    }
+    /* Track */
+    .collapse_div::-webkit-scrollbar-track {
+        background: rgba(0, 0, 0, 0);
+    }
+    /* Handle */
+    .collapse_div::-webkit-scrollbar-thumb {
+        background: @listScroll;
+        border-radius: 5px;
+    }
+    /* Handle on hover */
+    .collapse_div::-webkit-scrollbar-thumb:hover {
+        background: @listScrollHover;
+    }

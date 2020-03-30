@@ -1,0 +1,154 @@
+@import '~@assets/Colors.less';
+
+.table{
+    width: 100%;
+
+    thead{
+        tr{
+            height: 4vh;
+            background-color: @forgetPassMsg;
+            
+
+            th{
+                text-align: center;
+                
+                font-size: 1.5vh;
+                font-weight: normal;
+                color: #ffffff;
+                border-right: 1px solid #ffffff;
+
+                &:first-child{
+                    width: 4%;
+                    min-width: 4%;
+                    max-width: 4%;
+                }
+
+                &:nth-child(2){
+                    width: 40%;
+                    min-width: 40%;
+                    max-width: 40%;
+                }
+
+                &:nth-child(3){
+                    width: 8%;
+                    min-width: 8%;
+                    max-width: 8%;
+                }
+
+                &:nth-child(4), &:nth-child(5), &:nth-child(6), &:nth-child(7){
+                    width: 12%;
+                    min-width: 12%;
+                    max-width: 12%;
+                }               
+
+                &:first-child ,:last-child{
+                    border-right: none;
+                }
+            }
+        }
+    }
+
+    tbody{
+
+        .late {
+            background-color: @LateColor;
+        }
+        
+        .ready{
+            background-color: @ReadyColor;
+        }
+        
+        .canceled{
+            background-color:#b8c2d2;
+        }
+
+        .active{
+            background-color: @mainColor;
+
+            td{
+                color: #ffffff;
+
+                .icon{
+                    color: @mainColor;
+                }
+            }
+        }
+
+        tr{
+            height: 6vh;
+            
+
+            td{
+                text-align: center;
+                
+                font-size: 1.5vh;
+                font-weight: normal;
+                color: @RegularBlack;
+                border-right: 1px solid #ffffff;
+                .actions{
+                    width: 3vw;
+                    border-radius: 5vw;
+                    color:  @mainColor;
+                    background-color: @listBackground;
+                    width: 3.5vw;
+                    height: 2.5vw;
+                    box-shadow: 0 0 2px 0 rgba(199, 190, 190, 0.5);
+                    border: solid 0.5px @GrayBorder;
+            
+                    &:focus{
+                        outline: 0
+                    }
+                }
+                &:first-child{
+                    width: 4%;
+                    min-width: 4%;
+                    max-width: 4%;
+                }
+
+                &:nth-child(2){
+                    width: 40%;
+                    min-width: 40%;
+                    max-width: 40%;
+                }
+
+                &:nth-child(3){
+                    width: 8%;
+                    min-width: 8%;
+                    max-width: 8%;
+                }
+
+                &:nth-child(4), &:nth-child(5), &:nth-child(6), &:nth-child(7){
+                    width: 12%;
+                    min-width: 12%;
+                    max-width: 12%;
+                }  
+
+                &:first-child ,:last-child{
+                    border-right: none;
+                }
+
+                // .icon{
+                //     align-self: center;
+                //     font-size: 1.5vh;
+                //     color: @RegularBlack;
+                // }
+            }
+
+            #item{
+                    width: 50%;
+                    min-width: 50%;
+                    max-width: 50%;
+                }
+
+            #note{
+                    width: 40%;
+                    min-width: 40%;
+                    max-width: 40%;
+                }
+
+            #period{
+                color: @headerFont
+            }
+        }
+    }
+}

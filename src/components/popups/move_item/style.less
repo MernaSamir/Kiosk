@@ -1,0 +1,55 @@
+@import '~@assets/Colors.less';
+.moveSeatContiner{
+    display: flex;
+    flex-direction: column;
+    .title{
+        color: @RegularBlack;
+        
+        font-weight: bold;
+        text-align: center;
+        margin: 0 auto;
+        width: 55%;
+        font-size: 2rem;
+        margin-bottom: 3%;
+    }
+    button{
+        width: 55%;
+        margin: 0 auto;
+        margin-bottom: 2%;
+        height: 7vh;
+        border-radius: 2.5px;
+        box-shadow: 0 0 2px 0 rgba(80, 80, 80, 0.28);
+        border: solid 1.5px rgba(179, 176, 176, 0.34);
+        background-color: #ffffff;
+        color:#000000;
+        font-size: 1.5rem;
+        font-family: NunitoSans
+    }
+    button:hover{
+        color: #ffffff;
+        background-color: @mainColor;
+    }
+    button:focus{
+        outline: 0;
+    }
+}
+.seatTitle{
+    color:#707070;
+    font-size: 1.5rem;
+    
+    font-weight: bold;
+    text-align: left;
+    margin: 0 auto;
+    width: 55%;
+    margin-bottom: 3%;
+}
+.note{
+    color:@mainColor;
+    font-size: 1rem;
+    
+    font-weight: bold;
+    text-align: left;
+    margin: 0 auto;
+    width: 55%;
+    margin-bottom: 3%;
+}

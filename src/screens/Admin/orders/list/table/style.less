@@ -1,0 +1,177 @@
+
+@import '~@assets/Colors.less';
+button{
+    &:focus{
+        outline: 0;
+    }
+}
+.ordersList{
+    width: 100%;
+    height: 83%;
+    table{
+        width: 100%;
+        border-collapse: separate;
+        border-spacing: 0px 3px;
+    }
+    tbody{
+        overflow-y: auto;
+        display: block;
+        max-height: 65vh;
+    }
+    tbody::-webkit-scrollbar {
+        height: 1%;
+        width: .8%;
+    }
+    tbody::-webkit-scrollbar-thumb {
+        background: #9d9a9a;
+        border-radius: 25px;
+    }
+   
+    
+   
+
+     tr{
+            display: table;
+            width: 100%;
+         
+        height: 8vh;
+
+        td{
+            img{
+                max-height: 3vh;
+            }
+            .icon{
+                color: @mainColor;
+            }
+            font-size: 1.1rem;
+            color: @RegularBlack;
+            
+            text-align: center;
+            width: 20%;
+            min-width: 20%;
+            max-width: 20%;
+            text-align: center;
+            &:nth-child(1){
+                width: 5%;
+                min-width: 5%;
+                max-width: 5%;
+            }
+            &:nth-child(2){
+                width: 5%;
+                min-width: 5%;
+                max-width: 5%;
+            }
+        }
+        
+        
+    }
+    
+    .marked{
+        td{
+            background-color: @VeryPalePink;
+            color: @mainColor;
+        }
+     
+    }
+    .refund{
+        td{
+            background-color: @GrayBorder;
+            color: @headerFont;
+            .icon{
+                color: @headerFont
+            }
+            
+        }
+    }
+ .unMarked{
+     &:nth-child(odd){
+        td{
+            background-color: @WhiteBG;
+            
+         }
+     }
+         td{
+            background-color: @greyBlue;
+         }
+     
+    }
+    th{
+        font-size: 1vw;
+        background-color: @menuBackground;        ;
+        color: @darkGrey;
+        
+        text-align: center;
+        width: 20%;
+        min-width: 20%;
+        max-width: 20%;
+        text-align: center;
+        &:nth-child(1){
+            width: 5%;
+            min-width: 5%;
+            max-width: 5%;
+
+        }
+        &:nth-child(2){
+            width: 5%;
+            min-width: 5%;
+            max-width: 5%;
+        }
+        
+        
+    }
+    thead {
+        display: table;
+        width: 100%;
+        table-layout: fixed;
+        
+     }
+}
+.unselected_order{
+    background-color: #f0f5fc;
+    height: 5vh;
+    td{
+        
+        font-size: 0.7vw;
+        font-weight: bold;
+        font-style: normal;
+        font-stretch: normal;
+        // line-height: 0.8;
+        letter-spacing: normal;
+        color: #000000;
+    }
+
+    .icon{
+        font-size: 2vw;
+        text-align: center;
+    }
+}
+
+.selected_order{
+    background-color: #fff0fb;
+    height: 5vh;
+    td{
+        
+        font-size: 0.7vw;
+        font-weight: 600;
+        font-style: normal;
+        font-stretch: normal;
+        // line-height: 0.8;
+        letter-spacing: normal;
+        color: #d73f7c;
+    }
+
+    .icon{
+        width: 5%;
+        text-align: center;
+    }
+}
+
+.flex{
+    border: none;
+    background-color: transparent;
+
+}
+.collapse_icon{
+    font-size: 1.1rem;
+    align-self: center;
+}

@@ -1,0 +1,91 @@
+@import '~@assets/Colors.less';
+.container{
+    padding: 0% 1%;
+    p{
+        color: @black;
+        align-self: center;
+        // margin: 0 auto;
+        font-size: 1.2rem;
+        text-align: center;
+        font-weight: bold;
+    }
+}
+.reserv_list{
+    padding: 2%;
+    margin: 1% 2%;
+    width:96%;
+
+    thead{
+
+        tr{
+            height: 7vh;
+        }
+    }
+
+    .trs{
+        height: 7vh;
+
+        &:nth-child(even){
+            background-color: @TableCustomer;
+        }
+        &:nth-child(odd){
+            background-color: @WhiteBG;
+        }
+    }
+
+    th{
+        
+        font-size: 1rem;
+        line-height: 0.8;
+        color: @headerFont;
+       
+    }
+
+    // .name{
+    //     width: 20%;
+    // }
+    
+    // .icons{
+    //     width: 30%
+    // }
+
+    .actions{
+        width: 3vw;
+        border-radius: 5vw;
+        color:  @mainColor;
+        background-color: @listBackground;
+        width: 3.5vw;
+        height: 2.5vw;
+        box-shadow: 0 0 2px 0 rgba(199, 190, 190, 0.5);
+        border: solid 0.5px @GrayBorder;
+
+        &:focus{
+            outline: 0
+        }
+    }
+
+    td{
+        
+        font-size: 1rem;
+        font-weight: 600;
+        text-align: left;
+        color: @RegularBlack;
+        margin-left: 1%;
+    }
+
+    .guest{
+        padding: 1%;
+    }
+
+    .normal{
+        border-radius: 5vw;
+        border: solid 1px @Customerbutton;
+        color: @Customerbutton;
+        background-color: @listBackground;
+        width: 7vw;
+
+        &:focus{
+            outline: 0
+        }
+    }
+}

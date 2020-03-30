@@ -1,0 +1,156 @@
+@import '~@assets/Colors.less';
+
+.container{
+    display: flex;
+    flex-direction: column;
+    .selectdiv{
+        width: 50%;
+        align-self: center;
+        display: flex;
+        justify-content: flex-end;
+        .select{
+            display: flex;
+            flex-direction: column;
+            padding: 0.8vw;
+            min-width: auto;
+            justify-content: space-between;
+            label{
+                
+                font-size: 1rem;
+                font-weight: bold;
+                color: @fontMainColor;
+            }
+            div{
+                width: 100%;
+                div{
+                    div{
+                        width: 100%;
+                        height: 5vh;
+
+                    }
+                }
+            }
+        }
+    }
+    .flex{
+        display: flex;
+        align-self: center;
+        justify-content: space-around;
+        width: 100%;
+    }
+    .title{
+        align-self: center;
+        height: 2vh;
+        display: flex;
+        justify-content: space-around;
+    
+        
+        p{
+            font-weight: bold;
+            align-self: center;
+            margin: 0;
+            font-size: 1rem;
+        }
+    }
+    
+    .pagination{
+        align-self: flex-end;
+        height: 8vh;
+        width: 25%;
+        display: flex;
+        justify-content: space-between;
+        button{
+            align-self: center;
+            display: flex;
+            justify-content: space-around;
+            height: 50%;
+            width: 30%;
+            border-radius: 20px;
+            box-shadow: 0 0 2px 0 rgba(199, 190, 190, 0.5);
+            border: solid 0.5px #e1e1e1;
+            background-image: linear-gradient(to bottom, #ffffff, #f7f7f7);
+            outline: none;
+            .icon{
+                color: @mainColor;
+                align-self: center;
+            } 
+        }
+    
+        p{
+            align-self: center;
+            margin: 0;
+            font-size: 1rem;
+        }
+    }
+
+    .recepits_div{
+        display: flex;
+        justify-content: space-around;
+
+        .recepit_body{
+            padding: 0 4%;
+            height: 35vh;
+            width: 60%;
+            display: flex;
+            justify-content: space-around;
+            overflow-y: scroll;
+
+            &::-webkit-scrollbar {
+                width: 10px;
+            }
+              
+              /* Track */
+              &::-webkit-scrollbar-track {
+                  background-color: @formScroll;
+                  border-radius: 10px;
+            }
+               
+              /* Handle */
+              &::-webkit-scrollbar-thumb {
+                  background: @listScroll; 
+                  border-radius: 10px;
+            }
+              
+              /* Handle on hover */
+              &::-webkit-scrollbar-thumb:hover {
+                  background: @listScrollHover; 
+            }
+    
+            section{
+                align-items: center;
+            }
+    
+        }
+    }
+
+    .btns{
+        height: 10vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+
+        div{
+            display: flex;
+            justify-content: space-between;
+            height: 40%;
+            align-self: center;
+            width: 30%;
+            display: flex;
+
+        }
+        .actions{ 
+            button{
+                width: 45%;
+                height: 100%;
+                border-radius: 18px;
+                box-shadow: 0 0 2px 0 rgba(80, 80, 80, 0.28);
+                border: solid 0.5px rgba(179, 176, 176, 0.34);
+                background-color: #d73f7c;
+                color: #ffffff;
+                outline: none;
+            }
+        }
+
+
+    }
+}

@@ -1,0 +1,48 @@
+.Tips{
+    height: 55%;
+}
+.TipsContainer
+{
+    display: grid;
+    grid-column-gap: 2%;
+    grid-template-columns: 30% 65% 25%;
+    height: 90%;
+    width: 80%;
+}
+#optioncontain{
+    height: 75%; 
+    margin-left: 20%;
+}
+#btn2{
+    height: 80%;
+    justify-content: space-between; 
+    align-content: space-around;
+    margin: 0 auto;
+
+
+}
+.Dollars{
+    height: 70%;
+    margin-top: 40%;
+    width:40%;
+    justify-content: space-between; 
+
+}
+.Dollars .btn{
+    border-radius: 5.5px;
+    border: 0.7px solid #777777;
+    background-color: white;
+    ;
+    font-size: 0.7rem;
+    /* font-weight: bold; */
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    color: #777777;
+    margin: 0 auto;
+    cursor: pointer;
+    display: flex;
+    margin-bottom: 30%;
+    padding-left: 2%;
+}
+

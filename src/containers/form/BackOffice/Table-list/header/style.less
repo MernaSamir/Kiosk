@@ -1,0 +1,88 @@
+@import '~@assets/style-settings.less';
+@import '~@assets/Colors.less';
+
+.title{
+    display: grid;
+    justify-content: space-between;
+    align-content: center;
+    align-items: center;
+    padding: 4%;
+    grid-template-columns: 25% 50% 25%;
+
+    .button{
+        height: 2vw;
+        width: 2vw;
+        border: 1px solid @listBackButtonBorder;
+        border-radius: 0.3vw;
+        color: @fontMainColor;
+        background-color: @listBackButtonBackground;
+        display: flex;
+        justify-content: center;
+        .back_icon{
+            font-size: 1vw;
+            color: @listBackButtonBorder;
+        }
+    }
+
+    .button_collapsed{
+        height: 2vw;
+        width: 2vw;
+        border: 1px solid @listBackButtonBorder;
+        border-radius: 0.3vw;
+        color: @fontMainColor;
+        background-color: @listBackButtonBackground;
+        outline: none;
+        margin: 1vw 1vw;
+        .back_icon{
+            font-size: 1vw;
+            color: @listBackButtonBorder;
+        }
+    }
+    
+    p{
+        .FontSettings(0.9vw,@fontSubcolor);
+        align-self: center;
+        font-size: 0.9vw;
+        text-align: center;
+        color: @listBackButtonBorder;
+        margin: 0;
+        white-space: nowrap;
+    }
+
+    .more_icon_div{
+        width: 100%;
+        .more_icon{
+            font-size: 1vw;
+            color: @listBackButtonBorder;
+            margin-left: 3vw;
+        }
+    }
+    
+
+
+    div{
+        width: 65%;
+        align-items: center;
+        display: flex;
+        justify-content: space-between;
+
+        button{
+            height: 70%;
+            width: 48%;
+            border: 1px solid @listBackButtonBorder;
+            border-radius: 5.5px;
+            color: #2b2b2b;
+            background-color: @listBackButtonBackground;
+            outline: none;
+            font-size: 1vw;
+        }
+    }
+}
+
+
+.list_table_header {
+    .FontSettings(0.9vw,@fontSubcolor);
+    font-size: 0.9vw;
+    font-weight: bold;
+    color: @fontMainColor;
+}

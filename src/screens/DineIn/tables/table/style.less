@@ -1,0 +1,274 @@
+@import '~@assets/Colors.less' ;
+.Rectangle{
+    background-color: @WhiteBG;
+    position: absolute;
+    border: solid 1.5px #e1e1e1;
+    border-radius: 2.5px;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    padding: 0.1px;
+
+}
+.btn{
+    box-shadow: 0 0 2px 0 rgba(80, 80, 80, 0.28);
+    border: solid 0.5px rgba(179, 176, 176, 0.34);
+    background-image: linear-gradient(to bottom, #fcfcfc, #f2f2f2);
+    color:#090505;
+    border-radius: 20px;
+    width: 65%;
+    height: 30%;
+    color: #090505;
+    
+    font-size: .8rem;
+    margin: 0 auto;
+}
+.Square{
+    background-color: @WhiteBG;
+    position: absolute;
+    border: solid 1.5px #e1e1e1;
+    border-radius: 2.5px;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    padding: 0.1px;
+
+}
+
+.Circle{
+    background-color:@WhiteBG;
+    position: absolute;
+    border-radius: 50%;
+    border: solid 1.5px #e1e1e1;
+    display: flex;
+    justify-content: space-around;
+    flex-direction: column;
+}
+.start{
+    padding: 0.1px;
+    display: flex;
+    flex-direction: column;
+    span{
+        
+        font-size: 1vw;
+        margin-left: 10%;
+    }
+}
+.Circle{
+    .start{
+        .tableTitle{
+            text-align: center;
+            margin-left: 0;
+            margin: 0 auto;
+        }
+            span{
+                margin-left: 25%;
+            }
+        }
+
+    
+    
+    .status{
+        width: 60%
+    }
+}
+
+
+.tableTitle{
+    
+    height: auto;
+    font-size: 1.3vw;
+    font-weight: bold;
+    text-align: left;
+    margin-left: 10%;
+    max-width: 75%;
+    margin-top: 1%;
+    color: @headerFont;
+    width: 100%;
+    overflow:hidden;
+    display:inline-block;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.tableFlex{
+    display: flex;
+    margin-bottom: 10%;
+    justify-content: flex-end;
+}
+.end{
+    display: flex;
+    justify-content: flex-end;
+    width: 50%
+}
+.icon{
+    font-size: 3.5vh;
+    margin-right: 10%;
+}
+.flexColumns{
+    display: flex;
+    justify-content: space-around;
+    flex-direction: column;
+    margin-top: 10%;
+
+}
+
+.guest{
+    color: @RegularBlack;
+    font-size: 1vw;
+    
+    display: block;
+    margin-left: 10%;
+
+}
+.guestround{
+    color: @RegularBlack;
+    font-size: 1vw;
+    
+    display: block;
+    margin: 0 auto;
+}
+
+.time{
+    margin: 0 auto;
+    border-radius: 3px;
+    width: 60%;
+    display: flex;
+    margin-bottom: 5%;
+    background-color: @headerFont;
+    flex-direction: column;
+    span{
+        color: @WhiteBG;
+        font-family: lato-bold;
+        font-weight: bold;
+        text-align: center;
+        margin: 0 auto;
+        font-size: .7rem;
+    
+    }
+}
+.status{
+    width: 80%;
+    margin: 0 auto;
+    margin-bottom: 4%;
+    height: 3vh;
+    display: flex;
+    justify-content: space-between;
+    span{
+        
+        height: auto;
+        font-size: 1.1vw;
+        font-weight: bold;
+        text-align: left;
+        align-self: center;
+
+        
+    }
+    img{
+        align-self: center;
+        max-height: 70%;
+        max-width: 50%;
+    }
+}
+.free{
+    background-color: @WhiteBG;
+    border: 1.5px solid @headerFont;
+    .tableTitle{
+        color: @RegularBlack;
+    }
+    .status{
+        span{
+            color: @RegularBlack
+        }
+    }
+}
+.opend{
+    background-color: @VeryPaleBlue;
+    border: 1.5px solid @listScroll;
+    .tableTitle{
+        color: @listScroll;
+    }
+    .status{
+        span{
+            font-size: 0.8vw;
+            color: @listScroll;
+        }
+    }
+    .start{
+        span{
+            color: @listScroll;
+        }
+    }
+}
+.orderd{
+    background-color: @listScroll;
+    border: 1.5px solid @forgetPassMsg;
+    .tableTitle{
+        color:@WhiteBG;
+    }
+    .status{
+        span{
+            font-size: 0.8vw;
+            color: @WhiteBG;
+        }
+    }
+    .start{
+        span{
+            color: @WhiteBG;
+        }
+    }
+}
+.fired{
+    background-color: @deepRose;
+    border: 1.5px solid @headerFont;
+    .tableTitle{
+        color:@WhiteBG;
+    }
+    .status{
+        span{
+            font-size: 0.8vw;
+            color: @WhiteBG;
+        }
+    }
+    .start{
+        span{
+            color: @WhiteBG;
+        }
+    }
+}
+.served{
+    background-color: @lightPurple;
+    border: 1.5px solid @purpleBorder;
+    .tableTitle{
+        color:@darkPurple;
+    }
+    .status{
+        span{
+            font-size: 0.8vw;
+            color: @darkPurple;
+        }
+    }
+    .start{
+        span{
+            color: @darkPurple;
+        }
+    }
+}
+.printed{
+    background-color: @darkPurple;
+    border: 1.5px solid @purpleBorder;
+    .tableTitle{
+        color:@WhiteBG;
+    }
+    .status{
+        span{
+            font-size: 0.8vw;
+            color: @WhiteBG;
+        }
+    }
+    .start{
+        span{
+            color: @WhiteBG;
+        }
+    }
+}

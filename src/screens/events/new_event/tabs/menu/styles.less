@@ -1,0 +1,85 @@
+@import '~@assets/Colors.less';
+.contaier{
+    padding: 0.5% 1% 0% 1%;
+    background-color: @WhiteBG;
+    height: 76vh;
+        .header{
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        padding: 6px;
+        box-shadow: 0 0 2px 0 rgba(199, 190, 190, 0.5);
+        border-bottom: solid 0.5px @GrayBorder;   
+         p{
+            margin: 0;
+            
+            font-size: 1rem;
+            font-weight: 600;
+            text-align: left;
+            color: @RegularBlack;
+            width: 12vw;
+        }
+        .tabs{
+            display: flex;
+            width: 78%;
+            .navHeader{
+                color:@HeadersGray;
+                padding: 23px;
+                border: solid 2px #e1e1e1;
+                background-image: linear-gradient(to bottom, @WhiteBG, @darkWite);
+                span{
+                    font-size: 0.8rem;
+                    
+                    font-weight:bold;
+                    border-radius: 5px;
+                    
+                }
+            }
+            .active{
+                color: @mainColor;
+                background-image: linear-gradient(to bottom, @mainColor, @mainColor);
+                color: @WhiteBG;
+
+            }
+        }
+        
+        
+    }
+    .inputButton{
+        div{
+
+            display: flex;
+            flex-direction: row;
+            width: 100%;
+            justify-content: center;
+            justify-items: center;
+            button{
+                border: solid 1px #e0e0e0;
+                background-image: linear-gradient(to bottom, #ffffff, #f2f2f2);
+                border-radius: 2.5px;
+                padding: 1vw;
+                /* margin: 0 1%; */
+                min-width: 7vw;
+                
+                font-size: 1rem;
+                text-align: center;
+                &:focus{
+                    outline: 0
+                }
+            }
+        }
+
+        
+    }
+    ::-webkit-scrollbar {
+        height: 1%;
+        width: .8%;
+    }
+    ::-webkit-scrollbar-thumb {
+        background:@listScroll;
+        border-radius: 25px;
+    }  
+}
+    
+
+

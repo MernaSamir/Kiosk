@@ -1,0 +1,47 @@
+### add customer
+
+POST http://localhost:8000/api/v1/parties/customer/ HTTP/1.1
+Content-Type: application/json
+
+{
+	"basic":{
+		"first_name": "test",
+		"middle_name": "test", 
+		"last_name":  "test",
+		"title": "535d8f92-7726-4fff-9c08-99bb667bb233",
+		"is_male": true,
+	    "customer_code": "a000",
+	    "job_title": "developer",
+	    "organization_name" :"BandF"
+	},
+	"mobilphones": ["01236547891","01212121212"],
+	"workphones": ["01236547891","01202365987"],
+	"homephones":["24241948"],
+	"emails":["merna@yahoo.com","merna@gmail.com"],
+    "address":{
+	    "_type": "house",
+	    "nick_name": "mother's house",
+	    "house_name" :"green land",
+	    "street":"d02e0231-3c1d-4610-8b57-be1966de4ec4",
+	    "section": "2",
+	    "floor_name":"aaaaa",
+	    "apartment_name": "samir" ,
+	    "country": "296366ba-e553-4f29-a813-42970993b298",
+	    "state": "754a4f1d-51d4-4b64-910d-305e4b51fcdb",
+	    "city": "6b7be0e4-8182-42a1-b6c0-b90aaee8a494",
+	    "postal_code": "25254455",
+	    "delivery_landmark":"uuuioi",
+	    "delivery_notes": "merna is responspgjkhj"
+    },
+     "occasion": {   
+     	"birthday": "1996-5-8",
+	    "anniversary": "1996-5-8",
+	    "occasion_cat":"1c734e38-6287-4355-a729-9c6792ee4dc9"
+     },
+     "family": [{
+     	"name": "merna",
+     	"birthday": "1996-5-8",
+    	"relation_ship" : "8d4258fb-31a4-48f0-b5e9-c72b9abb289a"
+     }]
+}
+

@@ -1,0 +1,131 @@
+@import '~@assets/Colors.less';
+
+.cont{
+    border: 1px solid #e0e0e0;
+    border-radius: 5.5px;
+    height: fit-content;
+    padding: 3% 5% 3% 5%;
+    margin: 0;
+    background-color: @WhiteBG;
+
+    .header{
+        display: flex;
+        justify-content: space-between;
+        min-height: 6vh;
+        border-bottom: 0.5px solid rgba(112, 112, 112, 0.32);
+            p{
+            align-self: center;
+            color:  @RegularBlack;;
+            font-weight: 600;
+            margin: 0;
+            font-size: 1.15rem;
+        }
+        .icon{
+            align-self: center;
+            color: @mainColor;
+            font-size: 2.5vh;
+        }
+    }
+    .addressCard{
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        height: 18vh;
+        label{
+            width: 100%;
+            
+            font-size: 1rem;
+            font-weight: bold;
+            text-align: center;
+            color: @mainColor;
+            margin-top: 5%;
+        }
+        .button{
+            font-size: 2vh;
+            color:  @RegularBlack;;
+            width: 41%;
+            padding: 3.7% 0%;
+            border-radius: 30px;
+            border: 1px solid #e1e1e1;
+            background-image: linear-gradient(to bottom, @WhiteBG, #f7f7f7);
+            height: 6vh;
+        }
+        div{
+            display: flex;
+            justify-content: center;
+            &:nth-child(1){
+                width: 100%;
+                p{
+                    
+                    font-size: 1rem;
+                    font-weight: bold;
+                    text-align: center;
+                    color: @mainColor;
+                }
+            }
+                p{
+                    
+                    font-size: 1rem;
+                    text-align: left;
+                    color:  @RegularBlack;;
+                    margin: 0;
+                }
+        }
+    }
+    .body{
+        
+        .row{
+            height: auto;
+            display: flex;
+            justify-content: flex-start;
+            flex-wrap: wrap;
+            padding: 2%;
+            flex-direction: row;
+
+           
+            .key{
+                font-size: 1rem;
+                color: #707070;
+                font-weight: bold;
+                margin: 0;
+                
+                min-width: 11.3vw
+
+            }
+            // .value{
+            //     align-self: center; 
+            //     
+            //     font-size: 0.8rem;
+            //     text-align: left;
+            //     color:  @RegularBlack;
+            //     margin: 0;
+            // }
+            .valueList{
+                p{
+                    align-self: center; 
+                    
+                    font-size: 0.9rem;
+                    text-align: left;
+                    color:  @RegularBlack;
+                    margin: 0;
+
+                }
+
+            }
+    
+        }
+
+    }
+    .addr
+    {
+
+        p{
+
+        }
+    }
+    @media only screen and (max-width: 800px) {
+        .cont {
+            padding: 5% 5% 8% 5%;
+        }
+    }
+}

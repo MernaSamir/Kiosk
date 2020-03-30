@@ -1,0 +1,280 @@
+@import '~@assets/Colors.less';
+
+.Mod_main{
+    height: 100%;
+    float: right;
+    padding-right: 3%;
+    padding-left: 2%;
+    width: 100%;
+    max-width: 55vw;
+    min-width: 55vw;
+    margin-right: 0;
+    margin-left: 0;
+
+    .Mod_frame{
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        height: 95%;
+        border: 0.3px solid rgba(112, 112, 112, 0.46);
+        background-color: #ffffff;
+        border-radius: 15px;
+        margin-top: 3%;
+        padding-left: 8%;
+        padding-right: 4%;
+        padding-top: 0;
+        padding-bottom: 0;
+
+        .container {
+            min-height: 80%;
+        }
+        
+        .Mod_cal{
+            min-height: 60%;
+        }
+
+        .btns{
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+            height: 13%;
+
+            .ok_div{
+                width: 24%;
+                height: 100%;
+                float: right;
+            
+                .btn{
+                    width: 100%;
+                    height: 100%;
+                    padding: 2%;
+                    color: #ffffff;
+                }
+            }
+
+            .icons{
+                display: flex;
+                justify-content: space-between;
+                width: 34%;
+                height: 100%;
+
+                button{
+                    box-shadow: 0 0 2px 0 rgba(199, 190, 190, 0.5);
+                    border: solid 0.5px #e1e1e1;
+                    background-image: linear-gradient(to bottom, #ffffff, #f7f7f7);
+                    align-self: center;
+                    border-radius: 43px;
+                    width: 32%;
+                    height: 47%;
+                    color: @mainColor;
+                }
+            }
+        }
+
+    }
+}
+
+
+.Mod_main{
+    height: 100%;
+}
+
+
+.Mod_top{
+    height: 10%;
+    display: flex;
+    justify-content: flex-start;
+
+    .Mod_title{
+        font-size: 15px;
+        font-weight: bold;
+        font-style: normal;
+        font-stretch: normal;
+        letter-spacing: normal;
+        align-self: center;
+        color: #000000;
+        margin: 0 auto;
+    }
+}
+
+.Mod_modifiersBox{
+    width: 95%;
+    display: flex;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    margin-top: 1.5%;
+}
+
+.Line_modifer {
+    opacity: 0.44;
+    width: 95%;
+    height: 0.5%;
+    box-shadow: 0 -1px 2px 0 rgba(0, 0, 0, 0.22);
+    background-color: #dddddd;
+    margin-top: 2%;
+    margin-bottom: 2%;
+}  
+
+/* ////////////////item.js/////////////////////////////// */
+
+
+.Mod_itemsBox{
+    width: 95%;
+    height: 40%;
+    display: flex;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    margin-bottom: 2%;
+    max-height: 40%;
+    overflow-x: scroll;
+
+    .Mod_itemsBtn{
+        width: 18.6%;
+        // height: 30%;
+        height: 10vh;
+        border-radius: 7%;
+        border: 1.5px solid rgba(112, 112, 112, 0.46);
+        background-color: #ffffff;
+        color: #707070;
+        margin: 0.7% 0.7%;
+        display: flex;
+        text-align: center;
+        flex-direction: column;
+        justify-content: space-between;
+    
+        span{
+            align-self: center;
+            
+            font-size: 0.8rem;
+            font-weight: normal;
+            font-style: normal;
+            font-stretch: normal;
+            letter-spacing: normal;
+            text-align: center;
+            margin: 0;
+            // margin-top: 22%;
+            width: min-content;
+        }
+        
+        .Mod_price{
+            align-self: flex-end;
+            height: 25%;
+            width: 100%;
+            background-color: @mainColor;
+            border-bottom-left-radius: 2.5px;
+            border-bottom-right-radius: 2.5px;
+            display: flex;
+            justify-content: space-around;
+    
+            span{
+                font-size: 2vh;
+                align-items: center;
+                margin: 0;
+                color: #ffffff;
+            }
+        }
+    }
+}
+
+
+
+/* ////////////////groups.js///////////////////////////////*/
+
+.Mod_btn{
+    width: 24%;
+    height: 9vh;
+    display: flex;
+    justify-content: space-around;
+    border-radius: 1vh;
+    border: 1.5px solid #e0e0e0;
+    background-color: #ffffff;
+    margin: 0.5% 0.5%;
+    cursor: pointer;
+    outline: none;
+    padding: 0;
+
+    div{
+        align-self: center;
+        margin: 0 auto;
+
+        span{
+            // src: url(../../Fonts/Lato-Bold.ttf);
+            
+            font-size: 1rem;
+            font-weight: normal;
+            font-style: normal;
+            font-stretch: normal;
+            letter-spacing: normal;
+            color: @mainColor;
+            margin: 0 auto;
+        }
+    }
+}
+
+.Mod_btn_active{
+    display: flex;
+    justify-content: space-around;
+    height: 6.5vh;
+    width: 95%;
+    border-radius: 1vh;
+    background-color: @mainColor;
+
+    span{
+        
+        color: #ffffff;
+        align-self: center;
+    }
+}
+
+.choose_div{
+    height: 4vh;
+    display: flex;
+    justify-content: space-between;
+
+    .due{
+        align-self: center;
+        
+        font-size: 2vh;
+        font-weight: normal;
+        font-style: normal;
+        font-stretch: normal;
+        letter-spacing: normal;
+        text-align: left;
+        color: @mainColor;
+        margin: 0;
+    }
+
+    .pag_div{
+        align-self: center;
+        height: 95%;
+        width: 24%;
+        display: flex;
+        justify-content: space-between;
+
+        .pag_btn{
+            height: 100%;
+            width: 30%;
+            align-self: center;
+            border: 1px solid #e0e0e0;
+            border-radius: 18px;
+            box-shadow: 0 0 2px 0 rgba(199, 190, 190, 0.5);
+            background-image: linear-gradient(to bottom, #ffffff, #f7f7f7);
+            color: @mainColor;
+            display: flex;
+            justify-content: space-around;
+            outline: none;
+
+            .icon{
+                font-size: 3vh;
+                border: none;
+                align-self: center;
+            }
+        }
+
+        p{
+            margin: 0;
+            font-size: 2vh;
+            align-self: center;
+        }
+    }
+}

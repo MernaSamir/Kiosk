@@ -1,0 +1,33 @@
+@import '~@assets/Colors.less';
+
+.discounts{
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    height: 25rem;
+    min-height: 25rem;
+    align-content: flex-start;
+    button{
+        height: 12vh;
+        width: 19%;
+        border-radius: 5px;
+        border: solid 0.5px rgba(112, 112, 112, 0.46);
+        background-image: linear-gradient(to bottom, #ffffff, #f7f7f7);
+        margin-right: 2%;
+        margin-bottom: 2%;
+        color:#707070;
+        
+        font-size: 2vh;
+      &:nth-child(5) {
+          margin-right: 0;
+      }
+      &:focus{
+          outline: 0;
+      }
+    }
+    .active{
+        background-image: linear-gradient(to bottom, #959aa9, #959aa9);
+        color: @WhiteBG;
+
+    }
+}

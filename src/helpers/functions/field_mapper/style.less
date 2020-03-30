@@ -1,0 +1,94 @@
+@import '~@assets/Colors.less';
+
+.input{
+    display: flex;
+    flex-direction: column;
+    padding: 0.8vw;
+    min-width: 8%;
+    justify-content: space-between;
+    position: relative;
+    max-height: 60%; 
+
+  &:focus-within label{
+        color: @mainColor;
+  }
+
+    label{
+        
+        font-size: 1rem;
+        font-weight: bold;
+        color: @fontMainColor;
+        text-align: left;
+    }
+
+    input{
+        border-radius: 2.5px;
+        border: 1px solid;
+        border: solid 1px #d3d3d3;
+        min-width: 15vw;   
+        min-height: 6vh;    
+        text-align: center;
+        color:@RegularBlack;
+        
+        font-size: 1rem; 
+        
+    }
+
+    select{
+        height: 60%;
+        border-radius: 2.5px;
+        border: 1px solid;
+        border: solid 1px #d3d3d3;
+        min-width: 8vw;
+        min-height: 6vh; 
+        color:@RegularBlack;
+        
+        font-size: 1rem;  
+        background-color: @WhiteBG;     
+    }
+    span{
+    font-size: 1vw;
+    height: 5.5vh;
+    justify-content: center;
+    align-items: center;
+    }
+    }
+    .formRow{
+        width: 100%;
+       display: flex;
+       flex-wrap: wrap;
+  
+    label{
+        
+        font-size: 1rem;
+        font-weight: bold;
+        color: @fontMainColor;
+    }
+
+    select{
+        height: 60%;
+        border-radius: 2.5px;
+        border: 1px solid;
+        border: solid 1px #d3d3d3;
+        width: 12vw;
+        min-height: 6vh;  
+        color:@RegularBlack;
+        
+        font-size: 1rem;   
+        background-color: @WhiteBG;
+    }
+    button{
+        border-radius: 5vw;
+        box-shadow: 0 0 2px 0 rgba(80, 80, 80, 0.28);
+        border: 1px solid @WhiteBG;
+        background-color: #eeecec;
+        color: @mainColor;
+        width: 2.8vw;
+        height: 2.8vw;
+        font-size: 1.2rem;
+        font-weight: bold;
+        margin-left: 5px;
+        margin-bottom: -23px;
+        align-self: center;
+    }
+}

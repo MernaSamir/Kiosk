@@ -1,0 +1,173 @@
+@import '~@assets/Colors.less';
+
+.card_container{
+    height: 90%;
+    width: 23%;
+    padding: 3% 1% 1% 1%;
+    margin: 0;
+    border-radius: 2.5px;
+    border: solid 0.5px #657898;
+    background-color: @menuBackground;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    margin-right: 2%;
+
+    &:last-child{
+        margin-right: 0;
+    }
+
+    .header{
+        height: 15%;
+        padding: 0;
+        margin: 0;
+        display: flex;
+        justify-content: space-around;
+
+        p{
+            align-self: center;
+            margin: 0;
+            
+            font-size:1.2rem;
+            font-weight: 600;
+        }
+
+        .move_div{
+            align-self: center;
+            height: 75%;
+            display: flex;
+            justify-content: space-between;
+            width: 50%;
+            border-radius: 18px;
+            box-shadow: 0 0 2px 0 rgba(199, 190, 190, 0.5);
+            border: solid 0.5px @GrayBorder;
+            background-color: #ffffff;
+            align-items: center;
+            color: @mainColor;
+            font-size: 1rem;
+
+            button{
+                height: 100%;
+                width: 35%;
+                display: flex;
+                justify-content: space-around;
+                border-radius: 18px;
+                box-shadow: 0 0 2px 0 rgba(199, 190, 190, 0.5);
+                border: solid 0.5px @GrayBorder;
+                background-color: #ffffff;
+
+                .icon{
+                    align-items: center;
+                    font-size: 2vh;
+                    color: @mainColor;
+                }
+            }
+        }
+    }
+
+    p{
+        align-self: center;
+        margin: 0;
+        
+        font-size: 1.5rem;
+        font-weight: 600;
+    }
+
+    .table{
+        height: 60%;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+
+        table{
+            width: 100%;
+
+            .first_t{
+                width: 45%;
+                min-width: 45%;
+                max-width: 45%;
+            }
+
+            .second_t{
+                width: 55%;
+                min-width: 55%;
+                max-width: 55%;
+            }
+
+            td, th{
+                border-right: 1.5px solid #ffffff;
+
+                // &:first-child{
+                //     width: 45%;
+                //     min-width: 45%;
+                //     max-width: 45%;
+                // }
+
+                // &:last-child{
+                //     width: 55%;
+                //     min-width: 55%;
+                //     max-width: 55%;
+                // }
+
+                &:last-child{
+                    border-right: none;
+                }
+            }
+
+            thead{
+                background-color:  @forgetPassMsg;
+
+                tr{
+                    text-align: center;
+                    height: 4vh;
+                    width: 100%;
+
+                    th{
+                        font-size: 1rem;
+                        color: @WhiteBG;
+                    }
+                }
+            }
+
+            tbody{
+
+                tr{
+                    text-align: center;
+                    height: 5.5vh;
+                    border: 2.5px solid @WhiteBG;
+                    width: 100%;
+
+                    td{
+                        font-size: 1rem;
+                        
+
+
+                    }
+                }
+                .move{
+                    background-color: @WhiteBG;
+                    font-size: 1.2rem;
+                    color: @RegularBlack;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+
+                }
+                .activetr{
+                    background-color: @mainColor;
+                    border: 2.5px solid @mainColor;
+                    color: #ffffff
+                }
+
+                .assigntr{
+                    display: flex;
+                    justify-content: space-around;
+                    align-items: center;
+                    background-color: #f8fbff;
+                    color: @HeadersGray;
+                }
+            }
+        }
+
+    }
+}

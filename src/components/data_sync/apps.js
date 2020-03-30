@@ -1,0 +1,28 @@
+export const get_syncs_apps = (last_date, last_sync)=>{
+    return {
+        "dinin__tables": {"filter": last_date},
+        "dinin__zones": {"filter": last_date},
+        "dinin__floors": {"filter": last_date},
+        "parties__address": {"filter": last_sync},
+        "parties__contact_type": {"filter": last_sync},
+        "parties__relationships": {"filter": last_sync},
+        "parties__customer_contacts": {"filter": last_sync},
+        "parties__customer_group": {"filter": last_sync},
+        "parties__family_members": {"filter": last_sync},
+        "parties__event_checkin": {"filter": last_sync},
+        "parties__reservation": {"filter": last_sync},
+        "parties__event_deposit": {"filter": last_sync},
+        "parties__reservation_notes": {"filter": last_sync},
+        "orders__business_days": {"filter": last_date},
+        "orders__shifts": {"filter": last_date},
+        "orders__main": {"filter": last_date},
+        "orders__receipt": {"filter": last_date},
+        "orders__receipt_items": {"filter": last_date},
+        "orders__order_seats": {"filter": last_date},
+        "orders__orders_discount": {"filter": last_date},
+        "orders__receipt_seats": {"filter": last_date},
+        "orders__details": {"filter": last_date},
+        "orders__payment": {"filter": last_date},
+        "orders__item_seats": {"filter": last_date},
+    }
+}

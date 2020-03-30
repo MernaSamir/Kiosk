@@ -1,0 +1,89 @@
+@import '~@assets/Colors.less';
+
+.login_container{ 
+    height: 100vh;
+    background-color:  @greyBlue;
+
+    .empty_login{
+        height: 6%;
+    }
+
+    .logo{
+        height: 10%;
+        display: flex;
+        justify-content: center;
+
+        .logo_img{
+            align-self: center;
+        }
+    }
+
+    .input_tag{
+        height: 18%;
+        margin: auto;
+        display: flex;
+        justify-content: center;
+
+        .inputs{
+            width: 50%;
+            display: flex;
+            justify-content: space-around;
+
+            // &:focus-within label {
+            //     color: @mainColor;
+            // }
+
+            // &:focus-within .msg{
+            //     color: @forgetPassMsg;
+            // }
+
+            // label{
+            //     font-size: 2vh;
+            //     color: @fontMainColor;
+
+            //     &:focus{
+            //         color: @mainColor;
+            //     }
+            // }
+            
+            input{
+                display: block;
+                height: 33%;
+                width: 90%;
+                border: 1.5px solid @fontSubcolor;
+                border-radius: 5.5px;
+                color: @mainColor;
+                
+                &:focus{
+                    outline: 0 none;
+                    border-color: @mainColor;
+                }
+            }
+        }
+
+        .msg{
+            width: 75%;
+            font-size: 1.6vh;
+            color: @forgetPassMsg;
+            text-align: center;
+        }
+    }
+    
+    .error_msg{
+        text-align: center;
+        font-size: 0.8rem;
+        color: @fontSubcolor;
+        animation: fadeIn 1s infinite alternate;
+        width: 100%;
+    }
+    .keyboard{
+    // margin-left: -4%;
+    width: 100%;
+    }
+} 
+
+@keyframes fadeIn { 
+    from { opacity: 0; } 
+}
+
+

@@ -1,0 +1,111 @@
+@import '~@assets/Colors.less';
+
+.Calc{
+    width: 40%;
+    justify-self: center;
+    margin: 0 auto;
+}
+@media only screen and (max-width:1100px){
+    .Calc{
+        width: 65%
+    }
+}
+
+.last{
+
+    width: 50%;
+    display: flex;
+    justify-content: space-between;
+    margin: 0 auto;
+    margin-top: 4%;
+
+      button{
+        box-shadow: 0 0 2px 0 rgba(80, 80, 80, 0.28);
+        border: solid 0.5px rgba(179, 176, 176, 0.34);
+        border-radius: 5vw;
+        padding: 3%;
+        width: 45%;
+        &:focus{
+            outline: 0
+        }
+        &:nth-child(2){
+            color: @WhiteBG;
+            background:   @mainColor;
+        }
+        &:nth-child(1){
+            color: #090505;
+            font-weight: 600;
+            box-shadow: 0 0 2px 0 rgba(80, 80, 80, 0.28);
+            border: solid 0.5px rgba(179, 176, 176, 0.34);
+            background-image: linear-gradient(to bottom, #f3f0f0, #ebe9e9);
+        }
+       
+    }
+    
+    
+}
+
+.label{
+    display: flex;
+    flex-direction: row;
+    padding: 1vw;
+    justify-content: center;
+    margin: 0 auto;
+    width: 34vw;
+    text-align: center;
+    flex-wrap: wrap;
+    align-items: center;
+
+    label{
+        
+        font-size: 1rem;
+        font-weight: bold;
+        color: @HeadersGray;
+        width: 26%;
+    }
+    input{
+        border-radius: 7.5px;
+        border: 1px solid;
+        border: solid 1px #d3d3d3;
+        width: 19vw;
+        min-height: 6vh;
+        text-align: center;
+        color: @RegularBlack;
+        
+        font-size: 1rem;
+    }
+
+}
+.title{
+    
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: @RegularBlack;
+    text-align: center;
+    margin: 0 auto;
+    align-self: center;
+
+}
+.bakebtn{
+    display: flex;
+    border: 1px solid #e0e0e0;
+    border-radius: 6px;
+    background-color: @WhiteBG;
+    padding: 2.2%;
+    width: 9vw;
+
+    &:focus{
+        outline: 0
+    }
+
+    .icon{
+        font-size: 1.5rem;
+        color: @RegularBlack;
+        align-self: center;
+    }
+    p{
+        font-size: 1rem;
+        color: @HeadersGray;
+        margin: 0% 0% 0% 16%;
+    }
+}

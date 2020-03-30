@@ -1,0 +1,85 @@
+/* mn elawl */
+.SyncBtn{
+    width: 15vh;
+    height: 5vh;
+    margin: 2%;
+    background-color:#e53b3d;
+    color: #fafafa;
+    border-radius: 5px;
+    border: 1px solid #e53b3d;
+    border-radius: 13px;
+    ;
+    font-size: 18px;
+    text-align: center;
+    cursor: pointer;
+    align-self: center;
+}
+.SyncInput{
+    width: 50%;
+    height:5vh;
+    border-radius: 7px;
+    background-image: linear-gradient(to bottom, #ffffff, #fafafa);
+    border: 1px solid #e53b3d;
+    color: #e43f42;
+    
+    font-size: 100%;
+    font-weight: normal;
+    font-style: normal;
+    font-stretch: normal;
+    letter-spacing: normal;
+    text-align: center;
+    margin: 0 auto;
+    outline: none;
+}
+.SyncDiv{
+    width: 38vh;
+    height: 7vh;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 5%;
+}
+.SyncSave{
+    width: 45%;
+    height: 70%;
+    /* padding: 2% 2%; */
+    border-radius: 13px;
+    box-shadow: 0 0 2px 0 rgba(80, 80, 80, 0.28);
+    background-color: #e73a3c;
+    border: 1px solid #e0e0e0;
+    ;
+    font-size: 80%;
+    font-weight: Bold;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 1.11;
+    letter-spacing: normal;
+    text-align: center;
+    color: #e0e0e0;
+    /* margin: 3%; */
+    cursor: pointer;
+    align-self: center;
+}
+.SyncCancel{
+    width: 45%;
+    height: 70%;
+    /* padding: 2% 2%; */
+    border: 1px solid #e0e0e0;
+    ;
+    font-size: 80%;
+    font-weight: Bold;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 1.11;
+    letter-spacing: normal;
+    text-align: center;
+    color: #e0e0e0;
+    /* margin-left: 20%; */
+    cursor: pointer;
+    border-radius: 13px;
+    box-shadow: 0 0 2px 0 rgba(80, 80, 80, 0.28);
+    background-image: linear-gradient(to bottom, #f3f0f0, #ebe9e9);
+    color: #090505;
+    align-self: center;
+
+}

@@ -1,0 +1,65 @@
+.Station_main{
+    width: 100vw;
+    height: 100vh;
+    align-items: center;
+    align-content: center;
+    justify-content: center;
+    align-self: auto;
+    background-color: #f5f5f5;
+    overflow: auto;
+}
+
+.Station_Logo{
+    width: 15%;
+    margin: auto;
+    margin-top: 8%;
+    display: block;
+}
+
+.Station_Text{
+    margin: auto;
+    margin-top: 8%;
+    text-align: center;
+    font-weight: bold;
+    font-size: 1.1rem;
+    color: #000000;
+    display: block;
+}
+
+.Station_flexbox{
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin-top: 6%;
+}
+
+.Station_flex{
+    width: 12vw;
+    height: 12vw;
+    border: 0.6px dotted #8d8c8c;
+    margin: 0 3%;
+    border-Radius: 1vh;
+    /* border: 0.5px solid rgba(112, 112, 112, 0.46); */
+    background-Image: linear-gradient(to bottom, #ffffff, #e6e6e6);
+    font-Family: 'Humanist521BT-Roman';
+    font-size: 1.1rem;
+    font-Weight: normal;
+    font-Style: normal;
+    font-Stretch: normal;
+    line-Height: 1.11;
+    letter-Spacing: normal;
+    text-Align: center;
+    color: #8d8c8c;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.Station_pic{
+    width: 40%;
+    height: 40%;
+    margin: 3vh auto;
+}

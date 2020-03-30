@@ -1,0 +1,122 @@
+@import '~@assets/Colors.less';
+
+.orderDetails{
+    padding: 2% 2% 0.5% 1%;
+    margin: 0;
+    border: 1px solid rgba(112, 112, 112, 0.32);
+    border-radius: 5px;
+    height: 65.5vh;
+    background-color: @BodyBackground;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    .first{
+            padding: 0% 2% 0% 1.5%;
+            height: 10%;
+            display: flex;
+            justify-content: space-between;
+
+            .title{
+                    margin: 0;
+                    font-size: 2.5vh;
+                    color: @RegularBlack;
+                    font-weight: bold;
+                    
+            }
+
+            .paging{
+                display: flex;
+                width: 44%;
+                height: 2.5vw;
+
+                p{
+                    text-align: center;
+                    
+                    font-size: 0.8rem;
+                    color: #4c4b4b;
+                    margin: 0% 3%;
+                    align-self: center;
+                }
+    
+                button{
+                    border-radius: 5vw;
+                    color: @mainColor;
+                    background-color: @WhiteBG;
+                    width: 3.5vw;
+                    box-shadow: 0 0 2px 0 rgba(199, 190, 190, 0.5);
+                    border: solid 0.5px @GrayBorder;
+                    outline: none;
+                    display: flex;
+                    height: 2.5vw;
+                    justify-content: center;
+                }
+            }
+    
+    }
+    .second{
+        height: 12%;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        padding: 0% 2% 0% 1.5%;
+
+        div{
+            width: 50%;
+
+            &:nth-child(2){
+
+                p{
+                   text-align: right; 
+                }
+            }
+
+            p{
+                margin: 0%;
+                font-size: 0.8rem;
+                color: @RegularBlack;
+                font-weight: 400;   
+            }   
+        }
+    }
+
+    .orders{
+        height: 26%;
+        display: flex;
+        justify-content: space-between;
+
+        .dates{
+            height: 100%;
+            width: 90%;
+            display: flex;
+            flex-wrap: wrap;
+            background-color: @BodyBackground;
+    
+            button{
+                width: 8.4vw;
+                height: 8vh;
+                border: solid 0.5px rgba(112, 112, 112, 0.2);
+                background-image: linear-gradient(to bottom, @WhiteBG, #f4f4f4);
+                color: @mainColor;
+            }
+        }
+    
+        .back{
+            height: 100%;
+            width: 10%;
+            display: flex;
+            flex-wrap: wrap;
+            background-color: @BodyBackground;
+    
+            button{
+                width: 100%;
+                height: 100%;
+                border: solid 0.5px rgba(112, 112, 112, 0.2);
+                background-image: linear-gradient(to bottom, @WhiteBG, #f4f4f4);
+                color: @mainColor;
+            }
+        }
+    }
+
+    
+}
