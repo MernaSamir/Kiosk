@@ -1,30 +1,60 @@
 @import '~@assets/style-settings.less';
 @import '~@assets/Colors.less';
 
-.body{
-   
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
 
 
-.flexContainer{
-    width: 100%;
-    height: auto;
-    margin: auto;
-    justify-self: center;
-    display: flex;
+// .flexContainer{
+//     width: 100%;
+//     height: auto;
+//     margin: auto;
+//     justify-self: center;
+//     display: flex;
    
-}
+// }
 
 .flexbox{
     margin: auto;
-    // margin-top: 10%;
+    justify-content: center;
+    align-items: center;   
     padding: 5% 15%;
     display: flex;
     flex-wrap: wrap;
     flex-direction: row;
     // justify-content: center;
+}
+.btn{
+    width: 50%;
+    padding: 50px;
+    margin: 10px;
+    border: 1px solid white;
+    border-radius: 7px;
+    background: white;
+}
+.buttonContainer{
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    align-items: center;
+}
+.button{
+    padding: 5px 23px;
+    width: 25%;
+    margin: 0px 20px;
+    border: 1px solid white;
+    border-radius: 9px;
+    background: white;
+    font-size: 18px;
+
+}
+.button:hover,
+.button:active {
+    background-color: #30b244;
+    color: white;
+}
+.Text{
+    justify-content: center;
+    display: flex;
+    font-weight: bold;
+    font-size: 2.5rem;
+    color: black;
 }

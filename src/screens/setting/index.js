@@ -12,7 +12,7 @@ class Start extends Component {
 renderButon = ()=>{
     return ButtonData.map((d,v)=>{
         return(
-            <button>
+            <button className={classes.btn}>
                 {d.title}
                 <img src={d.icon}/>
             </button>
@@ -28,10 +28,10 @@ renderButon = ()=>{
                 {this.renderButon()}
                 </div>
             </div>
-            <p>Select Language</p>
-            <div>
-            <button>English</button>
-            <button>العربيه</button>
+            <p className={classes.Text}>Select Language</p>
+            <div className={classes.buttonContainer}>
+            <button className={classes.button}>English</button>
+            <button className={classes.button}>العربيه</button>
             </div>
         </div>
         )
