@@ -97,13 +97,7 @@ class Routes extends wComponent {
         const data = await multiRequest(UserQuery(Token))
         setMain('main', { current: get(data, 'auths__user[0]') });
     }
-    renderRoutes() {
-      
-       
-          
-        
-        
-    }
+  
     checkLicense=()=>{
         const di = localStorage.getItem('device_id') || true
        

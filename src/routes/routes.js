@@ -1,19 +1,10 @@
 import React, { Component, Suspense, lazy } from 'react'
 import { Route } from 'react-router-dom';
-// import loadable from '@loadable/component'
 import Loading from "helpers/components/loading";
 import loadable from '@loadable/component'
-// import Home from 'containers/app-container'
-// import Home from 'containers/app-container'
-const Home = lazy(() => import('containers/app'))
-const Station = lazy(()=>import('screens/Station'))
-// const Header = lazy(()=>import('containers/Header'))
-const Hold_Order = lazy(() => import('screens/Hold_Order'))
-const FloorPlanner = lazy(() => import('screens/DineIn'))
-const TablesPlanner = lazy(() => import('screens/DineIn/tables'))
 
-const CustomerInformation = loadable(() => import('screens/Customer/info'), {
-    fallback: <Loading />,
+const Home = lazy(() => import('screens/Home'),{
+    fallback:<Loading/>,
 })
 const Header = loadable(() => import('containers/Header'), {
     fallback: <Loading />,
@@ -21,46 +12,10 @@ const Header = loadable(() => import('containers/Header'), {
 const Setting = loadable(() => import('screens/setting'), {
     fallback: <Loading />,
 })
+const Order = loadable(() => import('screens/order'), {
+    fallback: <Loading />,
+})
 
-// const CustomerInformation = lazy(()=>import('screens/Customer/info'))
-const CustomerEdit = lazy(()=>import('screens/Customer/info/edit'))
-// const CustomerInformation = lazy(() => import('screens/Customer/info'), {
-//     fallback: <Loading />,
-// })
-const CustomerSummery = lazy(() => import('screens/Customer/CustomerSummary'))
-const CustomerList = lazy(() => import('screens/Customer/CustomerList'))
-// import Admin from 'containers/admin-app-container';
-const Admin = lazy(() => import('containers/admin'))
-const SplitCheck = lazy(() => import('screens/split_check'))
-const Delivery = lazy(() => import('screens/Delivery'))
-const Counter = lazy(() => import('components/counter'))
-
-import errorMsg from 'screens/errors'
-const Packing = lazy(() => import('screens/displays/Packing'))
-const Kitchen = lazy(() => import('screens/displays/Kitchen'))
-const DeliveryDispatcher = lazy(() => import('screens/displays/delivery'))
-const Reservations = lazy(() => import('screens/Reservations/'))
-const NewReservation = lazy(()=> import('screens/Reservations/new_reservation'))
-const ReservationEdit = lazy(()=> import('screens/Reservations/new_reservation/edit'))
-const AssignTables = lazy(()=> import('screens/Reservations/assign_tables'))
-const Events = lazy(()=>import('screens/events'))
-const NewEvent = lazy(()=> import('screens/events/new_event'))
-const EditEvent = lazy(()=> import('screens/events/new_event/edit'))
-// const TodayEvents = lazy(()=> import('screens/events/events_of_today'))
-const GroupDif = lazy(()=> import('screens/displays/delivery/group_dif'))
-// const CallCenter = lazy('screens/call_center')
-const EventTabs = lazy(()=>import('screens/events/tabs'))
-const Catering = lazy(()=>import('screens/catering/order_status'))
-const NewCatering = lazy(()=>import('screens/catering/new_catering'))
-const EditCatring = lazy(()=> import('screens/catering/new_catering/edit'))
-
-const CateringList = lazy(()=>import('screens/catering/order_status'))
-const CallCenterList = lazy(()=>import('screens/call_center/chain_list/order_status'))
-const FormContainer = lazy(()=>import('containers/form'))
-const Popup = lazy(()=>import('components/popups'))
-const CallCenter = lazy(()=>import('screens/call_center'))
-const TodayEvents = lazy(()=>import('screens/events/events_of_today'))
-const Staff = lazy(()=>import('screens/staff_meal'))
 const Start_screen =lazy(()=>import('screens/start'))
 import classes from './style.less'
 import { connect } from 'react-redux'
@@ -75,6 +30,9 @@ const Routes = (props) => (
         <Route exact path ="/" component={Start_screen}/>
         <Header />
         <Route exact path ="/setting" component={Setting}/>
+        <Route exact path ="/home" component={Home}/>
+        <Route exact path ="/order" component={Order}/>
+
         {/* <Route exact path="/lock" component={errorMsg} />
         <Route path="/admin" component={Admin} />
         <Route path="/Home" component={Home}/>

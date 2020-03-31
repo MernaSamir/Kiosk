@@ -1,34 +1,41 @@
 @import '~@assets/style-settings.less';
 @import '~@assets/Colors.less';
 
-
-
-// .flexContainer{
-//     width: 100%;
-//     height: auto;
-//     margin: auto;
-//     justify-self: center;
-//     display: flex;
-   
-// }
-
 .flexbox{
     margin: auto;
     justify-content: center;
     align-items: center;   
     padding: 5% 15%;
     display: flex;
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
     flex-direction: row;
     // justify-content: center;
 }
+
+
+.pic{
+    width: 25vw;
+    margin-bottom: 5%;
+}
+
 .btn{
-    width: 50%;
+    max-width: 40vw;
+    height: 45vw;
+    width: 35vw;  
     padding: 50px;
     margin: 10px;
-    border: 1px solid white;
-    border-radius: 7px;
+    // border: 1px solid white;
+    border-radius: 10px;
     background: white;
+    justify-content: center;
+    justify-items: center;
+    font-size: 1.1vw;
+    white-space: nowrap;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: 0 1.5px 3px 0 rgba(0, 0, 0, 0.16);
+    border: solid 0.5px @forgetPassMsg;
 }
 .buttonContainer{
     display: flex;
@@ -37,24 +44,36 @@
     align-items: center;
 }
 .button{
-    padding: 5px 23px;
-    width: 25%;
+    padding: 12px;
+    width: 30vw;
     margin: 0px 20px;
     border: 1px solid white;
     border-radius: 9px;
     background: white;
     font-size: 18px;
-
+    color: black;
 }
 .button:hover,
 .button:active {
     background-color: #30b244;
     color: white;
 }
+
 .Text{
     justify-content: center;
     display: flex;
     font-weight: bold;
     font-size: 2.5rem;
     color: black;
+    padding-top: 30px;
+
+}
+.title{
+    margin-bottom: 10px;
+    font-size: 20px;
+    color: @forgetPassMsg;
+
+}
+.space{
+    padding: 65px 0px;
 }
