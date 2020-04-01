@@ -1,61 +1,76 @@
-@import '~@assets/style-settings.less';
-@import '~@assets/Colors.less';
+@import "~@assets/style-settings.less";
+@import "~@assets/Colors.less";
 
-.Container{
-    padding: 20px;
-    text-align: center;
+.Container {
+  padding: 20px;
+  text-align: center;
 }
-.space{
-    margin: 2px 0;
+.space {
+  margin: 2px 0;
 }
-.Text{
-    font-size: 25px;
-    color: @forgetPassMsg;
+.Text {
+  font-size: 25px;
+  color: @forgetPassMsg;
 }
-.btnContainer{
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: center;
+.btnContainer {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
 }
-.button{
-    font-size: 0.9vw;
-    color: #838383;
-    height: 22vw;
-    width: 22vw;
-    /* border-radius: 5px 5px; */
-    border-top-left-radius: 5px;
-    border-top-right-radius: 5px;
-    border-bottom-right-radius: -14px;
-    /* border-top-left-radius: 15px; */
-    border: solid 0.4px rgba(112, 112, 112, 0.46);
-    background-image: white;
-    display: flex;
-    justify-content: center;
-    justify-items: center;
-    align-items: center;
-    flex-direction: column;
-    /* font-size: 1.1vw; */
-    /* color: #953879; */
-    white-space: nowrap;
-    background: white;
+.button {
+  font-size: 0.9vw;
+  color: #838383;
+  height: 22vw;
+  width: 22vw;
+  /* border-radius: 5px 5px; */
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: -14px;
+  /* border-top-left-radius: 15px; */
+  border: solid 0.4px rgba(112, 112, 112, 0.46);
+  background-image: white;
+  display: flex;
+  justify-content: center;
+  justify-items: center;
+  align-items: center;
+  flex-direction: column;
+  /* font-size: 1.1vw; */
+  /* color: #953879; */
+  white-space: nowrap;
+  background: white;
 }
 
-.pic{
-    width: 80%;
-    margin-bottom: 5%;
+.pic {
+  width: 80%;
+  margin-bottom: 5%;
 }
-.buttonContainer{
-    margin: 20px 5px ;
-    width: 25vw;
-    height: 25vw;
+.buttonContainer {
+  margin: 25px 5px;
+  width: 25vw;
+  height: 25vw;
 }
- .title{
+.title {
+  padding: 7px;
+  padding-top: 10px;
+  width: 23vw;
+  height: 15vw;
+  background: #234f81;
+  border-bottom-right-radius: 8px;
+  border-bottom-left-radius: 8px;
+  color: white;
+}
+
+@media only screen and (max-width: 300px) {
+  .title {
     padding: 7px;
+    padding-top: 10px;
     width: 22vw;
-    height: 7vw;
+    height: 15vw;
     background: #234f81;
     border-bottom-right-radius: 8px;
     border-bottom-left-radius: 8px;
     color: white;
- }
+    font-size: 4vw;
+  }
+}
