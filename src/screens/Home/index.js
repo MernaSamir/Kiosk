@@ -11,14 +11,8 @@ class Home extends Component {
     
     
     render() {
-        
-        const chain = applyFilters({
-            key: 'Find',
-            path: 'licensing__chain.data',
-            params: {
-                id: this.props.chain_id
-            }
-        })
+        const {chain_name}=this.props
+ 
         const items = applyFilters({
             key: 'Filter',
             path: 'items__custom_menu.data',
@@ -51,11 +45,11 @@ class Home extends Component {
 
         
         return(
-            !chain ? <Loading/>
+            !chain_name ? <Loading/>
             :<div className={classes.Container}>
            
                 <div className={classes.space}></div>
-              <p className={classes.Text}> Welcome To {chain.name}</p>
+              <p className={classes.Text}> Welcome To {chain_name}</p>
               
               <p className={classes.Text}> shwayt klam gai mn database lama yt7at fel database yb2a y7lha rabna </p>
               <div className={classes.btnContainer}>
@@ -68,7 +62,9 @@ class Home extends Component {
     }
 }
 const mapStateToProps = state => ({
-    chain_id: get(state.licensing__chain, 'active', {}),
+    chain_name: get(
+        state.licensing__chain.data,
+        get(state, "licensing__chain.active", {}),{}).name
 })
 export default connect(mapStateToProps,mapDispatchToProps)(Home);
 

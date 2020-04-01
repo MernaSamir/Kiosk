@@ -1,6 +1,7 @@
 import React, { Component } from "react";
-import Image from "assets/images/logo.png";
-import Cart from "../cart";
+import classes from './style.less'
+import Cart from "./cart"
+import Category from "./category"
 class Order extends Component {
   //    hna hnadi 3la 3 component
   //    #1 left side
@@ -9,7 +10,9 @@ class Order extends Component {
   render() {
     return (
       <div>
-        order
+          <div className={classes.cat}>
+          <Category/>
+          </div>
         <Cart />
       </div>
     );
