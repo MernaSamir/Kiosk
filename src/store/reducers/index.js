@@ -121,7 +121,8 @@ export const stores = [
   'licensing__location_type',
   'notification_apps',
   'redux_notifications',
-  'cart'
+  'show',
+  'cart',
 ]
 const gReduce = stores.map(d => buildReducers(d)).reduce((o, k) => ({ ...o, ...k }), 0);
 export default combineReducers({

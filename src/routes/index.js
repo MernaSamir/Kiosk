@@ -19,6 +19,7 @@ import initFun from 'helpers/functions/init'
 import UserQuery from 'containers/LogIn/user';
 import uuid from 'uuid/v4'
 import { isDesktop, isMobile } from 'config';
+const Start_screen =lazy(()=>import('screens/start'))
 
 class Routes extends wComponent {
     state = {}

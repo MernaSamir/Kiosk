@@ -6,26 +6,32 @@ import applyFilters from 'helpers/functions/filters';
 import Loading from "helpers/components/loading";
 import classes from './style.less'
 import Table from '../../assets/images/003-serving-dish@3x.png';
+import cons from 'gun';
 
 class Home extends Component {
     
+     selectItem=(item)=>{
+     const { history,setMain } = this.props;
+     history.push("/order");
+     setMain('items__base_sales_cat',{active:item.id})
+
+     }
     
     render() {
         const {chain_name}=this.props
- 
-        const items = applyFilters({
+        
+        const category = applyFilters({
             key: 'Filter',
             path: 'items__custom_menu.data',
             params: {
                 active:true
             }
         })
-
         //scr image 8alt l7ad mytb3t
         const renderItems=()=>{
-           return items.map((d,v)=>{
+           return sub_cat.map((d,v)=>{
                return(
-                   <div key={v} className={classes.buttonContainer} onClick={()=>selectItem(d)}>
+                   <div key={v} className={classes.buttonContainer} onClick={()=>this.selectItem(d)}>
                    <div className={classes.button}>
                        <img src={Table} className={classes.pic}/>
                    </div>
@@ -36,18 +42,18 @@ class Home extends Component {
            })
 
         }
-       const selectItem=(item)=>{
-        const { history,setMain } = this.props;
-        history.push("/order");
-        setMain('items__custom_menu',{active:item.id})
+        const sub_cat = applyFilters({
+            key: 'Includes',
+            path: "items__base_sales_cat",
+            select: 'custom_menu',
+        }, undefined, undefined, {data: category.map(d=>d.id)})
 
-        }
 
         
         return(
             !chain_name ? <Loading/>
             :<div className={classes.Container}>
-           
+           {/* {console.log(refundedItems)} */}
                 <div className={classes.space}></div>
               <p className={classes.Text}> Welcome To {chain_name}</p>
               
