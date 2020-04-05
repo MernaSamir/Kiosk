@@ -5,7 +5,7 @@ import { get, min } from "lodash";
 import applyFilters from "helpers/functions/filters";
 import Table from "../../../assets/images/eatIn.png";
 import classes from "./style.less";
-
+import uuid from 'uuid/v4'
 class MainItems extends Component {
   renderItems = () => {
     const { category } = this.props;
@@ -24,7 +24,7 @@ class MainItems extends Component {
     });
 
     return items.map((d, v) => {
-      console.log(d);
+      console.log(uuid());
       return (
         <div className={classes.item}>
           <img src={Table} className={classes.image} />
