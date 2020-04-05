@@ -3,6 +3,8 @@ import {connect} from 'react-redux';
 import mapDispatchToProps from 'helpers/actions/main'
 import {get,min} from 'lodash';
 import applyFilters from 'helpers/functions/filters';
+import Table from '../../../assets/images/003-serving-dish@3x.png';
+
 class MainItems extends Component {
  
 
@@ -13,12 +15,23 @@ class MainItems extends Component {
           path: 'items__sales_items',
           params: {
               base_sales_cat:category
-          }
+          },
+          then:{
+            key:'Reject', 
+              params:{
+                active:false
+              }
+            }
       })
   
       return items.map((d,v)=>{
-         console.log(this.getPrice(d.id))
-
+          console.log(d)
+         return( <div>
+             <img src={Table}/>
+             {d.name}
+             from EGP{this.getPrice(d.id)}
+          </div>
+         )
       })
         
       }

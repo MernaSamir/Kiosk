@@ -6,7 +6,6 @@ import applyFilters from 'helpers/functions/filters';
 import Loading from "helpers/components/loading";
 import classes from './style.less'
 import Table from '../../assets/images/003-serving-dish@3x.png';
-import cons from 'gun';
 
 class Home extends Component {
     
