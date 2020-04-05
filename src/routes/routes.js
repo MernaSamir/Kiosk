@@ -4,29 +4,32 @@ import Loading from "helpers/components/loading";
 import loadable from "@loadable/component";
 
 const Home = lazy(() => import("screens/Home"), {
-  fallback: <Loading />
+  fallback: <Loading />,
 });
 const Header = loadable(() => import("containers/Header"), {
-  fallback: <Loading />
+  fallback: <Loading />,
 });
 const Setting = loadable(() => import("screens/setting"), {
-  fallback: <Loading />
+  fallback: <Loading />,
 });
 const Order = loadable(() => import("screens/order"), {
-  fallback: <Loading />
+  fallback: <Loading />,
 });
 
 const Payment = loadable(() => import("screens/PaymentLocation"), {
-  fallback: <Loading />
+  fallback: <Loading />,
 });
 
 const Final = loadable(() => import("screens/final"), {
-  fallback: <Loading />
+  fallback: <Loading />,
 });
 
+const Details = loadable(() => import("screens/details"), {
+  fallback: <Loading />,
+});
 const modifier = loadable(() => import("screens/modifier"), {
-    fallback: <Loading />
-  });
+  fallback: <Loading />,
+});
 
 const Start_screen = lazy(() => import("screens/start"));
 import classes from "./style.less";
@@ -34,7 +37,7 @@ import { connect } from "react-redux";
 
 import mapDispatchToProps from "helpers/actions/main";
 
-const Routes = props => (
+const Routes = (props) => (
   <>
     <Suspense fallback={<Loading />}>
       <Route exact path="/" component={Start_screen} />
@@ -44,8 +47,8 @@ const Routes = props => (
       <Route exact path="/order" component={Order} />
       <Route exact path="/payment" component={Payment} />
       <Route exact path="/final" component={Final} />
+      <Route exact path="/details" component={Details} />
       <Route exact path="/modifier" component={modifier} />
-
     </Suspense>
   </>
 );
@@ -61,8 +64,8 @@ class AppRouting extends Component {
 }
 
 export default connect(
-  state => ({
-    shift: state.orders__shifts.active
+  (state) => ({
+    shift: state.orders__shifts.active,
   }),
   mapDispatchToProps
 )(AppRouting);
