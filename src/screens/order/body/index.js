@@ -7,6 +7,12 @@ import Table from "../../../assets/images/eatIn.png";
 import classes from "./style.less";
 
 class MainItems extends Component {
+  selectItem = item => {
+    const { history, setMain } = this.props;
+    history.push("/details");
+    setMain("items__sales_items", { active: item.id });
+  };
+
   renderItems = () => {
     const { category } = this.props;
     const items = applyFilters({
@@ -26,7 +32,7 @@ class MainItems extends Component {
     return items.map((d, v) => {
       console.log(d);
       return (
-        <div className={classes.item}>
+        <div className={classes.item} onClick={() => this.selectItem(d)}>
           <img src={Table} className={classes.image} />
           <div className={classes.title}>{d.name}</div>
           <div className={classes.price}>from EGP{this.getPrice(d.id)}</div>

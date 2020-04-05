@@ -24,6 +24,10 @@ const Final = loadable(() => import("screens/final"), {
   fallback: <Loading />
 });
 
+const Details = loadable(() => import("screens/details"), {
+  fallback: <Loading />
+});
+
 const Start_screen = lazy(() => import("screens/start"));
 import classes from "./style.less";
 import { connect } from "react-redux";
@@ -40,6 +44,7 @@ const Routes = props => (
       <Route exact path="/order" component={Order} />
       <Route exact path="/payment" component={Payment} />
       <Route exact path="/final" component={Final} />
+      <Route exact path="/details" component={Details} />
     </Suspense>
   </>
 );
