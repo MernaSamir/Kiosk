@@ -1,16 +1,33 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import mapDispatchToProps from "helpers/actions/main";
-import { get, min } from "lodash";
+import { get, min,map } from "lodash";
 import applyFilters from "helpers/functions/filters";
 import Table from "../../../assets/images/eatIn.png";
 import classes from "./style.less";
 import uuid from 'uuid/v4'
+import axios from 'axios';
+import API_URL from 'config'
+import cons from "gun";
 class MainItems extends Component {
+  
   selectItem = item => {
-    const { history, setMain } = this.props;
-    history.push("/details");
-    setMain("items__sales_items", { active: item.id });
+    const {station,mode,UpdateModels}=this.props
+      const data= {'orders__main':[{
+              id:uuid(),
+              station:station,
+              mode:mode,
+              start_time: new Date(),
+      }]
+     }
+     const success=(res)=>{
+        const {history,setMain}=this.props
+         setMain("items__sales_items", { active: item.id });
+         history.push("/details");
+         console.log(res)
+        return[]
+     }
+     UpdateModels(data,success)
   };
 
   renderItems = () => {
@@ -71,7 +88,9 @@ class MainItems extends Component {
   }
 }
 const mapStateToProps = state => ({
-  category: get(state.items__base_sales_cat, "active", undefined)
+  category: get(state.items__base_sales_cat, "active", undefined),
+  station: get(state.licensing__station,"active",{}),
+  mode: get(state.settings__mode,"active",{})
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(MainItems);

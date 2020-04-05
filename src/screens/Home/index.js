@@ -8,6 +8,10 @@ import classes from './style.less'
 import Table from '../../assets/images/003-serving-dish@3x.png';
 
 class Home extends Component {
+    constructor(props){
+        super(props);
+        props.setMain("orders__main",{data:{}})
+    }
     
      selectItem=(item)=>{
      const { history,setMain } = this.props;
