@@ -35,7 +35,7 @@ class MainItems extends Component {
         <div className={classes.item} onClick={() => this.selectItem(d)}>
           <img src={Table} className={classes.image} />
           <div className={classes.title}>{d.name}</div>
-          <div className={classes.price}>from EGP{this.getPrice(d.id)}</div>
+          <div className={classes.price}>from EGP {this.getPrice(d.id)}</div>
         </div>
       );
     });
@@ -47,7 +47,13 @@ class MainItems extends Component {
       path: "items__prices",
       select: {
         sales_item: item
-      }
+      },
+      then: {
+        key: "Reject",
+        params: {
+          active: false
+        }
+    }
     });
 
     const price = [];

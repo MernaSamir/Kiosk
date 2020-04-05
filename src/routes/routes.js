@@ -24,9 +24,15 @@ const Final = loadable(() => import("screens/final"), {
   fallback: <Loading />
 });
 
+<<<<<<< HEAD
 const Details = loadable(() => import("screens/details"), {
   fallback: <Loading />
 });
+=======
+const modifier = loadable(() => import("screens/modifier"), {
+    fallback: <Loading />
+  });
+>>>>>>> cf67f043e89ed35e5956f1b4e7db690c634289dd
 
 const Start_screen = lazy(() => import("screens/start"));
 import classes from "./style.less";
@@ -44,7 +50,12 @@ const Routes = props => (
       <Route exact path="/order" component={Order} />
       <Route exact path="/payment" component={Payment} />
       <Route exact path="/final" component={Final} />
+<<<<<<< HEAD
       <Route exact path="/details" component={Details} />
+=======
+      <Route exact path="/modifier" component={modifier} />
+
+>>>>>>> cf67f043e89ed35e5956f1b4e7db690c634289dd
     </Suspense>
   </>
 );
