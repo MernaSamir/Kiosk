@@ -12,23 +12,23 @@ class Details extends Component {
       key: "List",
       path: "items__prices",
       select: {
-        sales_item: item.id
+        sales_item: item.id,
       },
       then: {
         key: "Reject",
         params: {
-          active: false
-        }
-      }
+          active: false,
+        },
+      },
     });
 
-    return list.map(d => {
+    return list.map((d) => {
       let unit = applyFilters({
         key: "Find",
         path: "dropdowns__units_of_measure",
         params: {
-          id: d.sales_unit
-        }
+          id: d.sales_unit,
+        },
       });
       return (
         <div className={classes.priceContainer}>
@@ -38,6 +38,17 @@ class Details extends Component {
       );
     });
   }
+
+  goBack() {
+    const { history } = this.props;
+    history.push("/order");
+  }
+
+  goNext() {
+    const { history } = this.props;
+    // history.push("/extras");
+  }
+
   render() {
     const { item } = this.props;
 
@@ -53,8 +64,12 @@ class Details extends Component {
           <div className={classes.prices}>{this.renderPrices(item)}</div>
         </div>
         <div className={classes.btnContainer}>
-          <button className={classes.back}>Back</button>
-          <button className={classes.next}>Next - Extras</button>
+          <button className={classes.back} onClick={() => this.goBack()}>
+            Back
+          </button>
+          <button className={classes.next} onClick={() => this.goNext()}>
+            Next - Extras
+          </button>
         </div>
       </div>
     ) : (
@@ -62,12 +77,12 @@ class Details extends Component {
     );
   }
 }
-const mapStateToProps = state => ({
+const mapStateToProps = (state) => ({
   item: get(
     state.items__sales_items.data,
     get(state.items__sales_items, "active", undefined),
     undefined
-  )
+  ),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Details);
