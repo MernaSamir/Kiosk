@@ -4,9 +4,13 @@ import ButtonData from "./json";
 import { connect } from "react-redux";
 
 class Payment extends Component {
-  setLocation = location => {
+  setLocation = (location) => {
     console.log("payment location", location);
     //set payment location in redux
+  };
+  goBack = () => {
+    const { history } = this.props;
+    history.push("/cart");
   };
   renderButon = () => {
     return ButtonData.map((d, v) => {
@@ -54,7 +58,9 @@ class Payment extends Component {
         </div>
         {this.renderCharges()}
         <div className={classes.buttonContainer}>
-          <button className={classes.button}>Back</button>
+          <button className={classes.button} onClick={() => this.goBack()}>
+            Back
+          </button>
           <button className={classes.button}>Payment</button>
         </div>
       </div>
