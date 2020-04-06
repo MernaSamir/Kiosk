@@ -27,6 +27,9 @@ const Final = loadable(() => import("screens/final"), {
 const Details = loadable(() => import("screens/details"), {
   fallback: <Loading />,
 });
+const Quantity = loadable(() => import("screens/details/qtn"), {
+    fallback: <Loading />,
+  });
 const modifier = loadable(() => import("screens/modifier"), {
   fallback: <Loading />,
 });
@@ -48,6 +51,8 @@ const Routes = (props) => (
       <Route exact path="/payment" component={Payment} />
       <Route exact path="/final" component={Final} />
       <Route exact path="/details" component={Details} />
+      <Route exact path="/details/qtn" component={Quantity} />
+
       <Route exact path="/modifier" component={modifier} />
     </Suspense>
   </>

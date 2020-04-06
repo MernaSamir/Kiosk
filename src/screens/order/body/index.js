@@ -12,22 +12,9 @@ import cons from "gun";
 class MainItems extends Component {
   
   selectItem = item => {
-    const {station,mode,UpdateModels}=this.props
-      const data= {'orders__main':[{
-              id:uuid(),
-              station:station,
-              mode:mode,
-              start_time: new Date(),
-      }]
-     }
-     const success=(res)=>{
-        const {history,setMain}=this.props
-         setMain("items__sales_items", { active: item.id });
-         history.push("/details");
-         console.log(res)
-        return[]
-     }
-     UpdateModels(data,success)
+     const {history,setMain}=this.props;
+     setMain("items__sales_items", { active: item.id });
+     history.push("/details");
   };
 
   renderItems = () => {
@@ -47,7 +34,6 @@ class MainItems extends Component {
     });
 
     return items.map((d, v) => {
-      console.log(uuid());
       return (
         <div className={classes.item} onClick={() => this.selectItem(d)}>
           <img src={Table} className={classes.image} />
@@ -89,8 +75,6 @@ class MainItems extends Component {
 }
 const mapStateToProps = state => ({
   category: get(state.items__base_sales_cat, "active", undefined),
-  station: get(state.licensing__station,"active",{}),
-  mode: get(state.settings__mode,"active",{})
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(MainItems);
