@@ -14,7 +14,6 @@ class Cart extends Component {
       return map(carts, (d, v) => {
         return (
           <div className={classes.cart}>
-            {/* {d.qtn} {d.name} -{d.unit} EGP{d.qtn*d.price} */}
             <button className={classes.miniBtn}>
               <img src={Edit} className={classes.editImg} />
             </button>

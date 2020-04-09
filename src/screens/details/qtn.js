@@ -6,36 +6,33 @@ import { get } from "lodash";
 import applyFilters from "helpers/functions/filters";
 
 class Quantity extends Component {
-    constructor(props){
-        super(props);
-        this.state={
-            dis:false
-        }
+  constructor(props) {
+    super(props);
+    this.state = {
+      dis: false,
+    };
+  }
+  handelClick = (action) => {
+    const { setMain, cart } = this.props;
+
+    if (action === "-") {
+      setMain("cart", { item: { ...cart, qtn: cart.qtn - 1 } });
+    } else {
+      setMain("cart", { item: { ...cart, qtn: cart.qtn + 1 } });
     }
-     handelClick = (action) => {
-      const { setMain, cart } = this.props;
-
-      if (action === "-") {
-       setMain("cart", { item: { ...cart, qtn: cart.qtn - 1 } });
-      } else {
-       setMain("cart", { item: { ...cart, qtn: cart.qtn + 1 } });
-     }
-   };
-      setButton=(qtn)=>{
-
-       if(qtn===1){
-          return true
-      }
-      return false
-
- }
-    add_cart = (data)=>{
-     const {appendPath,setMain,history}=this.props
-     appendPath('cart',`data.${[data.id]}`,data)
-     setMain ('cart',{item:{}})
-     history.push('/order')
-    
-     }
+  };
+  setButton = (qtn) => {
+    if (qtn === 1) {
+      return true;
+    }
+    return false;
+  };
+  add_cart = (data) => {
+    const { appendPath, setMain, history } = this.props;
+    appendPath("cart", `data.${[data.id]}`, data);
+    setMain("cart", { item: {} });
+    history.push("/order");
+  };
 
   render() {
     const { cart, item } = this.props;
@@ -53,21 +50,27 @@ class Quantity extends Component {
         <div className={classes.item}>
           {item.name} - {unit.name}
         </div>
-
-        <div className={classes.priceHeader}>
-          <div className={classes.header}>Each</div>
-          <div className={classes.header}> Total</div>
-          <div className={classes.header}>EGP</div>
-          <div className={classes.header}> EGP</div>
-          <div className={classes.header}>{price}</div>
-          <div className={classes.header}> {price * qtn}</div>
+        <div className={classes.chargesHeader}>
+          <div className={classes.chargesTotal}>
+            <div>Total</div>
+            <div>EGP</div>
+          </div>
+          <div className={classes.chargesEach}>
+            <div>Each</div>
+            <div>EGP</div>
+          </div>
         </div>
-        <div className={classes.left}>
-          {qtn} x {item.name} {unit.name}
+        <div className={classes.flex}>
+          <div className={classes.itemInfo}>
+            {qtn} x {item.name} {unit.name}
+          </div>
+          <div className={classes.each}>{price}</div>
+          <div className={classes.total}> {price * qtn}</div>
         </div>
-        <div className={classes.itemTotal}>
-          Item total ({qtn})
-          <div className={classes.totalPrice}>{price * qtn}</div>
+        <div className={classes.flexTotal}>
+          <div className={classes.itemTotalInfo}>Item total ({qtn})</div>
+          <div className={classes.each}>{price}</div>
+          <div className={classes.total}> {price * qtn}</div>
         </div>
         <div className={classes.incrementer}>
           <button
@@ -85,9 +88,11 @@ class Quantity extends Component {
             +
           </button>
         </div>
-         <div className={classes.btnContainer}>
-         <button className={classes.back}>Back</button>
-         <button className={classes.next} onClick={()=>this.add_cart(cart)}>Add to cart</button>
+        <div className={classes.btnContainer}>
+          <button className={classes.back}>Back</button>
+          <button className={classes.next} onClick={() => this.add_cart(cart)}>
+            Add to cart
+          </button>
         </div>
       </div>
     ) : (
