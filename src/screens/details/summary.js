@@ -9,19 +9,10 @@ class Summary extends Component {
  
  getSummary =()=>{
        
-     const { cart,name } = this.props;
-console.log(cart,name)
-        const unit = applyFilters({
-            key: "Find",
-            path: "dropdowns__units_of_measure",
-            params: {
-              id: cart.sales_unit
-            }
-          });
-          console.log(unit)
+     const { cart } = this.props;
         return (
-           unit&&<div className={classes.summary}>
-               <p> {name} - {unit.name}</p>
+           !isEmpty(cart)&&<div className={classes.summary}>
+               <p> {cart.name} - {cart.unit}</p>
                <p> {cart.price}</p>
             </div>
         )
@@ -44,7 +35,7 @@ console.log(cart,name)
     }
 }
 const mapStateToProps = state => ({
-    cart:get(state.cart,'data',{})
+    cart:get(state.cart,'item',{})
   
   
   });

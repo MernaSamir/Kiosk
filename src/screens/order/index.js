@@ -18,7 +18,7 @@ class Order extends Component {
         <div className={classes.item}>
           <Body history={history} />
         </div>
-        <Cart />
+        <Cart  history={history}/>
       </div>
     );
   }

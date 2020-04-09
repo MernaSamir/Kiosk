@@ -5,10 +5,7 @@ import { get, min,map } from "lodash";
 import applyFilters from "helpers/functions/filters";
 import Table from "../../../assets/images/eatIn.png";
 import classes from "./style.less";
-import uuid from 'uuid/v4'
-import axios from 'axios';
-import API_URL from 'config'
-import cons from "gun";
+
 class MainItems extends Component {
   
   selectItem = item => {

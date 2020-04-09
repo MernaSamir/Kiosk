@@ -10,20 +10,21 @@ class Cart extends Component {
   }
 
   renderOrders() {
-    const { carts } = this.props;
+    const { cart } = this.props;
+    console.log(cart)
     return (
       <div>
-        <div className={chargesHeader}>
-          <div className={chargesEach}>
+        <div className={classes.chargesHeader}>
+          <div className={classes.chargesEach}>
             <div>Each</div>
             <div>EGP</div>
           </div>
-          <div className={chargesTotal}>
+          <div className={classes.chargesTotal}>
             <div>Total</div>
             <div>EGP</div>
           </div>
         </div>
-        {map(carts, (key, value) => {
+        {/* {map(carts, (key, value) => {
           //edit and delete icons
           //number of ordered item
           //ordered item
@@ -31,7 +32,7 @@ class Cart extends Component {
           //price for each
           //price for total
           //Each having: order details
-        })}
+        })} */}
         {this.renderCharges()}
       </div>
     );
@@ -70,20 +71,21 @@ class Cart extends Component {
     );
   }
   render() {
-    const { carts } = this.props;
+    const { cart } = this.props;
+    console.log(cart)
     return (
       <div>
         <div className={classes.header}>My cart</div>
-        <div className={classes.empty}>
-          {isEmpty(carts) && "Your cart is empty"}
-        </div>
-        {!isEmpty(carts) && this.renderOrders()}
+        {/* <div className={classes.empty}>
+          {isEmpty(cart) && "Your cart is empty"}
+        </div> */}
+        {this.renderOrders()}
         {this.renderButtons()}
       </div>
     );
   }
 }
 const mapStateToProps = (state) => ({
-  carts: get(state, "cart", {}),
+  cart: get(state.cart, "data", {}),
 });
 export default connect(mapStateToProps)(Cart);

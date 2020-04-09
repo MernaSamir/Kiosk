@@ -37,10 +37,10 @@ class Details extends Component {
   //    }
   //    UpdateModels(data,success)
   // }
-  handelClick=(item)=>{
+  handelClick=(item,name,unit)=>{
     const {appendPath,setMain}=this.props;
     // appendPath('cart', `item.${item.id}`, item)
-    setMain('cart',{data:{...item,qtn:1}})
+    setMain('cart',{item:{...item, qtn:1,name:name,unit:unit}})
   }
   nextClick=()=>{
     const{history,match}=this.props;
@@ -72,7 +72,7 @@ class Details extends Component {
         },
       });
       return (
-        <div className={classes.priceContainer} onClick={()=>this.handelClick(d)}>
+        <div className={classes.priceContainer} onClick={()=>this.handelClick(d,item.name,unit.name)}>
           <div className={classes.size}>{unit.name}</div>
           <div className={classes.price}>EGP {d.price}</div>
         </div>
@@ -104,7 +104,7 @@ class Details extends Component {
           <div className={classes.prices} >{this.renderPrices(item)}</div>
         </div>
         
-        <Summary name={item.name}/>
+        <Summary/>
         <div className={classes.btnContainer}>
           <button className={classes.back} onClick={() => this.goBack()}>
             Back

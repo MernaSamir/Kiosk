@@ -1,19 +1,34 @@
 import React, { Component } from "react";
 import classes from "./style.less";
-import { isEmpty, get, isEqual } from "lodash";
+import { isEmpty, get, isEqual,map } from "lodash";
 import { connect } from "react-redux";
+import mapDispatchToProps from "helpers/actions/main";
 
 class Cart extends Component {
-  renderOrders() {
+
+  renderOrders =() =>{
     const { carts } = this.props;
-    if (isEmpty(carts)) return <div></div>;
-    return map(carts, (key, value) => {
-      //edit and cancel icons
-      //number of ordered item
-      //ordered item
-      //show-detail icon
-      //price
-    });
+    if(isEmpty(carts)){
+      return(
+        <div className={classes.empty}>
+         Your cart is empty
+       </div>
+      )
+     }
+    else {
+      return map(carts,(d,v)=>{
+        return (
+        <div>
+         {d.qtn} {d.name} -{d.unit} EGP{d.qtn*d.price}
+        </div>
+        )
+      })
+    }
+  }
+  handelCheckOut=()=>{
+    const {history}=this.props;
+    console.log(this.props )
+    history.push("/cart");
   }
   render() {
     const { carts, currentMode } = this.props;
@@ -23,20 +38,23 @@ class Cart extends Component {
         <div className={classes.header}>
           My cart - {isEqual(currentMode, "Dine In") ? "Eat in" : currentMode}
         </div>
-        <div className={classes.empty}>
-          {isEmpty(carts) ? "Your cart is empty" : ""}
+        <div>
+          {this.renderOrders()}
         </div>
-        {this.renderOrders()}
+        {!isEmpty(carts)&&<div>
+          <button onClick={this.handelCheckOut}>Checkout</button>
+          <button>Cancel</button>
+        </div>}
       </div>
     );
   }
 }
 const mapStateToProps = state => ({
-  cart: get(state, "cart", {}),
+  carts: get(state.cart, "data", {}),
   currentMode: get(
     state.settings__mode.data,
     get(state, "settings__mode.active", ""),
     ""
   ).name
 });
-export default connect(mapStateToProps)(Cart);
+export default connect(mapStateToProps, mapDispatchToProps)(Cart);
