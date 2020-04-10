@@ -6,37 +6,10 @@ import applyFilters from "helpers/functions/filters";
 import Table from "../../assets/images/2924_27020938.png";
 import classes from "./style.less";
 import Summary from './summary';
-import uuid from 'uuid/v4'
 class Details extends Component {
 
 
-  // handelClick =(item_price)=>{
-  //   const {station,mode,shift,UpdateModels}=this.props
-  //   const main_id=uuid()
-  //   const details_id=uuid()
-  //     const data= {'orders__main':[{
-  //             id:main_id,
-  //             station:station,
-  //             mode:mode,
-  //             start_time: new Date(),
-  //             shift:shift
-  //     }],
-  //     'orders__details':[{
-  //         id:details_id,
-  //         order:main_id,
-  //         item:item_price.id,
-  //         price:item_price.price,
-  //         quantity:1
-  //     }]
-  //    }
-  //    const success=(res)=>{
-  //       const {history,setMain}=this.props
-        
-  //        console.log(res)
-  //       return[]
-  //    }
-  //    UpdateModels(data,success)
-  // }
+ 
   handelClick=(item,name,unit)=>{
     const {appendPath,setMain}=this.props;
     // appendPath('cart', `item.${item.id}`, item)

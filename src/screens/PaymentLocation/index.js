@@ -2,7 +2,10 @@ import React, { Component } from "react";
 import classes from "./style.less";
 import ButtonData from "./json";
 import { connect } from "react-redux";
-
+import mapDispatchToProps from "helpers/actions/main";
+import applyFilters from "helpers/functions/filters";
+import uuid from 'uuid/v4'
+import {get,range} from 'lodash'
 class Payment extends Component {
   setLocation = (location) => {
     console.log("payment location", location);
@@ -26,6 +29,23 @@ class Payment extends Component {
       );
     });
   };
+  handelClick=()=>{
+    const {orderData}=this.props
+    const orderDetails = applyFilters({
+      key: 'Filter',
+      path: 'orders__details',
+      params: {
+        deleted:false
+      }
+    })
+    const calc = applyFilters({
+      key: 'calculateReceipts',
+      path: 'orders__receipt',
+    }, orderDetails, undefined, {seatsNum: range(0, (get(orderData, 'guests_num', 0) + 1))}
+    )
+    console.log(calc)
+  }
+  
 
   renderCharges = () => {
     return (
@@ -61,10 +81,14 @@ class Payment extends Component {
           <button className={classes.button} onClick={() => this.goBack()}>
             Back
           </button>
-          <button className={classes.button}>Payment</button>
+          <button className={classes.button} onClick={this.handelClick}>Payment</button>
         </div>
       </div>
     );
   }
 }
-export default Payment;
+const mapStateToProps=state=>({
+  orderData: get(state.orders__main, state.orders__main.active, {}),
+
+})
+export default connect(mapStateToProps,mapDispatchToProps)(Payment);

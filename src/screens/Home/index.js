@@ -11,6 +11,8 @@ class Home extends Component {
     constructor(props){
         super(props);
         props.setMain("orders__main",{data:{}})
+        props.setMain("orders__details",{data:{}})
+
     }
     
      selectItem=(item)=>{

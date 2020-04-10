@@ -1,13 +1,52 @@
 import React, { Component } from "react";
 import classes from "./style.less";
-import { isEmpty, get, map } from "lodash";
+import { keys, get, map } from "lodash";
 import { connect } from "react-redux";
 import Edit from "../../assets/images/edit.png";
+import uuid from 'uuid/v4'
+import mapDispatchToProps from "helpers/actions/main";
+import {array_to_obj} from 'helpers/functions/array_to_object'
 
 class Cart extends Component {
   goPay() {
-    const { history } = this.props;
-    history.push("/payment");
+    const {station,mode,shift,UpdateModels,cart}=this.props
+    const main_id=uuid()
+
+      const data= {'orders__main':[{
+              id:main_id,
+              station:station,
+              mode:mode,
+              start_time: new Date(),
+              shift:shift
+      }],
+      'orders__details':this.getOrderDetails(main_id)
+     }
+     const success=(res)=>{
+        const {history,appendPath,setMain}=this.props
+        map(res,(d,v)=>{
+          setMain(v,{active:d[0].id})
+          d=array_to_obj(d)
+          console.log(d)
+          appendPath(v, 'data',d);
+        })
+        history.push("/payment");
+        return[]
+     }
+     UpdateModels(data,success)
+  }
+  getOrderDetails=(order)=>{
+    const {cart}=this.props;
+    let details=[]
+    map(cart,(d,v)=>{
+      details.push({
+        id:uuid(),
+        order:order,
+        item:d.id,
+        price:d.price,
+        quantity:d.qtn
+      })
+    })
+    return details;
   }
 
   renderOrders() {
@@ -94,5 +133,8 @@ class Cart extends Component {
 }
 const mapStateToProps = (state) => ({
   cart: get(state.cart, "data", {}),
+  shift:get(state.orders__shifts,"active",undefined),
+  mode: get(state.settings__mode,"active",undefined),
+  station: get(state.licensing__station,"active",undefined),
 });
-export default connect(mapStateToProps)(Cart);
+export default connect(mapStateToProps,mapDispatchToProps)(Cart);
