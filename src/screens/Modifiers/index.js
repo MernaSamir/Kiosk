@@ -101,7 +101,7 @@ class Modifiers extends Component {
             path: "items__assign_modifier_items",
             params: {
                 active: true,
-                item: detail.item
+                item: detail.id
             }
         })
         const main_modifiers_items = applyFilters({
@@ -232,7 +232,8 @@ class Modifiers extends Component {
 const mapStateToProps = (state, props) => ({
     activeAction: state.actions.active,
     activeOrder: state.orders__details.active,
-    detail: props.detail || get(state.orders__details.data, `${state.orders__details.active}`, {}),
+    detail: get(state.cart,'item',{}),
+    // props.detail || get(state.orders__details.data, `${state.orders__details.active}`, {}),
     get priceItem() { return get(state.items__prices.data, this.detail.item, '') },
     get itemName() { return get(get(state.items__sales_items.data, this.priceItem.sales_item), 'name', '') },
     get Item() { return get(state.items__sales_items.data, this.priceItem.sales_item, {}) },

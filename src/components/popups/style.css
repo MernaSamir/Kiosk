@@ -301,3 +301,12 @@
     border-radius: 12px;
 
 }
+.ant-modal-content{
+    position: relative;
+    background-color :#ffffff !important;
+    background-clip: padding-box;
+    border: 0;
+    border-radius: 4px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    pointer-events: auto;
+}

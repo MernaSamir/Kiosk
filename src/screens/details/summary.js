@@ -4,6 +4,7 @@ import {connect} from 'react-redux';
 import mapDispatchToProps from 'helpers/actions/main'
 import {get,map,isEmpty} from 'lodash'
 import applyFilters from "helpers/functions/filters";
+import Edit from "../../assets/images/edit.png";
 
 class Summary extends Component {
  
@@ -12,6 +13,9 @@ class Summary extends Component {
      const { cart } = this.props;
         return (
            !isEmpty(cart)&&<div className={classes.summary}>
+              <button className={classes.miniBtn}>
+                <img src={Edit} className={classes.editImg} />
+                 </button>
                <p> {cart.name} - {cart.unit}</p>
                <p> {cart.price}</p>
             </div>

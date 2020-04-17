@@ -3,6 +3,8 @@ import { Route } from "react-router-dom";
 import Loading from "helpers/components/loading";
 import loadable from "@loadable/component";
 
+const Popup = lazy(() => import('components/popups'))
+
 const Home = lazy(() => import("screens/Home"), {
   fallback: <Loading />,
 });
@@ -60,6 +62,7 @@ const Routes = (props) => (
 
       <Route exact path="/modifier" component={modifier} />
       <Route exact path="/cart" component={Cart} />
+      <Popup />
     </Suspense>
   </>
 );

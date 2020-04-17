@@ -18,7 +18,7 @@ class DoneButton extends Component {
        
         else{
             setMain("orders__details", { active: '' })
-            history.push('/home')
+            history.push('/details/qtn')
         }
     }
 

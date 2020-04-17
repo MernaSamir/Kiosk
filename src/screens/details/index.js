@@ -17,7 +17,8 @@ class Details extends Component {
   }
   nextClick=()=>{
     const{history,match}=this.props;
-    history.push(`${match.url}/qtn`)
+    // history.push(`${match.url}/qtn`)
+    history.push('/modifier')
 
   }
 

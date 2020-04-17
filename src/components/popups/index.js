@@ -27,8 +27,12 @@ class popup extends React.Component {
                     centered={true}
                     width={props.width || '50%'}
                     bodyStyle={{
-                        border: props.border||'1px solid  #d73f7c',
-                        height: props.height || '100%'
+                        // border: props.border||'1px solid  #d73f7c',
+                        height: props.height || '100%',
+                        boxShadow: '0 1.5px 3px 0 rgba(0, 0, 0, 0.16)',
+                        borderRadius: '15px',
+                        backgroundColor: '#ffffff'
+ 
                     }}
                 >
                     <>

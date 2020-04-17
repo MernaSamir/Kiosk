@@ -29,22 +29,7 @@ class Payment extends Component {
       );
     });
   };
-  handelClick=()=>{
-    const {orderData}=this.props
-    const orderDetails = applyFilters({
-      key: 'Filter',
-      path: 'orders__details',
-      params: {
-        deleted:false
-      }
-    })
-    const calc = applyFilters({
-      key: 'calculateReceipts',
-      path: 'orders__receipt',
-    }, orderDetails, undefined, {seatsNum: range(0, (get(orderData, 'guests_num', 0) + 1))}
-    )
-    console.log(calc)
-  }
+  
   
 
   renderCharges = () => {

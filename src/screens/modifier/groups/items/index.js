@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { map, get } from 'lodash';
-import classes from './../../styles.less';
+import classes from './../../style.less';
 import { connect } from 'react-redux';
 import mapDispatchToProps from 'helpers/actions/main';
 import applyFilter from 'helpers/functions/filters';
@@ -11,9 +11,9 @@ class Items extends Component {
         active: ''
     }
 
-    addModifier(d) {
-        console.log(d)
-        const { detail, appendPath, modifierItems, group, onClick, setMain } = this.props;
+    addModifier(d,data) {
+        console.log("dsdsdd",d)
+        const { detail, appendPath, modifierItems, group, onClick, setMain,cart } = this.props;
         const modifier_items = get(modifierItems, d.modifier_items, {})
         const free = ((group.max_point == 0) || (modifier_items.free_point <= (group.max_point - group.max_ordered_points)));
 
@@ -35,7 +35,7 @@ class Items extends Component {
                 quantity: 1,
                 add: true
             }
-            appendPath("orders__details", 'item', item)
+            setMain("cart",{item:{...cart,item:{item:d.item,qtn:1,price:d.price,name:data.name}}})
 
         }
         else {
@@ -87,12 +87,14 @@ class Items extends Component {
     renderItems = () => {
         const { show, page } = this.props
         const list = this.getModifiers();
+        console.log(list)
         const { active } = this.state
         return map(list, (d, key) => {
             const data = applyFilter(show, d);
+            console.log(data)
             return <div key={key} className={classes.Mod_itemsBtn}
                 style={{ border: d.id == active && '1.5px solid #d73f7c' }}
-                onClick={this.addModifier.bind(this, d)} >
+                onClick={this.addModifier.bind(this, d,data)} >
                 {this.renderSpanStyle(data)}
                 {this.renderPriceStyle(d)}
             </div>
@@ -118,7 +120,9 @@ const mapStateToProps = (state, props) => {
                 items__prices: 'item',
                 items__sales_items: 'sales_item',
             }
-        }
+        },
+        cart:get(state.cart,'item',{})
+
     }
 }
 
