@@ -94,11 +94,11 @@ class Groups extends Component {
 
         return <>
             <div className={classes.choose_div}>
-                <p className={classes.due}>{`Choose ${group ? group._max : "Items"}`}</p>
-                {/* {this.renderPag()} */}
+            <p className={classes.due}>{`Choose ${group ? group._max : "Items"}`}</p>
+            <Items group={group} page={this.state.page} onClick={onClick} detail={detail} />
             </div>
 
-            <Items group={group} page={this.state.page} onClick={onClick} detail={detail} />
+            
         </>
     }
 
@@ -126,7 +126,9 @@ class Groups extends Component {
         return (
             <>
                 <div className={classes.Mod_modifiersBox}>
-                    {this.renderGroups()}
+                <div className={classes.x}>{this.renderGroups()}</div>
+
+                    {/* {this.renderGroups()} */}
                 </div>
                 {active && this.renderItems()}
             </>

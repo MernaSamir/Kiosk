@@ -28,6 +28,8 @@ export const DatePickerPopup =  lazy(()=>import('./datePicker'))
 export const HoldOrder =  lazy(()=>import('./hold_order'))
 export const PayReceipt =  lazy(()=>import('./pay_dinin'))
 export const CancelCustomer =  lazy(()=>import('./cancel_customer'))
+export const ModifierQtn =  lazy(()=>import('./modifiers_qtn'))
+
 export const Save =  lazy(()=>import('./successfully_save'))
 export const Note =  lazy(()=>import('./note'))
 export const DataSelector =  lazy(()=>import('./date_selector'))

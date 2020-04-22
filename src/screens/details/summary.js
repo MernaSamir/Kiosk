@@ -18,9 +18,24 @@ class Summary extends Component {
                  </button>
                <p> {cart.name} - {cart.unit}</p>
                <p> {cart.price}</p>
+               {!isEmpty(cart.item)&&<div className={classes.summary}>
+                <button onClick={this.removeModifiers} className={classes.miniBtn}>
+                  x
+                 </button>
+                 <button className={classes.miniBtn}>
+                   {cart.item.qtn}
+                 </button>
+               <p> {cart.item.name} </p>
+               <p> {cart.item.price}</p>
+
+                 </div>}
             </div>
         )
    
+}
+removeModifiers =()=>{
+  const {setMain,cart} =this.props
+  setMain ('cart',{item:{...cart,item:{}}})
 }
 
     render() {

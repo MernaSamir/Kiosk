@@ -4,13 +4,18 @@ import classes from './../../style.less';
 import { connect } from 'react-redux';
 import mapDispatchToProps from 'helpers/actions/main';
 import applyFilter from 'helpers/functions/filters';
-
+import { message } from 'antd';
 class Items extends Component {
 
     state = {
         active: ''
     }
+    setModifiers=(data)=>{
+        const{group,cart} =this.props
 
+       console.log(group._max)
+      }
+    
     addModifier(d,data) {
         console.log("dsdsdd",d)
         const { detail, appendPath, modifierItems, group, onClick, setMain,cart } = this.props;
@@ -35,7 +40,17 @@ class Items extends Component {
                 quantity: 1,
                 add: true
             }
-            setMain("cart",{item:{...cart,item:{item:d.item,qtn:1,price:d.price,name:data.name}}})
+             setMain("cart",{item:{...cart,item:{item:d.item,qtn:1,price:d.price,name:data.name}}})
+            const popup = {
+                type: 'ModifierQtn', visable: true, width: "50%",
+                childProps: {
+                    max:this.props.group,
+                    Title: '',
+                    first_msg : `${data.name}` ,
+                    pressYes : ()=>this.setModifiers(data,d),
+                  }
+            }
+          setMain('popup', { popup })
 
         }
         else {

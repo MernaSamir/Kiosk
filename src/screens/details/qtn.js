@@ -16,9 +16,23 @@ class Quantity extends Component {
     const { setMain, cart } = this.props;
 
     if (action === "-") {
-      setMain("cart", { item: { ...cart, qtn: cart.qtn - 1 } });
-    } else {
-      setMain("cart", { item: { ...cart, qtn: cart.qtn + 1 } });
+      if(cart.item){
+        setMain("cart", { item: { ...cart, qtn: cart.qtn - 1 , item:{...cart.item, qtn:cart.item.qtn -1 } } });
+
+      }
+      else {
+        setMain("cart", { item: { ...cart, qtn: cart.qtn - 1 } });
+      }
+
+    }
+     else {
+       if(cart.item){
+         setMain("cart", { item: { ...cart, qtn: cart.qtn + 1,item:{...cart.item, qtn:cart.item.qtn +1} } });
+
+       }
+       else{
+        setMain("cart", { item: { ...cart, qtn: cart.qtn + 1 } });
+       }
     }
   };
   setButton = (qtn) => {
@@ -63,14 +77,25 @@ class Quantity extends Component {
         <div className={classes.flex}>
           <div className={classes.itemInfo}>
             {qtn} x {item.name} {unit.name}
+           
           </div>
           <div className={classes.each}>{price}</div>
           <div className={classes.total}> {price * qtn}</div>
         </div>
+        <div className={classes.flex}>
+          <div className={classes.itemInfo}>
+            Each haveing 
+
+            {cart.item.qtn / qtn} x {cart.item.name} 
+           
+          </div>
+          <div className={classes.each}>{cart.item.price}</div>
+          <div className={classes.total}> {cart.item.price * cart.item.qtn}</div>
+        </div>
         <div className={classes.flexTotal}>
           <div className={classes.itemTotalInfo}>Item total ({qtn})</div>
-          <div className={classes.each}>{price}</div>
-          <div className={classes.total}> {price * qtn}</div>
+          <div className={classes.each}>{price + cart.item.price}</div>
+          <div className={classes.total}> {price * qtn + cart.item.price * cart.item.qtn}</div>
         </div>
         <div className={classes.incrementer}>
           <button
