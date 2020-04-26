@@ -20,23 +20,23 @@ import {message} from 'antd'
         console.log(cart)
     
         if (action === "-") {
-            if(cart.item.qtn >= max._max){
-                message.warning(`you can choose max ${max._max}`)
-            }
-            else{
+            // if(cart.item.qtn >= max._max){
+            //     message.warning(`you can choose max ${max._max}`)
+            // }
+            // else{
                 
-                setMain("cart",{item:{...cart,item:{...cart.item,qtn:cart.item.qtn-1}}})
-            }
+                 setMain("cart",{item:{...cart,item:{...cart.item,base_qtn:cart.item.base_qtn-1}}})
+            // }
 
         }
      else {
-        if(cart.item.qtn >= max._max){
-            message.warning(`you can choose max ${max._max}`)
-        }
-        else {
+        // if(cart.item.qtn >= max._max){
+        //     message.warning(`you can choose max ${max._max}`)
+        // }
+        // else {
 
-            setMain("cart",{item:{...cart,item:{...cart.item,qtn:cart.item.qtn+1}}})
-        }
+             setMain("cart",{item:{...cart,item:{...cart.item,base_qtn:cart.item.base_qtn+1}}})
+        // }
 
          }
  }
@@ -65,13 +65,13 @@ import {message} from 'antd'
                 </div>
              <div className={classes.incrementer}>
               <button
-            disabled={this.setButton(cart.item.qtn)}
+            disabled={this.setButton(cart.item.base_qtn)}
             className={classes.minus}
             onClick={() => this.handelClick("-")}
           >
             -
           </button>
-          <div className={classes.qantity}>{cart.item.qtn}</div>
+          <div className={classes.qantity}>{cart.item.base_qtn}</div>
           <button
             className={classes.plus}
             onClick={() => this.handelClick("+",max)}

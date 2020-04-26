@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import classes from "./style.less";
 import { connect } from "react-redux";
 import mapDispatchToProps from "helpers/actions/main";
-import { get } from "lodash";
+import { get,isEmpty } from "lodash";
 import applyFilters from "helpers/functions/filters";
 
 class Quantity extends Component {
@@ -11,13 +11,18 @@ class Quantity extends Component {
     this.state = {
       dis: false,
     };
+    const {setMain,cart}=props;
+    if(!isEmpty(cart)){
+
+      setMain('cart',{item:{...cart,item:{...cart.item,qtn:cart.item.base_qtn}}})
+    }
   }
   handelClick = (action) => {
     const { setMain, cart } = this.props;
 
     if (action === "-") {
       if(cart.item){
-        setMain("cart", { item: { ...cart, qtn: cart.qtn - 1 , item:{...cart.item, qtn:cart.item.qtn -1 } } });
+        setMain("cart", { item: { ...cart, qtn: cart.qtn - 1 , item:{...cart.item, qtn:(cart.qtn - 1) * cart.item.base_qtn } } });
 
       }
       else {
@@ -27,7 +32,7 @@ class Quantity extends Component {
     }
      else {
        if(cart.item){
-         setMain("cart", { item: { ...cart, qtn: cart.qtn + 1,item:{...cart.item, qtn:cart.item.qtn +1} } });
+         setMain("cart", { item: { ...cart, qtn: cart.qtn + 1,item:{...cart.item, qtn:(cart.qtn+1)*cart.item.base_qtn} } });
 
        }
        else{
@@ -42,7 +47,7 @@ class Quantity extends Component {
     return false;
   };
   add_cart = (data) => {
-    const { appendPath, setMain, history } = this.props;
+    const { appendPath, setMain, history,cart } = this.props;
     appendPath("cart", `data.${[data.id]}`, data);
     setMain("cart", { item: {} });
     history.push("/order");
@@ -86,11 +91,12 @@ class Quantity extends Component {
           <div className={classes.itemInfo}>
             Each haveing 
 
-            {cart.item.qtn / qtn} x {cart.item.name} 
+            {/* {cart.item.qtn / qtn} x {cart.item.name}  */}
+            {cart.item.base_qtn}
            
           </div>
           <div className={classes.each}>{cart.item.price}</div>
-          <div className={classes.total}> {cart.item.price * cart.item.qtn}</div>
+          <div className={classes.total}> {cart.item.qtn?cart.item.price * cart.item.qtn :cart.item.price}</div>
         </div>
         <div className={classes.flexTotal}>
           <div className={classes.itemTotalInfo}>Item total ({qtn})</div>

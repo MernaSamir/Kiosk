@@ -23,7 +23,7 @@ class Summary extends Component {
                   x
                  </button>
                  <button className={classes.miniBtn}>
-                   {cart.item.qtn}
+                   {cart.item.base_qtn}
                  </button>
                <p> {cart.item.name} </p>
                <p> {cart.item.price}</p>
