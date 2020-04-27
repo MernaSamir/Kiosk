@@ -97,6 +97,10 @@ deleteCart=(data)=>{
         const {history,}=this.props
         history.push("/cart");
   }
+  handelCancel =()=>{
+    const {setMain}= this.props
+    setMain('cart',{data:{}})
+  }
   
   render() {
     const { carts, currentMode } = this.props;
@@ -109,10 +113,10 @@ deleteCart=(data)=>{
         <div>{this.renderOrders()}</div>
         {!isEmpty(carts) && (
           <div className={classes.btns}>
+            <button className={classes.cancel} onClick={this.handelCancel}>Cancel</button>
             <button onClick={this.handelCheckOut} className={classes.checkOut}>
               Checkout
             </button>
-            <button className={classes.cancel}>Cancel</button>
           </div>
         )}
       </div>

@@ -12,7 +12,7 @@ class Quantity extends Component {
       dis: false,
     };
     const {setMain,cart}=props;
-    if(!isEmpty(cart)){
+    if(!isEmpty(cart.item)){
 
       setMain('cart',{item:{...cart,item:{...cart.item,qtn:cart.item.base_qtn}}})
     }
@@ -52,6 +52,10 @@ class Quantity extends Component {
     setMain("cart", { item: {} });
     history.push("/order");
   };
+  handelEdit =()=>{
+    const {history}=this.props
+    history.push ('/details')
+  }
 
   render() {
     const { cart, item } = this.props;
@@ -87,21 +91,21 @@ class Quantity extends Component {
           <div className={classes.each}>{price}</div>
           <div className={classes.total}> {price * qtn}</div>
         </div>
-        <div className={classes.flex}>
+        {!isEmpty(cart.item)&&<div className={classes.flex}>
           <div className={classes.itemInfo}>
             Each haveing 
 
             {/* {cart.item.qtn / qtn} x {cart.item.name}  */}
-            {cart.item.base_qtn}
+            {cart.item.base_qtn} x {cart.item.name}
            
           </div>
           <div className={classes.each}>{cart.item.price}</div>
           <div className={classes.total}> {cart.item.qtn?cart.item.price * cart.item.qtn :cart.item.price}</div>
-        </div>
+        </div>}
         <div className={classes.flexTotal}>
           <div className={classes.itemTotalInfo}>Item total ({qtn})</div>
-          <div className={classes.each}>{price + cart.item.price}</div>
-          <div className={classes.total}> {price * qtn + cart.item.price * cart.item.qtn}</div>
+          <div className={classes.each}>{price + (cart.item?cart.item.price:0)}</div>
+          <div className={classes.total}> {price * qtn + cart.item?(cart.item.price * cart.item.qtn):0}</div>
         </div>
         <div className={classes.incrementer}>
           <button
@@ -119,6 +123,9 @@ class Quantity extends Component {
             +
           </button>
         </div>
+        <div className={classes.editDev}>
+          <button onClick={this.handelEdit} className={classes.edit}>Edit Item Details</button>
+          </div>
         <div className={classes.btnContainer}>
           <button className={classes.back}>Back</button>
           <button className={classes.next} onClick={() => this.add_cart(cart)}>

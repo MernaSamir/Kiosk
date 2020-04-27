@@ -123,7 +123,7 @@ getFilteredGroup() {
             Back
           </button>
           <button className={classes.next} onClick={() => this.nextClick()}>
-            Next - Extras
+            Next - Quantity
           </button>
         </div>
          </div>
