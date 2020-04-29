@@ -14,6 +14,11 @@ class modifier extends Component {
     const { history } = this.props;
     history.push('/details/qtn')
 }
+goBack =()=>{
+    const {history} =this.props;
+     history.goBack()
+
+}
 
 getFilteredGroup() {
     const { detail } = this.props;
@@ -119,7 +124,7 @@ getFilteredGroup() {
         </div>
            <Summary/>
            <div className={classes.btnContainer}>
-          <button className={classes.back} onClick={() => this.goBack()}>
+          <button className={classes.back} onClick={this.goBack}>
             Back
           </button>
           <button className={classes.next} onClick={() => this.nextClick()}>

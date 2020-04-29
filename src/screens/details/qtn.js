@@ -57,6 +57,11 @@ class Quantity extends Component {
     history.push ('/details')
   }
 
+  goBack=()=>{
+    const {history}=this.props;
+    history.goBack();
+  }
+
   render() {
     const { cart, item } = this.props;
     const { qtn, price } = cart;
@@ -104,8 +109,8 @@ class Quantity extends Component {
         </div>}
         <div className={classes.flexTotal}>
           <div className={classes.itemTotalInfo}>Item total ({qtn})</div>
-          <div className={classes.each}>{price + (cart.item?cart.item.price:0)}</div>
-          <div className={classes.total}> {price * qtn + cart.item?(cart.item.price * cart.item.qtn):0}</div>
+          <div className={classes.each}>{price +(cart.item?cart.item.price:0)}</div>
+          <div className={classes.total}> {price * qtn + (cart.item?(cart.item.price * cart.item.qtn):0)}</div>
         </div>
         <div className={classes.incrementer}>
           <button
@@ -127,7 +132,7 @@ class Quantity extends Component {
           <button onClick={this.handelEdit} className={classes.edit}>Edit Item Details</button>
           </div>
         <div className={classes.btnContainer}>
-          <button className={classes.back}>Back</button>
+          <button className={classes.back} onClick={this.goBack}>Back</button>
           <button className={classes.next} onClick={() => this.add_cart(cart)}>
             Add to cart
           </button>

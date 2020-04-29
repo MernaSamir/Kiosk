@@ -154,6 +154,11 @@ handeltest=()=>{
     console.log(data)
 
   }
+  goBack=()=>{
+    const {history}= this.props;
+    history.goBack();
+
+  }
 
   renderCharges() {
     return (
@@ -180,7 +185,7 @@ handeltest=()=>{
   renderButtons() {
     return (
       <div className={classes.btnContainer}>
-        <button className={classes.back}>Back</button>
+        <button className={classes.back} onClick={this.goBack}>Back</button>
         <button className={classes.next} onClick={() => this.handelCheckOut()}>
           Payment
         </button>
