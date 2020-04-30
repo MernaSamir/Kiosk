@@ -8,12 +8,7 @@ import classes from './style.less'
 import Table from '../../assets/images/burgur.png';
 
 class Home extends Component {
-    constructor(props){
-        super(props);
-        props.setMain("orders__main",{data:{}})
-        props.setMain("orders__details",{data:{}})
 
-    }
     
      selectItem=(item)=>{
      const { history,setMain } = this.props;

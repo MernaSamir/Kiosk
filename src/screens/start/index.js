@@ -4,10 +4,19 @@ import classes from "./style.less";
 import { connect } from "react-redux";
 import mapDispatchToProps from "helpers/actions/main";
 class Start extends Component {
+
+  constructor(props){
+    super(props);
+    props.setMain('show',{data:false})
+  }
   handelstart = () => {
     const { history } = this.props;
     history.push("/setting");
   };
+  componentWillUnmount(){
+    const {setMain} =this.props;
+    setMain('show',{data:true})
+  }
 
   render() {
     return (
@@ -22,4 +31,4 @@ class Start extends Component {
     );
   }
 }
-export default Start;
+export default connect(null,mapDispatchToProps)(Start);

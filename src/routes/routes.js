@@ -44,6 +44,7 @@ const Cart = loadable(() => import("screens/cart"), {
 const Start_screen = lazy(() => import("screens/start"));
 import classes from "./style.less";
 import { connect } from "react-redux";
+import {get} from 'lodash'
 
 import mapDispatchToProps from "helpers/actions/main";
 
@@ -51,7 +52,8 @@ const Routes = (props) => (
   <>
     <Suspense fallback={<Loading />}>
       <Route exact path="/" component={Start_screen} />
-      <Header />
+          {props.show&&<Header />} 
+     {console.log(props.show)}
       <Route exact path="/setting" component={Setting} />
       <Route exact path="/home" component={Home} />
       <Route exact path="/order" component={Order} />
@@ -71,7 +73,7 @@ class AppRouting extends Component {
   render() {
     return (
       <div className={classes.app_container}>
-        <Routes />
+        <Routes show={this.props.show}/>
       </div>
     );
   }
@@ -80,6 +82,7 @@ class AppRouting extends Component {
 export default connect(
   (state) => ({
     shift: state.orders__shifts.active,
+    show:get(state.show,'data',undefined)
   }),
   mapDispatchToProps
 )(AppRouting);

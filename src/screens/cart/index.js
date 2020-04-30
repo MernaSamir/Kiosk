@@ -9,6 +9,66 @@ import {array_to_obj} from 'helpers/functions/array_to_object'
 import applyFilters from "helpers/functions/filters";
 
 class Cart extends Component {
+  state={
+    test :'v'
+  }
+
+  handelCheckOut = () => {
+    const {station,mode,shift,UpdateModels,order,details}=this.props
+    const main_id=uuid()
+
+      const data= {'orders__main':[{
+              id:main_id,
+              station:station,
+              mode:mode,
+              start_time: new Date(),
+              shift:shift
+      }],
+      'orders__details':this.getOrderDetails(main_id)
+     }
+     const success=(res)=>{
+        const {history,appendPath,setMain}=this.props
+        map(res,(d,v)=>{
+          setMain(v,{active:d[0].id})
+          d=array_to_obj(d)
+          // console.log(d)
+          appendPath(v, 'data',d);
+        })
+        // history.push("/cart");
+        this.goPay()
+        return[]
+     }
+     UpdateModels(data,success)
+  };
+  getOrderDetails=(order_id)=>{
+    const {cart}=this.props;
+    let list=[]
+    map(cart,(d,v)=>{
+      let detailsID =uuid()
+
+      if(d.item){
+
+      let modifierID =uuid()
+
+        list.push({
+          id:modifierID,
+          parent:detailsID,
+          order:order_id,
+          item:d.item.item,
+          price:d.item.price,
+          quantity:d.item.qtn
+        })
+      }
+       list.push({
+        id:detailsID,
+        order:order_id,
+        item:d.id,
+        price:d.price,
+        quantity:d.qtn
+      })
+    })
+    return list;
+  };
   goPay() {
     const {orderData,UpdateModels}=this.props
     const orderDetails = applyFilters({
@@ -42,22 +102,16 @@ class Cart extends Component {
     console.log(calc)
 
   }
-  getOrderDetails=(order)=>{
-    const {cart}=this.props;
-    let details=[]
-    map(cart,(d,v)=>{
-      details.push({
-        id:uuid(),
-        order:order,
-        item:d.id,
-        price:d.price,
-        quantity:d.qtn
-      })
-    })
-    return details;
+
+handeltest=()=>{
+  if(this.state.test==='^'){
+    this.setState({test:'v'})
   }
+  else {
 
-
+    this.setState({test:'^'})
+  }
+}
   renderOrders =()=> {
     const { cart } = this.props;
     console.log(cart);
@@ -82,9 +136,9 @@ class Cart extends Component {
               <button className={classes.miniBtn}>X</button>
               <button className={classes.qtn}>{d.qtn}</button>
               {d.name} - {d.unit}
-              <button className={classes.showMore}>V</button>
-              <div className={classes.each}>{d.price}</div>
-              <div className={classes.total}>{d.qtn * d.price}</div>
+              <button onClick={this.handeltest} className={classes.showMore}>{this.state.test}</button>
+              <div className={classes.each}>{d.price + (d.item ? d.item.price :0)}</div>
+              <div className={classes.total}>{(d.qtn * d.price) + (d.item?(d.item.qtn * d.item.price):0)}</div>
             </div>
           );
         })}
@@ -98,6 +152,11 @@ class Cart extends Component {
     setMain('cart',{data:omit(cart,data.id)})
     history.push('/details')
     console.log(data)
+
+  }
+  goBack=()=>{
+    const {history}= this.props;
+    history.goBack();
 
   }
 
@@ -126,8 +185,8 @@ class Cart extends Component {
   renderButtons() {
     return (
       <div className={classes.btnContainer}>
-        <button className={classes.back}>Back</button>
-        <button className={classes.next} onClick={() => this.goPay()}>
+        <button className={classes.back} onClick={this.goBack}>Back</button>
+        <button className={classes.next} onClick={() => this.handelCheckOut()}>
           Payment
         </button>
       </div>

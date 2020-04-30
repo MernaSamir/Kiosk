@@ -40,7 +40,7 @@ class Items extends Component {
                 quantity: 1,
                 add: true
             }
-             setMain("cart",{item:{...cart,item:{item:d.item,qtn:1,price:d.price,name:data.name}}})
+             setMain("cart",{item:{...cart,item:{item:d.item,base_qtn:1,price:d.price,name:data.name}}})
             const popup = {
                 type: 'ModifierQtn', visable: true, width: "50%",
                 childProps: {

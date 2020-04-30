@@ -29,12 +29,12 @@ const apps = (station) => ({
     "settings__notifications":{},
     "items__assign_modifier_items": {
     },
-    "orders__main": {
-        "filter": { "end_time__isnull": true, shift__date__location: station.location }
-    },
-    "orders__details": {
-        "filter": { "order__end_time__isnull": true, order__shift__date__location: station.location }
-    },
+    // "orders__main": {
+    //     "filter": { "end_time__isnull": true, shift__date__location: station.location }
+    // },
+    // "orders__details": {
+    //     "filter": { "order__end_time__isnull": true, order__shift__date__location: station.location }
+    // },
     "orders__item_seats": {
         "filter": { "details__order__end_time__isnull": true, details__order__shift__date__location: station.location }
     },
@@ -45,12 +45,12 @@ const apps = (station) => ({
     "orders__order_seats": {
         "filter": { "order__end_time__isnull": true, order__shift__date__location: station.location }
     },
-    "orders__receipt": {
-        "filter": { "order__end_time__isnull": true, order__shift__date__location: station.location }
-    },
-    "orders__receipt_items": {
-        "filter": { "receipt__order__end_time__isnull": true, details__order__shift__date__location: station.location }
-    },
+    // "orders__receipt": {
+    //     "filter": { "order__end_time__isnull": true, order__shift__date__location: station.location }
+    // },
+    // "orders__receipt_items": {
+    //     "filter": { "receipt__order__end_time__isnull": true, details__order__shift__date__location: station.location }
+    // },
     "orders__receipt_seats": {
         "filter": { "receipt__order__end_time__isnull": true, receipt__order__shift__date__location: station.location }
     },

@@ -3,6 +3,7 @@ import { combineReducers } from 'redux'
 import buildReducers from './main';
 
 export const stores = [
+  "show",
   "hq_location",
   "guns",
   "apps",
