@@ -4,7 +4,7 @@ import { withRouter } from 'react-router'
 import { withTranslation } from 'react-i18next';
 import { connect } from "react-redux";
 import mapDispatchToProps from "helpers/actions/main";
-import {get} from 'lodash'
+import {get,omit} from 'lodash'
 import {message} from 'antd'
  class ModifierQtn extends Component {
     ok = ()=>{
@@ -49,7 +49,8 @@ import {message} from 'antd'
     cancle =()=>{
         console.log("cancle")
         const {setMain,cart}=this.props
-        setMain ('cart',{item:{...cart,item:{}}})
+        const data =omit(cart,'item')
+        setMain ('cart',{item:{...data}})
         setMain('popup', { popup: {} })
     }
     render() {

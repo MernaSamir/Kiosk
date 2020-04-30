@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import classes from './style.less'
 import {connect} from 'react-redux';
 import mapDispatchToProps from 'helpers/actions/main'
-import {get,map,isEmpty} from 'lodash'
+import {get,map,isEmpty,omit} from 'lodash'
 import applyFilters from "helpers/functions/filters";
 import Edit from "../../assets/images/edit.png";
 
@@ -35,7 +35,9 @@ class Summary extends Component {
 }
 removeModifiers =()=>{
   const {setMain,cart} =this.props
-  setMain ('cart',{item:{...cart,item:{}}})
+  const data=omit(cart,'item')
+  // setMain ('cart',{item:{...cart,item:{}}})
+  setMain('cart',{item:{...data}})
 }
 
     render() {
