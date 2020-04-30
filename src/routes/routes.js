@@ -70,6 +70,10 @@ const Routes = (props) => (
 );
 
 class AppRouting extends Component {
+  constructor(props){
+    super(props)
+    props.setMain('show',{data:true})
+  }
   render() {
     return (
       <div className={classes.app_container}>

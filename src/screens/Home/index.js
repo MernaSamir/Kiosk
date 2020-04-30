@@ -31,12 +31,16 @@ class Home extends Component {
         const renderItems=()=>{
            return sub_cat.map((d,v)=>{
                return(
-                   <div key={v} className={classes.buttonContainer} onClick={()=>this.selectItem(d)}>
+                   <button key={v} className={classes.buttonContainer} onClick={()=>this.selectItem(d)}>
                    <div className={classes.button}>
                        <img src={Table} className={classes.pic}/>
                    </div>
-                   <div className={classes.title}>{d.name}</div>
-                   </div>
+                   <div className={classes.title}>
+                       <p >
+                           {d.name}
+                        </p>
+                       </div>
+                   </button>
                        
                )
            })
