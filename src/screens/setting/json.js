@@ -1,5 +1,5 @@
-import Bag from "../../assets/images/001-shopping-bag (1)@3x.png"
-import Table from '../../assets/images/003-serving-dish@3x.png';
+import Bag from "../../assets/images/Togo@2x.png"
+import Table from '../../assets/images/eatIn@2x.png';
 
 const setting=[
     {
