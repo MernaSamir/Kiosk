@@ -4,7 +4,7 @@ import {connect} from 'react-redux';
 import mapDispatchToProps from 'helpers/actions/main'
 import applyFilters from 'helpers/functions/filters';
 import Loading from "helpers/components/loading";
-import Table from '../../../assets/images/003-serving-dish@3x.png';
+import Table from '../../../assets/images/burgur@2x.png';
 class Category extends Component {
 
 
