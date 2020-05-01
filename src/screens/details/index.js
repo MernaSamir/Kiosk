@@ -46,10 +46,10 @@ class Details extends Component {
         },
       });
       return (
-        <div className={classes.priceContainer} onClick={()=>this.handelClick(d,item.name,unit.name)}>
+        <button className={classes.priceContainer} onClick={()=>this.handelClick(d,item.name,unit.name)}>
           <div className={classes.size}>{unit.name}</div>
           <div className={classes.price}>EGP {d.price}</div>
-        </div>
+        </button>
       );
     });
   }

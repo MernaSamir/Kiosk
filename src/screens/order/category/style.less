@@ -11,30 +11,32 @@
   width: 30vw;
   height: 103vw;
   overflow: scroll;
-}
-.btnContainer {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: center;
-}
-.button {
-  font-size: 0.9vw;
-    color: #838383;
-    width: 20vw;
-    border-top-left-radius: 5px;
-    border-top-right-radius: 5px;
-    border-bottom-right-radius: -14px;
-    border: solid 0.4px rgba(112, 112, 112, 0.46);
-    background-image:@WhiteBG;
+  .btnContainer {
     display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
     justify-content: center;
-    justify-items: center;
-    align-items: center;
-    flex-direction: column;
-    white-space: nowrap;
-    background: @WhiteBG;
+    .button {
+      font-size: 0.9vw;
+        color: #838383;
+        width: 20vw;
+        border-top-left-radius: 5px;
+        border-top-right-radius: 5px;
+        border-bottom-right-radius: -14px;
+        border: solid 0.4px rgba(112, 112, 112, 0.46);
+        background-image:@WhiteBG;
+        display: flex;
+        justify-content: center;
+        justify-items: center;
+        align-items: center;
+        flex-direction: column;
+        white-space: nowrap;
+        background: @WhiteBG;
+    }
+  }
 }
+
+
 
 .pic {
   height: 100%;
@@ -42,18 +44,42 @@
 }
 .buttonContainer {
   margin: 15px 15px;
-  width: 25vw;
+  width: 20vw;
   height: 25vw;
-  .based-on-text{
-    display: inline-block;
-  }
+  border: 0;
+  padding: 0;
+}
+.itemActive{
+  margin: 15px 15px;
+  width: 20.5vw;
+  height: 25vw;
+  border: 0;
+  padding: 0;
+  border: solid 0.8px @mainColor;
+  color: @mainColor;
+  font-weight: bold;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 8px;
+  border-bottom-left-radius: 8px;
+  font-size: 1.3rem;
+}
+.titleActive{
+  width: 20vw;
+  height: 8vw;
+  background:#db3669;
+  border-bottom-right-radius: 8px;
+  border-bottom-left-radius: 8px;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.3rem;
 }
 .title {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 7px;
-  padding-top: 10px;
+  // padding: 7px;
+  // padding-top: 10px;
   width: 20vw;
   height: 9vw;
   background: @leftSide;
@@ -64,6 +90,10 @@
   word-wrap: break-word;
   overflow-wrap: break-word;
   font-size: 1.3rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 @media only screen and (max-width: 300px) {
@@ -76,6 +106,6 @@
     border-bottom-right-radius: 8px;
     border-bottom-left-radius: 8px;
     color: white;
-    font-size: 4vw;
+    font-size: 1.3vw;
   }
 }

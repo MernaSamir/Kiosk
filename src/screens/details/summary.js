@@ -5,7 +5,7 @@ import mapDispatchToProps from 'helpers/actions/main'
 import {get,map,isEmpty,omit} from 'lodash'
 import applyFilters from "helpers/functions/filters";
 import Edit from "../../assets/images/edit.png";
-
+import { withRouter } from 'react-router'
 class Summary extends Component {
  
  getSummary =()=>{
@@ -13,10 +13,12 @@ class Summary extends Component {
      const { cart } = this.props;
         return (
            !isEmpty(cart)&&<div className={classes.summary}>
-              <button className={classes.miniBtn}>
+             <div className={classes.devicons}>
+              <button className={classes.miniBtn} onClick={this.handelEdit}>
                 <img src={Edit} className={classes.editImg} />
                  </button>
                <p> {cart.name} - {cart.unit}</p>
+               </div>
                <p> {cart.price}</p>
                {!isEmpty(cart.item)&&<div className={classes.summary}>
                 <button onClick={this.removeModifiers} className={classes.miniBtn}>
@@ -32,6 +34,11 @@ class Summary extends Component {
             </div>
         )
    
+}
+handelEdit=()=>{
+  const {history}=this.props;
+   console.log(this.props)
+  history.push('/details')
 }
 removeModifiers =()=>{
   const {setMain,cart} =this.props
@@ -60,5 +67,5 @@ const mapStateToProps = state => ({
   
   
   });
-export default connect(mapStateToProps,mapDispatchToProps)(Summary);
+export default connect(mapStateToProps,mapDispatchToProps)(withRouter(Summary));
 

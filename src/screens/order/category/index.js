@@ -3,8 +3,8 @@ import classes from './style.less'
 import {connect} from 'react-redux';
 import mapDispatchToProps from 'helpers/actions/main'
 import applyFilters from 'helpers/functions/filters';
-import Loading from "helpers/components/loading";
-import Table from '../../../assets/images/burgur@2x.png';
+import Table from '../../../assets/images/003-serving-dish@3x.png';
+import {get} from 'lodash'
 class Category extends Component {
 
 
@@ -32,15 +32,16 @@ class Category extends Component {
     }
 
      renderItems=()=>{
+       const {category} =this.props;
        const items= this.getData()
             return items.map((d,v)=>{
                 return(
-                    <div key={v} className={classes.buttonContainer} onClick={()=>this.selectItem(d)}>
+                    <button key={v} className={d.id===category?classes.itemActive:classes.buttonContainer} onClick={()=>this.selectItem(d)}>
                     <div className={classes.button}>
                         <img src={Table} className={classes.pic}/>
                     </div>
-                    <div className={classes.title}>{d.name}</div>
-                    </div>
+                    <div className={d.id===category? classes.titleActive : classes.title }>{d.name}</div>
+                    </button>
                         
                 )
             })
@@ -55,5 +56,10 @@ class Category extends Component {
         )
     }
 }
-export default connect(null,mapDispatchToProps)(Category);
+
+const mapStateToProps = state => ({
+    category: get(state.items__base_sales_cat, "active", undefined),
+});
+  
+  export default connect(mapStateToProps,mapDispatchToProps)(Category);
 

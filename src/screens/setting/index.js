@@ -8,10 +8,14 @@ import mapDispatchToProps from 'helpers/actions/main'
 
 
 class Setting extends Component {
+  state = {
+    active :'EN'
+  }
   handelstart = () => {
     const { history } = this.props;
     history.push("/home");
   };
+
   setMode=(name)=>{
       const {setMain,history}=this.props
       history.push('/home')
@@ -27,6 +31,14 @@ class Setting extends Component {
         setMain('settings__mode',{'active':mode.id})
     }
   }
+  setLanguage=(lang)=>{
+    const {setMain}= this.props
+     this.setState({
+       active: lang
+     })
+
+     setMain("dropdowns__lang",{active: lang||'EN'})
+  }
   renderButon = () => {
     return ButtonData.map((d, v) => {
       return (
@@ -39,6 +51,10 @@ class Setting extends Component {
   };
 
   render() {
+    const {active}= this.state
+    const {lang}= this.props
+
+
     return (
       <div className={classes.body}>
         <div className={classes.flexContainer}>
@@ -47,11 +63,18 @@ class Setting extends Component {
         </div>
         <p className={classes.Text}>Select Language</p>
         <div className={classes.buttonContainer}>
-          <button className={classes.button}>English</button>
-          <button className={classes.button}>العربية</button>
+          <button id = 'EN'
+           className={`${classes.button} ${lang == 'EN' && classes.active}` } 
+           onClick={()=>this.setLanguage('EN')}>English</button>
+          <button className={`${classes.button} ${lang == 'AR' && classes.active}` } 
+          onClick={()=>this.setLanguage('AR')}>العربية</button>
         </div>
       </div>
     );
   }
 }
-export default connect(null,mapDispatchToProps)(Setting);
+const mapStateToProps = (state, props) => ({
+  lang: state.dropdowns__lang.active,
+
+})
+export default connect(mapStateToProps,mapDispatchToProps)(Setting);

@@ -5,7 +5,7 @@ import {get} from 'lodash';
 import applyFilters from 'helpers/functions/filters';
 import Loading from "helpers/components/loading";
 import classes from './style.less'
-import Table from '../../assets/images/burgur.png';
+import Table from '../../assets/images/003-serving-dish@3x.png';
 
 class Home extends Component {
 

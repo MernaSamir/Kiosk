@@ -32,11 +32,11 @@ class MainItems extends Component {
 
     return items.map((d, v) => {
       return (
-        <div className={classes.item} onClick={() => this.selectItem(d)}>
+        <button className={classes.item} onClick={() => this.selectItem(d)}>
           <img src={Table} className={classes.image} />
           <div className={classes.title}>{d.name}</div>
           <div className={classes.price}>from EGP {this.getPrice(d.id)}</div>
-        </div>
+        </button>
       );
     });
   };
