@@ -20,24 +20,12 @@ import {message} from 'antd'
         console.log(cart)
     
         if (action === "-") {
-            // if(cart.item.qtn >= max._max){
-            //     message.warning(`you can choose max ${max._max}`)
-            // }
-            // else{
-                
-                 setMain("cart",{item:{...cart,item:{...cart.item,base_qtn:cart.item.base_qtn-1}}})
-            // }
+        
+         setMain("cart",{item:{...cart,item:{...cart.item,base_qtn:cart.item.base_qtn-1}}})
 
         }
      else {
-        // if(cart.item.qtn >= max._max){
-        //     message.warning(`you can choose max ${max._max}`)
-        // }
-        // else {
-
              setMain("cart",{item:{...cart,item:{...cart.item,base_qtn:cart.item.base_qtn+1}}})
-        // }
-
          }
  }
      setButton = (qtn) => {
@@ -61,7 +49,7 @@ import {message} from 'antd'
             <div className = {classes.all}>
                 <p className={classes.title}>{t(Title)}</p>
                 <div className={classes.msg}>
-                    <p className={classes.first}>{t(first_msg)}</p>
+                    <p className={classes.title}>{t(first_msg)}</p>
                     <p className={classes.second}>{t(second_msg)}</p>
                 </div>
              <div className={classes.incrementer}>
@@ -80,9 +68,14 @@ import {message} from 'antd'
             +
           </button>
             </div>
+        <div className={classes.containerTitel}>
+         
+            <p className={classes.title}> {cart.item.base_qtn} x {first_msg} </p>
+        <p className={classes.title}>  EGP {cart.item.price * cart.item.base_qtn }</p>
+        </div>
                 <div className={classes.last}>
-                    <button type="button"  onClick={this.cancle}>{t("Back")}</button>
-                    <button type="submit" onClick={this.ok}>{t("Add to Order")}</button>
+                    <button type="button" className={classes.cancle}  onClick={this.cancle}>{t("Back")} </button>
+                    <button type="submit" className={classes.submit} onClick={this.ok}>{t("Add to Order")}</button>
                 </div>
             </div>
         )

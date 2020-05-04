@@ -11,14 +11,15 @@ class Order extends Component {
   render() {
     const { history } = this.props;
     return (
-      <div>
-        <div className={classes.cat}>
-          <Category />
-        </div>
-        <div className={classes.item}>
-          <Body history={history} />
-        </div>
-        <Cart  history={history}/>
+        <div className={classes.contAll}>
+          <div className={classes.cat}>
+            <Category />
+            {/* <div className={classes.item}> */}
+            <Body history={history} />
+          {/* </div> */}
+          </div>
+        {/* </div> */}
+        <Cart history={history} />
       </div>
     );
   }

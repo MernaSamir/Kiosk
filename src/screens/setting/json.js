@@ -1,5 +1,6 @@
-import Bag from "../../assets/images/C2B5AFB0-05C4-48C9-9161-D0953C158898.svg"
-import Table from '../../assets/images/BBE796D6-13C2-46AF-8AA8-B177D96334BD.svg';
+import Bag from "../../assets/images/Togo@2x.png"
+import Table from '../../assets/images/eatIn@2x.png';
+
 const setting=[
     {
         title: 'Eat In',
