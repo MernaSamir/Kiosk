@@ -39,7 +39,7 @@
 
 .pic {
   height: 100%;
-  width: 100%;
+  width: 80%;
 }
 .buttonContainer {
   margin: 15px 15px;
@@ -47,6 +47,10 @@
   height: 25vw;
   border: 0;
   padding: 0;
+  border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 8px;
+    border-bottom-left-radius: 8px;
 }
 .itemActive{
   margin: 15px 15px;
@@ -64,7 +68,7 @@
   font-size: 1.3rem;
 }
 .titleActive{
-  width: 20vw;
+  width: 20.2vw;
   height: 8vw;
   background:#db3669;
   border-bottom-right-radius: 8px;
@@ -77,14 +81,12 @@
   font-size: 1.3rem;
 }
 .title {
-  // padding: 7px;
-  // padding-top: 10px;
   width: 20vw;
   height: 9vw;
-  background: @leftSide;
+  background: #234f81;
   border-bottom-right-radius: 8px;
   border-bottom-left-radius: 8px;
-  color: @WhiteBG;
+  color: #ffffff;
   text-align: center;
   word-wrap: break-word;
   overflow-wrap: break-word;
@@ -93,6 +95,16 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+}
+.button{
+  background: white; 
+   
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: -14px;
+    border: solid 0.4px rgba(112, 112, 112, 0.46);
+    background-image: white;
+    background: white;
 }
 
 @media only screen and (max-width: 300px) {
