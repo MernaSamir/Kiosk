@@ -74,7 +74,7 @@ import {message} from 'antd'
         <p className={classes.title}>  EGP {cart.item.price * cart.item.base_qtn }</p>
         </div>
                 <div className={classes.last}>
-                    <button type="button" className={classes.cancle}  onClick={this.cancle}>{t("Back")} </button>
+                    <button type="button" className={classes.cancel}  onClick={this.cancle}>{t("Back")} </button>
                     <button type="submit" className={classes.submit} onClick={this.ok}>{t("Add to Order")}</button>
                 </div>
             </div>

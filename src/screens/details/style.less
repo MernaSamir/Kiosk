@@ -86,6 +86,8 @@
   width: 23vw;
   margin-top: 5vw;
   margin-left: 7vw;
+  border: 0;
+  background-color: #b7b7b7;
 }
 
 .next {
@@ -93,6 +95,8 @@
   width: 43vw;
   margin-top: 5vw;
   margin-left: 20vw;
+  border: 0;
+  background-color: #3176cb;
 }
 
 .back,
@@ -100,8 +104,8 @@
   text-align: center;
   color: white;
   border-radius: 5px;
-  background-color: #b7b7b7;
-  height: 13vw;
+  // background-color: #b7b7b7;
+  height: 10vw;
   box-shadow: 0 1.5px 3px 0 rgba(0, 0, 0, 0.16);
 }
 
@@ -152,6 +156,9 @@
   margin-left: 2vw;
   margin-right: 2vw;
 }
+button{
+  border: 0;
+}
 .devicons{
   display: flex;
   flex-direction: row;
@@ -191,7 +198,8 @@
 
 .chargesHeader {
   display: flex;
-  flex-direction: row-reverse;
+  flex-direction: row;
+  justify-content: flex-end;
   text-align: center;
   padding: 3vw;
   color: black;
@@ -202,6 +210,15 @@
   flex-direction: column;
   margin: 2vw;
 }
+.priceHerder{
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  text-align: center;
+  /* padding: 3vw; */
+  color: black;
+
+}
 
 .flex,
 .flexTotal {
@@ -209,13 +226,20 @@
   flex-direction: row;
   flex-wrap: nowrap;
   padding-left: 2vw;
-  padding-bottom: 5vw;
+  // padding-bottom: 5vw;
   color: black;
+  justify-content: space-around;
 }
 
 .itemInfo {
   margin-left: 3vw;
   margin-right: 30%;
+  margin-top: 2%;
+}
+.note{
+  margin-left: 15%;
+    color: black;
+    font-weight: bold;
 }
 
 .flexTotal {
@@ -224,13 +248,21 @@
 
 .itemTotalInfo {
   margin-left: 3vw;
-  margin-right: 40%;
+  margin-right: 30%;
+  margin-top: 2%;
+  font-weight: bold;
 }
 
 .each,
 .total {
   text-align: black;
   margin: 1vw;
+}
+.eachTotal,
+.totalTotal {
+  text-align: black;
+  margin: 1vw;
+  font-weight: bold;
 }
 
 .total {
@@ -281,7 +313,7 @@
   display: flex;
   flex-direction: row;
   justify-content: center;
-  margin-top: 25%;
+  margin-top: 10%;
 }
 
 .minus,
@@ -314,6 +346,7 @@
     width: 20vh;
     height: 5vh;
     color: #ffff;
+    border: 0;
 
 }
 .editDev{
