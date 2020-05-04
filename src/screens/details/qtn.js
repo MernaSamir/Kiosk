@@ -80,38 +80,57 @@ class Quantity extends Component {
         </div>
         <div className={classes.chargesHeader}>
           <div className={classes.chargesTotal}>
-            <div>Total</div>
-            <div>EGP</div>
+            <p>Total</p>
+            <p>EGP</p>
           </div>
           <div className={classes.chargesEach}>
-            <div>Each</div>
-            <div>EGP</div>
+            <p>Each</p>
+            <p>EGP</p>
           </div>
         </div>
+
         <div className={classes.flex}>
-          <div className={classes.itemInfo}>
+          <p className={classes.itemInfo}>
             {qtn} x {item.name} {unit.name}
            
+          </p>
+          <div className={classes.priceHerder}>
+          <p className={classes.each}>{price}</p>
+          <p className={classes.total}> {price * qtn}</p>
           </div>
-          <div className={classes.each}>{price}</div>
-          <div className={classes.total}> {price * qtn}</div>
         </div>
-        {!isEmpty(cart.item)&&<div className={classes.flex}>
-          <div className={classes.itemInfo}>
-            Each haveing 
 
-            {/* {cart.item.qtn / qtn} x {cart.item.name}  */}
-            {cart.item.base_qtn} x {cart.item.name}
+        <div className={classes.note}>Each haveing</div>
+
+
+        {!isEmpty(cart.item)&&
+         <div className={classes.flex}>
+         <p className={classes.itemInfo}>
+         {cart.item.base_qtn} x {cart.item.name}
+          
+         </p>
+         <div className={classes.priceHerder}>
+         <p className={classes.each}>{cart.item.price}</p>
+         <p className={classes.total}> {cart.item.qtn?cart.item.price * cart.item.qtn :cart.item.price}</p>
+         </div>
+       </div>}
+
+        {/* <div className={classes.flexTotal}>
+          <p className={classes.itemTotalInfo}>Item total ({qtn})</p>
+          <p className={classes.each}>{price +(cart.item?cart.item.price:0)}</p>
+          <p className={classes.total}> {price * qtn + (cart.item?(cart.item.price * cart.item.qtn):0)}</p>
+        </div> */}
+          <div className={classes.flex}>
+          <p className={classes.itemTotalInfo}>
+          Item total ({qtn})
            
+          </p>
+          <div className={classes.priceHerder}>
+          <p className={classes.eachTotal}>{price +(cart.item?cart.item.price:0)}</p>
+          <p className={classes.totalTotal}> {price * qtn + (cart.item?(cart.item.price * cart.item.qtn):0)}</p>
           </div>
-          <div className={classes.each}>{cart.item.price}</div>
-          <div className={classes.total}> {cart.item.qtn?cart.item.price * cart.item.qtn :cart.item.price}</div>
-        </div>}
-        <div className={classes.flexTotal}>
-          <div className={classes.itemTotalInfo}>Item total ({qtn})</div>
-          <div className={classes.each}>{price +(cart.item?cart.item.price:0)}</div>
-          <div className={classes.total}> {price * qtn + (cart.item?(cart.item.price * cart.item.qtn):0)}</div>
         </div>
+
         <div className={classes.incrementer}>
           <button
             disabled={this.setButton(qtn)}

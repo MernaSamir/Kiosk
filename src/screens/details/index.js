@@ -55,7 +55,8 @@ class Details extends Component {
   }
 
   goBack() {
-    const { history } = this.props;
+    const { history,setMain } = this.props;
+    setMain('cart',{item:{}})
     history.push("/order");
   }
 

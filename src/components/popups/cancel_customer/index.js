@@ -19,8 +19,8 @@ import { withTranslation } from 'react-i18next';
                     <p className={classes.second}>{t(second_msg)}</p>
                 </div>
                 <div className={classes.last}>
-                    <button type="button"  onClick={onCancel}>{t("No Keep")}</button>
-                    <button type="submit" onClick={this.ok}>{t("Yes Delete")}</button>
+                    <button type="button"  className={classes.submit} onClick={onCancel}>{t("No Keep")}</button>
+                    <button type="submit" className={classes.cancel} onClick={this.ok}>{t("Yes Delete")}</button>
                 </div>
             </div>
         )
