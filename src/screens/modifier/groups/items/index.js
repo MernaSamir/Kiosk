@@ -86,7 +86,7 @@ class Items extends Component {
     renderSpanStyle = (data) => {
         if ((data.name).includes(" ")) {
 
-            return <span style={{ marginTop: '14%' }}> {data.name}</span>
+            return <span style={{ marginTop: '14%' }} >  {data.name}</span>
         }
         return <span> {data.name}</span>
     }
