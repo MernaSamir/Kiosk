@@ -9,14 +9,14 @@ import Summary from './summary';
 class Details extends Component {
 
 
- 
-  handelClick=(item,name,unit)=>{
-    const {appendPath,setMain}=this.props;
+
+  handelClick = (item, name, unit) => {
+    const { appendPath, setMain } = this.props;
     // appendPath('cart', `item.${item.id}`, item)
-    setMain('cart',{item:{...item, qtn:1,name:name,unit:unit}})
+    setMain('cart', { item: { ...item, qtn: 1, name: name, unit: unit } })
   }
-  nextClick=()=>{
-    const{history,match}=this.props;
+  nextClick = () => {
+    const { history, match } = this.props;
     // history.push(`${match.url}/qtn`)
     history.push('/modifier')
 
@@ -46,7 +46,7 @@ class Details extends Component {
         },
       });
       return (
-        <button className={classes.priceContainer} onClick={()=>this.handelClick(d,item.name,unit.name)}>
+        <button className={classes.priceContainer} onClick={() => this.handelClick(d, item.name, unit.name)}>
           <div className={classes.size}>{unit.name}</div>
           <div className={classes.price}>EGP {d.price}</div>
         </button>
@@ -55,8 +55,8 @@ class Details extends Component {
   }
 
   goBack() {
-    const { history,setMain } = this.props;
-    setMain('cart',{item:{}})
+    const { history, setMain } = this.props;
+    setMain('cart', { item: {} })
     history.push("/order");
   }
 
@@ -68,18 +68,19 @@ class Details extends Component {
   render() {
     const { item } = this.props;
     return item ? (
-      <div>
-        <div className={classes.container}>
-          <div className={classes.title}>{item.name}</div>
+      <div className={classes.allContainer}>
+        <div className={classes.stContainer}>
+          <p className={classes.title}>{item.name}</p>
           <img src={Table} className={classes.image} />
-          <div className={classes.description}>
+          <p className={classes.description}>
             Item description from data base
+          </p>
+          <div className={classes.sizeContainer}>
+            <p className={classes.select}>Select Size</p>
+            <div className={classes.prices} >{this.renderPrices(item)}</div>
           </div>
-          <div className={classes.select}>Select Size</div>
-          <div className={classes.prices} >{this.renderPrices(item)}</div>
         </div>
-        
-        <Summary/>
+        <Summary />
         <div className={classes.btnContainer}>
           <button className={classes.back} onClick={() => this.goBack()}>
             Back
@@ -90,8 +91,8 @@ class Details extends Component {
         </div>
       </div>
     ) : (
-      <></>
-    );
+        <></>
+      );
   }
 }
 const mapStateToProps = (state) => ({
@@ -100,9 +101,9 @@ const mapStateToProps = (state) => ({
     get(state.items__sales_items, "active", undefined),
     undefined
   ),
-  shift:get(state.orders__shifts,"active",undefined),
-  mode: get(state.settings__mode,"active",undefined),
-  station: get(state.licensing__station,"active",undefined),
+  shift: get(state.orders__shifts, "active", undefined),
+  mode: get(state.settings__mode, "active", undefined),
+  station: get(state.licensing__station, "active", undefined),
 
 
 });
