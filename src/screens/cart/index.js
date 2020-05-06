@@ -7,7 +7,7 @@ import uuid from 'uuid/v4'
 import mapDispatchToProps from "helpers/actions/main";
 import {array_to_obj} from 'helpers/functions/array_to_object'
 import applyFilters from "helpers/functions/filters";
-
+import Collapse from '../order/cart/collapse'
 class Cart extends Component {
   state={
     test :'v'
@@ -112,6 +112,9 @@ handeltest=()=>{
     this.setState({test:'^'})
   }
 }
+renderPrices =(d)=>{
+
+}
   renderOrders =()=> {
     const { cart } = this.props;
     console.log(cart);
@@ -137,8 +140,8 @@ handeltest=()=>{
               <button className={classes.miniBtn}>X</button>
               <button className={classes.qtn}>{d.qtn}</button>
               {d.name} - {d.unit}
-              <button onClick={this.handeltest} className={classes.showMore}>{this.state.test}</button>
-              
+              {d.item&&<Collapse history={this.props.history} data={d}/>}
+              {this.renderPrices(d)}
               <div className={classes.chargesEach}>
           <div className={classes.each}>{d.price + (d.item ? d.item.price :0)}</div>
           <div className={classes.total}>{(d.qtn * d.price) + (d.item?(d.item.qtn * d.item.price):0)}</div>
@@ -188,12 +191,12 @@ handeltest=()=>{
   }
   renderButtons() {
     return (
-      <div className={classes.btnContainer}>
-        <button className={classes.back} onClick={this.goBack}>Back</button>
-        <button className={classes.next} onClick={() => this.handelCheckOut()}>
-          Payment
-        </button>
-      </div>
+         <div className={classes.btnContainer}>
+         <button className={classes.back} onClick={this.goBack}>Back</button>
+         <button className={classes.next} onClick={this.handelCheckOut}>
+         Payment
+         </button>
+       </div>
     );
   }
   render() {

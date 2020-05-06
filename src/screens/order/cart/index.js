@@ -62,6 +62,15 @@ deleteCart=(data)=>{
   setMain('popup',{popup:{}})
   setMain('cart',{data:omit(carts,data.id)})
 }
+renderToalPrice=()=>{
+  const { carts } = this.props;
+  let total=0
+  map(carts,(d,v)=>{
+    total += (d.price*d.qtn) +(d.item? (d.item.qtn * d.item.price):0)
+  })
+  return total ;
+
+}
   renderOrders = () => {
     const { carts } = this.props;
     if (isEmpty(carts)) {
@@ -76,18 +85,10 @@ deleteCart=(data)=>{
             <button className={classes.miniBtn} onClick={()=>this.handelDelete(d)}>X</button>
             <button className={classes.qtn}>{d.qtn}</button>
             {d.name} - {d.unit}
-            {/* <button className={classes.showMore}>V</button> */}
-            {/* {!isEmpty(d.item)&&<Collapse>
-              <button className={classes.miniBtn} onClick={()=>this.editModifiers(d)}>
-              <img src={Edit} className={classes.editImg} />
-               </button>
-               <button className={classes.miniBtn} onClick={()=>this.deleteModifiers(d)}>X</button>
-                <button className={classes.qtn}>{d.item.qtn}</button>
-                {d.item.name}
-            </Collapse>} */}
             {!isEmpty(d.item)&&<Collapse history={this.props.history} data={d}/>}
-            <div className={classes.price}>EGP{d.qtn * d.price}</div>
+            <div className={classes.price}>EGP{(d.qtn * d.price) + (d.item?(d.item.qtn * d.item.price):0)}</div>
           </div>
+         
         );
       });
     }
@@ -111,13 +112,17 @@ deleteCart=(data)=>{
           My cart - {isEqual(currentMode, "Dine In") ? "Eat in" : currentMode}
         </div>
         <div>{this.renderOrders()}</div>
+        {!isEmpty(carts)&&<div className={classes.subTotal}>
+            <div className={classes.totaltext}>Cart Sub-total</div>
+            <div className={classes.totaltext}> {this.renderToalPrice()} </div>
+         </div>}
         {!isEmpty(carts) && (
-          <div className={classes.btns}>
-            <button className={classes.cancel} onClick={this.handelCancel}>Cancel</button>
-            <button onClick={this.handelCheckOut} className={classes.checkOut}>
-              Checkout
-            </button>
-          </div>
+           <div className={classes.btnContainer}>
+           <button className={classes.back} onClick={this.handelCancel}>Cancel</button>
+           <button className={classes.next} onClick={this.handelCheckOut}>
+             Checkout
+           </button>
+         </div>
         )}
       </div>
     );
