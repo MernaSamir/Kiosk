@@ -4,7 +4,7 @@ import { withRouter } from 'react-router-dom'
 import applyFilters from 'helpers/functions/filters'
 import Items from './items'
 import { map, find, head, get } from 'lodash'
-import classes from '../style.less';
+import classes from './style.less';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {connect} from 'react-redux'
 
@@ -127,10 +127,9 @@ class Groups extends Component {
             <>
                 <div className={classes.Mod_modifiersBox}>
                 <div className={classes.x}>{this.renderGroups()}</div>
-
-                    {/* {this.renderGroups()} */}
-                </div>
+                
                 {active && this.renderItems()}
+                </div>
             </>
         )
     }

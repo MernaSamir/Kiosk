@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { map, get } from 'lodash';
-import classes from './../../style.less';
+import classes from '../style.less';
 import { connect } from 'react-redux';
 import mapDispatchToProps from 'helpers/actions/main';
 import applyFilter from 'helpers/functions/filters';
