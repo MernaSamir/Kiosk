@@ -75,45 +75,80 @@
   .size {
     text-align: center;
   }
-  
   .btnContainer {
     position: fixed;
     right: 0;
     left: 0;
     bottom: 0;
-    height: 15%;
-    background-color: white;
+    height: 13%;
+    .back {
+      width: 23vw;
+      margin-top: 5vw;
+      margin-left: 7vw;
+      border: 0;
+      background-color: #b7b7b7;
+    }
+    .next {
+      font-weight: bold;
+      width: 43vw;
+      margin-top: 5vw;
+      margin-left: 20vw;
+      border: 0;
+      background-color: #3176cb;
+    }
+
+    .back,.next {
+      text-align: center;
+      color: white;
+      border-radius: 5px;
+      // background-color: #b7b7b7;
+      height: 10vw;
+      box-shadow: 0 1.5px 3px 0 rgba(0, 0, 0, 0.16);
+    }
+.back:hover,
+.next:hover {
+  background-color: #3176cb;
+}
   }
   
-  .back {
-    width: 23vw;
-    margin-top: 5vw;
-    margin-left: 7vw;
-  }
+  // .btnContainer {
+  //   position: fixed;
+  //   right: 0;
+  //   left: 0;
+  //   bottom: 0;
+  //   height: 13%;
+  //   background-color: white;
+  // }
   
-  .next {
-    font-weight: bold;
-    width: 43vw;
-    margin-top: 5vw;
-    margin-left: 20vw;
-  }
+  // .back {
+  //   width: 23vw;
+  //   margin-top: 5vw;
+  //   margin-left: 7vw;
+  // }
   
-  .back,
-  .next {
-    text-align: center;
-    color: white;
-    border-radius: 5px;
-    background-color: #b7b7b7;
-    height: 13vw;
-    box-shadow: 0 1.5px 3px 0 rgba(0, 0, 0, 0.16);
-  }
+  // .next {
+  //   font-weight: bold;
+  //   width: 43vw;
+  //   margin-top: 5vw;
+  //   margin-left: 20vw;
+  // }
   
-  .back:active,
-  .next:active,
-  .back:hover,
-  .next:hover {
-    background-color: #3176cb;
-  }
+  // .back,
+  // .next {
+  //   text-align: center;
+  //   color: white;
+  //   border-radius: 5px;
+  //   background-color: #b7b7b7;
+  //   height: 13vw;
+  //   box-shadow: 0 1.5px 3px 0 rgba(0, 0, 0, 0.16);
+  // }
+  
+  // .back:active,
+  // .next:active,
+  // .back:hover,
+  // .next:hover {
+  //   background-color: #3176cb;
+  // }
   .devContainer {
     position: fixed;
     right: 0;

@@ -47,8 +47,10 @@ class Details extends Component {
       });
       return (
         <button className={classes.priceContainer} onClick={() => this.handelClick(d, item.name, unit.name)}>
-          <div className={classes.size}>{unit.name}</div>
+          <div className={classes.flexContainer}>
+          <div className={classes.size} style={{marginBottom:"10%"}}>{unit.name}</div>
           <div className={classes.price}>EGP {d.price}</div>
+          </div>
         </button>
       );
     });
