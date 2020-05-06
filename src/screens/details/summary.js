@@ -7,6 +7,7 @@ import applyFilters from "helpers/functions/filters";
 import Edit from "../../assets/images/edit.png";
 import { withRouter } from 'react-router'
 class Summary extends Component {
+  
 
   getSummary = () => {
 

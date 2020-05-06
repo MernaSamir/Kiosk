@@ -118,14 +118,15 @@ handeltest=()=>{
     return (
       <div>
         <div className={classes.chargesHeader}>
-          <div className={classes.chargesTotal}>
-            <div>Total</div>
-            <div>EGP</div>
+          <div className={classes.chargesEach}>
+            <p>Total</p>
+            <p>EGP</p>
           </div>
           <div className={classes.chargesEach}>
-            <div>Each</div>
-            <div>EGP</div>
+            <p>Each</p>
+            <p>EGP</p>
           </div>
+ 
         </div>
         {map(cart, (d, v) => {
           return (
@@ -137,8 +138,11 @@ handeltest=()=>{
               <button className={classes.qtn}>{d.qtn}</button>
               {d.name} - {d.unit}
               <button onClick={this.handeltest} className={classes.showMore}>{this.state.test}</button>
-              <div className={classes.each}>{d.price + (d.item ? d.item.price :0)}</div>
-              <div className={classes.total}>{(d.qtn * d.price) + (d.item?(d.item.qtn * d.item.price):0)}</div>
+              
+              <div className={classes.chargesEach}>
+          <div className={classes.each}>{d.price + (d.item ? d.item.price :0)}</div>
+          <div className={classes.total}>{(d.qtn * d.price) + (d.item?(d.item.qtn * d.item.price):0)}</div>
+          </div>
             </div>
           );
         })}
