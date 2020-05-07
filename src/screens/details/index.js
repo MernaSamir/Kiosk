@@ -87,14 +87,6 @@ class Details extends Component {
            <button className={classes.back} onClick={this.goBack}> Back</button>
             <button className={classes.next} onClick={ this.nextClick}>Next - Extras</button>
           </div>
-        {/* <div className={classes.btnContainer}>
-          <button className={classes.back} onClick={() => this.goBack()}>
-            Back
-          </button>
-          <button className={classes.next} onClick={() => this.nextClick()}>
-            Next - Extras
-          </button>
-        </div> */}
       </div>
     ) 
       : (

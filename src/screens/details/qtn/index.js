@@ -75,16 +75,17 @@ class Quantity extends Component {
 
     return unit ? (
       <div className={classes.container}>
-          <div>
+          <div style={{height:'85%'}}>
         <div className={classes.item}>
           {item.name} - {unit.name}
         </div>
+
         <div className={classes.chargesHeader}>
           <div className={classes.chargesTotal}>
             <p>Total</p>
             <p>EGP</p>
           </div>
-          <div className={classes.chargesEach}>
+          <div className={classes.chargesTotal}>
             <p>Each</p>
             <p>EGP</p>
           </div>
@@ -105,7 +106,7 @@ class Quantity extends Component {
 
 
         {!isEmpty(cart.item)&&
-         <div className={classes.flex}>
+         <div className={classes.flex} style={{marginLeft:'3%'}}>
          <p className={classes.itemInfo}>
          {cart.item.base_qtn} x {cart.item.name}
           

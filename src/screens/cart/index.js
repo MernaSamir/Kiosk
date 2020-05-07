@@ -119,7 +119,7 @@ renderPrices =(d)=>{
     const { cart } = this.props;
     console.log(cart);
     return (
-      <div>
+      <div className={classes.orderContainer}>
         <div className={classes.chargesHeader}>
           <div className={classes.chargesEach}>
             <p>Total</p>
@@ -150,7 +150,6 @@ renderPrices =(d)=>{
             </div>
           );
         })}
-        {this.renderCharges()}
       </div>
     );
   }
@@ -204,24 +203,21 @@ renderPrices =(d)=>{
   }
   renderButtons() {
     return (
-         <div className={classes.btnContainer}>
-         <button className={classes.back} onClick={this.goBack}>Back</button>
-         <button className={classes.next} onClick={this.handelCheckOut}>
-         Payment
-         </button>
-       </div>
+       <div className={classes.btnContainer}>
+       <button className={classes.back} onClick={this.goBack}> Back</button>
+        <button className={classes.next} onClick={this.handelCheckOut}> Payment</button>
+      </div>
     );
   }
   render() {
     const { cart } = this.props;
     console.log(cart);
     return (
-      <div>
+      <div className={classes.container}>
         <div className={classes.header}>My cart</div>
-        {/* <div className={classes.empty}>
-          {isEmpty(cart) && "Your cart is empty"}
-        </div> */}
+       
         {this.renderOrders()}
+        {this.renderCharges()}
         {this.renderButtons()}
       </div>
     );

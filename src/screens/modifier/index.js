@@ -120,8 +120,10 @@ class modifier extends Component {
                     <Types />
                     <Body history={history} list={this.list} onClick={onClick} detail={detail} />
                 </div>
-
+                
+           
                 <Summary />
+         
                 <div className={classes.btnContainer}>
                     <button className={classes.back} onClick={this.goBack}> Back</button>
                     <button className={classes.next} onClick={() => this.nextClick()}>Next - Quantity</button>
