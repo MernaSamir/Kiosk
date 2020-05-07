@@ -75,7 +75,7 @@ class Quantity extends Component {
 
     return unit ? (
       <div className={classes.container}>
-          <div style={{height:'85%'}}>
+          <div style={{height:'84%'}}>
         <div className={classes.item}>
           {item.name} - {unit.name}
         </div>

@@ -2,7 +2,7 @@
 @import "~@assets/Colors.less";
 
 .container {
-  height: 30%;
+  height: 31%;
   background-color: @formBackground;
   color: @RegularBlack;
 }
@@ -115,18 +115,17 @@
 .btnContainer {
   height: 15%;
   background-color: white;
+  display: flex;
+  justify-content: space-between;
+  padding:0 4%;
+  border-top: 2px solid #b7b7b7;
   .back {
-    width: 23vw;
-    margin-top: 5vw;
-    margin-left: 7vw;
+    width: 40vw;
     background-color: #b7b7b7;
   }
-  
   .next {
     font-weight: bold;
-    width: 43vw;
-    margin-top: 5vw;
-    margin-left: 20vw;
+    width: 40vw;
     background-color: #3176cb;
   }
   
@@ -134,10 +133,12 @@
   .next {
     text-align: center;
     color: white;
-    border-radius: 5px;
-   
-    height: 10vw;
+    border-radius: 5px;  
+    height: 8vw;
     box-shadow: 0 1.5px 3px 0 rgba(0, 0, 0, 0.16);
+    margin-top: 2%;
+    margin: 1.5% 0;
+
   }
   .back:hover,.next:hover {
     background-color: #3176cb;

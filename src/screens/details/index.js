@@ -82,7 +82,7 @@ class Details extends Component {
             <div className={classes.prices} >{this.renderPrices(item)}</div>
           </div>
         </div>
-        <Summary />
+        <Summary margin='0'/>
         <div className={classes.btnContainer}>
            <button className={classes.back} onClick={this.goBack}> Back</button>
             <button className={classes.next} onClick={ this.nextClick}>Next - Extras</button>

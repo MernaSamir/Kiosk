@@ -49,9 +49,9 @@ class Summary extends Component {
   }
 
   render() {
-    const { cart } = this.props
+    const { cart , margin } = this.props
     return (
-      <div className={classes.devContainer}>
+      <div className={classes.devContainer} style={{margin}}>
         <div className={classes.head}>
           Summary
                   {cart && <p>EGP</p>}

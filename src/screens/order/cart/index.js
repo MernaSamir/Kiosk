@@ -108,7 +108,7 @@ renderToalPrice=()=>{
     console.log("current mode", currentMode);
     return (
       <div className={classes.container}>
-        <div style={{height:'60%'}}>
+        <div style={{height:'70%'}}>
         <div className={classes.header}>
           My cart - {isEqual(currentMode, "Dine In") ? "Eat in" : currentMode}
         </div>
