@@ -112,7 +112,7 @@ renderToalPrice=()=>{
         <div className={classes.header}>
           My cart - {isEqual(currentMode, "Dine In") ? "Eat in" : currentMode}
         </div>
-        <div>{this.renderOrders()}</div>
+        <div style={{height:'45%'}}>{this.renderOrders()}</div>
         {!isEmpty(carts)&&<div className={classes.subTotal}>
             <div className={classes.totaltext}>Cart Sub-total</div>
             <div className={classes.totaltext}> {this.renderToalPrice()} </div>
