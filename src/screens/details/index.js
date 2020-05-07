@@ -84,17 +84,22 @@ class Details extends Component {
         </div>
         <Summary />
         <div className={classes.btnContainer}>
+           <button className={classes.back} onClick={this.goBack}> Back</button>
+            <button className={classes.next} onClick={ this.nextClick}>Next - Extras</button>
+          </div>
+        {/* <div className={classes.btnContainer}>
           <button className={classes.back} onClick={() => this.goBack()}>
             Back
           </button>
           <button className={classes.next} onClick={() => this.nextClick()}>
             Next - Extras
           </button>
-        </div>
+        </div> */}
       </div>
-    ) : (
+    ) 
+      : (
         <></>
-      );
+       );
   }
 }
 const mapStateToProps = (state) => ({

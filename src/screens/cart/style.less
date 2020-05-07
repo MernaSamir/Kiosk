@@ -22,7 +22,7 @@
 .chargesEach {
   display: flex;
   flex-direction: column;
-  margin: 2vw;
+  margin: 0 2vw;
 }
 
 .cart {
@@ -33,6 +33,7 @@
   padding-bottom: 5vw;
   border-bottom: solid 1px #b7b7b7;
   color: black;
+  margin-top: 2%;
 }
 
 .editImg {
@@ -142,38 +143,35 @@
 background-color: #3176cb;
 }
 }
-// .btnContainer {
-//   position: fixed;
-//   right: 0;
-//   left: 0;
-//   bottom: 0;
-//   height: 12%;
-//   background-color: white;
-//   padding: 3vw;
-//   padding-left: 6vw;
-//   padding-right: 0vw;
-// }
-
-// .back {
-//   margin-right: 15vw;
-// }
-
-// .back,
-// .next {
-//   width: 37vw;
-//   font-weight: bold;
-//   text-align: center;
-//   color: white;
-//   border-radius: 5px;
-//   background-color: #b7b7b7;
-//   height: 11vw;
-//   box-shadow: 0 1.5px 3px 0 rgba(0, 0, 0, 0.16);
-//   padding: 2vw;
-// }
-
-// .back:active,
-// .next:active,
-// .back:hover,
-// .next:hover {
-//   background-color: #3176cb;
-// }
+.devContainer{
+  display: flex;
+  flex-direction: column;
+}
+.item{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin:  0 10px;
+}
+.text{
+  margin: 0;
+  font-weight: bold;
+  font-size: 20px;
+  color: black;
+}
+.textBold{
+  margin: 0;
+  font-weight: bold;
+  font-size: 25px;
+  color: black;
+}
+.items{
+  display: flex;
+  width: 75%;
+}
+.itemPrice {
+  flex-direction: row;
+    width: 22%;
+    display: flex;
+    margin: 0 2vw;
+}

@@ -108,6 +108,7 @@ renderToalPrice=()=>{
     console.log("current mode", currentMode);
     return (
       <div className={classes.container}>
+        <div style={{height:'60%'}}>
         <div className={classes.header}>
           My cart - {isEqual(currentMode, "Dine In") ? "Eat in" : currentMode}
         </div>
@@ -116,13 +117,12 @@ renderToalPrice=()=>{
             <div className={classes.totaltext}>Cart Sub-total</div>
             <div className={classes.totaltext}> {this.renderToalPrice()} </div>
          </div>}
-        {!isEmpty(carts) && (
-           <div className={classes.btnContainer}>
-           <button className={classes.back} onClick={this.handelCancel}>Cancel</button>
-           <button className={classes.next} onClick={this.handelCheckOut}>
-             Checkout
-           </button>
          </div>
+        {!isEmpty(carts) && (
+          <div className={classes.btnContainer}>
+            <button className={classes.back} onClick={this.handelCancel}> Cancel</button>
+            <button className={classes.next} onClick={this.handelCheckOut}>Checkout</button>
+        </div>
         )}
       </div>
     );

@@ -75,6 +75,7 @@ class Quantity extends Component {
 
     return unit ? (
       <div className={classes.container}>
+          <div>
         <div className={classes.item}>
           {item.name} - {unit.name}
         </div>
@@ -115,11 +116,6 @@ class Quantity extends Component {
          </div>
        </div>}
 
-        {/* <div className={classes.flexTotal}>
-          <p className={classes.itemTotalInfo}>Item total ({qtn})</p>
-          <p className={classes.each}>{price +(cart.item?cart.item.price:0)}</p>
-          <p className={classes.total}> {price * qtn + (cart.item?(cart.item.price * cart.item.qtn):0)}</p>
-        </div> */}
           <div className={classes.flex}>
           <p className={classes.itemTotalInfo}>
           Item total ({qtn})
@@ -150,12 +146,11 @@ class Quantity extends Component {
         <div className={classes.editDev}>
           <button onClick={this.handelEdit} className={classes.edit}>Edit Item Details</button>
           </div>
-        <div className={classes.btnContainer}>
-          <button className={classes.back} onClick={this.goBack}>Back</button>
-          <button className={classes.next} onClick={() => this.add_cart(cart)}>
-            Add to cart
-          </button>
-        </div>
+          </div>
+          <div className={classes.btnContainer}>
+           <button className={classes.back} onClick={this.goBack}> Back</button>
+            <button className={classes.next} onClick={() => this.add_cart(cart)}> Add to cart</button>
+          </div>
       </div>
     ) : (
       <></>

@@ -134,15 +134,16 @@ renderPrices =(d)=>{
         {map(cart, (d, v) => {
           return (
             <div className={classes.cart}>
+              <div className={classes.items}>
               <button className={classes.miniBtn} onClick={()=>this.handelEdit(d)}>
                 <img src={Edit} className={classes.editImg} />
               </button>
               <button className={classes.miniBtn}>X</button>
               <button className={classes.qtn}>{d.qtn}</button>
-              {d.name} - {d.unit}
+              <p>{d.name} - {d.unit}</p>
               {d.item&&<Collapse history={this.props.history} data={d}/>}
-              {this.renderPrices(d)}
-              <div className={classes.chargesEach}>
+              </div>
+              <div className={classes.itemPrice}>
           <div className={classes.each}>{d.price + (d.item ? d.item.price :0)}</div>
           <div className={classes.total}>{(d.qtn * d.price) + (d.item?(d.item.qtn * d.item.price):0)}</div>
           </div>
@@ -166,25 +167,37 @@ renderPrices =(d)=>{
     history.goBack();
 
   }
+  getPrice = ()=>{
+    const { cart } = this.props;
+    let total=0
+    map(cart,(d,v)=>{
+      total += (d.price*d.qtn) +(d.item? (d.item.qtn * d.item.price):0)
+    })
+    return total ;
+
+  }
+  getTotalPrice = ()=>{
+    return this.getPrice()+0+0; 
+  }
 
   renderCharges() {
     return (
-      <div className={classes.footer}>
-        <div className={classes.chargesContainer}>
-          <div className={classes.subHeaders}>Sub-total</div>
-          <div className={classes.subCharges}>EGP Sub</div>
+      <div className={classes.devContainer}>
+        <div className={classes.item}> 
+          <p className={classes.text}>Sub-total</p>
+          <p className={classes.text}>EGP {this.getPrice()}</p>
         </div>
-        <div className={classes.chargesContainer}>
-          <div className={classes.subHeaders}>Service Charges</div>
-          <div className={classes.subCharges}>EGP Service</div>
+        <div className={classes.item}>
+          <p className={classes.text}>Service Charges</p>
+          <p className={classes.text}>EGP 0</p>
         </div>
-        <div className={classes.chargesContainer}>
-          <div className={classes.subHeaders}>Taxes</div>
-          <div className={classes.subCharges}>EGP Taxes</div>
+        <div className={classes.item}>
+          <p className={classes.text}>Taxes</p>
+          <p className={classes.text}>EGP  0</p>
         </div>
-        <div className={classes.chargesContainer}>
-          <div className={classes.totalHeader}>Grand Total</div>
-          <div className={classes.totalCharge}>EGP Total</div>
+        <div className={classes.item}>
+          <p className={classes.textBold}>Grand Total</p>
+          <p className={classes.textBold}>EGP {this.getTotalPrice()}</p>
         </div>
       </div>
     );
