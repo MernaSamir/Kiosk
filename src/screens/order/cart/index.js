@@ -1,24 +1,25 @@
 import React, { Component } from "react";
 import classes from "./style.less";
-import { isEmpty, get, isEqual, map ,omit} from "lodash";
+import { isEmpty, get, isEqual, map ,omit ,range,} from "lodash";
 import { connect } from "react-redux";
 import Edit from "../../../assets/images/edit.png";
 import mapDispatchToProps from "helpers/actions/main";
 import Collapse from './collapse'
-import cons from "gun";
-
+import uuid from 'uuid/v4'
+import {array_to_obj} from 'helpers/functions/array_to_object'
+import applyFilters from "helpers/functions/filters";
 class Cart extends Component {
 
   handelEdit =(data)=>{
-    const {setMain,history,carts}=this.props
+    const {setMain,history,cart,appendPath,details}=this.props
     setMain('cart',{item:data})
-    setMain('cart',{data:omit(carts,data.id)})
+    setMain('cart',{data:omit(cart,data.id)})
     history.push('/details')
   }
   editModifiers =(data)=>{
-    const {setMain,history,carts}=this.props
+    const {setMain,history,cart}=this.props
     setMain('cart',{item:data})
-    setMain('cart',{data:omit(carts,data.id)})
+    setMain('cart',{data:omit(cart,data.id)})
     history.push('/modifier')
   }
   handelDelete =(data)=>{
@@ -48,35 +49,32 @@ setMain('popup', { popup })
 }
 
 deletemodifer=(data)=>{
-  const {setMain,appendPath,carts}=this.props
+  const {setMain,appendPath,cart}=this.props
   setMain('popup',{popup:{}})
-  setMain('cart',{data:omit(carts,data.id)})
-  
+  setMain('cart',{data:omit(cart,data.id)})
  appendPath("cart", `data.${[data.id]}`,{ ...data,item:{}});
-
-
 }
 
 deleteCart=(data)=>{
-  const {setMain,carts}=this.props
+  const {setMain,cart}=this.props
   setMain('popup',{popup:{}})
-  setMain('cart',{data:omit(carts,data.id)})
+  setMain('cart',{data:omit(cart,data.id)})
 }
 renderToalPrice=()=>{
-  const { carts } = this.props;
+  const { cart } = this.props;
   let total=0
-  map(carts,(d,v)=>{
+  map(cart,(d,v)=>{
     total += (d.price*d.qtn) +(d.item? (d.item.qtn * d.item.price):0)
   })
   return total ;
 
 }
   renderOrders = () => {
-    const { carts } = this.props;
-    if (isEmpty(carts)) {
+    const { cart } = this.props;
+    if (isEmpty(cart)) {
       return <div className={classes.empty}>Your cart is empty</div>;
     } else {
-      return map(carts, (d, v) => {
+      return map(cart, (d, v) => {
         return (
           <div className={classes.cart}>
             <div className={classes.contanierItems}>
@@ -95,18 +93,103 @@ renderToalPrice=()=>{
       });
     }
   };
+
+
   handelCheckOut = () => {
-    
-        const {history,}=this.props
-        history.push("/cart");
+    const {station,mode,shift,UpdateModels,order}=this.props
+
+    let main_id= !isEmpty(order) ? order.id : uuid()
+
+      const data= {'orders__main':[{
+              id:main_id,
+              station:station,
+              mode:mode,
+              start_time: new Date(),
+              shift:shift
+      }],
+      'orders__details':this.getOrderDetails(main_id)
+     }
+     const success=(res)=>{
+        const {appendPath,setMain}=this.props
+        map(res,(d,v)=>{
+          setMain(v,{active:d[0].id})
+          d=array_to_obj(d)
+          appendPath(v, 'data',d);
+        })
+        this.goPay()
+        return[]
+     }
+     UpdateModels(data,success)
+  };
+
+  getOrderDetails=(order_id)=>{
+    const {cart}=this.props;
+    let list=[]
+
+    map(cart,(d,v)=>{
+      let detailsID =uuid()
+      if(d.item){
+  
+      let modifierID =uuid()
+
+        list.push({
+          id:modifierID,
+          parent:detailsID,
+          order:order_id,
+          item:d.item.item,
+          price:d.item.price,
+          quantity:d.item.qtn
+        })
+      }
+       list.push({
+        id:detailsID,
+        order:order_id,
+        item:d.id,
+        price:d.price,
+        quantity:d.qtn
+      })
+    })
+    return list;
+  };
+  goPay() {
+    const {orderData,UpdateModels}=this.props
+    const orderDetails = applyFilters({
+      key: 'Filter',
+      path: 'orders__details',
+      params: {
+        deleted:false
+      }
+    })
+    const calc = applyFilters({
+      key: 'calculateReceipts',
+      path: 'orders__receipt',
+    }, orderDetails, undefined, {seatsNum: range(0, (get(orderData, 'guests_num', 0) + 1))}
+    )
+    const data={'orders__receipt':calc,'orders__receipt_items':calc[0].items}
+    const success=(res)=>{
+      console.log(res)
+      const {history,appendPath,setMain}=this.props
+      map(res,(d,v)=>{
+        setMain(v,{active:d[0].id})
+        d=array_to_obj(d)
+        console.log(d)
+        appendPath(v, 'data',d);
+      })
+      history.push("/cart");
+      return[]
+   }
+   UpdateModels(data,success)
+    console.log(calc)
+
   }
+
   handelCancel =()=>{
     const {setMain}= this.props
     setMain('cart',{data:{}})
   }
   
   render() {
-    const { carts, currentMode } = this.props;
+    const { cart, currentMode } = this.props;
     console.log("current mode", currentMode);
     return (
       <div className={classes.container}>
@@ -115,12 +198,12 @@ renderToalPrice=()=>{
           My cart - {isEqual(currentMode, "Dine In") ? "Eat in" : currentMode}
         </div>
         <div className={classes.cartContanier}>{this.renderOrders()}</div>
-        {!isEmpty(carts)&&<div className={classes.subTotal}>
+        {!isEmpty(cart)&&<div className={classes.subTotal}>
             <div className={classes.totaltext}>Cart Sub-total</div>
             <div className={classes.priceText}> {this.renderToalPrice()} </div>
          </div>}
          </div>
-        {!isEmpty(carts) && (
+        {!isEmpty(cart) && (
           <div className={classes.btnContainer}>
             <button className={classes.back} onClick={this.handelCancel}> Cancel</button>
             <button className={classes.next} onClick={this.handelCheckOut}>Checkout</button>
@@ -136,9 +219,10 @@ const mapStateToProps = (state) => ({
   station: get(state.licensing__station,"active",undefined),
   order: get(state.orders__main.data,
     get(state,"orders__main.active",''),{}),
-  details: get(state.orders__details.data,
-      get(state,"orders__details.active",''),{}),
-  carts: get(state.cart, "data", {}),
+  orderData: get(state.orders__main, state.orders__main.active, {}),
+
+  details: get(state.orders__details,'data',{}),
+  cart: get(state.cart, "data", {}),
   currentMode: get(
     state.settings__mode.data,
     get(state, "settings__mode.active", ""),

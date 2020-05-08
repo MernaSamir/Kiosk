@@ -1,100 +1,16 @@
 import React, { Component } from "react";
 import classes from "./style.less";
-import { range, get, map ,omit, size} from "lodash";
+import {  get, map ,omit, size} from "lodash";
 import { connect } from "react-redux";
 import Edit from "../../assets/images/edit.png";
-import uuid from 'uuid/v4'
 import mapDispatchToProps from "helpers/actions/main";
-import {array_to_obj} from 'helpers/functions/array_to_object'
 import applyFilters from "helpers/functions/filters";
 import Collapse from '../order/cart/collapse'
+import {array_to_obj} from 'helpers/functions/array_to_object'
+
 class Cart extends Component {
 
-  handelCheckOut = () => {
-    const {station,mode,shift,UpdateModels,order,details}=this.props
-    const main_id=uuid()
-
-      const data= {'orders__main':[{
-              id:main_id,
-              station:station,
-              mode:mode,
-              start_time: new Date(),
-              shift:shift
-      }],
-      'orders__details':this.getOrderDetails(main_id)
-     }
-     const success=(res)=>{
-        const {appendPath,setMain}=this.props
-        map(res,(d,v)=>{
-          setMain(v,{active:d[0].id})
-          d=array_to_obj(d)
-          appendPath(v, 'data',d);
-        })
-        this.goPay()
-        return[]
-     }
-     UpdateModels(data,success)
-  };
-  getOrderDetails=(order_id)=>{
-    const {cart}=this.props;
-    let list=[]
-    map(cart,(d,v)=>{
-      let detailsID =uuid()
-      if(d.item){
-
-      let modifierID =uuid()
-
-        list.push({
-          id:modifierID,
-          parent:detailsID,
-          order:order_id,
-          item:d.item.item,
-          price:d.item.price,
-          quantity:d.item.qtn
-        })
-      }
-       list.push({
-        id:detailsID,
-        order:order_id,
-        item:d.id,
-        price:d.price,
-        quantity:d.qtn
-      })
-    })
-    return list;
-  };
-  goPay() {
-    const {orderData,UpdateModels}=this.props
-    const orderDetails = applyFilters({
-      key: 'Filter',
-      path: 'orders__details',
-      params: {
-        deleted:false
-      }
-    })
-    const calc = applyFilters({
-      key: 'calculateReceipts',
-      path: 'orders__receipt',
-    }, orderDetails, undefined, {seatsNum: range(0, (get(orderData, 'guests_num', 0) + 1))}
-    )
-    const data={'orders__receipt':calc,'orders__receipt_items':calc[0].items}
-    const success=(res)=>{
-      console.log(res)
-      const {history,appendPath,setMain}=this.props
-      map(res,(d,v)=>{
-        setMain(v,{active:d[0].id})
-        d=array_to_obj(d)
-        console.log(d)
-        appendPath(v, 'data',d);
-      })
-      history.push("/payment");
-      return[]
-   }
-   UpdateModels(data,success)
-    console.log(calc)
-
-  }
-
+ 
 handeltest=()=>{
   if(this.state.test==='^'){
     this.setState({test:'v'})
@@ -116,14 +32,25 @@ handelDelete =(data)=>{
   }
 setMain('popup', { popup })
 }
+
 deleteCart=(data)=>{
-  const {setMain,cart,history }=this.props
+  const {setMain,cart,history ,appendPath ,details }=this.props
   setMain('popup',{popup:{}})
   setMain('cart',{data:omit(cart,data.id)})
 
+  const itemDetails = applyFilters({
+    key: 'Find',
+    path: 'orders__details',
+    params: {
+      item:data.id
+      
+    }
+  })
+  setMain('orders__details',{data:omit(details,itemDetails.id)})
+  appendPath("orders__details", `data.${[data.id]}`,{ ...itemDetails,deleted:true});
+
   if(size(cart)==1){
     history.push('/order')
-
   }
 }
   renderOrders =()=> {
@@ -163,18 +90,94 @@ deleteCart=(data)=>{
       </div>
     );
   }
+  
   handelEdit =(data)=>{
-    const {setMain,history,cart}=this.props
-    setMain('cart',{item:data})
-    setMain('cart',{data:omit(cart,data.id)})
-    history.push('/details')
-    console.log(data)
+    const {setMain,history,cart,appendPath,details,UpdateModels}=this.props
+
+    const itemDetails = applyFilters({
+      key: 'Find',
+      path: 'orders__details',
+      params: {
+        item:data.id
+      }
+    })
+    const itemModifier = applyFilters({
+      key: 'Find',
+      path: 'orders__details',
+      params: {
+        parent:itemDetails.id
+      }
+    })
+    let result={}
+
+    if(itemModifier){
+       result ={'orders__details':[{
+        ...itemDetails,
+        deleted:true
+       },
+       {
+         ...itemModifier,
+         deleted:true
+       }
+       ]}
+      }
+       else {
+          result = {'orders__details':[{
+          ...itemDetails,
+          deleted:true
+         }
+        ]}
+       }
+    
+
+     const success=(res)=>{
+      const {appendPath,setMain ,history}=this.props
+
+      history.push('/details')
+      setMain('orders__details',{data:omit(details, [itemDetails?itemDetails.id:null , 
+        itemModifier ? itemModifier.id :null])})
+
+      map(res,(d,v)=>{
+        setMain(v,{active:d[0].id})
+        d=array_to_obj(d)
+        appendPath(v, 'data',d);
+      })
+      setMain('cart',{item:data})
+      setMain('cart',{data:omit(cart,data.id)})
+      return[]
+   }
+     UpdateModels(result,success)
+
+
+
+      
+
+      // appendPath("orders__details", `data.${[itemDetails.id]}`,{ ...itemDetails,deleted:true});
+      // appendPath("orders__details", `data.${[itemModifier.id]}`,{ ...itemModifier,deleted:true});
+      
+    
+    // this.setItemModifiers(itemDetails.id)
+
+
+  }
+
+  setItemModifiers=(id)=>{
+    const {appendPath ,setMain ,details}=this.props
+ 
+    if(itemModifier){
+      
+      setMain('orders__details',{data:omit(details,itemModifier.id)})
+    }
 
   }
   goBack=()=>{
     const {history}= this.props;
     history.goBack();
 
+  }
+  handelCheckOut =()=>{
+    const {history} =this.props;
+    history.push('/payment')
   }
   getPrice = ()=>{
     const { cart } = this.props;
@@ -190,23 +193,24 @@ deleteCart=(data)=>{
   }
 
   renderCharges() {
+    const {receipt} =this.props;
     return (
       <div className={classes.devContainer}>
         <div className={classes.item}> 
           <p className={classes.text}>Sub-total</p>
-          <p className={classes.text}>EGP {this.getPrice()}</p>
+          <p className={classes.text}>EGP {receipt.sub_total}</p>
         </div>
         <div className={classes.item}>
           <p className={classes.text}>Service Charges</p>
-          <p className={classes.text}>EGP 0</p>
+          <p className={classes.text}>EGP {receipt.service}</p>
         </div>
         <div className={classes.item}>
           <p className={classes.text}>Taxes</p>
-          <p className={classes.text}>EGP  0</p>
+          <p className={classes.text}>EGP  {receipt.tax}</p>
         </div>
         <div className={classes.item}>
           <p className={classes.textBold}>Grand Total</p>
-          <p className={classes.textBold}>EGP {this.getTotalPrice()}</p>
+          <p className={classes.textBold}>EGP {receipt.total}</p>
         </div>
       </div>
     );
@@ -239,6 +243,9 @@ const mapStateToProps = (state) => ({
   mode: get(state.settings__mode,"active",undefined),
   station: get(state.licensing__station,"active",undefined),
   orderData: get(state.orders__main, state.orders__main.active, {}),
+  details: get(state.orders__details,'data',{}),
+  receipt: get(state.orders__receipt.data,
+    get(state,"orders__receipt.active",''),{}),
 
 });
 export default connect(mapStateToProps,mapDispatchToProps)(Cart);
