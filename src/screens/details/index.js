@@ -56,10 +56,10 @@ class Details extends Component {
     });
   }
 
-  goBack() {
+  goBack=()=> {
     const { history, setMain } = this.props;
     setMain('cart', { item: {} })
-    history.push("/order");
+    history.goBack();
   }
 
   goNext() {

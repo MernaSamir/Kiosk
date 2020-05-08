@@ -79,6 +79,7 @@ renderToalPrice=()=>{
       return map(carts, (d, v) => {
         return (
           <div className={classes.cart}>
+            <div className={classes.contanierItems}>
             <button className={classes.miniBtn} onClick={()=>this.handelEdit(d)}>
               <img src={Edit} className={classes.editImg} />
             </button>
@@ -86,6 +87,7 @@ renderToalPrice=()=>{
             <button className={classes.qtn}>{d.qtn}</button>
             {d.name} - {d.unit}
             {!isEmpty(d.item)&&<Collapse history={this.props.history} data={d}/>}
+            </div>
             <div className={classes.price}>EGP{(d.qtn * d.price) + (d.item?(d.item.qtn * d.item.price):0)}</div>
           </div>
          
@@ -112,10 +114,10 @@ renderToalPrice=()=>{
         <div className={classes.header}>
           My cart - {isEqual(currentMode, "Dine In") ? "Eat in" : currentMode}
         </div>
-        <div>{this.renderOrders()}</div>
+        <div className={classes.cartContanier}>{this.renderOrders()}</div>
         {!isEmpty(carts)&&<div className={classes.subTotal}>
             <div className={classes.totaltext}>Cart Sub-total</div>
-            <div className={classes.totaltext}> {this.renderToalPrice()} </div>
+            <div className={classes.priceText}> {this.renderToalPrice()} </div>
          </div>}
          </div>
         {!isEmpty(carts) && (

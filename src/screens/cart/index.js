@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import classes from "./style.less";
-import { range, get, map ,omit} from "lodash";
+import { range, get, map ,omit, size} from "lodash";
 import { connect } from "react-redux";
 import Edit from "../../assets/images/edit.png";
 import uuid from 'uuid/v4'
@@ -9,9 +9,6 @@ import {array_to_obj} from 'helpers/functions/array_to_object'
 import applyFilters from "helpers/functions/filters";
 import Collapse from '../order/cart/collapse'
 class Cart extends Component {
-  state={
-    test :'v'
-  }
 
   handelCheckOut = () => {
     const {station,mode,shift,UpdateModels,order,details}=this.props
@@ -27,14 +24,12 @@ class Cart extends Component {
       'orders__details':this.getOrderDetails(main_id)
      }
      const success=(res)=>{
-        const {history,appendPath,setMain}=this.props
+        const {appendPath,setMain}=this.props
         map(res,(d,v)=>{
           setMain(v,{active:d[0].id})
           d=array_to_obj(d)
-          // console.log(d)
           appendPath(v, 'data',d);
         })
-        // history.push("/cart");
         this.goPay()
         return[]
      }
@@ -45,7 +40,6 @@ class Cart extends Component {
     let list=[]
     map(cart,(d,v)=>{
       let detailsID =uuid()
-
       if(d.item){
 
       let modifierID =uuid()
@@ -78,8 +72,6 @@ class Cart extends Component {
         deleted:false
       }
     })
-    console.log(orderDetails)
-    console.log(orderData)
     const calc = applyFilters({
       key: 'calculateReceipts',
       path: 'orders__receipt',
@@ -112,12 +104,30 @@ handeltest=()=>{
     this.setState({test:'^'})
   }
 }
-renderPrices =(d)=>{
+handelDelete =(data)=>{
+  const { setMain } = this.props
+  const popup = {
+      type: 'CancelCustomer', visable: true, width: "50%",
+      childProps: {
+          Title: '',
+          first_msg : `Are you sure you want to delete ${data.qtn} x ${data.name}` ,
+          pressYes : ()=>this.deleteCart(data)
+        }
+  }
+setMain('popup', { popup })
+}
+deleteCart=(data)=>{
+  const {setMain,cart,history }=this.props
+  setMain('popup',{popup:{}})
+  setMain('cart',{data:omit(cart,data.id)})
 
+  if(size(cart)==1){
+    history.push('/order')
+
+  }
 }
   renderOrders =()=> {
     const { cart } = this.props;
-    console.log(cart);
     return (
       <div className={classes.orderContainer}>
         <div className={classes.chargesHeader}>
@@ -138,7 +148,7 @@ renderPrices =(d)=>{
               <button className={classes.miniBtn} onClick={()=>this.handelEdit(d)}>
                 <img src={Edit} className={classes.editImg} />
               </button>
-              <button className={classes.miniBtn}>X</button>
+              <button className={classes.miniBtn} onClick={()=>this.handelDelete(d)}>X</button>
               <button className={classes.qtn}>{d.qtn}</button>
               <p>{d.name} - {d.unit}</p>
               {d.item&&<Collapse history={this.props.history} data={d}/>}
