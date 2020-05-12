@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import classes from "./style.less";
-import { isEmpty, get, isEqual, map ,omit ,range,} from "lodash";
+import { isEmpty, get, isEqual, map ,omit ,range,filter} from "lodash";
 import { connect } from "react-redux";
 import Edit from "../../../assets/images/edit.png";
 import mapDispatchToProps from "helpers/actions/main";
@@ -94,7 +94,31 @@ renderToalPrice=()=>{
     }
   };
 
-
+  renderCalculations = () => {
+    const { orderDetails, order ,station ,shift ,mode} = this.props;
+    console.log(orderDetails)
+    const order_id=uuid()
+    this.calc = applyFilters({
+        key: 'calculateOrderReceipt',
+        order:{id:order_id , station:station, shift:shift ,mode:mode}
+    }, filter(this.handelDetails(order_id), {order:order_id }))
+    // return this.calc;
+    console.log(this.calc)
+}
+handelDetails =(order)=>{
+  const {cart} =this.props;
+  let data={}
+  map(cart,(d,v)=>{
+    const id=uuid()
+    data[id] = {id:id, price : d.price ,quantity:d.qtn ,order:order }
+    if(d.item){
+      const m_id=uuid()
+      data[m_id] ={id:m_id, price :d.item.price ,quantity:d.item.qtn ,order:order}
+    }
+  })
+  console.log(data)
+  return data;
+}
   handelCheckOut = () => {
     const {station,mode,shift,UpdateModels,order}=this.props
 
@@ -206,7 +230,7 @@ renderToalPrice=()=>{
         {!isEmpty(cart) && (
           <div className={classes.btnContainer}>
             <button className={classes.back} onClick={this.handelCancel}> Cancel</button>
-            <button className={classes.next} onClick={this.handelCheckOut}>Checkout</button>
+            <button className={classes.next} onClick={this.renderCalculations}>Checkout</button>
         </div>
         )}
       </div>

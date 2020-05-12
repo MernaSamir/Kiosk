@@ -62,11 +62,6 @@ class Details extends Component {
     history.goBack();
   }
 
-  goNext() {
-    const { history } = this.props;
-    // history.push("/extras");
-  }
-
   render() {
     const { item } = this.props;
     return item ? (

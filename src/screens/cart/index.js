@@ -1,25 +1,24 @@
 import React, { Component } from "react";
 import classes from "./style.less";
-import {  get, map ,omit, size} from "lodash";
+import {  get, map ,omit, size ,range ,} from "lodash";
 import { connect } from "react-redux";
 import Edit from "../../assets/images/edit.png";
 import mapDispatchToProps from "helpers/actions/main";
 import applyFilters from "helpers/functions/filters";
-import Collapse from '../order/cart/collapse'
+import Collapse from './collapse'
 import {array_to_obj} from 'helpers/functions/array_to_object'
+import uuid from 'uuid/v4'
 
 class Cart extends Component {
 
- 
-handeltest=()=>{
-  if(this.state.test==='^'){
-    this.setState({test:'v'})
-  }
-  else {
+  constructor (props){
+    super(props);
 
-    this.setState({test:'^'})
   }
-}
+
+
+
+
 handelDelete =(data)=>{
   const { setMain } = this.props
   const popup = {
@@ -34,25 +33,156 @@ setMain('popup', { popup })
 }
 
 deleteCart=(data)=>{
-  const {setMain,cart,history ,appendPath ,details }=this.props
-  setMain('popup',{popup:{}})
-  setMain('cart',{data:omit(cart,data.id)})
+  const {cart ,details ,UpdateModels }=this.props
+
 
   const itemDetails = applyFilters({
     key: 'Find',
     path: 'orders__details',
     params: {
       item:data.id
-      
     }
   })
-  setMain('orders__details',{data:omit(details,itemDetails.id)})
-  appendPath("orders__details", `data.${[data.id]}`,{ ...itemDetails,deleted:true});
+  const itemModifier = applyFilters({
+    key: 'Find',
+    path: 'orders__details',
+    params: {
+      parent:itemDetails.id
+    }
+  })
+  let result={}
 
-  if(size(cart)==1){
-    history.push('/order')
-  }
+  if(itemModifier){
+     result ={'orders__details':[{
+      ...itemDetails,
+      deleted:true
+     },
+     {
+       ...itemModifier,
+       deleted:true
+     }
+     ]}
+    }
+     else {
+        result = {'orders__details':[{
+        ...itemDetails,
+        deleted:true
+       }
+      ]}
+     }
+     const success=(res)=>{
+       const {appendPath,setMain ,history}=this.props
+       
+       setMain('cart',{data:omit(cart,data.id)})
+       
+       setMain('orders__details',{data:omit(details, [itemDetails?itemDetails.id:null , 
+        itemModifier ? itemModifier.id :null])})
+        
+        map(res,(d,v)=>{
+          setMain(v,{active:d[0].id})
+          d=array_to_obj(d)
+          appendPath(v, 'data',d);
+        })
+        this.goPay()
+        setMain('popup',{popup:{}})
+
+         if(size(cart)==1){
+           history.push('/order')
+         }
+    return[]
+ }
+   UpdateModels(result,success)
 }
+goPay() {
+  const {orderData,UpdateModels}=this.props
+  const orderDetails = applyFilters({
+    key: 'Filter',
+    path: 'orders__details',
+    params: {
+      deleted:false
+    }
+  })
+  const calc = applyFilters({
+    key: 'calculateReceipts',
+    path: 'orders__receipt',
+  }, orderDetails, undefined, {seatsNum: range(0, (get(orderData, 'guests_num', 0) + 1))}
+  )
+  const data={'orders__receipt':calc,'orders__receipt_items':calc[0].items}
+  const success=(res)=>{
+    console.log(res)
+    const {history,appendPath,setMain}=this.props
+    map(res,(d,v)=>{
+      setMain(v,{active:d[0].id})
+      d=array_to_obj(d)
+      console.log(d)
+      appendPath(v, 'data',d);
+    })
+    // history.push("/cart");
+    return[]
+ }
+ UpdateModels(data,success)
+  console.log(calc)
+
+}
+
+handelEdit =(data)=>{
+  const {cart,details,UpdateModels}=this.props
+
+  const itemDetails = applyFilters({
+    key: 'Find',
+    path: 'orders__details',
+    params: {
+      item:data.id
+    }
+  })
+  const itemModifier = applyFilters({
+    key: 'Find',
+    path: 'orders__details',
+    params: {
+      parent:itemDetails.id
+    }
+  })
+  let result={}
+
+  if(itemModifier){
+     result ={'orders__details':[{
+      ...itemDetails,
+      deleted:true
+     },
+     {
+       ...itemModifier,
+       deleted:true
+     }
+     ]}
+    }
+     else {
+        result = {'orders__details':[{
+        ...itemDetails,
+        deleted:true
+       }
+      ]}
+     }
+  
+
+   const success=(res)=>{
+    const {appendPath,setMain ,history}=this.props
+
+    history.push('/details')
+    setMain('orders__details',{data:omit(details, [itemDetails?itemDetails.id:null , 
+      itemModifier ? itemModifier.id :null])})
+
+    map(res,(d,v)=>{
+      setMain(v,{active:d[0].id})
+      d=array_to_obj(d)
+      appendPath(v, 'data',d);
+    })
+    setMain('cart',{item:data})
+    setMain('cart',{data:omit(cart,data.id)})
+    return[]
+ }
+   UpdateModels(result,success)
+}
+
   renderOrders =()=> {
     const { cart } = this.props;
     return (
@@ -90,86 +220,8 @@ deleteCart=(data)=>{
       </div>
     );
   }
-  
-  handelEdit =(data)=>{
-    const {setMain,history,cart,appendPath,details,UpdateModels}=this.props
 
-    const itemDetails = applyFilters({
-      key: 'Find',
-      path: 'orders__details',
-      params: {
-        item:data.id
-      }
-    })
-    const itemModifier = applyFilters({
-      key: 'Find',
-      path: 'orders__details',
-      params: {
-        parent:itemDetails.id
-      }
-    })
-    let result={}
-
-    if(itemModifier){
-       result ={'orders__details':[{
-        ...itemDetails,
-        deleted:true
-       },
-       {
-         ...itemModifier,
-         deleted:true
-       }
-       ]}
-      }
-       else {
-          result = {'orders__details':[{
-          ...itemDetails,
-          deleted:true
-         }
-        ]}
-       }
-    
-
-     const success=(res)=>{
-      const {appendPath,setMain ,history}=this.props
-
-      history.push('/details')
-      setMain('orders__details',{data:omit(details, [itemDetails?itemDetails.id:null , 
-        itemModifier ? itemModifier.id :null])})
-
-      map(res,(d,v)=>{
-        setMain(v,{active:d[0].id})
-        d=array_to_obj(d)
-        appendPath(v, 'data',d);
-      })
-      setMain('cart',{item:data})
-      setMain('cart',{data:omit(cart,data.id)})
-      return[]
-   }
-     UpdateModels(result,success)
-
-
-
-      
-
-      // appendPath("orders__details", `data.${[itemDetails.id]}`,{ ...itemDetails,deleted:true});
-      // appendPath("orders__details", `data.${[itemModifier.id]}`,{ ...itemModifier,deleted:true});
-      
-    
-    // this.setItemModifiers(itemDetails.id)
-
-
-  }
-
-  setItemModifiers=(id)=>{
-    const {appendPath ,setMain ,details}=this.props
  
-    if(itemModifier){
-      
-      setMain('orders__details',{data:omit(details,itemModifier.id)})
-    }
-
-  }
   goBack=()=>{
     const {history}= this.props;
     history.goBack();
@@ -223,6 +275,7 @@ deleteCart=(data)=>{
       </div>
     );
   }
+
   render() {
     const { cart } = this.props;
     console.log(cart);
@@ -246,6 +299,10 @@ const mapStateToProps = (state) => ({
   details: get(state.orders__details,'data',{}),
   receipt: get(state.orders__receipt.data,
     get(state,"orders__receipt.active",''),{}),
+  order: get(state.orders__main.data, state.orders__main.active, {}),
+  orderDetails: get(state.orders__details, 'data', {})
+
+
 
 });
 export default connect(mapStateToProps,mapDispatchToProps)(Cart);

@@ -1,7 +1,8 @@
 import React, { Component } from "react";
 import { Collapse } from 'antd';
 import classes from "./style.less";
-import Edit from "../../../../assets/images/edit.png";
+// import Edit from "../../../../assets/images/edit.png";
+import Edit from "../../../assets/images/edit.png"
 import { connect } from "react-redux";
 import mapDispatchToProps from "helpers/actions/main";
 import {get ,omit} from 'lodash'
@@ -49,15 +50,19 @@ class Collapsee extends Component {
   }
   rendermodifiers =(d)=>{
     return (
-      <div className={classes.modifiersContainer}>
-      <button className={classes.miniBtn} onClick={()=>this.editModifiers(d)}>
-      <img src={Edit} className={classes.editImg} />
-       </button>
-       <button className={classes.miniBtn} onClick={()=>this.deleteModifiers(d)}>X</button>
-        <button className={classes.qtn}>{d.item.qtn}</button>
-        {d.item.name}
-        {d.item.price}
-        </div>
+      <div className ={classes.contanier}>
+      <div className={classes.note}>Each haveing</div>
+       <div className={classes.flex} style={{marginLeft:'3%'}}>
+       <p className={classes.itemInfo}>
+       {d.item.base_qtn} x {d.item.name}
+        
+       </p>
+       {/* <div className={classes.priceHerder}>
+       <p className={classes.each}>{d.item.price}</p>
+       <p className={classes.total}> {d.item.qtn? d.item.price * d.item.qtn :d.item.price}</p>
+       </div> */}
+     </div>
+     </div>
     )
     
   }

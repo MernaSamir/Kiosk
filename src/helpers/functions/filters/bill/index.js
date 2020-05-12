@@ -289,15 +289,17 @@ export const calcReceiptItems = (params, data, state, props) => {
     }))
 }
 export const getOrderDefaults = (params, data, state, props) => {
-    const mainOrder = get(state.orders__main.data, props.order || state.orders__main.active, {})
-    const subModes = filter(state.settings__sub_mode.data, { mode: mainOrder.sub_mode || state.settings__mode.active }).map(d => d.id);
+    const {order}=params
+    const mainOrder = order
+    console.log(props,data)
+    const subModes = filter(state.settings__sub_mode.data, { mode: order.sub_mode || state.settings__mode.active }).map(d => d.id);
     const station = get(state.licensing__station.data, mainOrder.station, {});
     const location = props.location || station.location;
     const zone = props.applyFilters({ key: 'chain', selectors: { dinin__tables: 'table' }, display: 'zone' }, mainOrder) || null
-    const receipts = filter(state.orders__receipt.data, {order: mainOrder.id})
-    const receipt_ids = map(receipts, d=>d.id)
-    const receipts_items = filter(state.orders__receipt_items.data, d=>receipt_ids.includes(d.receipt))
-    const seats = flatten(map(receipts, d=>d.seats))
+    const receipts = null
+    const receipt_ids =null
+    const receipts_items =null
+    const seats = null
     const min_charge = props.applyFilters({
         path: 'financials__minimum_charge',
         key: 'oring',
@@ -348,7 +350,9 @@ export const getOrderDefaults = (params, data, state, props) => {
     }
 }
 export const getAppliedDiscounts = (params, data, state, props) => {
-    const mainOrder = get(state.orders__main.data, props.order, {})
+    const {order}=params
+    const mainOrder = order.id
+    // const mainOrder = props.order
     const station = get(state.licensing__station.data, mainOrder.station, {})
     const customer = get(state.parties__customer.data, mainOrder.customer, {})
     const date = get(state.orders__business_days.data, `${state.orders__business_days.active}.business_day`, '')
