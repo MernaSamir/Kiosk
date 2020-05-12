@@ -264,7 +264,7 @@ export const calcReceiptItem = (d, data, state, props) => {
 export const getReceiptItems = (params, data, state, props) => {
     data = data.reduce((o, d) => ({ ...o, [d.id]: d }), {})
     data = filter(data, d => (!d.parent || get(data, d.parent)));
-    const mainData = filter(reject(data, { deleted: true }), { duplicate: null, void: null });
+    const mainData = {...data};
     let extras = {
         pro_dis: 0,
         c_val: 0,
@@ -291,11 +291,11 @@ export const calcReceiptItems = (params, data, state, props) => {
 export const getOrderDefaults = (params, data, state, props) => {
     const {order}=params
     const mainOrder = order
-    console.log(props,data)
+    // console.log(props,data)
     const subModes = filter(state.settings__sub_mode.data, { mode: order.sub_mode || state.settings__mode.active }).map(d => d.id);
     const station = get(state.licensing__station.data, mainOrder.station, {});
     const location = props.location || station.location;
-    const zone = props.applyFilters({ key: 'chain', selectors: { dinin__tables: 'table' }, display: 'zone' }, mainOrder) || null
+    const zone = null
     const receipts = null
     const receipt_ids =null
     const receipts_items =null
@@ -326,8 +326,8 @@ export const getOrderDefaults = (params, data, state, props) => {
         }
     })
     return {
-        order: state.orders__main.active,
-        receipt: state.orders__receipt.active,
+        order: order.id,
+        receipt: null,
         station,
         extra: {
             receipts,
@@ -351,7 +351,7 @@ export const getOrderDefaults = (params, data, state, props) => {
 }
 export const getAppliedDiscounts = (params, data, state, props) => {
     const {order}=params
-    const mainOrder = order.id
+    const mainOrder = order
     // const mainOrder = props.order
     const station = get(state.licensing__station.data, mainOrder.station, {})
     const customer = get(state.parties__customer.data, mainOrder.customer, {})
