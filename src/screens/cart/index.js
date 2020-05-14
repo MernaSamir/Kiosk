@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import classes from "./style.less";
-import {  get, map ,omit, size ,range ,} from "lodash";
+import {  get, map ,omit, size ,range ,isEmpty} from "lodash";
 import { connect } from "react-redux";
 import Edit from "../../assets/images/edit.png";
 import mapDispatchToProps from "helpers/actions/main";
@@ -11,12 +11,93 @@ import uuid from 'uuid/v4'
 
 class Cart extends Component {
 
-  constructor (props){
-    super(props);
+  handelCheckOut = () => {
+    const {station,mode,shift,UpdateModels,order}=this.props
+
+    let main_id= !isEmpty(order) ? order.id : uuid()
+
+      const data= {'orders__main':[{
+              id:main_id,
+              station:station,
+              mode:mode,
+              start_time: new Date(),
+              shift:shift
+      }],
+      'orders__details':this.getOrderDetails(main_id)
+     }
+     const success=(res)=>{
+        const {appendPath,setMain}=this.props
+        map(res,(d,v)=>{
+          setMain(v,{active:d[0].id})
+          d=array_to_obj(d)
+          appendPath(v, 'data',d);
+        })
+        this.goPay()
+        return[]
+     }
+     UpdateModels(data,success)
+  };
+
+  getOrderDetails=(order_id)=>{
+    const {cart}=this.props;
+    let list=[]
+
+    map(cart,(d,v)=>{
+      let detailsID =uuid()
+      if(d.item){
+  
+      let modifierID =uuid()
+
+        list.push({
+          id:modifierID,
+          parent:detailsID,
+          order:order_id,
+          item:d.item.item,
+          price:d.item.price,
+          quantity:d.item.qtn
+        })
+      }
+       list.push({
+        id:detailsID,
+        order:order_id,
+        item:d.id,
+        price:d.price,
+        quantity:d.qtn
+      })
+    })
+    return list;
+  };
+  goPay() {
+    const {orderData,UpdateModels}=this.props
+    const orderDetails = applyFilters({
+      key: 'Filter',
+      path: 'orders__details',
+      params: {
+        deleted:false
+      }
+    })
+    const calc = applyFilters({
+      key: 'calculateReceipts',
+      path: 'orders__receipt',
+    }, orderDetails, undefined, {seatsNum: range(0, (get(orderData, 'guests_num', 0) + 1))}
+    )
+    const data={'orders__receipt':calc,'orders__receipt_items':calc[0].items}
+    const success=(res)=>{
+      console.log(res)
+      const {history,appendPath,setMain}=this.props
+      map(res,(d,v)=>{
+        setMain(v,{active:d[0].id})
+        d=array_to_obj(d)
+        console.log(d)
+        appendPath(v, 'data',d);
+      })
+      history.push("/home");
+      return[]
+   }
+   UpdateModels(data,success)
+    console.log(calc)
 
   }
-
-
 
 
 handelDelete =(data)=>{
@@ -33,154 +114,21 @@ setMain('popup', { popup })
 }
 
 deleteCart=(data)=>{
-  const {cart ,details ,UpdateModels }=this.props
+  const {cart ,history ,setMain }=this.props
 
-
-  const itemDetails = applyFilters({
-    key: 'Find',
-    path: 'orders__details',
-    params: {
-      item:data.id
-    }
-  })
-  const itemModifier = applyFilters({
-    key: 'Find',
-    path: 'orders__details',
-    params: {
-      parent:itemDetails.id
-    }
-  })
-  let result={}
-
-  if(itemModifier){
-     result ={'orders__details':[{
-      ...itemDetails,
-      deleted:true
-     },
-     {
-       ...itemModifier,
-       deleted:true
-     }
-     ]}
-    }
-     else {
-        result = {'orders__details':[{
-        ...itemDetails,
-        deleted:true
-       }
-      ]}
-     }
-     const success=(res)=>{
-       const {appendPath,setMain ,history}=this.props
-       
-       setMain('cart',{data:omit(cart,data.id)})
-       
-       setMain('orders__details',{data:omit(details, [itemDetails?itemDetails.id:null , 
-        itemModifier ? itemModifier.id :null])})
-        
-        map(res,(d,v)=>{
-          setMain(v,{active:d[0].id})
-          d=array_to_obj(d)
-          appendPath(v, 'data',d);
-        })
-        this.goPay()
-        setMain('popup',{popup:{}})
-
-         if(size(cart)==1){
-           history.push('/order')
-         }
-    return[]
- }
-   UpdateModels(result,success)
-}
-goPay() {
-  const {orderData,UpdateModels}=this.props
-  const orderDetails = applyFilters({
-    key: 'Filter',
-    path: 'orders__details',
-    params: {
-      deleted:false
-    }
-  })
-  const calc = applyFilters({
-    key: 'calculateReceipts',
-    path: 'orders__receipt',
-  }, orderDetails, undefined, {seatsNum: range(0, (get(orderData, 'guests_num', 0) + 1))}
-  )
-  const data={'orders__receipt':calc,'orders__receipt_items':calc[0].items}
-  const success=(res)=>{
-    console.log(res)
-    const {history,appendPath,setMain}=this.props
-    map(res,(d,v)=>{
-      setMain(v,{active:d[0].id})
-      d=array_to_obj(d)
-      console.log(d)
-      appendPath(v, 'data',d);
-    })
-    // history.push("/cart");
-    return[]
- }
- UpdateModels(data,success)
-  console.log(calc)
-
+  setMain('cart',{data:omit(cart,data.id)})
+  setMain('popup',{popup:{}})
+  if(size(cart)==1){
+    history.push('/order')
+  }
 }
 
 handelEdit =(data)=>{
-  const {cart,details,UpdateModels}=this.props
+  const {cart,setMain,history}=this.props
 
-  const itemDetails = applyFilters({
-    key: 'Find',
-    path: 'orders__details',
-    params: {
-      item:data.id
-    }
-  })
-  const itemModifier = applyFilters({
-    key: 'Find',
-    path: 'orders__details',
-    params: {
-      parent:itemDetails.id
-    }
-  })
-  let result={}
-
-  if(itemModifier){
-     result ={'orders__details':[{
-      ...itemDetails,
-      deleted:true
-     },
-     {
-       ...itemModifier,
-       deleted:true
-     }
-     ]}
-    }
-     else {
-        result = {'orders__details':[{
-        ...itemDetails,
-        deleted:true
-       }
-      ]}
-     }
-  
-
-   const success=(res)=>{
-    const {appendPath,setMain ,history}=this.props
-
-    history.push('/details')
-    setMain('orders__details',{data:omit(details, [itemDetails?itemDetails.id:null , 
-      itemModifier ? itemModifier.id :null])})
-
-    map(res,(d,v)=>{
-      setMain(v,{active:d[0].id})
-      d=array_to_obj(d)
-      appendPath(v, 'data',d);
-    })
-    setMain('cart',{item:data})
-    setMain('cart',{data:omit(cart,data.id)})
-    return[]
- }
-   UpdateModels(result,success)
+  setMain('cart',{item:data})
+  setMain('cart',{data:omit(cart,data.id)})
+  history.push('/details')
 }
 
   renderOrders =()=> {
@@ -227,10 +175,10 @@ handelEdit =(data)=>{
     history.goBack();
 
   }
-  handelCheckOut =()=>{
-    const {history} =this.props;
-    history.push('/payment')
-  }
+  // handelCheckOut =()=>{
+  //   const {history} =this.props;
+  //   history.push('/payment')
+  // }
   getPrice = ()=>{
     const { cart } = this.props;
     let total=0
@@ -245,24 +193,24 @@ handelEdit =(data)=>{
   }
 
   renderCharges() {
-    const {receipt} =this.props;
+    const {orderTotal} =this.props;
     return (
       <div className={classes.devContainer}>
         <div className={classes.item}> 
           <p className={classes.text}>Sub-total</p>
-          <p className={classes.text}>EGP {receipt.sub_total}</p>
+          <p className={classes.text}>EGP {orderTotal.sub_total}</p>
         </div>
         <div className={classes.item}>
           <p className={classes.text}>Service Charges</p>
-          <p className={classes.text}>EGP {receipt.service}</p>
+          <p className={classes.text}>EGP {orderTotal.service}</p>
         </div>
         <div className={classes.item}>
           <p className={classes.text}>Taxes</p>
-          <p className={classes.text}>EGP  {receipt.tax}</p>
+          <p className={classes.text}>EGP  {orderTotal.tax}</p>
         </div>
         <div className={classes.item}>
           <p className={classes.textBold}>Grand Total</p>
-          <p className={classes.textBold}>EGP {receipt.total}</p>
+          <p className={classes.textBold}>EGP {orderTotal.total}</p>
         </div>
       </div>
     );
@@ -278,7 +226,6 @@ handelEdit =(data)=>{
 
   render() {
     const { cart } = this.props;
-    console.log(cart);
     return (
       <div className={classes.container}>
         <div className={classes.header}>My cart</div>
@@ -300,7 +247,8 @@ const mapStateToProps = (state) => ({
   receipt: get(state.orders__receipt.data,
     get(state,"orders__receipt.active",''),{}),
   order: get(state.orders__main.data, state.orders__main.active, {}),
-  orderDetails: get(state.orders__details, 'data', {})
+  orderDetails: get(state.orders__details, 'data', {}),
+  orderTotal:get(state.total_order,'data',{})
 
 
 

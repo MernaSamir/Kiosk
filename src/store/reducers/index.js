@@ -4,6 +4,7 @@ import buildReducers from './main';
 
 export const stores = [
   "show",
+  "total_order",
   "hq_location",
   "guns",
   "apps",

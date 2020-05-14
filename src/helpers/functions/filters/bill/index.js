@@ -290,9 +290,9 @@ export const calcReceiptItems = (params, data, state, props) => {
 }
 export const getOrderDefaults = (params, data, state, props) => {
     const {order}=params
-    const mainOrder = order
+    const mainOrder = order || get(state.orders__main.data, state.orders__main.active,undefined)
     // console.log(props,data)
-    const subModes = filter(state.settings__sub_mode.data, { mode: order.sub_mode || state.settings__mode.active }).map(d => d.id);
+    const subModes = filter(state.settings__sub_mode.data, { mode: mainOrder.sub_mode || state.settings__mode.active }).map(d => d.id);
     const station = get(state.licensing__station.data, mainOrder.station, {});
     const location = props.location || station.location;
     const zone = null

@@ -94,119 +94,74 @@ renderToalPrice=()=>{
     }
   };
 
+  
+
   renderCalculations = () => {
-    const { orderDetails, order ,station ,shift ,mode} = this.props;
-    console.log(orderDetails)
+    const { history, setMain ,station ,shift ,mode} = this.props;
     const order_id=uuid()
-    this.calc = applyFilters({
+    const sub_mod = applyFilters({
+      key: 'Find',
+      path: 'settings__sub_mode',
+      params: {
+        mode:mode
+      }
+    })
+    console.log(sub_mod)
+ 
+    const calc = applyFilters({
         key: 'calculateOrderReceipt',
-        order:{id:order_id , station:station, shift:shift ,mode:mode}
-    }, filter(this.handelDetails(order_id), {order:order_id }))
+        order:{id:order_id,
+               station:station, 
+               shift:shift,
+               mode:mode,
+               sub_mode:sub_mod.id,
+               _type: "loc",
+               start_time: "2020-05-12T02:03:27.139000Z",
+        }
+    }, this.handelDetails(order_id))
     // return this.calc;
-    console.log(this.calc)
+    setMain('total_order',{data:calc})
+    history.push('/cart')
+
+    console.log(calc)
 }
 handelDetails =(order)=>{
+  // const test = {
+  //   details: [
+  //     // {
+  //   //   "id": "6acbb2d9-81a6-48c0-9fca-5aa4806509cc",
+  //   //   "price": 50.0,
+  //   //   "quantity": 1.0,
+  //   //   "item_tax_value": 0.0,
+  //   //   "order": "5b98beab-7b03-458a-be03-a67972b08ccf",
+  //   //   "item": "f6b5555d-a05f-4c32-b383-2a252de3c3af"
+  //   // }
+  // ],
+  //   order: {
+  //       "id": "5b98beab-7b03-458a-be03-a67972b08ccf",
+  //       "_type": "loc",
+  //       "start_time": "2020-05-12T02:03:27.139000Z",
+  //       "shift": "e4e0589c-8a75-4433-9a68-1ff4d2f62248",
+  //       // "serve": "43d14305-8102-419e-bbb3-c80a7bf6db95",
+  //       "mode": "74e2af79-c3d6-45fa-9a8e-45dfcda352c1",
+  //       "sub_mode": "12f93e62-c452-4cc2-b0bf-6024a0f08590",
+  //       "station": "4926a79a-0d23-472b-9f13-0a9f4f5e087e",
+  //     }
+  // }
   const {cart} =this.props;
-  let data={}
+  let data=[]
   map(cart,(d,v)=>{
     const id=uuid()
-    data[id] = {id:id, price : d.price ,quantity:d.qtn ,order:order }
+     data.push({id:id, price : d.price ,quantity:d.qtn ,order:order ,item:d.id ,item_tax:0.0})
     if(d.item){
       const m_id=uuid()
-      data[m_id] ={id:m_id, price :d.item.price ,quantity:d.item.qtn ,order:order}
+      data.push ({id:m_id, price :d.item.price ,quantity:d.item.qtn ,order:order,item:d.item.id,item_tax:0.0})
     }
   })
   console.log(data)
   return data;
 }
-  handelCheckOut = () => {
-    const {station,mode,shift,UpdateModels,order}=this.props
-
-    let main_id= !isEmpty(order) ? order.id : uuid()
-
-      const data= {'orders__main':[{
-              id:main_id,
-              station:station,
-              mode:mode,
-              start_time: new Date(),
-              shift:shift
-      }],
-      'orders__details':this.getOrderDetails(main_id)
-     }
-     const success=(res)=>{
-        const {appendPath,setMain}=this.props
-        map(res,(d,v)=>{
-          setMain(v,{active:d[0].id})
-          d=array_to_obj(d)
-          appendPath(v, 'data',d);
-        })
-        this.goPay()
-        return[]
-     }
-     UpdateModels(data,success)
-  };
-
-  getOrderDetails=(order_id)=>{
-    const {cart}=this.props;
-    let list=[]
-
-    map(cart,(d,v)=>{
-      let detailsID =uuid()
-      if(d.item){
-  
-      let modifierID =uuid()
-
-        list.push({
-          id:modifierID,
-          parent:detailsID,
-          order:order_id,
-          item:d.item.item,
-          price:d.item.price,
-          quantity:d.item.qtn
-        })
-      }
-       list.push({
-        id:detailsID,
-        order:order_id,
-        item:d.id,
-        price:d.price,
-        quantity:d.qtn
-      })
-    })
-    return list;
-  };
-  goPay() {
-    const {orderData,UpdateModels}=this.props
-    const orderDetails = applyFilters({
-      key: 'Filter',
-      path: 'orders__details',
-      params: {
-        deleted:false
-      }
-    })
-    const calc = applyFilters({
-      key: 'calculateReceipts',
-      path: 'orders__receipt',
-    }, orderDetails, undefined, {seatsNum: range(0, (get(orderData, 'guests_num', 0) + 1))}
-    )
-    const data={'orders__receipt':calc,'orders__receipt_items':calc[0].items}
-    const success=(res)=>{
-      console.log(res)
-      const {history,appendPath,setMain}=this.props
-      map(res,(d,v)=>{
-        setMain(v,{active:d[0].id})
-        d=array_to_obj(d)
-        console.log(d)
-        appendPath(v, 'data',d);
-      })
-      history.push("/cart");
-      return[]
-   }
-   UpdateModels(data,success)
-    console.log(calc)
-
-  }
-
+ 
   handelCancel =()=>{
     const {setMain}= this.props
     setMain('cart',{data:{}})

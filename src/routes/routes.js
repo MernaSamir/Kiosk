@@ -53,7 +53,6 @@ const Routes = (props) => (
     <Suspense fallback={<Loading />}>
       <Route exact path="/" component={Start_screen} />
           {props.show&&<Header />} 
-     {console.log(props.show)}
       <Route exact path="/setting" component={Setting} />
       <Route exact path="/home" component={Home} />
       <Route exact path="/order" component={Order} />
