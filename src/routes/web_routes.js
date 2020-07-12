@@ -5,7 +5,7 @@ import loadable from "@loadable/component";
 
 const Popup = lazy(() => import('components/popups'))
 
-const Home = lazy(() => import("screens/Home/mobile"), {
+const Home = lazy(() => import("screens/Home/web"), {
   fallback: <Loading />,
 });
 const Header = loadable(() => import("containers/Header"), {
