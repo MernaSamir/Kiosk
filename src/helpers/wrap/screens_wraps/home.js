@@ -10,6 +10,7 @@ export default (Component, props = {}) => {
                 items__custom_menu: {},
                 items__base_sales_cat: {},
                 licensing__chain: {},
+                
 
             })
         }
@@ -26,7 +27,6 @@ export default (Component, props = {}) => {
                 path: "items__base_sales_cat",
                 select: 'custom_menu',
             }, undefined, undefined, { data: category.map(d => d.id) })
-            console.log(sub_cat, "ssssss")
             return sub_cat
         }
         selectItem = (item) => {
@@ -40,10 +40,7 @@ export default (Component, props = {}) => {
         render() {
             const current_chain = applyFilters({path:"licensing__chain.active"})
             const chain = applyFilters({path:`licensing__chain.data.${current_chain}`})
-            console.log(chain,"chain")
-
             const subCat = this.getItems()
-            console.log(this.sub_cat, "subbbbbb")
             return <Component selectItem={this.selectItem} sub_cat={subCat} chain={chain}/>
         }
     }

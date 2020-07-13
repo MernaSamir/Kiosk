@@ -14,7 +14,7 @@ const Header = loadable(() => import("containers/Header"), {
 const Setting = loadable(() => import("screens/setting"), {
   fallback: <Loading />,
 });
-const Order = loadable(() => import("screens/order"), {
+const Order = loadable(() => import("screens/order/mobile"), {
   fallback: <Loading />,
 });
 

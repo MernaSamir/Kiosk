@@ -1,0 +1,83 @@
+
+@import "~@assets/style-settings.less";
+@import "~@assets/Colors.less";
+.container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  width: 76%;
+  overflow-y: scroll;
+  align-content: flex-start;
+  &::-webkit-scrollbar {
+    width: 5px;
+}
+  
+  /* Track */
+  &::-webkit-scrollbar-track {
+      background-color: @listScroll;
+      border-radius: 10px;
+      height: 2px;
+
+}
+   
+  /* Handle */
+  &::-webkit-scrollbar-thumb {
+      background: @listScroll; 
+      border-radius: 10px;
+      height: 2px;
+
+}
+  
+  /* Handle on hover */
+  &::-webkit-scrollbar-thumb:hover {
+      background: @listScrollHover; 
+      
+}
+  .item {
+    border: 0;
+    margin: 6px;
+    background-color: white;
+    border-radius: 4px;
+    box-shadow: 0 1.5px 3px 0 rgba(0, 0, 0, 0.16);
+    display: flex;
+    flex-direction: column;
+    width: 25vw;
+    height: 29vw;
+    justify-content: center;
+    align-items: center;
+    .image {
+      padding: 3vw;
+      width: 21vw;
+      height: 21vw;
+      margin: 1vw;
+      border-radius: 1px;
+      box-shadow: 0 1.5px 3px 0 rgba(0, 0, 0, 0.16);
+    }
+    
+    .title {
+      color: black;
+      text-align: center;
+      font-size: 3vw;
+    }
+    
+    .price {
+      color: black;
+      text-align: center;
+      font-weight: bold;
+      font-size: 3vw;
+    }
+  }
+  
+  .item:hover,
+  .item:active {
+    border-radius: 5px;
+    box-shadow: 0 1.5px 3px 0 rgba(0, 0, 0, 0.16);
+    border: solid 1.5px #d73f7c;
+    background-color: #ffffff;
+  }
+  
+}
+
+
+
+

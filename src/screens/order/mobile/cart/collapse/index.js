@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Collapse } from 'antd';
 import classes from "./style.less";
-import Edit from "../../../../assets/images/edit.png";
+import Edit from "../../../../../assets/images/edit.png";
 import { connect } from "react-redux";
 import mapDispatchToProps from "helpers/actions/main";
 import {get ,omit} from 'lodash'

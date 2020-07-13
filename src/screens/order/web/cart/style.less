@@ -1,0 +1,160 @@
+@import "~@assets/style-settings.less";
+@import "~@assets/Colors.less";
+
+.container {
+  width: 19%;
+  background-color: @formBackground;
+  color: @RegularBlack;
+}
+
+.header {
+  text-align: left;
+  font-size: 1.3rem;
+  padding-left: 7%;
+  padding-bottom: 3%;
+  padding-top: 2%;
+  background-color: #b2b2b2;
+  color: white;
+}
+
+.empty {
+  text-align: center;
+  margin-top: 10%;
+}
+
+.subTotal{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  padding-left: 4vw;
+  margin-top: 1%;
+}
+.totaltext{
+  // text-align: right;
+  width: 77%;
+  font-weight: bold;
+}
+.priceText{
+  font-weight: bold;
+  width: 15%;
+  text-align: right;
+}
+.cartContanier{
+  height: 55%;
+  overflow: scroll;
+}
+.contanierItems{
+  width: 80%;
+  display: flex;
+  flex-wrap: nowrap;
+
+}
+.cart {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  padding-left: 1vw;
+  margin-top: 1%;
+}
+
+.editImg {
+  width: 10px;
+  height: 10px;
+}
+
+.qtn,
+.showMore,
+.miniBtn {
+  width: 22.5px;
+  height: 22.5px;
+  border-radius: 5px;
+  background-color: #b7b7b7;
+  box-shadow: 0 0 0;
+  text-align: center;
+  color: white;
+  margin-left: 2vw;
+}
+
+.showMore {
+  margin-left: 5vw;
+  margin-right: 7vw;
+}
+
+.qtn {
+  margin-right: 3vw;
+}
+
+.price {
+  text-align: right;
+  width: 15%;
+}
+
+.btns {
+  position: fixed;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  height: 12%;
+  background-color: white;
+  padding: 3vw;
+  padding-left: 6vw;
+  padding-right: 0vw;
+}
+
+.checkOut {
+  margin-right: 15vw;
+}
+
+.checkOut,
+.cancel {
+  width: 37vw;
+  font-weight: bold;
+  text-align: center;
+  color: white;
+  border-radius: 5px;
+  background-color: #b7b7b7;
+  height: 11vw;
+  box-shadow: 0 1.5px 3px 0 rgba(0, 0, 0, 0.16);
+  padding: 2vw;
+}
+
+.checkOut:active,
+.cancel:active,
+.checkOut:hover,
+.cancel:hover {
+  background-color: #3176cb;
+}
+
+
+.btnContainer {
+  height: 15%;
+  background-color: white;
+  display: flex;
+  justify-content: space-between;
+  padding:0 4%;
+  border-top: 2px solid #b7b7b7;
+  .back {
+    width: 40vw;
+    background-color: #b7b7b7;
+  }
+  .next {
+    font-weight: bold;
+    width: 40vw;
+    background-color: #3176cb;
+  }
+  
+  .back,
+  .next {
+    text-align: center;
+    color: white;
+    border-radius: 5px;  
+    height: 8vw;
+    box-shadow: 0 1.5px 3px 0 rgba(0, 0, 0, 0.16);
+    margin-top: 2%;
+    margin: 1.5% 0;
+
+  }
+  .back:hover,.next:hover {
+    background-color: #3176cb;
+  }
+}
