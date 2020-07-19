@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import classes from "./style.less";
 import { isEmpty, get, isEqual, map ,omit ,range,filter} from "lodash";
 import { connect } from "react-redux";
-import Edit from "../../../../assets/images/edit.png";
+import Edit from "../../../assets/images/edit.png";
 import mapDispatchToProps from "helpers/actions/main";
 import Collapse from './collapse'
 import uuid from 'uuid/v4'
@@ -152,7 +152,7 @@ handelDetails =(order)=>{
       <div className={classes.container}>
         <div style={{height:'70%'}}>
         <div className={classes.header}>
-          My cart - {isEqual(currentMode, "Dine In") ? "Eat in" : currentMode}
+          {isEqual(currentMode, "Dine In") ? "Eat in" : currentMode}
         </div>
         <div className={classes.cartContanier}>{this.renderOrders()}</div>
         {!isEmpty(cart)&&<div className={classes.subTotal}>

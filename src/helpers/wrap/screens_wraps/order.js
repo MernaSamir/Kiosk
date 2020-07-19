@@ -1,16 +1,16 @@
 import React from 'react'
 import applyFilters from 'helpers/functions/filters';
 import { multiRequest } from 'helpers';
-import { min ,isEqual, pick, get} from 'lodash'
+import { min, isEqual, pick, get } from 'lodash'
 import mapDispatchToProps from "helpers/actions/main";
 import { connect } from "react-redux";
 
 export default (Component, props = {}) => {
-     class OrderWrap extends React.Component {
+    class OrderWrap extends React.Component {
         shouldComponentUpdate(nextProps, nextState) {
-            const compare = ['category','item']
-            return !isEqual(pick(this.props, compare), pick(nextProps, compare)) ||!isEqual(pick(this.state, compare), pick(nextState, compare))
-          }
+            const compare = ['category', 'item']
+            return !isEqual(pick(this.props, compare), pick(nextProps, compare)) || !isEqual(pick(this.state, compare), pick(nextState, compare))
+        }
         selectItem = item => {
             const { history, setMain } = this.props;
             setMain("items__sales_items", { active: item.id });
@@ -37,7 +37,7 @@ export default (Component, props = {}) => {
             return min(price);
         }
         getItems = (category) => {
-            console.log(category,"gwaaa")
+            console.log(category, "gwaaa")
             const items = applyFilters({
                 key: "Filter",
                 path: "items__sales_items",
@@ -51,7 +51,7 @@ export default (Component, props = {}) => {
                     }
                 }
             });
-            console.log(items,"iiii")
+            console.log(items, "iiii")
 
             return items
         }
@@ -84,22 +84,22 @@ export default (Component, props = {}) => {
             console.log("caaaaaaaaaats", category)
 
             const items = this.getItems(category)
-            console.log(items,'ittt')
+            console.log(items, 'ittt')
             const sub_cat = this.getData()
 
             return <Component
-             selectItem={this.selectItem}
-             items={items} getPrice={this.getPrice}
-             category = {category}
-             sub_cat={sub_cat}
-             selectItemC={this.selectItemC}
-             />
+                selectItem={this.selectItem}
+                items={items} getPrice={this.getPrice}
+                category={category}
+                sub_cat={sub_cat}
+                selectItemC={this.selectItemC}
+            />
         }
     }
     const mapStateToProps = state => ({
-    item: get(state.items__base_sales_cat, "active", undefined),
-});
-   return connect(mapStateToProps, mapDispatchToProps)(OrderWrap);
+        item: get(state.items__base_sales_cat, "active", undefined),
+    });
+    return connect(mapStateToProps, mapDispatchToProps)(OrderWrap);
 
 
 }

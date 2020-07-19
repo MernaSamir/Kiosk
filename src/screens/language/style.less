@@ -1,0 +1,40 @@
+@import '~@assets/style-settings.less';
+@import '~@assets/Colors.less';
+.body{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 47%;
+    .Text{
+        justify-content: center;
+        display: flex;
+        font-weight: bold;
+        font-size: 2rem;
+        color: black;
+        padding: 9% 0;
+
+    }
+    .buttonContainer{
+        display: flex;
+        justify-content: center;
+        flex-direction: row;
+        align-items: center;
+        
+
+        .button{
+            padding: 12px;
+            width: 30vw;
+            margin: 0px 20px;
+            border: 1px solid white;
+            border-radius: 9px;
+            background: white;
+            font-size: 18px;
+            color: black;
+        }
+        .active{
+            background-color: #3176cb;
+            color: white;
+        }
+    }
+}
+

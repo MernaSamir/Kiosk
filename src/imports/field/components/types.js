@@ -29,6 +29,7 @@ export const TableShow = lazy(()=>import('./table_show'))
 export const SelectSearch = lazy(()=>import('./select_with_search'))
 export const Drawer = lazy(()=>import('../../../components/drawer'))
 export const NumberField = lazy(()=>import('./number_field'))
+export const SelectOne = lazy(() => import('./select_one'))
 
 
 export * from './check_box';

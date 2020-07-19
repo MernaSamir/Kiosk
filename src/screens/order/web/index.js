@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import classes from "./style.less";
-import Cart from "./cart";
+import Cart from "../cart";
 import Category from "./category";
 import Body from "./body";
 import HomeWrap from "helpers/wrap/screens_wraps/order"

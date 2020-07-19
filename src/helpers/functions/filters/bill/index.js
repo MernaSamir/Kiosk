@@ -50,7 +50,8 @@ export const getMainTax = (d, data, state, props, extra) => {
 }
 const getAppliedPromotion = (d, data, props, extra = {}) => {
     const si = extra.item_details.sales_item;
-    if (!si.has_discount) {
+
+    if (!get(si,'has_discount')) {
         return {}
     }
     let promotion = props.applyFilters({

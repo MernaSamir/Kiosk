@@ -11,7 +11,13 @@ const Home = lazy(() => import("screens/Home/web"), {
 const Header = loadable(() => import("containers/Header"), {
   fallback: <Loading />,
 });
-const Setting = loadable(() => import("screens/setting"), {
+const Languages = loadable(() => import("screens/language"), {
+  fallback: <Loading />,
+});
+const Welcome = loadable(() => import("screens/welcome_msg"), {
+  fallback: <Loading />,
+});
+const Setting = loadable(() => import("screens/setting/web"), {
   fallback: <Loading />,
 });
 const Order = loadable(() => import("screens/order/web"), {
@@ -26,12 +32,12 @@ const Final = loadable(() => import("screens/final"), {
   fallback: <Loading />,
 });
 
-const Details = loadable(() => import("screens/details"), {
+const Details = loadable(() => import("screens/details/web"), {
   fallback: <Loading />,
 });
 const Quantity = loadable(() => import("screens/details/qtn"), {
-    fallback: <Loading />,
-  });
+  fallback: <Loading />,
+});
 
 const modifier = loadable(() => import("screens/modifier"), {
   fallback: <Loading />,
@@ -44,7 +50,7 @@ const Cart = loadable(() => import("screens/cart"), {
 const Start_screen = lazy(() => import("screens/start"));
 import classes from "./style.less";
 import { connect } from "react-redux";
-import {get} from 'lodash'
+import { get } from 'lodash'
 
 import mapDispatchToProps from "helpers/actions/main";
 
@@ -52,7 +58,10 @@ const Routes = (props) => (
   <>
     <Suspense fallback={<Loading />}>
       <Route exact path="/" component={Start_screen} />
-          {props.show&&<Header />} 
+      {props.show && <Header />}
+      <Route exact path="/language" component={Languages} />
+      <Route exact path="/welcome" component={Welcome} />
+
       <Route exact path="/setting" component={Setting} />
       <Route exact path="/home" component={Home} />
       <Route exact path="/order" component={Order} />
@@ -69,14 +78,14 @@ const Routes = (props) => (
 );
 
 class AppRouting extends Component {
-  constructor(props){
+  constructor(props) {
     super(props)
-    props.setMain('show',{data:true})
+    props.setMain('show', { data: true })
   }
   render() {
     return (
       <div className={classes.app_container}>
-        <Routes show={this.props.show}/>
+        <Routes show={this.props.show} />
       </div>
     );
   }
@@ -85,7 +94,7 @@ class AppRouting extends Component {
 export default connect(
   (state) => ({
     shift: state.orders__shifts.active,
-    show:get(state.show,'data',undefined)
+    show: get(state.show, 'data', undefined)
   }),
   mapDispatchToProps
 )(AppRouting);

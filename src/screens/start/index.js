@@ -39,7 +39,7 @@ class Start extends Component {
   }
   handelstart = () => {
     const { history } = this.props;
-    history.push("/setting");
+    history.push("/language");
   };
   componentWillUnmount(){
     const {setMain} =this.props;

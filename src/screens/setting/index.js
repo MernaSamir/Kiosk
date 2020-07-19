@@ -32,12 +32,13 @@ class Setting extends Component {
     }
   }
   setLanguage=(lang)=>{
-    const {setMain}= this.props
+    const {setMain , history}= this.props
      this.setState({
        active: lang
      })
-
      setMain("dropdowns__lang",{active: lang||'EN'})
+     history.push("/welcome")
+
   }
   renderButon = () => {
     return ButtonData.map((d, v) => {
