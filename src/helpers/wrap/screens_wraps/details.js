@@ -31,7 +31,7 @@ export default (Component, props = {}) => {
         }
         goBack = () => {
             const { history, setMain } = this.props;
-            setMain('cart', { item: {} })
+            setMain('form_actions', { detail: {} })
             history.goBack();
         }
         getPrices = () => {

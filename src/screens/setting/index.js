@@ -16,34 +16,36 @@ class Setting extends Component {
     history.push("/home");
   };
 
-  setMode=(name)=>{
-      const {setMain,history}=this.props
-      history.push('/home')
-      const mode = applyFilters({
-        key: 'Find',
-        path: 'settings__mode.data',
-        params: {
-          name: name
-        }
-    })
-    if(mode){
+  // setMode=(name)=>{
+  //     const {setMain,history}=this.props
+  //     history.push('/home')
+  //     const mode = applyFilters({
+  //       key: 'Find',
+  //       path: 'settings__mode.data',
+  //       params: {
+  //         name: name
+  //       }
+  //   })
+  //   if(mode){
         
-        setMain('settings__mode',{'active':mode.id})
-    }
-  }
-  setLanguage=(lang)=>{
-    const {setMain , history}= this.props
-     this.setState({
-       active: lang
-     })
-     setMain("dropdowns__lang",{active: lang||'EN'})
-     history.push("/welcome")
+  //       setMain('settings__mode',{'active':mode.id})
+  //   }
+  // }
+  //setLanguage=(lang)=>{
+  //   const {setMain , history}= this.props
+  //    this.setState({
+  //      active: lang
+  //    })
+  //    setMain("dropdowns__lang",{active: lang||'EN'})
+  //    history.push("/welcome")
 
-  }
+  // }
   renderButon = () => {
+    const {setMode}= this.props
+
     return ButtonData.map((d, v) => {
       return (
-        <button key={v} className={classes.btn} onClick={()=>this.setMode(d.mode)}>
+        <button key={v} className={classes.btn} onClick={()=>setMode(d)}>
           <div className={classes.title}>{d.title}</div>
           <img src={d.icon} className={classes.pic} />
         </button>
@@ -66,9 +68,9 @@ class Setting extends Component {
         <div className={classes.buttonContainer}>
           <button id = 'EN'
            className={`${classes.button} ${lang == 'EN' && classes.active}` } 
-           onClick={()=>this.setLanguage('EN')}>English</button>
+           onClick={()=>setLanguage('EN')}>English</button>
           <button className={`${classes.button} ${lang == 'AR' && classes.active}` } 
-          onClick={()=>this.setLanguage('AR')}>العربية</button>
+          onClick={()=>setLanguage('AR')}>العربية</button>
         </div>
       </div>
     );

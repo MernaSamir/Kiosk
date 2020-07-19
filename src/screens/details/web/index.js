@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import mapDispatchToProps from "helpers/actions/main";
-import {  pick , filter } from "lodash";
+import { pick, filter } from "lodash";
 import applyFilters from "helpers/functions/filters";
 import Table from "../../../assets/images/2924_27020938.png";
 import classes from "./style.less";
@@ -10,14 +10,15 @@ import DetailsWrap from "helpers/wrap/screens_wraps/details"
 import Render from 'helpers/functions/field_mapper/renderfields'
 import Form from 'helpers/wrap/form.js'
 import Footer from './footer'
+import Cart from 'screens/global_cart'
 class Details extends Component {
 
 
-componentDidMount(){
-   this.props.setValues(this.props.initialValues)
-   
+  componentDidMount() {
+    this.props.setValues(this.props.initialValues)
 
-}
+
+  }
   static onSubmit(props, values) {
     props.onSubmit(values)
     // console.log(" on submit object", values)
@@ -27,7 +28,7 @@ componentDidMount(){
     //     const detail = {...values, modifiers:filter(values.modifiers, {parent:values.size}) }
     //     setMain('form_actions',{details:{...formValues, [detail.id]:detail}})
     // }
-}
+  }
   // emptyModifiers = () => {
   //   const { handleChange } = this.props
 
@@ -64,10 +65,10 @@ componentDidMount(){
   //   },
   // });
   renderPrices = (item) => {
-    const {  getPrices } = this.props
+    const { getPrices } = this.props
 
     const priceList = getPrices()
-  
+
     return <div className={classes.selects}>
       {
         Render([{
@@ -139,38 +140,39 @@ componentDidMount(){
   //   return <Normal/>
   // }
   render() {
-    const { item, nextClick, goBack, activePrice , values} = this.props;
+    const { item, nextClick, goBack, activePrice, values } = this.props;
     return item ? (
-      <div className={classes.allContainer}>
-        {/* <div className={classes.stContainer}> */}
-        <p className={classes.title}>{item.name}</p>
-        <div className={classes.picDes}>
-          <img src={Table} className={classes.image} />
-          <p className={classes.description}>
-            Item description from data base
+      <div className={classes.above}>
+        <div className={classes.allContainer}>
+          {/* <div className={classes.stContainer}> */}
+          <p className={classes.title}>{item.name}</p>
+          <div className={classes.picDes}>
+            <img src={Table} className={classes.image} />
+            <p className={classes.description}>
+              Item description from data base
           </p>
-        </div>
-        <div className={classes.sizeDoneCont}>
-          <div className={classes.sizeContainer}>
-            <p className={classes.p}>Select Size</p>
-            <div className={classes.prices} >
-              {this.renderPrices(item)}
-            </div>
           </div>
-          {item.has_doneness &&
+          <div className={classes.sizeDoneCont}>
             <div className={classes.sizeContainer}>
-              <p className={classes.p}>Select Doneness</p>
+              <p className={classes.p}>Select Size</p>
               <div className={classes.prices} >
-                {this.renderDoneness()}
+                {this.renderPrices(item)}
               </div>
-            </div>}
-          {/* </div> */}
-        </div>
-        <Footer activePrice={activePrice} values={values}  {...this.props}
-        {...{...pick(this.props, ['handleChange', 'handleSubmit', 'values'])}}
-        />
+            </div>
+            {item.has_doneness &&
+              <div className={classes.sizeContainer}>
+                <p className={classes.p}>Select Doneness</p>
+                <div className={classes.prices} >
+                  {this.renderDoneness()}
+                </div>
+              </div>}
+            {/* </div> */}
+          </div>
+          <Footer activePrice={activePrice} values={values}  {...this.props}
+            {...{ ...pick(this.props, ['handleChange', 'handleSubmit', 'values']) }}
+          />
 
-        {/* <div>
+          {/* <div>
           <div >
             <button
               //  disabled={this.setButton(cart.item.base_qtn)} 
@@ -184,16 +186,17 @@ componentDidMount(){
             >+</button>
           </div>
         </div> */}
-        {/* <Summary margin='0' /> */}
-        {/* <div className={classes.btnContainer}>
+          {/* <Summary margin='0' /> */}
+          {/* <div className={classes.btnContainer}>
           <button className={classes.back} onClick={goBack}> Back</button>
           <button className={classes.next} onClick={nextClick}>Next - Extras</button>
         </div> */}
+        </div>
+        <Cart />
       </div>
     )
       : (
-        <></>
-      );
+        <></>);
   }
 }
 // const mapStateToProps = (state) => ({

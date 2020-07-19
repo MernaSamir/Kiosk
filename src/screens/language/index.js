@@ -9,7 +9,7 @@ import SettingWrap from "helpers/wrap/screens_wraps/details"
 
 class Setting extends Component {
   state = {
-    active :'EN'
+    active :''
   }
   setLanguage=(lang)=>{
     

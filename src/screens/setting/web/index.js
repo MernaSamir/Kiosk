@@ -42,7 +42,7 @@ class Setting extends Component {
     const {setMode}= this.props
     return ButtonData.map((d, v) => {
       return (
-        <button key={v} className={classes.btn} onClick={()=>setMode(d.mode)}>
+        <button key={v} className={classes.btn} onClick={()=>setMode(d)}>
           <div className={classes.title}>{d.title}</div>
           <img src={d.icon} className={classes.pic} />
         </button>

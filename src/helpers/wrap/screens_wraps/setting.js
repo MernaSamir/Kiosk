@@ -12,18 +12,20 @@ export default (Component, props = {}) => {
             history.push("/home");
         };
 
-        setMode = (name) => {
+        setMode = (d) => {
+console.log(d,"moooooooooodddddddd")
             const { setMain, history } = this.props
             history.push('/home')
             const mode = applyFilters({
                 key: 'Find',
                 path: 'settings__mode.data',
                 params: {
-                    name: name
+                    name: d.mode
                 }
             })
-            if (mode) {
+        setMain('form_actions', { 'mode': d.title })
 
+            if (d.mode) {
                 setMain('settings__mode', { 'active': mode.id })
             }
         }
