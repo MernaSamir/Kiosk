@@ -7,14 +7,23 @@ import uuid from 'uuid/v4'
 
 export default (Component, props = {}) => {
     class DetailsWrap extends React.Component {
-        onSubmit=(values)=> {
+        onSubmit = (values) => {
             if (values) {
-                const { formValues, setMain, activePrice } = this.props
-                console.log(activePrice,"prrrops")
+                const { formValues, setMain, activePrice , setAll} = this.props
+                console.log(activePrice, "prrrops")
 
-               const old_details=  formValues? {...formValues}:{}
-                const detail = { ...values, modifiers: filter(values.modifiers, { parent: values.size }) }
-                setMain('form_actions', { details: { old_details, [detail.id]: detail } })
+                const old_details = formValues ? { ...formValues } :null
+                const detail = { ...values }
+                    // modifiers: filter(values.modifiers, { parent: values.size }) 
+                setAll([
+                    { type: 'set_main', app: 'form_actions', data: { active: detail.id } },
+                    {
+                        type: 'set_main', app: 'form_actions', data: {
+                            details: { ...formValues, [detail.id]: detail }
+                        }}
+            
+                ])
+                // setMain('form_actions', { details: { old_details, [detail.id]: detail }}}
                 // append_path("orders__details", 'item', {
                 //     action: 'update',
                 get(activePrice, 'has_modifiers', false) && this.nextClick()
@@ -35,7 +44,7 @@ export default (Component, props = {}) => {
             history.goBack();
         }
         getPrices = () => {
-            const { item , setMain } = this.props
+            const { item, setMain } = this.props
             const list = applyFilters({
                 key: "List",
                 path: "items__prices",
@@ -72,7 +81,7 @@ export default (Component, props = {}) => {
         getInitials = () => {
             const { activeDetail, item, activePrice } = this.props
             if (activeDetail) {
-                return active
+                return activeDetail
             }
             else {
                 return { quantity: 1, id: uuid(), item: item._type, price: activePrice.price }
@@ -108,6 +117,7 @@ export default (Component, props = {}) => {
         activePrice: get(get(state.items__prices, 'data', ''), state.items__prices.active, ''),
         formValues: get(state.form_actions, 'details', {}),
         activeDetail: get(state.form_actions.details, state.form_actions.active),
+
 
 
         // data: state.cart

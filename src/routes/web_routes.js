@@ -23,6 +23,12 @@ const Setting = loadable(() => import("screens/setting/web"), {
 const Order = loadable(() => import("screens/order/web"), {
   fallback: <Loading />,
 });
+const Details = loadable(() => import("screens/details/web"), {
+  fallback: <Loading />,
+});
+const modifier = loadable(() => import("screens/modifier/web"), {
+  fallback: <Loading />,
+});
 
 const Payment = loadable(() => import("screens/PaymentLocation"), {
   fallback: <Loading />,
@@ -32,16 +38,12 @@ const Final = loadable(() => import("screens/final"), {
   fallback: <Loading />,
 });
 
-const Details = loadable(() => import("screens/details/web"), {
-  fallback: <Loading />,
-});
+
 const Quantity = loadable(() => import("screens/details/qtn"), {
   fallback: <Loading />,
 });
 
-const modifier = loadable(() => import("screens/modifier"), {
-  fallback: <Loading />,
-});
+
 
 const Cart = loadable(() => import("screens/cart"), {
   fallback: <Loading />,
