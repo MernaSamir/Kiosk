@@ -7,8 +7,26 @@ import mapDispatchToProps from 'helpers/actions/main'
 import Body from './groups'
 import applyFilters from 'helpers/functions/filters';
 import { get, map, max, sumBy, find } from 'lodash';
-import Types from '../types'
+import Types from './types'
+import Removals from './removals';
+import Form from 'helpers/wrap/form.js';
+import Cart from 'screens/global_cart'
+
 class modifier extends Component {
+    static onSubmit(props,values) {
+   console.log(values,"vaaaaaaa")
+    }
+    state = {
+        active: 'Extra'
+    }
+    setActive = () => {
+        // const { setMain, history } = this.props
+
+        this.setState({
+            active: 'Extra'
+        })
+        //  setMain("dropdowns__lang",{active: lang||'EN'})
+    }
 
     nextClick = () => {
         const { history } = this.props;
@@ -21,14 +39,14 @@ class modifier extends Component {
     }
 
     getFilteredGroup() {
-        const {         activeDetail} = this.props;
-        console.log(activeDetail,"detaaaolllll")
+        const { activeDetail } = this.props;
+        console.log(activeDetail, "detaaaolllll")
         const activedModifier = applyFilters({
             key: 'Filter',
             path: "items__assign_modifier_items",
             params: {
                 active: true,
-                item: activeDetail.size
+                item: activeDetail.price_id
             }
         })
         const main_modifiers_items = applyFilters({
@@ -46,7 +64,7 @@ class modifier extends Component {
             key: 'Filter',
             path: "orders__details",
             params: {
-                parent:  activeDetail.size
+                parent: activeDetail.price_id
             },
             then: {
                 key: 'Reject',
@@ -110,24 +128,50 @@ class modifier extends Component {
             }
         })
     }
+    getContent = () => {
+        const { onClick, activeDetail } = this.props
+
+        if (this.state.active == 'Extra')
+            return <Body list={this.list} onClick={onClick} detail={activeDetail} />
+        else
+            return <Removals list={this.list} onClick={onClick} detail={activeDetail} />
+
+
+
+    }
+    nextNo = () => {
+        this.setState({
+            active: 'No'
+        })
+    }
+    getNextButton = () => {
+        if (this.state.active == 'Extra')
+            return <button type='button'className={classes.next} onClick={() => this.nextNo()}>Next - NO</button>
+        else
+            return <button type='submit' className={classes.next}>Next - Quantity</button>
+
+
+    }
     render() {
         this.list = this.getFilteredGroup()
-        console.log(this.list,"liiiistttthh")
-        const { setMain, onClick,  activeDetail, back, itemName } = this.props
+        console.log(this.list, "liiiistttthh")
+        const { setMain, onClick, activeDetail, back, itemName } = this.props
 
         return (
             <div className={classes.modDiv}>
                 <div className={classes.cat}>
-                    <Types  web={true}/>
-                    <Body history={history} list={this.list} onClick={onClick} detail={activeDetail} web={true}/>
+                    <Types setActive={this.setActive} active={this.state.active} />
+                    {this.getContent()}
+                    <Cart/>
                 </div>
-                
-           
+
+
                 {/* <Summary /> */}
-         
+
                 <div className={classes.btnContainer}>
                     <button className={classes.back} onClick={this.goBack}> Back</button>
-                    <button className={classes.next} onClick={() => this.nextClick()}>Next - Quantity</button>
+                    {this.getNextButton()}
+                    {/* // <button className={classes.next} onClick={() => this.nextClick()}>Next - Quantity</button> */}
                 </div>
             </div>
         )
@@ -147,5 +191,5 @@ const mapStateToProps = (state, props) => ({
     price: get(state.items__prices, 'active', false),
 })
 
-export default connect(mapStateToProps, mapDispatchToProps)(modifier);
+export default connect(mapStateToProps, mapDispatchToProps)(Form(modifier));
 

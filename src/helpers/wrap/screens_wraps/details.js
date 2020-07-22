@@ -9,19 +9,18 @@ export default (Component, props = {}) => {
     class DetailsWrap extends React.Component {
         onSubmit = (values) => {
             if (values) {
-                const { formValues, setMain, activePrice , setAll} = this.props
-                console.log(activePrice, "prrrops")
-
-                const old_details = formValues ? { ...formValues } :null
+                const { formValues, setMain, activePrice, setAll } = this.props
+                const old_details = formValues ? { ...formValues } : null
                 const detail = { ...values }
-                    // modifiers: filter(values.modifiers, { parent: values.size }) 
+                // modifiers: filter(values.modifiers, { parent: values.size }) 
                 setAll([
                     { type: 'set_main', app: 'form_actions', data: { active: detail.id } },
                     {
                         type: 'set_main', app: 'form_actions', data: {
                             details: { ...formValues, [detail.id]: detail }
-                        }}
-            
+                        }
+                    }
+
                 ])
                 // setMain('form_actions', { details: { old_details, [detail.id]: detail }}}
                 // append_path("orders__details", 'item', {
@@ -33,7 +32,6 @@ export default (Component, props = {}) => {
             }
         }
         nextClick = () => {
-            console.log("hna")
             const { history, match } = this.props;
             history.push('/modifier')
 
@@ -80,11 +78,19 @@ export default (Component, props = {}) => {
         }
         getInitials = () => {
             const { activeDetail, item, activePrice } = this.props
+            const size = this.getUnit(activePrice)
             if (activeDetail) {
                 return activeDetail
             }
             else {
-                return { quantity: 1, id: uuid(), item: item._type, price: activePrice.price }
+                return {
+                    quantity: 1,
+                     id: uuid(), 
+                     item_type: item._type,
+                    item_name: item.name,
+                    size: size? size.name:'',
+                    price: activePrice.price
+                }
             }
         }
         render() {

@@ -75,7 +75,7 @@ class Details extends Component {
           type: 'SelectOne',
           t: 'Size',
           title: '',
-          name: 'size',
+          name: 'price_id',
           options: priceList,
           className: classes.prices,
           redux: 'items__prices',

@@ -8,12 +8,6 @@ import { get, map, find, includes, reject, isEmpty, some, isArray } from 'lodash
 import classes from './style.less'
 
 class SelectOne extends InputComponent {
-    // componentWillMount(){
-    //     const { options,redux, setMain } = this.props
-    //           setMain(redux,{active:options[0].id})
-        
-     
-    //  }
     handelChange = (value, name) => {
         const { field } = this.props;
         field.onChange({
@@ -60,7 +54,6 @@ class SelectOne extends InputComponent {
     }
     check = (row) => {
         const { active } = this.props
-        console.log(active, "acccatttt")
         if (active == row.id)
         {
             return <div className={classes.check}>

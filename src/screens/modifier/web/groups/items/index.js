@@ -10,15 +10,16 @@ class Items extends Component {
     state = {
         active: ''
     }
-    addToOrder = (qtn, modifier_item) => {
+    addToOrder = (qtn, modifier_item, modifier_name) => {
         const { group, cart, activeDetail ,setMain, formValues } = this.props
-        console.log(activeDetail,"acccccc")
         const values = {
             id: modifier_item.id,
             quantity: qtn,
             price: modifier_item.price,
-            parent: activeDetail
+            parent: activeDetail,
+            modifier_name
         }
+        
         const detail = { ...values }
         // const old_details = formValues ? { ...formValues } : {}
      setMain('form_actions', { details: { ...formValues, [detail.id]: detail }})
@@ -26,6 +27,7 @@ class Items extends Component {
     }
 
     addModifier(d, data) {
+        console.log(d,"did dsds",)
         const { detail, appendPath, modifierItems, group, onClick, setMain, cart } = this.props;
         const modifier_items = get(modifierItems, d.modifier_items, {})
         const free = ((group.max_point == 0) || (modifier_items.free_point <= (group.max_point - group.max_ordered_points)));
@@ -48,7 +50,8 @@ class Items extends Component {
                     Title: '',
                     first_msg: `${data.name}`,
                     pressYes: this.addToOrder,
-                    modifier_item: d
+                    modifier_item: d,
+
 
                 }
             }
@@ -65,13 +68,13 @@ class Items extends Component {
 
     getModifiers() {
         const { detail, web } = this.props;
-
+console.log(detail,"detail")
         const filter = {
             key: 'Filter',
             path: 'items__assign_modifier_items',
             params: {
                 active: true,
-                item: detail.size
+                item: detail.price_id
             },
             then: {
                 key: 'ListInside',
@@ -89,7 +92,7 @@ class Items extends Component {
     renderSpanStyle = (data) => {
         if ((data.name).includes(" ")) {
 
-            return <span style={{ marginTop: '14%' }} >  {data.name}</span>
+            return <span style={{ padding: '7%' }} >  {data.name}</span>
         }
         return <span> {data.name}</span>
     }
@@ -108,8 +111,6 @@ class Items extends Component {
         const { active } = this.state
         return map(list, (d, key) => {
             const data = applyFilter(show, d);
-            console.log(data, "gwaaaa al itemsssssss", d)
-
             return <div key={key} className={classes.Mod_itemsBtn}
                 style={{ border: d.id == active && '1.5px solid #d73f7c' }}
                 onClick={this.addModifier.bind(this, d, data)} >
@@ -139,7 +140,7 @@ const mapStateToProps = (state, props) => {
                 items__sales_items: 'sales_item',
             }
         },
-        activeDetail: get(state.form_actions.active),
+        activeDetail: get(state.form_actions,'active',''),
         formValues: get(state.form_actions, 'details', {}),
 
 
