@@ -13,8 +13,63 @@ import Form from 'helpers/wrap/form.js';
 import Cart from 'screens/global_cart'
 
 class modifier extends Component {
-    static onSubmit(props,values) {
-   console.log(values,"vaaaaaaa")
+    RemovableItems = () => {
+        const { activeDetail } = this.props
+        // console.log(detail,"dedede")
+        const recipe = applyFilters({
+            key: 'Filter',
+            path: 'items__recipe',
+            params: {
+                sales_item: activeDetail.price_id,
+                removable: true
+            }
+        })
+        console.log(recipe, "reeeeee")
+        this.stocks = applyFilters({
+            key: 'picking',
+            reduxName: 'stock__items',
+            select: 'stock_item'
+        }, recipe)
+        this.removals = applyFilters({
+            key: 'Filter',
+            path: 'orders__recipe_removals',
+            params: {
+                detail: activeDetail.id,
+                _type: 'rm'
+            }
+        })
+        // return <div className= {classes.btnsContanier}>
+        //  {map(stocks,(d,i)=>{
+        //      const found =find (filter(field.value ,v=>!v.remove), s=>s.stock_item==d.id )
+
+        //      return<button className={found&& "active" }>{d.name}</button>
+        // })}
+        // </div>
+
+
+    }
+
+    static onSubmit(props, values) {
+        console.log(values)
+        props.history.push("/my_cart")
+        // const stocks = applyFilters({
+        //     key: 'picking',
+        //     reduxName: 'stock__items',
+        //     select: 'stock_item'
+        // }, vitems)
+        // console.log(stocks,"ojgjhg")
+        // const {activeDetail}= props
+        // const values = {
+        //     id: modifier_item.id,
+        //     quantity: qtn,
+        //     parent: activeDetail,
+        //     modifier_name
+        // }
+
+        // const detail = { ...values }
+        // // const old_details = formValues ? { ...formValues } : {}
+        // setMain('form_actions', { details: { ...formValues, [detail.id]: detail }})
+
     }
     state = {
         active: 'Extra'
@@ -140,29 +195,29 @@ class modifier extends Component {
 
     }
     nextNo = () => {
+        const { setMain } = this.props
+        console.log("hnaaaaaaaa")
         this.setState({
-            active: 'No'
+            active: 'NO'
         })
-    }
-    getNextButton = () => {
-        if (this.state.active == 'Extra')
-            return <button type='button'className={classes.next} onClick={() => this.nextNo()}>Next - NO</button>
-        else
-            return <button type='submit' className={classes.next}>Next - Quantity</button>
+        setMain('form_actions', { CartStatus: false })
+
+
 
 
     }
     render() {
         this.list = this.getFilteredGroup()
-        console.log(this.list, "liiiistttthh")
+        const removals = this.RemovableItems()
         const { setMain, onClick, activeDetail, back, itemName } = this.props
 
         return (
             <div className={classes.modDiv}>
                 <div className={classes.cat}>
-                    <Types setActive={this.setActive} active={this.state.active} />
+                    <Types setActive={this.setActive} active={this.state.active} stocks={this.stocks}
+                        removals={this.removals} />
                     {this.getContent()}
-                    <Cart/>
+                    <Cart />
                 </div>
 
 
@@ -170,8 +225,16 @@ class modifier extends Component {
 
                 <div className={classes.btnContainer}>
                     <button className={classes.back} onClick={this.goBack}> Back</button>
-                    {this.getNextButton()}
-                    {/* // <button className={classes.next} onClick={() => this.nextClick()}>Next - Quantity</button> */}
+                    {this.state.active == 'Extra' &&
+                        <button type='button' className={classes.next} onClick={this.nextNo}>Next - NO</button>}
+                    {this.state.active == 'NO' &&
+                        <button type='submit' className={classes.next}>Next - Quantity</button>}                 {/* // <button className={classes.next} onClick={() => this.nextClick()}>Next - Quantity</button> */}
+                    {/* <button type='button' className={classes.next} onClick={() => this.nextNo()}>Next - NO</button>
+                        
+                        <button type='submit' className={classes.next}>Next - Quantity</button> */}
+
+
+
                 </div>
             </div>
         )

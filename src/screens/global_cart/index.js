@@ -32,19 +32,19 @@ class GlobalCart extends Component {
     console.log('daaaas')
   }
   render() {
-    const { element, t, mode, CartStatus , details} = this.props
+    const { element, t, mode, CartStatus , details, setMain, setAll} = this.props
     console.log(CartStatus, "carcarcaaat")
     const collapseStyle = CartStatus == false ? classes.closed : classes.open
 
     return (
       <div className={`${classes.header} ${collapseStyle}`} >
         <div onClick={this.openCart}>
-        <p >{t(mode)}</p>
+        <p className={classes.mode} >{t(mode)}</p>
         <FontAwesomeIcon className={classes.icon} icon='shopping-cart' />
         </div>
         {CartStatus == true ?
           <>
-            <Content  details={details}/>
+            <Content  details={details} />
             <div className={classes.btnContainer}>
               <button type='button' >Back</button>
               <button type='button' onClick={this.checkOut} >Checkout</button></div>
@@ -78,7 +78,8 @@ class GlobalCart extends Component {
 const mapStateToProps = (state) => ({
   mode: get(state, 'form_actions.mode', {}),
   CartStatus: get(state, 'form_actions.CartStatus', false),
-  details: get(state.form_actions,'details',{})
+  details: get(state.form_actions,'details',{}),
+  data : state.form_actions
 })
 
 

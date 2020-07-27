@@ -12,8 +12,14 @@ export default (Component, props = {}) => {
             return !isEqual(pick(this.props, compare), pick(nextProps, compare)) || !isEqual(pick(this.state, compare), pick(nextState, compare))
         }
         selectItem = item => {
-            const { history, setMain } = this.props;
-            setMain("items__sales_items", { active: item.id });
+            const { history, setMain , setAll} = this.props;
+            // setMain("items__sales_items", { active: item.id });
+            // setMain('form_actions', { CartStatus: false })
+            setAll([
+                {type: 'set_main', app: 'items__sales_items', data: {active: item.id}},
+                {type: 'set_main', app: 'form_actions', data:  { CartStatus: false }}
+          
+            ])
             history.push("/details");
         };
         getPrice(item) {

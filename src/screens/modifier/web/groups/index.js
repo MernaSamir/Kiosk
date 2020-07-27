@@ -112,7 +112,7 @@ class Groups extends Component {
     renderGroups = () => {
         const { list, active } = this.props;
         return map(list, (d, key) => (
-            <button key={key} className={classes.Mod_btn}
+            <button type='button' key={key} className={classes.Mod_btn}
                 onClick={this.selectModifier.bind(this, d.id)} >
                 <div className={active == d.id && classes.Mod_btn_active}>
                     {this.renderSpanStyle(d, active)}

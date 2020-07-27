@@ -7,16 +7,17 @@ class Types extends Component {
 
 
     render() {
-        const {setActive , active}= this.props
+        const {setActive , active, stocks , removals}= this.props
         return (
            
            <div className={classes.container}>
                 <div className={classes.buttonContainer} >
                     <button type='button' className={`${classes.title} ${active == 'Extra' && classes.active}`}
                      onClick={()=>setActive('Extra')}>Extra</button>
-                    <button type='button' className={`${classes.title} ${active == 'No' && classes.active}`}
+                     {(stocks) &&
+                    <button type='button' className={`${classes.title} ${active == 'NO' && classes.active}`}
                     // onClick={()=>setActive('No')}
-                    >No</button>
+                    >No</button>}
                  </div>           
             </div>
         )

@@ -1,10 +1,20 @@
+.eacht{
+    display: flex;
+    justify-content: flex-end;
+    p{
+        font-size: 0.7rem;
+        color: #000000;
+
+            margin-right: 2.5%
+    }
+}
 .closed{
     width: 6%;
     background-color: #ffffff;
     height: 51vw;
 }
 .open{
-    width: 32%;
+    width: 36%;
     right: 0;
     position: absolute;
     background-color: #ffffff;
@@ -15,7 +25,7 @@
     background-color: #ffffff;
     height: 80%;
     margin-top: 1%;
-    p{
+    .mode{
         font-size: 1rem;
         color: #306ab2 ;
         margin: 0;
@@ -43,20 +53,29 @@
         } 
       }
 }
+
 .cart{
     display: flex;
     flex-direction: column;
+    width: 100%;
+
     .items{
         display: flex;
+
         p{
             font-size: 1rem;
             color: #000000;
+            margin: 0;
         }
+        .et{ 
+            margin: 0 2%; 
+       }
         .qtn,
         .showMore,
         .miniBtn {
         width: 22.5px;
         height: 22.5px;
+        
         border-radius: 5px;
         background-color: #b7b7b7;
         box-shadow: 0 0 0;

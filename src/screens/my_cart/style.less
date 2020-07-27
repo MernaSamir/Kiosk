@@ -1,0 +1,193 @@
+.allcon{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 0 7%;
+    width: 95%;
+    .above{
+        width: 100%;
+        background-color: #ffffff;
+        display: flex;
+        justify-content: center;
+       p{
+        font-size: 1.2rem;
+        color: #306ab2;
+        text-align: center;
+        margin: 0%;
+       } 
+    //    button{
+    //        background: transparent;
+    //        width: 40%;
+    //        text-align: left;
+    //        .icon{
+    //             color: #306ab2;
+    //         }
+    //     }
+    }
+    .header{
+        font-size: 1.2rem;
+        color: #306ab2;
+        text-align: center;
+    }
+    .eacht{
+        display: flex;
+        justify-content: flex-end;
+        width: 87%;
+        p{
+            font-size: 0.7rem;
+            color: #000000;
+
+                margin-right: 2.5%
+        }
+    }
+    .itemTo{
+        display: flex;
+        margin-top: 3%;       
+         p{
+            
+            font-size: 1rem;
+            color: #000000;
+            font-weight: bold;
+            &:nth-child(1){
+                width: 80%;
+            }
+            &:nth-child(2){
+                width: 10%;
+            }
+        }
+    }
+    .incrementer {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        .minus:hover,
+        .minus:active,
+        .plus:hover,
+        .plus:active {
+        border: solid 1px #d73f7c;
+        }
+        .minus,
+        .plus {
+            border-radius: 5px;
+            border: solid 1px #234f81;
+            color: #234f81;
+            text-align: center;
+            width: 6vw;
+            padding: 2%;
+        }
+        .qantity {
+            font-size: 1rem;
+            color: #234f81;
+            font-weight: bold;
+            padding: 2%;
+        }
+        }
+    .btnCont{
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+        margin-top: 1%;
+        padding: 0 7%;
+    
+        button{
+            border-radius: 2.5px;
+            font-size: 1rem;
+            font-weight: bold;
+            color: #ffffff;
+            &:nth-child(1){
+            width: 15%;
+            background-color: #b7b7b7;
+            } 
+            &:nth-child(2){
+            width: 30%;
+            background-color: #306ab2;
+            } 
+        }
+        }
+    .closed{
+        width: 6%;
+        background-color: #ffffff;
+        height: 51vw;
+    }
+    .open{
+        width: 36%;
+        right: 0;
+        position: absolute;
+        background-color: #ffffff;
+        height: 51vw;
+
+    }
+    // .header{
+    //     background-color: #ffffff;
+    //     height: 80%;
+    //     margin-top: 1%;
+    //     .mode{
+    //         font-size: 1rem;
+    //         color: #306ab2 ;
+    //         margin: 0;
+            
+
+    //     }
+    //     .icon{
+    //         color: #306ab2
+    //     }
+    // }
+    .btnContainer{
+        button{
+            border-radius: 2.5px;
+            font-size: 1rem;
+            font-weight: bold;
+            color: #ffffff;
+            &:nth-child(1){
+                width: 25%;
+                background-color: #b7b7b7;
+                margin-right: 7%;
+            } 
+            &:nth-child(2){
+                width: 42%;
+                background-color: #306ab2;
+            } 
+        }
+    }
+
+    .cart{
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+
+        .items{
+            display: flex;
+            .name{
+                width: 80%;
+                display: flex;
+            }
+            p{
+                font-size: 1rem;
+                color: #000000;
+                margin: 0;
+
+            }
+            .et{ 
+                width: 10%;
+                        }
+            .qtn,
+            .showMore,
+            .miniBtn {
+            width: 22.5px;
+            height: 22.5px;
+            
+            border-radius: 5px;
+            background-color: #b7b7b7;
+            box-shadow: 0 0 0;
+            text-align: center;
+            color: white;
+            margin: 0 1%;
+            .editImg {
+                width: 10px;
+                height: 10px;
+            }
+            }
+        }
+    }
+}

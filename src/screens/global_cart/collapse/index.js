@@ -14,39 +14,40 @@ class Collapsee extends Component {
     // setMain('cart',{data:omit(carts,data.id)})
     // history.push('/modifier')
   }
-  deleteModifiers =(data)=>{
+  DeleteMod (d){
     const { setMain } = this.props
     const popup = {
         type: 'CancelCustomer', visable: true, width: "50%",
         childProps: {
             Title: '',
-            first_msg : `Are you sure you want to delete ${data.item.qtn} x ${data.item.name}` ,
-            pressYes : ()=>this.deletemodifer(data)
+            first_msg : `Are you sure you want to delete ${d.quantity} x ${d.modifier_name}` ,
+            pressYes : ()=>this.deletemodifer(d)
           }
     }
   setMain('popup', { popup })
   }
   
-  deletemodifer=(data)=>{
-    // const {setMain,appendPath,carts}=this.props
-    // setMain('popup',{popup:{}})
-    // setMain('cart',{data:omit(carts,data.id)})
-    // appendPath("cart", `data.${[data.id]}`,{ ...data,item:{}});
-    // this.setState({show:false})
-  
-  
+  deletemodifer=(d)=>{
+    const {setMain,appendPath, details, setAll}=this.props
+    setAll([
+      {type: 'set_main', app: 'popup', data: {popup:{}}},
+      {type: 'set_main', app: 'form_actions', data: {details:omit(details,d.id)}},
+      {type: 'set_main', app: 'form_actions', data:  { CartStatus: false }}
+
+  ])
+    appendPath("form_actions", `details.${[d.id]}`,{ });
+    this.setState({show:false})
   }
  
   rendermodifiers =(d)=>{
     return (
-      <div className ={classes.contanier}>
+      <div className={classes.modfcont}>
       <p className={classes.note}>Each haveing</p>
-       <div className={classes.flex} style={{marginLeft:'3%'}}>
+       <div className={classes.flex}>
+       <button className={classes.cancel} onClick={ this.DeleteMod.bind(this,d)}>x</button>
        <p className={classes.itemInfo}>{d.quantity} x {d.modifier_name}</p>
-       {/* <div className={classes.priceHerder}> */}
        <p className={classes.each}>{d.price}</p>
        <p className={classes.total}> {d.quantity? d.price * d.quantity :d.price}</p>
-       {/* </div> */}
      </div>
      </div>
     )
@@ -64,18 +65,8 @@ class Collapsee extends Component {
   
 }
 const mapStateToProps = (state) => ({
-  shift:get(state.orders__shifts,"active",undefined),
-  mode: get(state.settings__mode,"active",undefined),
-  station: get(state.licensing__station,"active",undefined),
-  order: get(state.orders__main.data,
-    get(state,"orders__main.active",''),{}),
-  details: get(state.orders__details.data,
-      get(state,"orders__details.active",''),{}),
-  carts: get(state.cart, "data", {}),
-  currentMode: get(
-    state.settings__mode.data,
-    get(state, "settings__mode.active", ""),
-    ""
-  ).name,
+  details: state.form_actions.details,
+      // get(state,"orders__details.active",''),{}),
+
 });
 export default connect(mapStateToProps, mapDispatchToProps)(Collapsee);

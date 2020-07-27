@@ -32,7 +32,9 @@ export default (Component, props = {}) => {
             }
         }
         nextClick = () => {
-            const { history, match } = this.props;
+            const { history, match, setMain } = this.props;
+            setMain('form_actions', { CartStatus: false })
+
             history.push('/modifier')
 
         }
