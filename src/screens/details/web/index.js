@@ -21,49 +21,8 @@ class Details extends Component {
   }
   static onSubmit(props, values) {
     props.onSubmit(values)
-    // console.log(" on submit object", values)
-    // if (values) {
 
-    //     const {  formValues, setMain } = props
-    //     const detail = {...values, modifiers:filter(values.modifiers, {parent:values.size}) }
-    //     setMain('form_actions',{details:{...formValues, [detail.id]:detail}})
-    // }
   }
-  // emptyModifiers = () => {
-  //   const { handleChange } = this.props
-
-  //   handleChange({
-  //     target: {
-  //       name: 'modifiers',
-  //       values: []
-  //     }
-  //   })
-  // }
-  // handelClick = (item, name, unit) => {
-  //   const { appendPath, setMain } = this.props;
-  //   // appendPath('cart', `item.${item.id}`, item)
-  //   setMain('cart', { item: { ...item, qtn: 1, name: name, unit: unit } })
-  // }
-  // const list = applyFilters({
-  //   key: "List",
-  //   path: "items__prices",
-  //   select: {
-  //     sales_item: item.id,
-  //   },
-  //   then: {
-  //     key: "Reject",
-  //     params: {
-  //       active: false,
-  //     },
-  //   },
-  // });
-  // let unit = applyFilters({
-  //   key: "Find",
-  //   path: "dropdowns__units_of_measure",
-  //   params: {
-  //     id: d.sales_unit,
-  //   },
-  // });
   renderPrices = (item) => {
     const { getPrices } = this.props
 
@@ -84,39 +43,6 @@ class Details extends Component {
       {/* <SelectOne title='Size' options={priceList} redux='items__prices' /> */}
     </div>
   }
-
-  // renderPrices(item) {
-  //   const { handelClick, getPrices, getUnit } = this.props
-
-  //   const prices = getPrices()
-
-  //   return map(prices, (d) => {
-  //     let unit = getUnit(d)
-  //     return (
-  //       <button className={classes.priceContainer} onClick={() => handelClick(d, item.name, unit.name)}>
-  //         <div className={classes.flexContainer}>
-  //           <p className={classes.size}>{unit.name}</p>
-  //           <p className={classes.price}> (£ {d.price})</p>
-  //         </div>
-  //       </button>
-  //     );
-  //   });
-  // }
-  // renderDonenss() {
-  //   const { handelClickDoneness, getDonenss, getUnit } = this.props
-
-  //   const doneness = getDonenss()
-
-  //   return map(doneness, (d) => {
-  //     return (
-  //       <button className={classes.priceContainer} onClick={() => handelClickDoneness(d, item.name, unit.name)}>
-  //         <div className={classes.flexContainer}>
-  //           <p className={classes.size}>{d.name}</p>
-  //         </div>
-  //       </button>
-  //     );
-  //   });
-  // }
   renderDoneness = () => {
     const { item, getDonenss } = this.props
     const doneness = getDonenss()
@@ -172,25 +98,6 @@ class Details extends Component {
             {...{ ...pick(this.props, ['handleChange', 'handleSubmit', 'values']) }}
           />
 
-          {/* <div>
-          <div >
-            <button
-              //  disabled={this.setButton(cart.item.base_qtn)} 
-              className={classes.minus}
-            // onClick={() => this.handelClick("-")}
-            >
-              -</button>
-            <div className={classes.qantity}>{cart.qnt}</div>
-            <button className={classes.plus}
-            //  onClick={() => this.handelClick("+", max)}
-            >+</button>
-          </div>
-        </div> */}
-          {/* <Summary margin='0' /> */}
-          {/* <div className={classes.btnContainer}>
-          <button className={classes.back} onClick={goBack}> Back</button>
-          <button className={classes.next} onClick={nextClick}>Next - Extras</button>
-        </div> */}
         </div>
         <Cart />
       </div>
@@ -199,17 +106,6 @@ class Details extends Component {
         <></>);
   }
 }
-// const mapStateToProps = (state) => ({
-//   item: get(
-//     state.items__sales_items.data,
-//     get(state.items__sales_items, "active", undefined),
-//     undefined
-//   ),
-//   shift: get(state.orders__shifts, "active", undefined),
-//   mode: get(state.settings__mode, "active", undefined),
-//   station: get(state.licensing__station, "active", undefined),
 
-
-// });
 
 export default DetailsWrap(Form(Details));

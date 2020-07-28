@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { get, toArray } from 'lodash'
-
+import Types from './types'
  class Combo extends Component {
     renderTitle = () => {
         const { item } = this.props
@@ -18,6 +18,7 @@ import { get, toArray } from 'lodash'
         return (
             <div>
                 
+               {this.renderTitle()} 
             </div>
         )
     }
