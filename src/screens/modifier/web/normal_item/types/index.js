@@ -14,10 +14,10 @@ class Types extends Component {
                 <div className={classes.buttonContainer} >
                     <button type='button' className={`${classes.title} ${active == 'Extra' && classes.active}`}
                      onClick={()=>setActive('Extra')}>Extra</button>
-                     {(stocks) &&
+                     
                     <button type='button' className={`${classes.title} ${active == 'NO' && classes.active}`}
                     // onClick={()=>setActive('No')}
-                    >No</button>}
+                    >No</button>
                  </div>           
             </div>
         )

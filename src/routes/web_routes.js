@@ -29,10 +29,12 @@ const Details = loadable(() => import("screens/details/web"), {
 const modifier = loadable(() => import("screens/modifier/web"), {
   fallback: <Loading />,
 });
-const MyCart = loadable(() => import("screens/my_cart"), {
+const Quantity = loadable(() => import("screens/my_cart/quantity.js"), {
   fallback: <Loading />,
 });
-
+const MyCart = loadable(() => import("screens/my_cart/cart.js"), {
+  fallback: <Loading />,
+});
 const Payment = loadable(() => import("screens/PaymentLocation"), {
   fallback: <Loading />,
 });
@@ -42,15 +44,15 @@ const Final = loadable(() => import("screens/final"), {
 });
 
 
-const Quantity = loadable(() => import("screens/details/qtn"), {
-  fallback: <Loading />,
-});
+// const Quantity = loadable(() => import("screens/details/qtn"), {
+//   fallback: <Loading />,
+// });
 
 
 
-const Cart = loadable(() => import("screens/cart"), {
-  fallback: <Loading />,
-});
+// const Cart = loadable(() => import("screens/cart"), {
+//   fallback: <Loading />,
+// });
 
 const Start_screen = lazy(() => import("screens/start"));
 import classes from "./style.less";
@@ -73,12 +75,13 @@ const Routes = (props) => (
       <Route exact path="/payment" component={Payment} />
       <Route exact path="/final" component={Final} />
       <Route exact path="/details" component={Details} />
-      <Route exact path="/details/qtn" component={Quantity} />
-
+      {/* <Route exact path="/details/qtn" component={Quantity} /> */}
       <Route exact path="/modifier" component={modifier} />
-      <Route exact path="/my_cart" component={MyCart} />
+      <Route exact path="/quantity" component={Quantity} />
+      <Route exact path="/cart" component={MyCart} />
 
-      <Route exact path="/cart" component={Cart} />
+
+      {/* <Route exact path="/cart" component={Cart} /> */}
       <Popup />
     </Suspense>
   </>

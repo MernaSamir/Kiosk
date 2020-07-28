@@ -5,6 +5,8 @@ import { connect } from 'react-redux';
 import mapDispatchToProps from 'helpers/actions/main';
 import applyFilter from 'helpers/functions/filters';
 import { message } from 'antd';
+import uuid from 'uuid/v4'
+
 class Items extends Component {
 
     state = {
@@ -13,7 +15,7 @@ class Items extends Component {
     addToOrder = (qtn, modifier_item, modifier_name) => {
         const { group, cart, activeDetail ,setMain, formValues } = this.props
         const values = {
-            id: modifier_item.id,
+            id: uuid(),
             quantity: qtn,
             price: modifier_item.price,
             parent: activeDetail,

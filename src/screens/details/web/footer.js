@@ -205,26 +205,29 @@ class Footer extends Component {
     // 
 
     render() {
-        const { activePrice, goBack } = this.props
+        const { activePrice, goBack, item } = this.props
+        if(activePrice&&( get(activePrice, 'has_modifiers')||item._type=='ss'))
         return (
             <div className={classes.footer}>
                 {this.renderPriceQuantity()}
                 <div className={classes.btnCont}>
                     <button type='button' onClick={goBack}>Back</button>
-                    {activePrice&&get(activePrice, 'has_modifiers', false) ? 
-                        <button type='submit' disabled={isEmpty(activePrice)}>Next - Extras</button>:
-
-                <button type='submit' disabled={isEmpty(activePrice)}>Add to Cart</button>}
-
-                    {/* // onClick={this.addOrder.bind()}
-                //  <Modifier {...this.props} />} */}
-
-                    {/* // onClick={this.addOrder.bind()} */}
-
-
+                        <button type='submit' disabled={isEmpty(activePrice)}>Next - Extras</button>
+                {/* <button type='submit' disabled={isEmpty(activePrice)}>Add to Cart</button> */}
                 </div>
             </div>
         )
+        else{
+        return (
+            <div className={classes.footer}>
+                {this.renderPriceQuantity()}
+                <div className={classes.btnCont}>
+                    <button type='button' onClick={goBack}>Back</button>
+                        {/* <button type='submit' disabled={isEmpty(activePrice)}>Next - Extras</button> */}
+                <button type='submit' disabled={isEmpty(activePrice)}>Add to Cart</button>
+                </div>
+            </div>
+        )}
     }
 }
 

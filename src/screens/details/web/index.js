@@ -168,7 +168,7 @@ class Details extends Component {
               </div>}
             {/* </div> */}
           </div>
-          <Footer activePrice={activePrice} values={values}  {...this.props}
+          <Footer activePrice={activePrice}  values={values}  {...this.props}
             {...{ ...pick(this.props, ['handleChange', 'handleSubmit', 'values']) }}
           />
 

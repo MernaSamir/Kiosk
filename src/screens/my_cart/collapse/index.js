@@ -40,35 +40,50 @@ class Collapsee extends Component {
   }
 
   rendermodifiers = (d) => {
+    const{cart} =this.props
+    if (!d.removal) {
+      return (
+        <div className={classes.modfcont}>
+          <div className={classes.flex}>
+            <div className={classes.modfir}>
+              {!cart&&<button className={classes.cancel} onClick={this.DeleteMod.bind(this, d)}>x</button>}
+              <p>{d.quantity} x {d.modifier_name}</p>
+            </div>
+            <p className={classes.et}>{d.price}</p>
+            <p > {d.quantity ? d.price * d.quantity : d.price}</p>
+          </div>
+        </div>
+      )
+    }
+    else
     return (
       <div className={classes.modfcont}>
-        <p className={classes.note}>Each haveing</p>
         <div className={classes.flex}>
-          <div  className={classes.modfir}>
-            <button className={classes.cancel} onClick={this.DeleteMod.bind(this, d)}>x</button>
-            <p>{d.quantity} x {d.modifier_name}</p>
-            </div>
-              <p className={classes.et}>{d.price}</p>
-              <p > {d.quantity ? d.price * d.quantity : d.price}</p>
-            </div>
+          <div className={classes.modfir}>
+          {!cart&&<button className={classes.cancel} onClick={this.DeleteMod.bind(this, d)}>x</button>}
+          {cart&&<p style={{marginRight:"1%"}}>NO</p>}
+
+            <p>{d.name}</p>
           </div>
+        </div>
+      </div>
     )
 
   }
-  render (){
-    const {show}= this.props
-    return(
-    <>
-            {show && this.rendermodifiers(this.props.d)}
-          </>
+  render() {
+    const { show } = this.props
+    return (
+      <>
+        {show && this.rendermodifiers(this.props.d)}
+      </>
 
     );
   }
 
 }
 const mapStateToProps = (state) => ({
-            details: state.form_actions.details,
-      // get(state,"orders__details.active",''),{}),
+  details: state.form_actions.details,
+  // get(state,"orders__details.active",''),{}),
 
 });
 export default connect(mapStateToProps, mapDispatchToProps)(Collapsee);

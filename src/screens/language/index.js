@@ -24,10 +24,12 @@ class Setting extends Component {
   }
 
   render() {
+    
     const {active}= this.state
     const {lang, renderButon}= this.props
 
-
+    const alter = applyFilters({path:`items__sales_items.data`})
+    console.log("alteeeeeeeeeer", alter)
     return (
       <div className={classes.body}>
         <p className={classes.Text}>Select Language</p>
@@ -43,6 +45,7 @@ class Setting extends Component {
 }
 const mapStateToProps = (state, props) => ({
   lang: state.dropdowns__lang.active,
+  prices: state.items__prices.data
 
 })
 export default connect(mapStateToProps,mapDispatchToProps)(Setting);

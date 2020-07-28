@@ -4,12 +4,13 @@ import mapDispatchToProps from "helpers/actions/main";
 import { connect } from "react-redux";
 import { get, filter } from 'lodash'
 import uuid from 'uuid/v4'
+import item from '../../../components/popups/order_view/item';
 
 export default (Component, props = {}) => {
     class DetailsWrap extends React.Component {
         onSubmit = (values) => {
             if (values) {
-                const { formValues, setMain, activePrice, setAll } = this.props
+                const { formValues, setMain, activePrice, setAll,item } = this.props
                 const old_details = formValues ? { ...formValues } : null
                 const detail = { ...values }
                 // modifiers: filter(values.modifiers, { parent: values.size }) 
@@ -22,10 +23,9 @@ export default (Component, props = {}) => {
                     }
 
                 ])
-                // setMain('form_actions', { details: { old_details, [detail.id]: detail }}}
-                // append_path("orders__details", 'item', {
-                //     action: 'update',
-                get(activePrice, 'has_modifiers', false) && this.nextClick()
+               if(get(activePrice, 'has_modifiers')||item._type=='ss')
+                { this.nextClick()}
+                
 
 
                 // })

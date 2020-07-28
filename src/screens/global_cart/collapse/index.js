@@ -42,7 +42,6 @@ class Collapsee extends Component {
   rendermodifiers =(d)=>{
     return (
       <div className={classes.modfcont}>
-      <p className={classes.note}>Each haveing</p>
        <div className={classes.flex}>
        <button className={classes.cancel} onClick={ this.DeleteMod.bind(this,d)}>x</button>
        <p className={classes.itemInfo}>{d.quantity} x {d.modifier_name}</p>
