@@ -26,6 +26,9 @@ const Order = loadable(() => import("screens/order/web"), {
 const Details = loadable(() => import("screens/details/web"), {
   fallback: <Loading />,
 });
+const Combo = loadable(() => import("screens/combo_item"), {
+  fallback: <Loading />,
+});
 const modifier = loadable(() => import("screens/modifier/web"), {
   fallback: <Loading />,
 });
@@ -75,6 +78,8 @@ const Routes = (props) => (
       <Route exact path="/payment" component={Payment} />
       <Route exact path="/final" component={Final} />
       <Route exact path="/details" component={Details} />
+      <Route exact path="/combo" component={Combo} />
+
       {/* <Route exact path="/details/qtn" component={Quantity} /> */}
       <Route exact path="/modifier" component={modifier} />
       <Route exact path="/quantity" component={Quantity} />

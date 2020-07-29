@@ -169,7 +169,7 @@ class modifier extends Component {
                     <Cart />
                 </div>
                 <div className={classes.btnContainer}>
-                    <button className={classes.back} onClick={this.goBack}> Back</button>
+                    <button type='button'  className={classes.back} onClick={this.goBack}> Back</button>
                     {this.state.active == 'Extra' &&
                         <button type='button' className={classes.next} onClick={this.nextNo}>Next - NO</button>}
                     {this.state.active == 'NO' &&

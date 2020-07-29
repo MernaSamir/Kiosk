@@ -13,7 +13,7 @@ class Items extends Component {
         active: ''
     }
     addToOrder = (qtn, modifier_item, modifier_name) => {
-        const { group, cart, activeDetail ,setMain, formValues } = this.props
+        const { group, cart, activeDetail, setMain, formValues } = this.props
         const values = {
             id: uuid(),
             quantity: qtn,
@@ -21,15 +21,15 @@ class Items extends Component {
             parent: activeDetail,
             modifier_name
         }
-        
+
         const detail = { ...values }
         // const old_details = formValues ? { ...formValues } : {}
-     setMain('form_actions', { details: { ...formValues, [detail.id]: detail }})
+        setMain('form_actions', { details: { ...formValues, [detail.id]: detail } })
 
     }
 
     addModifier(d, data) {
-        console.log(d,"did dsds",)
+        console.log(d, "did dsds",)
         const { detail, appendPath, modifierItems, group, onClick, setMain, cart } = this.props;
         const modifier_items = get(modifierItems, d.modifier_items, {})
         const free = ((group.max_point == 0) || (modifier_items.free_point <= (group.max_point - group.max_ordered_points)));
@@ -70,7 +70,7 @@ class Items extends Component {
 
     getModifiers() {
         const { detail, web } = this.props;
-console.log(detail,"detail")
+        console.log(detail, "detail")
         const filter = {
             key: 'Filter',
             path: 'items__assign_modifier_items',
@@ -142,7 +142,7 @@ const mapStateToProps = (state, props) => {
                 items__sales_items: 'sales_item',
             }
         },
-        activeDetail: get(state.form_actions,'active',''),
+        activeDetail: get(state.form_actions, 'active', ''),
         formValues: get(state.form_actions, 'details', {}),
 
 

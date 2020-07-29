@@ -5,21 +5,21 @@ import classes from './style.less'
 import Helpers from 'help_component'
 
 const NormalItem = lazy(() => import('./normal_item'))
-const ComboItem = lazy(() => import('./combo_item'))
+const ComboItem = lazy(() => import('../../combo_item'))
 // const SsbItem = lazy(()=> import('./ssb_item'))
 class Body extends Component {
 
     rendering = () => {
         const { item } = this.props
-        if (item._type == 'ss') {
-            return <ComboItem />
-        }
+        // if (item._type == 'ss') {
+        //     return <ComboItem />
+        // }
         // else if (item._type == 'ssb'){
         //     return <SsbItem />
         // }
-        else {
+        // else {
             return <NormalItem />
-        }
+        // }
     }
 
     render() {

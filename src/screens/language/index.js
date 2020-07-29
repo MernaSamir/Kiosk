@@ -27,9 +27,6 @@ class Setting extends Component {
     
     const {active}= this.state
     const {lang, renderButon}= this.props
-
-    const alter = applyFilters({path:`items__sales_items.data`})
-    console.log("alteeeeeeeeeer", alter)
     return (
       <div className={classes.body}>
         <p className={classes.Text}>Select Language</p>

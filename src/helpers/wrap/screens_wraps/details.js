@@ -10,7 +10,7 @@ export default (Component, props = {}) => {
     class DetailsWrap extends React.Component {
         onSubmit = (values) => {
             if (values) {
-                const { formValues, setMain, activePrice, setAll,item } = this.props
+                const { formValues, setMain, activePrice, setAll, item } = this.props
                 const old_details = formValues ? { ...formValues } : null
                 const detail = { ...values }
                 // modifiers: filter(values.modifiers, { parent: values.size }) 
@@ -23,18 +23,24 @@ export default (Component, props = {}) => {
                     }
 
                 ])
-               if(get(activePrice, 'has_modifiers')||item._type=='ss')
-                { this.nextClick()}
-                
+                if (get(activePrice, 'has_modifiers') || item._type == 'ss') { this.nextClick() }
+
 
 
                 // })
             }
         }
         nextClick = () => {
-            const { history, match, setMain } = this.props;
+            const { history, match, setMain, item } = this.props;
             setMain('form_actions', { CartStatus: false })
+            if (item._type == 'ss') {
+                history.push('/combo')
 
+            }
+            // else if (item._type == 'ssb'){
+            //     return <SsbItem />
+            // }
+             else    
             history.push('/modifier')
 
         }
@@ -87,10 +93,10 @@ export default (Component, props = {}) => {
             else {
                 return {
                     quantity: 1,
-                     id: uuid(), 
-                     item_type: item._type,
+                    id: uuid(),
+                    item_type: item._type,
                     item_name: item.name,
-                    size: size? size.name:'',
+                    size: size ? size.name : '',
                     price: activePrice.price
                 }
             }
