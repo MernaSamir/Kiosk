@@ -95,9 +95,10 @@ export default (Component, props = {}) => {
                     quantity: 1,
                     id: uuid(),
                     item_type: item._type,
-                    item_name: item.name,
+                    name: item.name,
                     size: size ? size.name : '',
-                    price: activePrice.price
+                    price: activePrice.price,
+                    parent_check: true
                 }
             }
         }

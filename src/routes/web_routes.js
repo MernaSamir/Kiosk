@@ -35,7 +35,7 @@ const modifier = loadable(() => import("screens/modifier/web"), {
 const Quantity = loadable(() => import("screens/my_cart/quantity.js"), {
   fallback: <Loading />,
 });
-const MyCart = loadable(() => import("screens/my_cart/cart.js"), {
+const MyCart = loadable(() => import("screens/my_cart/nested_collapse/collapse"), {
   fallback: <Loading />,
 });
 const Payment = loadable(() => import("screens/PaymentLocation"), {
@@ -84,6 +84,7 @@ const Routes = (props) => (
       <Route exact path="/modifier" component={modifier} />
       <Route exact path="/quantity" component={Quantity} />
       <Route exact path="/cart" component={MyCart} />
+      <Route exact path="/payment" component={Payment} />
 
 
       {/* <Route exact path="/cart" component={Cart} /> */}

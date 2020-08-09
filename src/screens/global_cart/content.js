@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { withRouter } from 'react-router-dom';
 import classes from './style.less'
-import { map, filter, omit } from 'lodash'
+import { map, filter, isEmpty } from 'lodash'
 import { withTranslation } from 'react-i18next'
 import applyFilters from 'helpers/functions/filters';
 import details from '../../helpers/components/table/details';
@@ -86,18 +86,21 @@ class Content extends Component {
   // }
   getCalculations = () => {
     const { details } = this.props;
-    let sum_all = 0
-    map(details, (d) => {
-      if (!d.removal)
-        sum_all += (parseInt(d.quantity) * parseInt(d.price))
-    })
-    return <div className={classes.calcu}>
-      <p>{`Sub-total  ${sum_all}`}</p>
-      <p>Service Charges</p>
-      <p>VAT</p>
-      <p>Grand Total {' '}</p>
 
-    </div>
+    let sum_all = 0
+    if (!isEmpty(details)) {
+      map(details, (d) => {
+        if (!d.removal)
+          sum_all += (parseInt(d.quantity) * parseInt(d.price))
+      })
+      return <div className={classes.calcu}>
+        <p>{`Sub-total  ${sum_all}`}</p>
+        <p>Service Charges</p>
+        <p>VAT</p>
+        <p>Grand Total {' '}</p>
+
+      </div>
+    }
   }
   renderOrders = () => {
     const { details } = this.props;

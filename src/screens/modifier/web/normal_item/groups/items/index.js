@@ -13,13 +13,13 @@ class Items extends Component {
         active: ''
     }
     addToOrder = (qtn, modifier_item, modifier_name) => {
-        const { group, cart, activeDetail, setMain, formValues } = this.props
+        const { group, cart, setMain, formValues, active_parent } = this.props
         const values = {
             id: uuid(),
             quantity: qtn,
             price: modifier_item.price,
-            parent: activeDetail,
-            modifier_name
+            parent: active_parent,
+            name:modifier_name
         }
 
         const detail = { ...values }
@@ -69,14 +69,14 @@ class Items extends Component {
     }
 
     getModifiers() {
-        const { detail, web } = this.props;
-        console.log(detail, "detail")
+        const {  web, price } = this.props;
+
         const filter = {
             key: 'Filter',
             path: 'items__assign_modifier_items',
             params: {
                 active: true,
-                item: detail.price_id
+                item: price
             },
             then: {
                 key: 'ListInside',
@@ -144,6 +144,7 @@ const mapStateToProps = (state, props) => {
         },
         activeDetail: get(state.form_actions, 'active', ''),
         formValues: get(state.form_actions, 'details', {}),
+        active_parent :get(state.form_actions, 'item', state.form_actions.active)
 
 
     }

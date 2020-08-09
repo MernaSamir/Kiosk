@@ -30,7 +30,7 @@ class Body extends Component {
                     {/* <button onClick={history.goBack.bind(this)}>
             <FontAwesomeIcon icon="arrow-left" className={classes.icon} />
           </button> */}
-                    <p className={classes.header}>{activeDetail.item_name}-{activeDetail.size}</p>
+                    <p className={classes.header}>{activeDetail.name}-{activeDetail.size}</p>
                 </div>
                 {this.rendering()}
             </div>

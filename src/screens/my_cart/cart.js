@@ -4,8 +4,6 @@ import { withRouter } from 'react-router-dom';
 import classes from './style.less'
 import { map, filter, omit, get, toArray, sumBy } from 'lodash'
 import { withTranslation } from 'react-i18next'
-import applyFilters from 'helpers/functions/filters';
-import details from '../../helpers/components/table/details';
 import Edit from "../../assets/images/edit.png";
 import Collapse from './collapse'
 import mapDispatchToProps from 'helpers/actions/main'
@@ -133,7 +131,7 @@ class Content extends Component {
                         </button>
                         <button type='button' className={classes.miniBtn} onClick={this.handelDelete.bind(this, d)}>X</button>
                         <button type='button' className={classes.qtn}>{d.quantity}</button>
-                        <p>{d.item_name} - {d.size}</p>
+                        <p>{d.name} - {d.size}</p>
                         <button type='button' onClick={this.handeltest} className={classes.showMore}>{this.state.test}</button>
                       </div>
                       <p className={classes.et}>{d.price}</p>

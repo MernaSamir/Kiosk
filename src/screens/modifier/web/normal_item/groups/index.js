@@ -20,7 +20,7 @@ class Groups extends Component {
     }
     componentDidUpdate=(prevProps)=>{
         const {list, setMain, detail} = this.props
-        if(prevProps.detail.id != detail.id){
+        if(prevProps.detail!= detail){
             setMain('items__modifier_group', { active: get(head(list),'id','' )})
         }
     }
@@ -45,7 +45,6 @@ class Groups extends Component {
                 }
             }
         }
-        console.log("moddddddddddddddddigfffffff",applyFilters(filter))
         return applyFilters(filter);
     }
 
@@ -96,7 +95,7 @@ class Groups extends Component {
         return <>
             <div className={classes.choose_div}>
             <p className={classes.due}>{`Choose ${group ? group._max : "Items"}`}</p>
-            <Items group={group} page={this.state.page} onClick={onClick} detail={detail} />
+            <Items group={group} page={this.state.page} onClick={onClick} price={detail} />
             </div>
 
             

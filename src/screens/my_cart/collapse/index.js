@@ -5,7 +5,7 @@ import classes from "./style.less";
 import Edit from "../../../assets/images/edit.png"
 import { connect } from "react-redux";
 import mapDispatchToProps from "helpers/actions/main";
-import { get, omit } from 'lodash'
+import { get, omit, filter, map } from 'lodash'
 class Collapsee extends Component {
 
   editModifiers = (data) => {
@@ -40,14 +40,16 @@ class Collapsee extends Component {
   }
 
   rendermodifiers = (d) => {
-    const{cart} =this.props
+    const{cart, modifs} =this.props
+    console.log("modddddd",modifs)
+    // return map(modifs,(n)=>{
     if (!d.removal) {
       return (
         <div className={classes.modfcont}>
           <div className={classes.flex}>
             <div className={classes.modfir}>
               {!cart&&<button className={classes.cancel} onClick={this.DeleteMod.bind(this, d)}>x</button>}
-              <p>{d.quantity} x {d.modifier_name}</p>
+              <p>{d.quantity} x {d.name}</p>
             </div>
             <p className={classes.et}>{d.price}</p>
             <p > {d.quantity ? d.price * d.quantity : d.price}</p>
@@ -68,13 +70,14 @@ class Collapsee extends Component {
         </div>
       </div>
     )
+ // })
 
   }
   render() {
-    const { show } = this.props
+    const { show ,d} = this.props
     return (
       <>
-        {show && this.rendermodifiers(this.props.d)}
+        {show && this.rendermodifiers(d)}
       </>
 
     );

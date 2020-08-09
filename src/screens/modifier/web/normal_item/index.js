@@ -6,15 +6,17 @@ import mapDispatchToProps from 'helpers/actions/main'
 // import Summary from '../details/summary';
 import Body from './groups'
 import applyFilters from 'helpers/functions/filters';
-import { get, map, max, sumBy, find, flatten } from 'lodash';
+import { get, map, max, sumBy, find, isEmpty } from 'lodash';
 import Types from './types'
 import Removals from './removals';
 import Form from 'helpers/wrap/form.js';
 import Cart from 'screens/global_cart'
+import uuid from 'uuid/v4'
+import { withRouter } from 'react-router-dom'
 
 class modifier extends Component {
     static onSubmit(props, values) {
-        const { activeDetail, formValues, setMain, appendPath } = props
+        const {  formValues, setMain, appendPath, active_parent } = props
         const items = map(values.items, (d) => { return d.stock_item })
         //  setMain( ' ',{details: {  ...formValues}})
         const stocks = applyFilters({
@@ -25,14 +27,15 @@ class modifier extends Component {
         props.history.push('/quantity')
 
         map(stocks, (d, v) => {
+            let new_id = uuid()
             const values = {
-                id: d.id,
-                parent: activeDetail,
+                id: new_id,
+                parent: active_parent,
                 name: d.name,
                 removal: true
             }
             const detail = { ...values }
-            appendPath('form_actions', `details.${[d.id]}`, detail)
+            appendPath('form_actions', `details.${[new_id]}`, detail)
 
         })
     }
@@ -50,13 +53,13 @@ class modifier extends Component {
 
     }
     getFilteredGroup() {
-        const { activeDetail } = this.props;
+        const {  price} = this.props;
         const activedModifier = applyFilters({
             key: 'Filter',
             path: "items__assign_modifier_items",
             params: {
                 active: true,
-                item: activeDetail.price_id
+                item: price
             }
         })
         const main_modifiers_items = applyFilters({
@@ -74,7 +77,7 @@ class modifier extends Component {
             key: 'Filter',
             path: "orders__details",
             params: {
-                parent: activeDetail.price_id
+                parent: price
             },
             then: {
                 key: 'Reject',
@@ -139,12 +142,12 @@ class modifier extends Component {
         })
     }
     getContent = () => {
-        const { onClick, activeDetail } = this.props
-
+        const { onClick , price} = this.props
+       const {stocks, removals}= this.newList
         if (this.state.active == 'Extra')
-            return <Body list={this.list} onClick={onClick} detail={activeDetail} />
+            return <Body list={this.list} onClick={onClick} detail={price} />
         else
-            return <Removals list={this.list} onClick={onClick} detail={activeDetail} />
+            return <Removals list={this.list} stocks={stocks} removals={removals} />
 
 
 
@@ -156,23 +159,50 @@ class modifier extends Component {
         })
         setMain('form_actions', { CartStatus: false })
     }
+    RemovableItems = () => {
+        const {   price} = this.props
+        const recipe = applyFilters({
+            key: 'Filter',
+            path: 'items__recipe',
+            params: {
+                sales_item: price,
+                removable: true
+            }
+        })
+        const stocks = applyFilters({
+            key: 'picking',
+            reduxName: 'stock__items',
+            select: 'stock_item'
+        }, recipe)
+        const removals = applyFilters({
+            key: 'Filter',
+            path: 'orders__recipe_removals',
+            params: {
+                detail: price,
+                _type: 'rm'
+            }
+        })
+        return {stocks:stocks,removals:removals}
+
+    }
     render() {
         this.list = this.getFilteredGroup()
-        // const removals = this.RemovableItems()
-        const { setMain, onClick, activeDetail, back, itemName } = this.props
-          return (
+        this.newList=  this.RemovableItems()
+        const {stocks, removals}= this.newList
+const show = !isEmpty(stocks)&& !isEmpty(removals)
+        return (
             <div className={classes.modDiv}>
                 <div className={classes.cat}>
-                    <Types setActive={this.setActive} active={this.state.active} stocks={this.stocks}
-                        removals={this.removals} />
+                    <Types setActive={this.setActive} active={this.state.active}  
+                      showRemovals={show} />
                     {this.getContent()}
                     <Cart />
                 </div>
                 <div className={classes.btnContainer}>
                     <button type='button'  className={classes.back} onClick={this.goBack}> Back</button>
-                    {this.state.active == 'Extra' &&
+                    {(this.state.active == 'Extra' && show)&&
                         <button type='button' className={classes.next} onClick={this.nextNo}>Next - NO</button>}
-                    {this.state.active == 'NO' &&
+                    {(this.state.active == 'NO'||!show) &&
                         <button type='submit' className={classes.next}>Next - Quantity</button>}                 {/* // <button className={classes.next} onClick={() => this.nextClick()}>Next - Quantity</button> */}
                 </div>
             </div>
@@ -183,17 +213,19 @@ class modifier extends Component {
 const mapStateToProps = (state, props) => ({
     // activeAction: state.actions.active,
     // activeOrder: state.orders__details.active,
-    activeDetail: get(state.form_actions.details, state.form_actions.active),
+    // activeDetail: get(state.form_actions.details, state.form_actions.active),
     // detail: get(state.form_actions, 'detail', {}),
     // get priceItem() { return get(state.items__prices.data, this.activeDetail.size, '') },
     // get itemName() { return get(get(state.items__sales_items.data, this.priceItem.sales_item), 'name', '') },
     // get Item() { return get(state.items__sales_items.data, this.priceItem.sales_item, {}) },
     // item: get(state.orders__details, 'item.action'),
     // activeModifier: get(state.items__modifier_group, `data.${get(state.items__modifier_group, 'active', {})}`, {}),
-    // price: get(state.items__prices, 'active', false),
+    price: get(state.items__prices, 'active', false),
     formValues: get(state.form_actions, 'details', {}),
+    active_parent :get(state.form_actions, 'item', state.form_actions.active)
+
 
 })
 
-export default connect(mapStateToProps, mapDispatchToProps)(Form(modifier));
+export default connect(mapStateToProps, mapDispatchToProps)(withRouter(Form(modifier)));
 

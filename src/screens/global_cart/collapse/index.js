@@ -53,10 +53,10 @@ class Collapsee extends Component {
     
   }
   render (){
-    const {show}= this.props
+    // const {show}= this.props
     return(
     <>  
-      {show&&this.rendermodifiers(this.props.d)}
+      {this.rendermodifiers(this.props.d)}
       </>
 
     );

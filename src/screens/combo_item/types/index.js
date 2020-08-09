@@ -15,9 +15,9 @@ class Combo extends Component {
 
         return <div className={classes.buttonContainer} >
             {map(list, (l, key) => {
-                let active =!isEmpty(active)?active.id:list[0].id
+                let ac =!isEmpty(active)?active.id:list[0].id
                 info = getInfo(l, 'item')
-                return <button className={`${classes.title} ${(active== l.id)&& classes.active}`} type='button' key={key}
+                return <button className={`${classes.title} ${(ac== l.id)&& classes.active}`} type='button' key={key}
                     onClick={() => setActive(l)}>
                     <p>{info.name}</p>
                     <p>{`${info.size}`}</p>

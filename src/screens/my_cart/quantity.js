@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { withRouter } from 'react-router-dom';
 import classes from './style.less'
-import { map, filter, omit, get, toArray, sumBy } from 'lodash'
+import { map, filter, omit, get, toArray, sumBy, isEmpty } from 'lodash'
 import { withTranslation } from 'react-i18next'
 import applyFilters from 'helpers/functions/filters';
 import details from '../../helpers/components/table/details';
@@ -14,30 +14,23 @@ import { setMain } from '../../helpers/actions/main';
 
 class Content extends Component {
   state = {
-    test: 'v',
-    show: false,
+
+    test: {},
+    show: {},
     qtn: 1
 
   }
   handelClick = (action) => {
-    const { setMain, cart } = this.props;
-    const { qtn } = this.state
     if (action === "-") {
       this.setState({
         qtn: this.state.qtn - 1
       })
-      //   appendPath( 'form_actions',`details.${[activeDetail.id]}`,{quantity:qtn})
-
-      // setMain("cart", { item: { ...cart, item: { ...cart.item, base_qtn: cart.item.base_qtn - 1 } } })
-
     }
     else {
       this.setState({
         qtn: this.state.qtn + 1
       })
-      //   appendPath( 'form_actions',`details.${[activeDetail.id]}`,{quantity:qtn})
 
-      // setMain("cart", { item: { ...cart, item: { ...cart.item, base_qtn: cart.item.base_qtn + 1 } } })
     }
   }
   setButton = (qtn) => {
@@ -61,7 +54,6 @@ class Content extends Component {
   }
   deleteCart = (d) => {
     const modifiers = filter(details, v => v.parent == d.id)
-    console.log(modifiers, "moddddiiii", d)
     const { cart, history, setMain, details, setAll, appendPath } = this.props
     setAll([
       { type: 'set_main', app: 'popup', data: { popup: {} } },
@@ -74,7 +66,8 @@ class Content extends Component {
       },
       { type: 'set_main', app: 'form_actions', data: { CartStatus: false } }
     ])
-    history.push('/order')
+    
+    // history.push('/order')
 
   }
   handelEdit = (d) => {
@@ -91,13 +84,22 @@ class Content extends Component {
     ])
     history.push('/details')
   }
-  handeltest = () => {
-    if (this.state.test === '^') {
-      this.setState({ test: 'v', show: false })
+  handeltest(v) {
+    console.log(this.state,"stttt")
+    const {test ,show}= this.state
+    
+    if (show[v] ) {
+      console.log(this.state,"stttt")
+
+      this.setState({ test:{...this.state.test,[v]:'v'}, show: {...this.state.show,[v]:false} })
+      console.log(this.state,"sthhhttt")
+
     }
     else {
-      this.setState({ test: '^' })
-      this.setState({ show: true })
+      this.setState({ test:{...this.state.test,[v]:'^'}, show: {...this.state.show,[v]:true} })
+
+      // this.setState({ test: '^' })
+      // this.setState({ show: true })
     }
   }
   getItemTotal() {
@@ -127,7 +129,6 @@ class Content extends Component {
   renderOrders = () => {
     const { details, history , activeDetail} = this.props;
     const { qtn } = this.state
-    // console.log(Object.keys(details)[0])
     return (
       <div className={classes.allcon}>
         <div className={classes.above}>
@@ -141,14 +142,15 @@ class Content extends Component {
           <p>Each</p>
           <p>Total</p>
         </div>
-        {map(details, (d, v) => {
+        {map(filter(details,m=>m.parent==null) , (d, v) => {
+    let modifs = filter(details,v=>v.parent==d.id)
 
           if (d.id) {
             return (
               <div className={classes.cart}>
 
                 <div className={classes.items}>
-                  {!d.parent &&
+                  {/* {!d.parent && */}
                     <>
                       <div className={classes.name}>
 
@@ -158,15 +160,16 @@ class Content extends Component {
                         <button type='button' className={classes.miniBtn} onClick={this.handelDelete.bind(this, d)}>X</button>
                         <button type='button' className={classes.qtn}>{d.quantity}</button>
                         <p>{d.item_name} - {d.size}</p>
-                        <button type='button' onClick={this.handeltest} className={classes.showMore}>{this.state.test}</button>
+                      <button type='button' onClick={this.handeltest.bind(this,v)} 
+                        className={classes.showMore}>{this.state.test[v]||'v'}</button>
                       </div>
                       <p className={classes.et}>{d.price}</p>
                       <p >{(d.quantity * d.price)}</p>
-                      <p className={classes.note} style={{ visibility: this.state.show ? 'visible' : 'hidden' }}>Each haveing</p>
+                      <p className={classes.note} 
+                      style={{ visibility: this.state.show[v] ? 'visible' : 'hidden' }}>Each haveing</p>
 
-                    </>}
-
-                  {d.parent && <Collapse history={this.props.history} d={d} show={this.state.show} />}
+                    </>
+                  <Collapse history={this.props.history} d={d} show={this.state.show[v]} />
 
                 </div>
               </div>
@@ -199,11 +202,15 @@ class Content extends Component {
   }
   render() {
     const { details } = this.props
+    if(!isEmpty(details)){
     return (
       <div>
         {this.renderOrders()}
       </div>
     )
+    }
+else
+return <p>No Details</p>
   }
 }
 
