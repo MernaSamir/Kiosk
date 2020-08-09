@@ -84,8 +84,8 @@ class Content extends Component {
     this.setState({ show: false })
   }
   submenuListLoop = () => {
-    const { details, t, modifs } = this.props
-    return map(details, (d, index) => {
+    const { details, t, modifs, data_filter } = this.props
+    return map(filter(details, data_filter), (d, index) => {
       const modif = filter(details, m => m.parent == d.id)
       if (!isEmpty(modif)) {
 
@@ -145,49 +145,18 @@ class Content extends Component {
 
     })
   }
-
-
-  // renderExtra = (d, k) => {
-  //   if (!d.removal) {
-  //     return (
-  //       <div className={classes.modfcont}>
-  //         <div className={classes.flex}>
-  //           <div className={classes.modfir}>
-  //             {<button className={classes.cancel} onClick={this.DeleteMod.bind(this, d)}>x</button>}
-  //             <p>{d.quantity} x {d.name}</p>
-  //           </div>
-  //           <p className={classes.et}>{d.price}</p>
-  //           <p > {d.quantity ? d.price * d.quantity : d.price}</p>
-  //         </div>
-  //       </div>
-  //     )
-  //   }
-  //   else
-  //   return (
-  //     <div className={classes.modfcont}>
-  //       <div className={classes.flex}>
-  //         <div className={classes.modfir}>
-  //         {<button className={classes.cancel} onClick={this.DeleteMod.bind(this, d)}>x</button>}
-  //         {<p style={{marginRight:"1%"}}>NO</p>}
-
-  //           <p>{d.name}</p>
-  //         </div>
-  //       </div>
-  //     </div>
-  //   )
-
-  // }
   render() {
     return this.submenuListLoop()
 
 
   }
 }
-const mapStateToProps = (state) => ({
+const mapStateToProps = (state, props) => ({
   mode: get(state, 'form_actions.mode', {}),
   CartStatus: get(state, 'form_actions.CartStatus', false),
   details: get(state.form_actions, 'details', {}),
-  data: state.form_actions
+  data: state.form_actions,
+  data_filter: props.data_filter || {parent: null}
 })
-const wrapper = connect(mapStateToProps, mapDispatchToProps)(withTranslation()(Content))
-export default withRouter(wrapper)
+const wrapper = withRouter(connect(mapStateToProps, mapDispatchToProps)(withTranslation()(Content)))
+export default wrapper
