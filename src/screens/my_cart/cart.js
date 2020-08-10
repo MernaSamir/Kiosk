@@ -6,11 +6,17 @@ import { map,get} from 'lodash'
 import { withTranslation } from 'react-i18next'
 import mapDispatchToProps from 'helpers/actions/main'
 import Nested from './nested_collapse/collapse'
+import applyFilters from 'helpers/functions/filters'
 
 
 class Content extends Component {
   getCalculations = () => {
     const { details } = this.props;
+    // const calc = applyFilters({
+    //   key: 'calculateReceipts',
+    //   path: 'orders__receipt',
+    // }, details, undefined, undefined)
+    // console.log(calc,"ccccchhjgjhhk")
     let sum_all = 0
     map(details, (d) => {
       if (!d.removal)

@@ -53,6 +53,7 @@ class SelectOne extends InputComponent {
 
     }
     check = (row) => {
+        
         const { active } = this.props
         if (active == row.id)
         {
@@ -140,11 +141,10 @@ class SelectOne extends InputComponent {
         // }, row)
         const foundValues = field.value == row.id
         //const found = find(details, d => (d.item == item.id && d.parent == parent.id)) 
-        const found = find(field.value, { id: row.id })
+        const found = find(field.value, { id:active?active: row.id })
         const values = field.value || []
-        const foundInSingle = isArray(values)&&find(values, s => (s.id == modItem.id&& s.parent==parent))
         // if (active == row.id)
-        if(foundInSingle || found || foundValues)
+        if( found || foundValues)
         // || foundInSingle || found || foundValues 
 
         // ||get(combo, 'id', null) === get(get(elment, 'active', {}), 'id', '')

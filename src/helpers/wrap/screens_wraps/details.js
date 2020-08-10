@@ -25,7 +25,7 @@ export default (Component, props = {}) => {
                 ])
                 if (get(activePrice, 'has_modifiers') || item._type == 'ss') { this.nextClick('mod') }
                 else {
-                    this.nextClick('cart')
+                    this.nextClick('cart', detail.id)
                 }
 
 
@@ -34,8 +34,8 @@ export default (Component, props = {}) => {
                 // })
             }
         }
-        nextClick = (type) => {
-            const { history, match, setMain, item } = this.props;
+        nextClick = (type, id) => {
+            const { history, match, setMain, item , appendPath} = this.props;
             setMain('form_actions', { CartStatus: false })
             if (type == 'mod') {
                 if (item._type == 'ss') {
@@ -45,9 +45,11 @@ export default (Component, props = {}) => {
                 else
                     history.push('/modifier')
             }
-            else if(type=='cart')
-               history.push('/cart')
+            else if(type=='cart'){
+            appendPath('form_actions', `details.${[id]}`, { add: true })
 
+               history.push('/cart')
+            }
         }
         goBack = () => {
             const { history, setMain } = this.props;

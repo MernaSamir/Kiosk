@@ -8,32 +8,32 @@ import {withTranslation} from 'react-i18next';
 import classes from './menu_style.less'
 
 class SubClass extends Component {
-  DeleteMod(d) {
-    const { setMain } = this.props
-    const popup = {
-      type: 'CancelCustomer', visable: true, width: "50%",
-      childProps: {
-        Title: '',
-        first_msg: `Are you sure you want to delete ${d.quantity} x ${d.name}`,
-        pressYes: () => this.deletemodifer(d)
-      }
-    }
-    setMain('popup', { popup })
-  }
+  // DeleteMod(d) {
+  //   const { setMain } = this.props
+  //   const popup = {
+  //     type: 'CancelCustomer', visable: true, width: "50%",
+  //     childProps: {
+  //       Title: '',
+  //       first_msg: `Are you sure you want to delete ${d.quantity} x ${d.name}`,
+  //       pressYes: () => this.deletemodifer(d)
+  //     }
+  //   }
+  //   setMain('popup', { popup })
+  // }
 
-  deletemodifer = (d) => {
-    const { setMain, appendPath, details, setAll } = this.props
-    setAll([
-      { type: 'set_main', app: 'popup', data: { popup: {} } },
-      { type: 'set_main', app: 'form_actions', data: { details: omit(details, d.id) } },
-      { type: 'set_main', app: 'form_actions', data: { CartStatus: false } }
+  // deletemodifer = (d) => {
+  //   const { setMain, appendPath, details, setAll } = this.props
+  //   setAll([
+  //     { type: 'set_main', app: 'popup', data: { popup: {} } },
+  //     { type: 'set_main', app: 'form_actions', data: { details: omit(details, d.id) } },
+  //     { type: 'set_main', app: 'form_actions', data: { CartStatus: false } }
 
-    ])
-    appendPath("form_actions", `details.${[d.id]}`, {});
-    this.setState({ show: false })
-  }
+  //   ])
+  //   appendPath("form_actions", `details.${[d.id]}`, {});
+  //   this.setState({ show: false })
+  // }
   renderHeader() {
-    const {eSub, title, Child, index, modifs} = this.props
+    const {eSub, Child, index, modifs} = this.props
     const style = {
       paddingLeft: (index * 2) + '%',
     };

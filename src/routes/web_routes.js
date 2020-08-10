@@ -38,7 +38,7 @@ const Quantity = loadable(() => import("screens/my_cart/quantity"), {
 const MyCart = loadable(() => import("screens/my_cart/cart"), {
   fallback: <Loading />,
 });
-const Payment = loadable(() => import("screens/PaymentLocation"), {
+const Payment = loadable(() => import("screens/PaymentLocation/web"), {
   fallback: <Loading />,
 });
 
@@ -75,8 +75,7 @@ const Routes = (props) => (
       <Route exact path="/setting" component={Setting} />
       <Route exact path="/home" component={Home} />
       <Route exact path="/order" component={Order} />
-      <Route exact path="/payment" component={Payment} />
-      <Route exact path="/final" component={Final} />
+      {/* <Route exact path="/final" component={Final} /> */}
       <Route exact path="/details" component={Details} />
       <Route exact path="/combo" component={Combo} />
 

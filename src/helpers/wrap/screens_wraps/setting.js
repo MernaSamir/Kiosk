@@ -24,7 +24,6 @@ console.log(d,"moooooooooodddddddd")
                 }
             })
         setMain('form_actions', { 'mode': d.title })
-
             if (d.mode) {
                 setMain('settings__mode', { 'active': mode.id })
             }

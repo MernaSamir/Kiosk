@@ -26,7 +26,7 @@ class Details extends Component {
   renderPrices = (item) => {
     const { getPrices } = this.props
 
-    const priceList = getPrices()
+    const priceList = getPrices(item)
 
     return <div className={classes.selects}>
       {
@@ -38,6 +38,7 @@ class Details extends Component {
           options: priceList,
           className: classes.prices,
           redux: 'items__prices',
+          initValue: priceList[0].id
         }])
       }
       {/* <SelectOne title='Size' options={priceList} redux='items__prices' /> */}

@@ -2,7 +2,7 @@
 import React, { Component } from 'react'
 import { withRouter } from 'react-router-dom';
 import Sub from './sub'
-import { map, get, isEmpty, filter, omit, toArray } from 'lodash'
+import { map, get, isEmpty, filter, omit } from 'lodash'
 import { withTranslation } from 'react-i18next'
 import { Collapse } from 'antd';
 import classes from '../style.less'
@@ -10,7 +10,7 @@ import { connect } from 'react-redux'
 import mapDispatchToProps from 'helpers/actions/main'
 import Edit from "../../../assets/images/edit.png";
 
-const Panel = Collapse.Panel;
+// const Panel = Collapse.Panel;
 
 class Content extends Component {
   state = {
@@ -20,16 +20,15 @@ class Content extends Component {
     qtn: 1
 
   }
-  handelDelete(d) {
-    console.log("hnaaaaaaa", "ddddddddd")
+  handelDelete(d, type) {
     const { setMain } = this.props
     const popup = {
       type: 'CancelCustomer', visable: true, width: "50%",
       childProps: {
         Title: '',
-        first_msg: `Are you sure you want to delete ${d.quantity} x ${d.item_name}`,
-        pressYes: () => this.deleteCart(d)
-      }
+        first_msg: `Are you sure you want to delete ${d.quantity} x ${d.name}`,
+        pressYes:type=='item'?  () => this.deleteCart(d):this.deletemodifer(d)
+    }
     }
     setMain('popup', { popup })
   }
@@ -48,9 +47,9 @@ class Content extends Component {
       { type: 'set_main', app: 'form_actions', data: { CartStatus: false } }
     ])
 
-    // history.push('/order')
+    isEmpty(details)&& history.push('/order')
 
-    0
+
   }
   handelEdit = (d) => {
     const { history, details, setAll } = this.props
@@ -66,18 +65,18 @@ class Content extends Component {
     ])
     history.push('/details')
   }
-  DeleteMod(d) {
-    const { setMain } = this.props
-    const popup = {
-      type: 'CancelCustomer', visable: true, width: "50%",
-      childProps: {
-        Title: '',
-        first_msg: `Are you sure you want to delete ${d.quantity} x ${d.name}`,
-        pressYes: () => this.deletemodifer(d)
-      }
-    }
-    setMain('popup', { popup })
-  }
+  // DeleteMod(d) {
+  //   const { setMain } = this.props
+  //   const popup = {
+  //     type: 'CancelCustomer', visable: true, width: "50%",
+  //     childProps: {
+  //       Title: '',
+  //       first_msg: `Are you sure you want to delete ${d.quantity} x ${d.name}`,
+  //       pressYes: () => this.deletemodifer(d)
+  //     }
+  //   }
+  //   setMain('popup', { popup })
+  // }
 
   deletemodifer = (d) => {
     const { setMain, appendPath, details, setAll } = this.props
@@ -88,10 +87,9 @@ class Content extends Component {
 
     ])
     appendPath("form_actions", `details.${[d.id]}`, {});
-    this.setState({ show: false })
+    this.setState({show: { ...this.state.show, [d]: false }})
   }
   handeltest(v) {
-    console.log(this.state, "stttt")
     const { test, show } = this.state
 
     if (show[v]) {
@@ -118,7 +116,7 @@ class Content extends Component {
                   <button className={classes.miniBtn} onClick={() => this.handelEdit(d)}>
                     <img src={Edit} className={classes.editImg} />
                   </button>
-                  <button type='button' className={classes.miniBtn} onClick={this.handelDelete.bind(this, d)}>X</button>
+                  <button type='button' className={classes.miniBtn} onClick={this.handelDelete.bind(this, d, 'item')}>X</button>
                   {/* <Collapse>
               <Panel header={d.name} className={classes.customPanelStyle} > */}
                   <button type='button' className={classes.qtn}>{d.quantity}</button>
@@ -152,7 +150,7 @@ class Content extends Component {
               <div className={classes.modfcont}>
                 <div className={classes.flex}>
                   <div className={classes.modfir}>
-                    {cart&&<button className={classes.cancel} onClick={this.DeleteMod.bind(this, d)}>x</button>}
+                    {cart&&<button className={classes.cancel} onClick={this.handelDelete.bind(this, d,'mod')}>x</button>}
                     <p>{d.quantity} x {d.name}</p>
                   </div>
                   <p className={classes.et}>{d.price}</p>
@@ -166,7 +164,7 @@ class Content extends Component {
               <div className={classes.modfcont}>
                 <div className={classes.flex}>
                   <div className={classes.modfir}>
-                    {cart&&<button className={classes.cancel} onClick={this.DeleteMod.bind(this, d)}>x</button>}
+                    {cart&&<button className={classes.cancel} onClick={this.handelDelete.bind(this, d,'mod')}>x</button>}
                     {<p style={{ marginRight: "1%" }}>NO</p>}
 
                     <p>{d.name}</p>

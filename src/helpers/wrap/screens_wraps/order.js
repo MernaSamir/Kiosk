@@ -13,10 +13,21 @@ export default (Component, props = {}) => {
         }
         selectItem = item => {
             const { history, setMain , setAll} = this.props;
+            const price = applyFilters({
+                key: 'Find',
+                path: 'items__prices',
+                params: {
+                    sales_item: item.id,
+                    active:true
+                }
+              })
+              console.log(price,"prrrrrrrrrr")
             // setMain("items__sales_items", { active: item.id });
             // setMain('form_actions', { CartStatus: false })
             setAll([
                 {type: 'set_main', app: 'items__sales_items', data: {active: item.id}},
+                {type: 'set_main', app: 'items__prices', data: {active: price.id}},
+
                 {type: 'set_main', app: 'form_actions', data:  { CartStatus: false }}
           
             ])

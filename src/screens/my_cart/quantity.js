@@ -2,15 +2,10 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { withRouter } from 'react-router-dom';
 import classes from './style.less'
-import { map, filter, omit, get, toArray, sumBy, isEmpty } from 'lodash'
+import { map, get, toArray, sumBy, isEmpty, filter } from 'lodash'
 import { withTranslation } from 'react-i18next'
-import applyFilters from 'helpers/functions/filters';
-import details from '../../helpers/components/table/details';
-import Edit from "../../assets/images/edit.png";
-import Collapse from './collapse'
+// import Collapse from './collapse'
 import mapDispatchToProps from 'helpers/actions/main'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { setMain } from '../../helpers/actions/main';
 import Nested from './nested_collapse/collapse'
 
 class Content extends Component {
@@ -120,11 +115,15 @@ class Content extends Component {
     </div>
   }
   goToCart = () => {
-    console.log(" hnhnhn")
-    const { history, appendPath, activeDetail } = this.props
+    const { history, appendPath, activeDetail, details } = this.props
     const { qtn } = this.state
     history.push('/cart')
-    appendPath('form_actions', `details.${[activeDetail.id]}`, { quantity: qtn })
+    appendPath('form_actions', `details.${[activeDetail.id]}`, { quantity: qtn ,add:true})
+     map(filter(details,d=>d.parent==activeDetail.id),detail=>{
+      appendPath('form_actions', `details.${[detail.id]}`, {add:true})
+
+     })
+
 
   }
   renderOrders = () => {
@@ -144,41 +143,6 @@ class Content extends Component {
           <p>Total</p>
         </div>
         <Nested/>
-
-        {/* {map(filter(details, m => m.parent == null), (d, v) => {
-          let modifs = filter(details, v => v.parent == d.id)
-
-          if (d.id) {
-            return (
-              <div className={classes.cart}>
-
-                <div className={classes.items}> */}
-                  {/* {!d.parent &&
-                  <div className={classes.name}>
-
-                    <button className={classes.miniBtn} onClick={() => this.handelEdit(d)}>
-                      <img src={Edit} className={classes.editImg} />
-                    </button>
-                    <button type='button' className={classes.miniBtn} onClick={this.handelDelete.bind(this, d)}>X</button>
-                    <button type='button' className={classes.qtn}>{d.quantity}</button>
-                    <p>{d.item_name} - {d.size}</p>
-                    <button type='button' onClick={this.handeltest.bind(this, v)}
-                      className={classes.showMore}>{this.state.test[v] || 'v'}</button>
-                  </div>
-                  <p className={classes.et}>{d.price}</p>
-                  <p >{(d.quantity * d.price)}</p>
-                  <p className={classes.note}
-                    style={{ visibility: this.state.show[v] ? 'visible' : 'hidden' }}>Each haveing</p>
-
-                  <Collapse history={this.props.history} d={d} show={this.state.show[v]} /> */}
-
-                {/* </div>
-              </div>
-            );
-          }
-          else
-            return <></> */}
-        {/* })} */}
         {this.getItemTotal()}
         <p className={classes.header}>Edit Item Details</p>
         <div className={classes.incrementer}>
