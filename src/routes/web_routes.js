@@ -32,10 +32,10 @@ const Combo = loadable(() => import("screens/combo_item"), {
 const modifier = loadable(() => import("screens/modifier/web"), {
   fallback: <Loading />,
 });
-const Quantity = loadable(() => import("screens/my_cart/quantity.js"), {
+const Quantity = loadable(() => import("screens/my_cart/quantity"), {
   fallback: <Loading />,
 });
-const MyCart = loadable(() => import("screens/my_cart/nested_collapse/collapse"), {
+const MyCart = loadable(() => import("screens/my_cart/cart"), {
   fallback: <Loading />,
 });
 const Payment = loadable(() => import("screens/PaymentLocation"), {

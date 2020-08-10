@@ -23,25 +23,30 @@ export default (Component, props = {}) => {
                     }
 
                 ])
-                if (get(activePrice, 'has_modifiers') || item._type == 'ss') { this.nextClick() }
+                if (get(activePrice, 'has_modifiers') || item._type == 'ss') { this.nextClick('mod') }
+                else {
+                    this.nextClick('cart')
+                }
+
 
 
 
                 // })
             }
         }
-        nextClick = () => {
+        nextClick = (type) => {
             const { history, match, setMain, item } = this.props;
             setMain('form_actions', { CartStatus: false })
-            if (item._type == 'ss') {
-                history.push('/combo')
+            if (type == 'mod') {
+                if (item._type == 'ss') {
+                    history.push('/combo')
 
+                }
+                else
+                    history.push('/modifier')
             }
-            // else if (item._type == 'ssb'){
-            //     return <SsbItem />
-            // }
-             else    
-            history.push('/modifier')
+            else if(type=='cart')
+               history.push('/cart')
 
         }
         goBack = () => {

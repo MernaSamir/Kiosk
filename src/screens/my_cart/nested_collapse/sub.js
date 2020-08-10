@@ -38,39 +38,42 @@ class SubClass extends Component {
       paddingLeft: (index * 2) + '%',
     };
   console.log(modifs,"mooooo")
-    if (isEmpty(modifs) ){
-      if (!eSub.removal) {
-        return (
-          <div className={classes.modfcont}>
-            <div className={classes.flex}>
-              <div className={classes.modfir}>
-                {<button className={classes.cancel} onClick={this.DeleteMod.bind(this, eSub)}>x</button>}
-                <p>{eSub.quantity} x {eSub.name}</p>
-              </div>
-              <p className={classes.et}>{eSub.price}</p>
-              <p > {eSub.quantity ? eSub.price * eSub.quantity : eSub.price}</p>
-            </div>
-          </div>
-        )
-      }
-      else
-      return (
-        <div className={classes.modfcont}>
-          <div className={classes.flex}>
-            <div className={classes.modfir}>
-            {<button className={classes.cancel} onClick={this.DeleteMod.bind(this, eSub)}>x</button>}
-            {<p style={{marginRight:"1%"}}>NO</p>}
+    // if (isEmpty(modifs) ){
+    //   if (!eSub.removal) {
+    //     return (
+    //       <div className={classes.modfcont}>
+    //         <div className={classes.flex}>
+    //           <div className={classes.modfir}>
+    //             {<button className={classes.cancel} onClick={this.DeleteMod.bind(this, eSub)}>x</button>}
+    //             <p>{eSub.quantity} x {eSub.name}</p>
+    //           </div>
+    //           <p className={classes.et}>{eSub.price}</p>
+    //           <p > {eSub.quantity ? eSub.price * eSub.quantity : eSub.price}</p>
+    //         </div>
+    //       </div>
+    //     )
+    //   }
+    //   else
+    //   return (
+    //     <div className={classes.modfcont}>
+    //       <div className={classes.flex}>
+    //         <div className={classes.modfir}>
+    //         {<button className={classes.cancel} onClick={this.DeleteMod.bind(this, eSub)}>x</button>}
+    //         {<p style={{marginRight:"1%"}}>NO</p>}
   
-              <p>{eSub.name}</p>
-            </div>
-          </div>
-        </div>
-      )
+    //           <p>{eSub.name}</p>
+    //         </div>
+    //       </div>
+    //     </div>
+    //   )
 
-    }
+    // }
     return <Child className={classes.parent}
       style={style}
-      element = {eSub}>
+      element = {eSub}
+      data_filter={eSub.id}
+      >
+        
     </Child>
   }
   render() {

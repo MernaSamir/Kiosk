@@ -11,6 +11,7 @@ import Collapse from './collapse'
 import mapDispatchToProps from 'helpers/actions/main'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { setMain } from '../../helpers/actions/main';
+import Nested from './nested_collapse/collapse'
 
 class Content extends Component {
   state = {
@@ -39,69 +40,69 @@ class Content extends Component {
     }
     return false;
   }
-  handelDelete(d) {
-    console.log("hnaaaaaaa", "ddddddddd")
-    const { setMain } = this.props
-    const popup = {
-      type: 'CancelCustomer', visable: true, width: "50%",
-      childProps: {
-        Title: '',
-        first_msg: `Are you sure you want to delete ${d.quantity} x ${d.item_name}`,
-        pressYes: () => this.deleteCart(d)
-      }
-    }
-    setMain('popup', { popup })
-  }
-  deleteCart = (d) => {
-    const modifiers = filter(details, v => v.parent == d.id)
-    const { cart, history, setMain, details, setAll, appendPath } = this.props
-    setAll([
-      { type: 'set_main', app: 'popup', data: { popup: {} } },
-      { type: 'set_main', app: 'form_actions', data: { details: { [d.id]: {} } } },
-      {
-        type: 'set_main', app: 'form_actions', data: {
-          details:
-            map(details, n => { n.parent ? [n.id] : {} })
-        }
-      },
-      { type: 'set_main', app: 'form_actions', data: { CartStatus: false } }
-    ])
-    
-    // history.push('/order')
+  // handelDelete(d) {
+  //   console.log("hnaaaaaaa", "ddddddddd")
+  //   const { setMain } = this.props
+  //   const popup = {
+  //     type: 'CancelCustomer', visable: true, width: "50%",
+  //     childProps: {
+  //       Title: '',
+  //       first_msg: `Are you sure you want to delete ${d.quantity} x ${d.item_name}`,
+  //       pressYes: () => this.deleteCart(d)
+  //     }
+  //   }
+  //   setMain('popup', { popup })
+  // }
+  // deleteCart = (d) => {
+  //   const modifiers = filter(details, v => v.parent == d.id)
+  //   const { cart, history, setMain, details, setAll, appendPath } = this.props
+  //   setAll([
+  //     { type: 'set_main', app: 'popup', data: { popup: {} } },
+  //     { type: 'set_main', app: 'form_actions', data: { details: { [d.id]: {} } } },
+  //     {
+  //       type: 'set_main', app: 'form_actions', data: {
+  //         details:
+  //           map(details, n => { n.parent ? [n.id] : {} })
+  //       }
+  //     },
+  //     { type: 'set_main', app: 'form_actions', data: { CartStatus: false } }
+  //   ])
 
-  }
-  handelEdit = (d) => {
-    const { history, details, setAll } = this.props
-    setAll([
-      { type: 'set_main', app: 'form_actions', data: { details: { [d.id]: {} } } },
-      {
-        type: 'set_main', app: 'form_actions', data: {
-          details:
-            map(details, n => { n.parent ? [n.id] : {} })
-        }
-      },
-      { type: 'set_main', app: 'form_actions', data: { CartStatus: false } }
-    ])
-    history.push('/details')
-  }
-  handeltest(v) {
-    console.log(this.state,"stttt")
-    const {test ,show}= this.state
-    
-    if (show[v] ) {
-      console.log(this.state,"stttt")
+  //   // history.push('/order')
 
-      this.setState({ test:{...this.state.test,[v]:'v'}, show: {...this.state.show,[v]:false} })
-      console.log(this.state,"sthhhttt")
+  // }
+  // handelEdit = (d) => {
+  //   const { history, details, setAll } = this.props
+  //   setAll([
+  //     { type: 'set_main', app: 'form_actions', data: { details: { [d.id]: {} } } },
+  //     {
+  //       type: 'set_main', app: 'form_actions', data: {
+  //         details:
+  //           map(details, n => { n.parent ? [n.id] : {} })
+  //       }
+  //     },
+  //     { type: 'set_main', app: 'form_actions', data: { CartStatus: false } }
+  //   ])
+  //   history.push('/details')
+  // }
+  // handeltest(v) {
+  //   console.log(this.state, "stttt")
+  //   const { test, show } = this.state
 
-    }
-    else {
-      this.setState({ test:{...this.state.test,[v]:'^'}, show: {...this.state.show,[v]:true} })
+  //   if (show[v]) {
+  //     console.log(this.state, "stttt")
 
-      // this.setState({ test: '^' })
-      // this.setState({ show: true })
-    }
-  }
+  //     this.setState({ test: { ...this.state.test, [v]: 'v' }, show: { ...this.state.show, [v]: false } })
+  //     console.log(this.state, "sthhhttt")
+
+  //   }
+  //   else {
+  //     this.setState({ test: { ...this.state.test, [v]: '^' }, show: { ...this.state.show, [v]: true } })
+
+  //     // this.setState({ test: '^' })
+  //     // this.setState({ show: true })
+  //   }
+  // }
   getItemTotal() {
     const { details } = this.props;
     let sum_all = 0
@@ -127,7 +128,7 @@ class Content extends Component {
 
   }
   renderOrders = () => {
-    const { details, history , activeDetail} = this.props;
+    const { details, history, activeDetail } = this.props;
     const { qtn } = this.state
     return (
       <div className={classes.allcon}>
@@ -135,49 +136,49 @@ class Content extends Component {
           {/* <button onClick={history.goBack.bind(this)}>
             <FontAwesomeIcon icon="arrow-left" className={classes.icon} />
           </button> */}
-          <p className={classes.header}>{activeDetail.item_name}-{activeDetail.size}</p>
+          <p className={classes.header}>{activeDetail.name}-{activeDetail.size}</p>
         </div>
         <div className={classes.itemTo}>
           <p ></p>
           <p>Each</p>
           <p>Total</p>
         </div>
-        {map(filter(details,m=>m.parent==null) , (d, v) => {
-    let modifs = filter(details,v=>v.parent==d.id)
+        <Nested/>
+
+        {/* {map(filter(details, m => m.parent == null), (d, v) => {
+          let modifs = filter(details, v => v.parent == d.id)
 
           if (d.id) {
             return (
               <div className={classes.cart}>
 
-                <div className={classes.items}>
-                  {/* {!d.parent && */}
-                    <>
-                      <div className={classes.name}>
+                <div className={classes.items}> */}
+                  {/* {!d.parent &&
+                  <div className={classes.name}>
 
-                        <button className={classes.miniBtn} onClick={() => this.handelEdit(d)}>
-                          <img src={Edit} className={classes.editImg} />
-                        </button>
-                        <button type='button' className={classes.miniBtn} onClick={this.handelDelete.bind(this, d)}>X</button>
-                        <button type='button' className={classes.qtn}>{d.quantity}</button>
-                        <p>{d.item_name} - {d.size}</p>
-                      <button type='button' onClick={this.handeltest.bind(this,v)} 
-                        className={classes.showMore}>{this.state.test[v]||'v'}</button>
-                      </div>
-                      <p className={classes.et}>{d.price}</p>
-                      <p >{(d.quantity * d.price)}</p>
-                      <p className={classes.note} 
-                      style={{ visibility: this.state.show[v] ? 'visible' : 'hidden' }}>Each haveing</p>
+                    <button className={classes.miniBtn} onClick={() => this.handelEdit(d)}>
+                      <img src={Edit} className={classes.editImg} />
+                    </button>
+                    <button type='button' className={classes.miniBtn} onClick={this.handelDelete.bind(this, d)}>X</button>
+                    <button type='button' className={classes.qtn}>{d.quantity}</button>
+                    <p>{d.item_name} - {d.size}</p>
+                    <button type='button' onClick={this.handeltest.bind(this, v)}
+                      className={classes.showMore}>{this.state.test[v] || 'v'}</button>
+                  </div>
+                  <p className={classes.et}>{d.price}</p>
+                  <p >{(d.quantity * d.price)}</p>
+                  <p className={classes.note}
+                    style={{ visibility: this.state.show[v] ? 'visible' : 'hidden' }}>Each haveing</p>
 
-                    </>
-                  <Collapse history={this.props.history} d={d} show={this.state.show[v]} />
+                  <Collapse history={this.props.history} d={d} show={this.state.show[v]} /> */}
 
-                </div>
+                {/* </div>
               </div>
             );
           }
           else
-            return <></>
-        })}
+            return <></> */}
+        {/* })} */}
         {this.getItemTotal()}
         <p className={classes.header}>Edit Item Details</p>
         <div className={classes.incrementer}>
@@ -202,15 +203,15 @@ class Content extends Component {
   }
   render() {
     const { details } = this.props
-    if(!isEmpty(details)){
-    return (
-      <div>
-        {this.renderOrders()}
-      </div>
-    )
+    if (!isEmpty(details)) {
+      return (
+        <div>
+          {this.renderOrders()}
+        </div>
+      )
     }
-else
-return <p>No Details</p>
+    else
+      return <p>No Details</p>
   }
 }
 

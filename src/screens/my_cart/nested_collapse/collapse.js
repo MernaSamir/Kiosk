@@ -2,10 +2,10 @@
 import React, { Component } from 'react'
 import { withRouter } from 'react-router-dom';
 import Sub from './sub'
-import { map, get, isEmpty, filter, omit } from 'lodash'
+import { map, get, isEmpty, filter, omit, toArray } from 'lodash'
 import { withTranslation } from 'react-i18next'
 import { Collapse } from 'antd';
-import classes from './menu_style.less'
+import classes from '../style.less'
 import { connect } from 'react-redux'
 import mapDispatchToProps from 'helpers/actions/main'
 import Edit from "../../../assets/images/edit.png";
@@ -13,6 +13,13 @@ import Edit from "../../../assets/images/edit.png";
 const Panel = Collapse.Panel;
 
 class Content extends Component {
+  state = {
+
+    test: {},
+    show: {},
+    qtn: 1
+
+  }
   handelDelete(d) {
     console.log("hnaaaaaaa", "ddddddddd")
     const { setMain } = this.props
@@ -83,67 +90,96 @@ class Content extends Component {
     appendPath("form_actions", `details.${[d.id]}`, {});
     this.setState({ show: false })
   }
+  handeltest(v) {
+    console.log(this.state, "stttt")
+    const { test, show } = this.state
+
+    if (show[v]) {
+      this.setState({ test: { ...this.state.test, [v]: 'v' }, show: { ...this.state.show, [v]: false } })
+    }
+    else {
+      this.setState({ test: { ...this.state.test, [v]: '^' }, show: { ...this.state.show, [v]: true } })
+
+      // this.setState({ test: '^' })
+      // this.setState({ show: true })
+    }
+  }
   submenuListLoop = () => {
-    const { details, t, modifs, data_filter } = this.props
-    return map(filter(details, data_filter), (d, index) => {
-      const modif = filter(details, m => m.parent == d.id)
-      if (!isEmpty(modif)) {
-
-        return (
-          <>
-            <button className={classes.miniBtn} onClick={() => this.handelEdit(d)}>
-              <img src={Edit} className={classes.editImg} />
-            </button>
-            <button type='button' className={classes.miniBtn} onClick={this.handelDelete.bind(this, d)}>X</button>
-            <Collapse>
-              <Panel header={d.name} className={classes.customPanelStyle} >
-
-                <Sub index={1}
-                  key={index}
-                  eSub={d}
-                  title={d.name}
-                  Child={wrapper}
-                  modifs={modifs}
-                  paddLeft='10%' />
-              </Panel>
-            </Collapse>
-          </>
-        )
-
-      }
-      else {
-        if (!d.removal) {
+    const { details, data_filter,cart } = this.props
+    return <div className={classes.allcon}>
+      {map(filter(details, d => d.parent == data_filter), (d, index) => {
+        const modif = filter(details, m => m.parent == d.id)
+        if (!isEmpty(modif)) {
           return (
-            <div className={classes.modfcont}>
-              <div className={classes.flex}>
-                <div className={classes.modfir}>
-                  {<button className={classes.cancel} onClick={this.DeleteMod.bind(this, d)}>x</button>}
-                  <p>{d.quantity} x {d.name}</p>
+            <div className={classes.cart}>
+              <div className={classes.items}>
+                <div className={classes.name}>
+
+                  <button className={classes.miniBtn} onClick={() => this.handelEdit(d)}>
+                    <img src={Edit} className={classes.editImg} />
+                  </button>
+                  <button type='button' className={classes.miniBtn} onClick={this.handelDelete.bind(this, d)}>X</button>
+                  {/* <Collapse>
+              <Panel header={d.name} className={classes.customPanelStyle} > */}
+                  <button type='button' className={classes.qtn}>{d.quantity}</button>
+                  <p>{d.name} - {d.size}</p>
+                  <button type='button' onClick={this.handeltest.bind(this, d)}
+                    className={classes.showMore}>{this.state.test[d] || 'v'}</button>
                 </div>
                 <p className={classes.et}>{d.price}</p>
-                <p > {d.quantity ? d.price * d.quantity : d.price}</p>
+                <p >{(d.quantity * d.price)}</p>
+               {data_filter==null&& <p className={classes.note}
+                  style={{ visibility: this.state.show[d] ? 'visible' : 'hidden' }}>Each haveing</p>}
+                {this.state.show[d] &&
+
+                  <Sub index={1}
+                    key={index}
+                    eSub={d}
+                    title={d.name}
+                    Child={wrapper}
+                    modifs={modif}
+                    paddLeft='10%' />}
+                {/* </Panel>
+            </Collapse> */}
               </div>
             </div>
           )
-        }
-        else
-          return (
-            <div className={classes.modfcont}>
-              <div className={classes.flex}>
-                <div className={classes.modfir}>
-                  {<button className={classes.cancel} onClick={this.DeleteMod.bind(this, d)}>x</button>}
-                  {<p style={{ marginRight: "1%" }}>NO</p>}
 
-                  <p>{d.name}</p>
+        }
+        else {
+          if (!d.removal) {
+            return (
+              <div className={classes.modfcont}>
+                <div className={classes.flex}>
+                  <div className={classes.modfir}>
+                    {cart&&<button className={classes.cancel} onClick={this.DeleteMod.bind(this, d)}>x</button>}
+                    <p>{d.quantity} x {d.name}</p>
+                  </div>
+                  <p className={classes.et}>{d.price}</p>
+                  <p > {d.quantity ? d.price * d.quantity : d.price}</p>
                 </div>
               </div>
-            </div>
-          )
+            )
+          }
+          else
+            return (
+              <div className={classes.modfcont}>
+                <div className={classes.flex}>
+                  <div className={classes.modfir}>
+                    {cart&&<button className={classes.cancel} onClick={this.DeleteMod.bind(this, d)}>x</button>}
+                    {<p style={{ marginRight: "1%" }}>NO</p>}
 
-      }
+                    <p>{d.name}</p>
+                  </div>
+                </div>
+              </div>
+            )
+
+        }
 
 
-    })
+      })}
+    </div>
   }
   render() {
     return this.submenuListLoop()
@@ -156,7 +192,9 @@ const mapStateToProps = (state, props) => ({
   CartStatus: get(state, 'form_actions.CartStatus', false),
   details: get(state.form_actions, 'details', {}),
   data: state.form_actions,
-  data_filter: props.data_filter || {parent: null}
+  data_filter: props.data_filter || null,
+  activeDetail: get(state.form_actions.details, state.form_actions.active),
+
 })
 const wrapper = withRouter(connect(mapStateToProps, mapDispatchToProps)(withTranslation()(Content)))
 export default wrapper
