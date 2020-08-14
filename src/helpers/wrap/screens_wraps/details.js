@@ -39,10 +39,15 @@ export default (Component, props = {}) => {
             setMain('form_actions', { CartStatus: false })
             if (type == 'mod') {
                 if (item._type == 'ss') {
+                    console.log("hmzzljlkjk")
                     history.push('/combo')
 
                 }
-                else
+               else if (item._type == 'ssb') {
+                    history.push('/ssb')
+
+                }
+                else if(item._type=='di')
                     history.push('/modifier')
             }
             else if(type=='cart'){

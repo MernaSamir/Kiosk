@@ -29,6 +29,12 @@ const Details = loadable(() => import("screens/details/web"), {
 const Combo = loadable(() => import("screens/combo_item"), {
   fallback: <Loading />,
 });
+const Alters = loadable(() => import("screens/combo_item/next"), {
+  fallback: <Loading />,
+});
+// const Ssb = loadable(() => import("screens/ssb"), {
+//   fallback: <Loading />,
+// });
 const modifier = loadable(() => import("screens/modifier/web"), {
   fallback: <Loading />,
 });
@@ -78,6 +84,9 @@ const Routes = (props) => (
       {/* <Route exact path="/final" component={Final} /> */}
       <Route exact path="/details" component={Details} />
       <Route exact path="/combo" component={Combo} />
+      <Route exact path="/alter" component={Alters} />
+
+      {/* <Route exact path="/ssb" component={Ssb} /> */}
 
       {/* <Route exact path="/details/qtn" component={Quantity} /> */}
       <Route exact path="/modifier" component={modifier} />

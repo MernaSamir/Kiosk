@@ -1,144 +1,93 @@
-import React, { Component } from 'react'
-import { connect } from 'react-redux'
-import { get, isEmpty } from 'lodash'
-import Types from './types'
-import classes from './style.less'
-import Alters from './alters'
-import Form from 'helpers/wrap/form.js'
-import applyFilters from 'helpers/functions/filters'
+import React, { Component } from "react";
+import { connect } from "react-redux";
 import mapDispatchToProps from "helpers/actions/main";
-import uuid from 'uuid/v4'
+import { isEmpty, map, get } from "lodash";
+import Combo from "../../assets/images/eatn12.png";
+import classes from "./style.less";
+import Footer from './footer'
+import Cart from 'screens/global_cart'
+import { getInfo } from 'helpers/functions/get_item_info'
+import applyFilters from 'helpers/functions/filters'
+import { withRouter } from 'react-router-dom'
+ 
+class Main extends Component {
+  state = {
+    active: {},
+    qtn: 1,
+  }
+  gotoAlters = () => {
+const {history}= this.props
+history.push('/alter')
+  }
+  renderComponents = () => {
+    const {  active, activePrice } = this.props
+    this.list = applyFilters({
+      key: 'Filter',
+      path: `items__combo`,
+      params: {
+        combo_size: activePrice.id
+      }
+    })
 
-class Combo extends Component {
-    static onSubmit() {
+    let info = {}
 
-    }
-    state = {
-        active: {},
-        alter: {}
-    }
-    renderTitle = () => {
-        const { item } = this.props
-        return < div className={classes.title} >
-            <p>{`Select your ${item.name} Alternative`}</p>
-        </div >
-    }
-    getContent = () => {
-        const { onClick, activeDetail } = this.props
-        const { active, alter } = this.state
-        const selected = !isEmpty(active) ? active : this.list[0]
-        console.log(alter, "alteeeeer")
+    return <div className={classes.buttonContainer} >
+      {map(this.list, (l, key) => {
+        // let price = applyFilters({ path: `items__prices.data.${l.item}`})
 
-        return <Alters active={selected} getInfo={this.getInfo} activeAlter={this.activeAlter} alter={alter.id} />
+        // let ac =!isEmpty(active)?active.id:list[0].id
+        info = getInfo(l, 'item')
+        return <button disabled={!l.has_alter}
+        className={`${classes.title} ${(!l.has_alter) && classes.dis}`} type='button' key={key}
+          onClick={() => this.gotoAlters(l)}>
+          <p>{info.name}</p>
+          <p>{`${info.size}`}</p>
+          <p>{`Q: ${l.quantity}`}</p>
+        </button>
+      })}
+    </div>
+  }
 
-
-
-    }
-    getList = () => {
-        const { activePrice } = this.props
-        const list = applyFilters({
-            key: 'Filter',
-            path: `items__combo`,
-            params: {
-                combo_size: activePrice
-            }
-        })
-        return list
-    }
-    setActive = item => {
-        this.setState({
-            active: item,
-            // alter: item
-        })
-    }
-    activeAlter = active => {
-
-        this.setState({
-            alter: active
-        })
-    }
-    getInfo = (l, selector) => {
-
-        const item = applyFilters({
-            key: 'chain',
-            selectors: {
-                'items__prices': selector,
-                'items__sales_items': 'sales_item'
-            },
-        }, l)
-        const size = applyFilters({
-            key: 'chain',
-            selectors: {
-                'items__prices': selector,
-                'dropdowns__units_of_measure': 'sales_unit'
-            },
-        }, l)
-        return { name: item.name, size: size.name }
-    }
-    next = () => {
-        const { history, setMain, appendPath, activeDetail , activePrice} = this.props
-        const {alter}= this.state
-        const {quantity, size,name, price_variance, }= alter
-
-        let price = applyFilters({path:`items__prices.data.${get(alter,'item',alter.alter_item)}`})
-        setMain('items__prices',{active:price.id})
-
-        const id = uuid()
-        // if(alter.has_alter)
-        const values = {
-            ...alter,
-            id,
-            price:price.price,
-            parent: activeDetail,
-            name,
-            size,
-            quantity,
-            price_id: price.id,
-            parent_check:true
-
-        }
-        setMain('form_actions', { item: id })
-        appendPath('form_actions', `details.${[id]}`, { ...values })
-    if(price.has_modifiers)
-     history.push('/modifier')
-     else
-      history.push('/quantity')
-    }
-    render() {
-
-        this.list = this.getList()
-        return (
-            <div className={classes.modDiv}>
-                <div className={classes.cat}>
-                    <Types setActive={this.setActive} active={this.state.active} getInfo={this.getInfo} list={this.list} />
-                    {this.getContent()}
-
-                    {/* <Cart /> */}
-                </div>
-
-                <div className={classes.btnContainer}>
-                    <button className={classes.back} onClick={() => this.props.history.goBack()}> Back</button>
-                    <button type='button' className={classes.next} onClick={this.next}>Next - Extras</button>
-
-
-                </div>
+  render() {
+    const { item, nextClick, goBack, activePrice, values, activeDetail } = this.props;
+    return item ? (
+      <div className={classes.above}>
+        <div className={classes.allContainer}>
+          {/* <div className={classes.stContainer}> */}
+          <p className={classes.title}>{item.name}</p>
+          <div className={classes.picDes}>
+            <img src={Combo} className={classes.image} />
+            <p className={classes.description}>
+              Your choice of Burger, Fries and Drink
+          </p>
+          </div>
+          <div className={classes.sizeDoneCont}>
+            <div className={classes.sizeContainer}>
+              <p className={classes.p}>Click an item to see its alternatives or customise</p>
+              {this.renderComponents()}
             </div>
-            // <div>
-            //     <Types setActive={this.setActive} active={this.state.active} />
-            //     {this.renderTitle()}
-            // </div>
-        )
-    }
-}
-const mapStateToProps = (state) => ({
-    item: get(state.items__sales_items.data, state.items__sales_items.active, {}),
-    activePrice: get(state.items__prices, 'active', ''),
-    activeDetail: get(state.form_actions, 'active', ''),
 
-    details: get(state.form_actions, 'details', {}),
-    combo_item: get(state.form_actions, 'combo_item',),
+          </div>
+          <Footer activePrice={activePrice} activeDetail={activeDetail} values={values}  {...this.props} items={this.list}/>
+
+        </div>
+        <Cart />
+      </div>
+    )
+      : (
+        <></>);
+  }
+}
+
+
+const mapStateToProps = (state) => ({
+  item: get(state.items__sales_items.data, state.items__sales_items.active, {}),
+  activePrice: get(get(state.items__prices, 'data', ''), state.items__prices.active, ''),
+
+  details: get(state.form_actions, 'details', {}),
+  activeDetail: get(state.form_actions, 'active', ''),
 
 
 })
 
-export default connect(mapStateToProps, mapDispatchToProps)(Form(Combo))
+export default connect(mapStateToProps, mapDispatchToProps)(withRouter(Main))
