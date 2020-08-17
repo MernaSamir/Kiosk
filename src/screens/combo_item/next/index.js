@@ -9,6 +9,8 @@ import applyFilters from 'helpers/functions/filters'
 import mapDispatchToProps from "helpers/actions/main";
 import uuid from 'uuid/v4'
 import {getInfo} from 'helpers/functions/get_item_info'
+import Cart from 'screens/global_cart'
+
 class Combo extends Component {
     static onSubmit() {
 
@@ -77,12 +79,16 @@ class Combo extends Component {
     //     return { name: item.name, size: size.name }
     // }
     next = () => {
-        const { history, setMain, appendPath, activeDetail , activePrice} = this.props
+        const { history, setMain, appendPath, activeDetail , activePrice, setAll} = this.props
         const {alter}= this.state
         const {quantity, size,name, price_variance, }= alter
 
         let price = applyFilters({path:`items__prices.data.${get(alter,'item',alter.alter_item)}`})
-        setMain('items__prices',{active:price.id})
+        setAll([
+            { type: "set_main", app:'items__prices', data: {active:price.id}},
+            { type: "set_main", app: 'form_actions', data: { CartStatus: false } }
+          ])
+        // setMain('items__prices',{active:price.id})
 
         const id = uuid()
         // if(alter.has_alter)
@@ -95,7 +101,7 @@ class Combo extends Component {
             size,
             quantity,
             price_id: price.id,
-            parent_check:true
+            // parent_check:true
 
         }
         setMain('form_actions', { item: id })
@@ -114,7 +120,7 @@ class Combo extends Component {
                     <Types setActive={this.setActive} active={this.state.active} getInfo={getInfo} list={this.list} />
                     {this.getContent()}
 
-                    {/* <Cart /> */}
+                    <Cart />
                 </div>
 
                 <div className={classes.btnContainer}>

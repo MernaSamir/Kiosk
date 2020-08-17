@@ -4,6 +4,7 @@ import uuid from 'uuid/v4'
 import { map, get, isEmpty,round } from 'lodash'
 import classes from './style.less'
 import { getInfo } from 'helpers/functions/get_item_info'
+import { withRouter } from 'react-router-dom'
 
 class Footer extends Component {
 
@@ -71,7 +72,7 @@ class Footer extends Component {
                 name,
                 size,
                 price_id: price.id,
-                parent_check: true
+                // parent_check: true
 
             }
             appendPath('form_actions', `details.${[id]}`, { ...values })
@@ -86,7 +87,7 @@ class Footer extends Component {
             <div className={classes.footer}>
                 {this.renderPriceQuantity()}
                 <div className={classes.btnCont}>
-                    <button onClick={goBack}>Back</button>
+                    <button onClick={() => this.props.history.goBack()}>Back</button>
                     {/* <button type='submit' disabled={isEmpty(activePrice)}>Next - Extras</button> */}
                     <button disabled={isEmpty(activePrice)} onClick={this.gotoCart}>Add to Cart</button>
                 </div>
@@ -96,4 +97,4 @@ class Footer extends Component {
     }
 }
 
-export default Footer
+export default withRouter( Footer)

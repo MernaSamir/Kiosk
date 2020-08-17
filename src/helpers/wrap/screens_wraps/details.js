@@ -110,7 +110,7 @@ export default (Component, props = {}) => {
                     name: item.name,
                     size: size ? size.name : '',
                     price: activePrice.price,
-                    parent_check: true
+                    // parent_check: true
                 }
             }
         }

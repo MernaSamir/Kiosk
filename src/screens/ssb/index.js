@@ -16,8 +16,12 @@ class Main extends Component {
     qtn: 1,
   }
   gotoSubgroups = (l) => {
-const {history, setMain}= this.props
-setMain('items__ssb_group', {active:l.id})
+const {history, setMain, setAll}= this.props
+// setMain('items__ssb_group', {active:l.id})
+setAll([
+  { type: "set_main", app:'items__ssb_group', data: { active:l.id } },
+  { type: "set_main", app: 'form_actions', data: { CartStatus: false } }
+])
 history.push('/ssb-items')
   }
   renderComponents = () => {

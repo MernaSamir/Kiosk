@@ -16,7 +16,10 @@ class Main extends Component {
     qtn: 1,
   }
   gotoAlters = () => {
-const {history}= this.props
+const {history, setAll}= this.props
+setAll([
+  { type: "set_main", app: 'form_actions', data: { CartStatus: false } }
+])
 history.push('/alter')
   }
   renderComponents = () => {
