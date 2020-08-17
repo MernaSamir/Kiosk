@@ -5,7 +5,7 @@ import Sub from './sub'
 import { map, get, isEmpty, filter, omit } from 'lodash'
 import { withTranslation } from 'react-i18next'
 import { Collapse } from 'antd';
-import classes from '../style.less'
+import classes from './menu_style.less'
 import { connect } from 'react-redux'
 import mapDispatchToProps from 'helpers/actions/main'
 import Edit from "../../../assets/images/edit.png";
@@ -106,6 +106,7 @@ class Content extends Component {
     const { details, data_filter,cart } = this.props
     return <div className={classes.allcon}>
       {map(filter(details, d => d.parent == data_filter), (d, index) => {
+
         const modif = filter(details, m => m.parent == d.id)
         if (!isEmpty(modif)) {
           return (
@@ -120,7 +121,7 @@ class Content extends Component {
                   {/* <Collapse>
               <Panel header={d.name} className={classes.customPanelStyle} > */}
                   <button type='button' className={classes.qtn}>{d.quantity}</button>
-                  <p>{d.name} - {d.size}</p>
+                  <p className={classes.item}>{d.name} - {d.size}</p>
                   <button type='button' onClick={this.handeltest.bind(this, index)}
                     className={classes.showMore}>{this.state.test[index] || 'v'}</button>
                 </div>

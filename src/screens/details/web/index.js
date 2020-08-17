@@ -27,7 +27,7 @@ class Details extends Component {
     const { getPrices } = this.props
 
     const priceList = getPrices(item)
-
+console.log(priceList,"plis")
     return <div className={classes.selects}>
       {
         Render([{

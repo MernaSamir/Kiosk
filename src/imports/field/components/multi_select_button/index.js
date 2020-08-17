@@ -3,17 +3,29 @@ import {connect} from 'react-redux'
 import {isEmpty, get, map, find, reject, includes} from 'lodash'
 import mapDispatchToProps from 'helpers/actions/main'
 import { message } from 'antd';
+import applyFilters from 'helpers/functions/filters'
 
 class multiButtons extends Component {
-    componentDidMount() {
-      const {list, fetchAll, app} = this.props;
-      if(isEmpty(list) && app){
-        fetchAll([{
-            app: app.name,
-            api: app.api
-        }])
-      }
-    }
+  constructor(props) {
+    super(props);
+    this.list = props.options || applyFilters({
+        path: props.app,
+        key: 'Filter',
+        params: props.params
+    })
+    console.log(this.list,"hnaaaaaaaaaa")
+// this.selectFirst()
+
+}
+    // componentDidMount() {
+    //   const {list, fetchAll, app} = this.props;
+    //   if(isEmpty(list) && app){
+    //     fetchAll([{
+    //         app: app.name,
+    //         api: app.api
+    //     }])
+    //   }
+    // }
     onChange = (value)=>{
       const {field} = this.props;
       field.onChange({
@@ -47,7 +59,8 @@ class multiButtons extends Component {
     
     renderOptions = () => {
         const { list, field ,disabled=[]} = this.props
-        return map(list, (d,idx) => (
+        console.log("lisytutuktku", this.list)
+        return map(this.list, (d,idx) => (
             <button disabled={disabled.includes(d.id)?true:false  } key={idx} type="button" className={includes(field.value , d.id) && "active" } onClick={this.onClick.bind(this, d)}>
             {d.name}</button>
         ))

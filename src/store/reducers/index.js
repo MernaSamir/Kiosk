@@ -125,6 +125,12 @@ export const stores = [
   'redux_notifications',
   'show',
   'cart',
+  'items__ssb_group',
+  'items__ssb_subgroup',
+  'items__ssb_items',
+
+
+
 ]
 const gReduce = stores.map(d => buildReducers(d)).reduce((o, k) => ({ ...o, ...k }), 0);
 export default combineReducers({

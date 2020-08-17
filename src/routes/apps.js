@@ -126,5 +126,8 @@ const apps = (station) => ({
     dropdowns__complaint_categories: {},
     dropdowns__lang: {},
     items__sorting: {},
+    items__ssb_group:{},
+    items__ssb_subgroup:{},
+    items__ssb_items:{},
 })
 export default apps;

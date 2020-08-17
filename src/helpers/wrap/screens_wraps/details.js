@@ -23,7 +23,7 @@ export default (Component, props = {}) => {
                     }
 
                 ])
-                if (get(activePrice, 'has_modifiers') || item._type == 'ss') { this.nextClick('mod') }
+                if (get(activePrice, 'has_modifiers') || item._type == 'ss'||item._type == 'ssb') { this.nextClick('mod') }
                 else {
                     this.nextClick('cart', detail.id)
                 }

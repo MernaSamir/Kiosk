@@ -32,9 +32,12 @@ const Combo = loadable(() => import("screens/combo_item"), {
 const Alters = loadable(() => import("screens/combo_item/next"), {
   fallback: <Loading />,
 });
-// const Ssb = loadable(() => import("screens/ssb"), {
-//   fallback: <Loading />,
-// });
+const Ssb = loadable(() => import("screens/ssb"), {
+  fallback: <Loading />,
+});
+const SsbItems = loadable(() => import("screens/ssb/next"), {
+  fallback: <Loading />,
+});
 const modifier = loadable(() => import("screens/modifier/web"), {
   fallback: <Loading />,
 });
@@ -86,7 +89,8 @@ const Routes = (props) => (
       <Route exact path="/combo" component={Combo} />
       <Route exact path="/alter" component={Alters} />
 
-      {/* <Route exact path="/ssb" component={Ssb} /> */}
+      <Route exact path="/ssb" component={Ssb} />
+      <Route exact path="/ssb-items" component={SsbItems} />
 
       {/* <Route exact path="/details/qtn" component={Quantity} /> */}
       <Route exact path="/modifier" component={modifier} />

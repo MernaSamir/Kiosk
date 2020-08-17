@@ -6,7 +6,7 @@ import classes from './style.less'
 import { map, get, isEqual } from 'lodash'
 import { withTranslation } from 'react-i18next'
 import applyFilters from 'helpers/functions/filters';
-import Content from './content'
+import Collapse from './nested_collapse/collapse'
 import mapDispatchToProps from 'helpers/actions/main'
 
 class GlobalCart extends Component {
@@ -44,7 +44,7 @@ class GlobalCart extends Component {
         </div>
         {CartStatus == true ?
           <>
-            <Content  details={details} />
+            <Collapse  details={details} />
             <div className={classes.btnContainer}>
               <button type='button' >Back</button>
               <button type='button' onClick={this.checkOut} >Checkout</button></div>

@@ -83,7 +83,7 @@ class Footer extends Component {
     }
     render() {
         const { activePrice, goBack, item } = this.props
-        if(activePrice&&( get(activePrice, 'has_modifiers')||item._type=='ss'))
+        if(activePrice&&( get(activePrice, 'has_modifiers')||item._type=='ss'||item._type=='ssb'))
         return (
             <div className={classes.footer}>
                 {this.renderPriceQuantity()}
