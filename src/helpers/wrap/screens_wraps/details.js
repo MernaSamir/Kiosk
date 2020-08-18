@@ -110,6 +110,7 @@ export default (Component, props = {}) => {
                     name: item.name,
                     size: size ? size.name : '',
                     price: activePrice.price,
+                    max_quantity:item.max_quantity
                     // parent_check: true
                 }
             }

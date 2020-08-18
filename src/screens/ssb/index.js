@@ -9,41 +9,42 @@ import Cart from 'screens/global_cart'
 import { getInfo } from 'helpers/functions/get_item_info'
 import applyFilters from 'helpers/functions/filters'
 import { withRouter } from 'react-router-dom'
- 
+
 class Main extends Component {
   state = {
     active: {},
     qtn: 1,
   }
   gotoSubgroups = (l) => {
-const {history, setMain, setAll}= this.props
-// setMain('items__ssb_group', {active:l.id})
-setAll([
-  { type: "set_main", app:'items__ssb_group', data: { active:l.id } },
-  { type: "set_main", app: 'form_actions', data: { CartStatus: false } }
-])
-history.push('/ssb-items')
+    const { history, setMain, setAll } = this.props
+    // setMain('items__ssb_group', {active:l.id})
+    setAll([
+      { type: "set_main", app: 'items__ssb_group', data: { active: l.id } },
+      { type: "set_main", app: 'form_actions', data: { CartStatus: false } }
+    ])
+    history.push('/ssb-items')
   }
   renderComponents = () => {
-    const {  activePrice } = this.props
-  this.list = applyFilters({
+    const { activePrice, activeDetail, ssb_group } = this.props
+    console.log(activeDetail, "gggggggddd")
+    this.list = applyFilters({
       key: 'Filter',
       path: 'items__ssb_group',
       params: {
-          'item_size': activePrice.id
+        'item_size': activeDetail.price_id
       }
-  })
+    })
 
     let info = {}
 
     return <div className={classes.buttonContainer} >
       {map(this.list, (l, key) => {
         // let price = applyFilters({ path: `items__prices.data.${l.item}`})
-
-        // let ac =!isEmpty(active)?active.id:list[0].id
-        info = getInfo(l, 'item')
-        return <button 
-        className={`${classes.title}`} type='button' key={key}
+        let ac= ssb_group ? ssb_group.id :this.list[0].id
+          // let ac =!isEmpty(active)?active.id:list[0].id
+          info = getInfo(l, 'item')
+        return <button
+          className={`${classes.title} ${(ac == l.id) && classes.active}`} type='button' key={key}
           onClick={() => this.gotoSubgroups(l)}>
           <p>{l.name}</p>
           {/* <p>{`${info.size}`}</p> */}
@@ -54,7 +55,7 @@ history.push('/ssb-items')
   }
 
   render() {
-    const { item, nextClick, goBack, activePrice, values, activeDetail } = this.props;
+    const { item, activePrice, values } = this.props;
     return item ? (
       <div className={classes.above}>
         <div className={classes.allContainer}>
@@ -63,7 +64,7 @@ history.push('/ssb-items')
           <div className={classes.picDes}>
             <img src={Combo} className={classes.image} />
             <p className={classes.description}>
-            Your choice of 4 sandwiches, 4 sides and 1 liter soft drink
+              Your choice of 4 sandwiches, 4 sides and 1 liter soft drink
 
 
 
@@ -76,7 +77,7 @@ history.push('/ssb-items')
             </div>
 
           </div>
-          <Footer activePrice={activePrice} activeDetail={activeDetail} values={values}  {...this.props} items={this.list}/>
+          <Footer activePrice={activePrice} values={values}  {...this.props} items={this.list} />
 
         </div>
         <Cart />
@@ -91,9 +92,10 @@ history.push('/ssb-items')
 const mapStateToProps = (state) => ({
   item: get(state.items__sales_items.data, state.items__sales_items.active, {}),
   activePrice: get(get(state.items__prices, 'data', ''), state.items__prices.active, ''),
+  ssb_group: get(state.items__ssb_group.data, state.items__ssb_group.active),
 
   details: get(state.form_actions, 'details', {}),
-  activeDetail: get(state.form_actions, 'active', ''),
+  activeDetail: get(state.form_actions.details, state.form_actions.active, ''),
 
 
 })

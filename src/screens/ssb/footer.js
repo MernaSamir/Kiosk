@@ -54,33 +54,33 @@ class Footer extends Component {
 
         }
     }
-    gotoCart = () => {
-        const { appendPath, history, activeDetail, items } = this.props
-        const { quantity } = this.state
-        appendPath('form_actions', `details.${[activeDetail]}`, { add: true, quantity })
-        map(items, d => {
-            let price = applyFilters({ path: `items__prices.data.${d.item}` })
-            const info = getInfo(d, 'item')
-            const { name, size } = info
-            const id = uuid()
-            // if(alter.has_alter)
-            const values = {
-                id,
-                ...d,
-                price: price.price,
-                parent: activeDetail,
-                name,
-                size,
-                price_id: price.id,
-                // parent_check: true
+    // gotoCart = () => {
+    //     const { appendPath, history, activeDetail, items } = this.props
+    //     const { quantity } = this.state
+    //     appendPath('form_actions', `details.${[activeDetail]}`, { add: true, quantity })
+    //     map(items, d => {
+    //         let price = applyFilters({ path: `items__prices.data.${d.item}` })
+    //         const info = getInfo(d, 'item')
+    //         const { name, size } = info
+    //         const id = uuid()
+    //         // if(alter.has_alter)
+    //         const values = {
+    //             id,
+    //             ...d,
+    //             price: price.price,
+    //             parent: activeDetail,
+    //             name,
+    //             size,
+    //             price_id: price.id,
+    //             // parent_check: true
 
-            }
-            appendPath('form_actions', `details.${[id]}`, { ...values })
+    //         }
+    //         appendPath('form_actions', `details.${[id]}`, { ...values })
 
-        })
+    //     })
 
-        history.push('/cart')
-    }
+    //     history.push('/cart')
+    // }
     render() {
         const { activePrice, goBack, item } = this.props
         return (
@@ -89,7 +89,7 @@ class Footer extends Component {
                 <div className={classes.btnCont}>
                     <button onClick={() => this.props.history.goBack()}>Back</button>
                     {/* <button type='submit' disabled={isEmpty(activePrice)}>Next - Extras</button> */}
-                    <button disabled={isEmpty(activePrice)} onClick={this.gotoCart}>Add to Cart</button>
+                    <button disabled={isEmpty(activePrice)} onClick={()=>this.props.history.push('/ssb-items')}>Next</button>
                 </div>
             </div>
         )
