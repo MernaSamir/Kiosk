@@ -66,10 +66,11 @@ class Combo extends Component {
         this.setState({
             ssb_item: active 
         })
+        this.next(active)
     }
-    next = () => {
+    next = (ssb_item) => {
         const { history, setMain, appendPath, activeDetail, activePrice, ssb_group } = this.props
-        const { ssb_item, active } = this.state
+        const { active } = this.state
         const { quantity, size, name, price_variance, details, subgroup } = ssb_item
         const items_in_group = filter(details, m => m.group == ssb_group.id)
         const groups =map( applyFilters({
@@ -126,7 +127,7 @@ class Combo extends Component {
         }
     }
     render() {
-        const { ssb_group } = this.props
+        const { ssb_group, ssb_item } = this.props
 
         this.list = this.getList()
         return (
@@ -144,7 +145,7 @@ class Combo extends Component {
 
                 <div className={classes.btnContainer}>
                     <button className={classes.back} onClick={() => this.props.history.goBack()}> Back</button>
-                    <button type='button' className={classes.next} onClick={this.next}>Next - Extras</button>
+                    <button type='button' className={classes.next} onClick={this.next.bind(this, ssb_item)}>Next - Extras</button>
 
 
                 </div>
