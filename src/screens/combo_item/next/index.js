@@ -59,28 +59,12 @@ class Combo extends Component {
         this.setState({
             alter: active
         })
+        this.next(active)
     }
-    // getInfo = (l, selector) => {
 
-    //     const item = applyFilters({
-    //         key: 'chain',
-    //         selectors: {
-    //             'items__prices': selector,
-    //             'items__sales_items': 'sales_item'
-    //         },
-    //     }, l)
-    //     const size = applyFilters({
-    //         key: 'chain',
-    //         selectors: {
-    //             'items__prices': selector,
-    //             'dropdowns__units_of_measure': 'sales_unit'
-    //         },
-    //     }, l)
-    //     return { name: item.name, size: size.name }
-    // }
-    next = () => {
+    next = (alter) => {
         const { history, setMain, appendPath, activeDetail , activePrice, setAll} = this.props
-        const {alter}= this.state
+        // const {alter}= this.state
         const {quantity, size,name, price_variance, }= alter
 
         let price = applyFilters({path:`items__prices.data.${get(alter,'item',alter.alter_item)}`})
@@ -125,7 +109,7 @@ class Combo extends Component {
 
                 <div className={classes.btnContainer}>
                     <button className={classes.back} onClick={() => this.props.history.goBack()}> Back</button>
-                    <button type='button' className={classes.next} onClick={this.next}>Next - Extras</button>
+                    {/* <button type='button' className={classes.next} onClick={this.next}>Next - Extras</button> */}
 
 
                 </div>

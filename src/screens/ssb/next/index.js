@@ -145,7 +145,7 @@ class Combo extends Component {
 
                 <div className={classes.btnContainer}>
                     <button className={classes.back} onClick={() => this.props.history.goBack()}> Back</button>
-                    <button type='button' className={classes.next} onClick={this.next.bind(this, ssb_item)}>Next - Extras</button>
+                    {/* <button type='button' className={classes.next} onClick={this.next.bind(this, ssb_item)}>Next - Extras</button> */}
 
 
                 </div>
