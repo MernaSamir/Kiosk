@@ -36,10 +36,10 @@ class Category extends Component {
             return (
                 <button key={v} className={d.id === category ? classes.itemActive : classes.buttonContainer}
                     onClick={() => selectItemC(d)}>
-                    <div className={classes.button}>
+                    <div className={classes.picButton}>
                         {d.photo_path ?<ShowImage src={d.photo_path} /> 
                         :
-                         <img src={Table} className={classes.pic}/>
+                         <div className={classes.emp}/>
                         }
 
                         {/* <img src={Table} className={classes.pic}/> */}

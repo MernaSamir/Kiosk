@@ -43,7 +43,7 @@ class Setting extends Component {
     return ButtonData.map((d, v) => {
       return (
         <button key={v} className={classes.btn} onClick={()=>setMode(d)}>
-          <div className={classes.title}>{d.title}</div>
+          <p className={classes.title}>{d.title}</p>
           <img src={d.icon} className={classes.pic} />
         </button>
       );

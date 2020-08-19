@@ -1,9 +1,8 @@
 import React, { Component, lazy } from 'react'
 import { connect } from 'react-redux'
-import { get, toArray, isEmpty } from 'lodash'
+import { get, toArray } from 'lodash'
 import classes from './style.less'
 import Helpers from 'help_component'
-import { withRouter } from 'react-router-dom';
 
 const NormalItem = lazy(() => import('./normal_item'))
 const ComboItem = lazy(() => import('../../combo_item'))
@@ -24,12 +23,7 @@ class Body extends Component {
     }
 
     render() {
-        const {details, activeDetail, history}= this.props
-        if(isEmpty(details)){
-            history.push('/order')
-
-        }
-        else{
+        const {details, activeDetail}= this.props
         return (
             <div className={classes.container}>
                 <div className={classes.above}>
@@ -41,7 +35,6 @@ class Body extends Component {
                 {this.rendering()}
             </div>
         )
-        }
     }
 }
 const mapStateToProps = (state) => ({
@@ -51,4 +44,4 @@ const mapStateToProps = (state) => ({
 
 })
 
-export default withRouter(connect(mapStateToProps, null)(Body))
+export default connect(mapStateToProps, null)(Body)

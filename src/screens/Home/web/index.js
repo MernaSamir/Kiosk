@@ -7,6 +7,8 @@ import Loading from "helpers/components/loading";
 import classes from './style.less'
 import Table from '../../../assets/images/003-serving-dish@3x.png';
 import HomeWrap from "helpers/wrap/screens_wraps/home"
+import ShowImage from 'components/show/image'
+
 class Home extends Component {
     renderItems = () => {
         const { sub_cat , selectItem} = this.props
@@ -14,7 +16,10 @@ class Home extends Component {
             return (
                 <button key={v} className={classes.buttonContainer} onClick={() => selectItem(d)}>
                     <div className={classes.button}>
-                        <img src={Table} className={classes.pic} />
+                    {d.photo_path ?<ShowImage src={d.photo_path} /> 
+                        :
+                         <div className={classes.emp}/>
+                        }
                     </div>
                     <div className={classes.title}>
                         <p >

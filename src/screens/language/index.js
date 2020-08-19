@@ -18,7 +18,7 @@ class Setting extends Component {
      this.setState({
        active: lang
      })
-     history.push('./welcome')
+     history.push("./setting")
 
      setMain("dropdowns__lang",{active: lang||'EN'})
   }

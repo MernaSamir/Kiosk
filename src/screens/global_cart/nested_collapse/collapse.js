@@ -52,11 +52,8 @@ class Content extends Component {
 
   // }
   deleteCart = (d) => {
-    // const modifiers = filter(details, v => v.parent == d.id)
-    const { cart, history, setMain, details, setAll, appendPath } = this.props
+    const { cart, history, setMain, details, setAll, activeDetail,  } = this.props
     setAll([
-      // { type: 'set_main', app: 'popup', data: { popup: {} } },
-      // { type: 'set_main', app: 'form_actions', data: { details: { [d.id]: {} } } },
       {
         type: 'set_main', app: 'form_actions', data: {
           details:
@@ -64,14 +61,11 @@ class Content extends Component {
         }
       },
       { type: 'set_main', app: 'form_actions', data: { CartStatus: false } }
-    ])
-console.log(details,"ppppp")
-    if(isEmpty(details)){ 
-      console.log("d5ltttt hna")
-       history.push('/order')
+    ])    
+    if(activeDetail.id ==d.id){
+
+      history.push('/order')
     }
-
-
   }
   handelEdit = (d) => {
     const { history, details, setAll } = this.props

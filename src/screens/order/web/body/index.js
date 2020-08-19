@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import mapDispatchToProps from "helpers/actions/main";
-import { get, min, map , isNull } from "lodash";
+import { get, min, map, isNull } from "lodash";
 import applyFilters from "helpers/functions/filters";
 import Table from "../../../../assets/images/eatIn.png";
 import classes from "./style.less";
@@ -32,11 +32,17 @@ class MainItems extends Component {
     // });
 
     return map(items, (d, v) => {
-      console.log(d,"sssddd")
+      console.log(d, "sssddd")
       return (
         <button className={classes.item} onClick={() => selectItem(d)}>
-          { d.photo_path&& <ShowImage src={d.photo_path} />}
-          <div className={classes.title}>{d.name}</div>
+          <div className={classes.picButton}>
+            {d.photo_path ? <ShowImage src={d.photo_path} />
+              :
+              <div className={classes.emp} />
+            }
+
+            {/* <img src={Table} className={classes.pic}/> */}
+          </div>          <div className={classes.title}>{d.name}</div>
           <div className={classes.price}>from EGP {getPrice(d.id)}</div>
         </button>
       );
