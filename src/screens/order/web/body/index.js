@@ -36,9 +36,9 @@ class MainItems extends Component {
       return (
         <button className={classes.item} onClick={() => selectItem(d)}>
           <div className={classes.picButton}>
-            {d.photo_path ? <ShowImage src={d.photo_path} />
-              :
-              <div className={classes.emp} />
+            {d.photo_path && <ShowImage src={d.photo_path} />
+              // :
+              // <div className={classes.emp} />
             }
 
             {/* <img src={Table} className={classes.pic}/> */}
