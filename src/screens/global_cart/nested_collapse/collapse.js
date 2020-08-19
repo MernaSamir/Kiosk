@@ -2,7 +2,7 @@
 import React, { Component } from 'react'
 import { withRouter } from 'react-router-dom';
 import Sub from './sub'
-import { map, get, isEmpty, filter, omit } from 'lodash'
+import { map, get, isEmpty, filter, omit , omitBy} from 'lodash'
 import { withTranslation } from 'react-i18next'
 import { Collapse } from 'antd';
 import classes from './menu_style.less'
@@ -27,29 +27,59 @@ class Content extends Component {
       childProps: {
         Title: '',
         first_msg: `Are you sure you want to delete ${d.quantity} x ${d.name}`,
-        pressYes:type=='item'?  this.deleteCart(d):this.deletemodifer(d)
+        pressYes:type=='item'? this.deleteCart.bind(this,d):this.deletemodifer.bind(this,d)
     }
     }
     setMain('popup', { popup })
   }
+  // deleteCart = (d) => {
+  //   const modifiers = filter(details, v => v.parent == d.id)
+  //   const { cart, history, setMain, details, setAll, appendPath } = this.props
+  //   setAll([
+  //     { type: 'set_main', app: 'popup', data: { popup: {} } },
+  //     { type: 'set_main', app: 'form_actions', data: { details: { [d.id]: {} } } },
+  //     {
+  //       type: 'set_main', app: 'form_actions', data: {
+  //         details:
+  //           map(details, n => { n.parent ? [n.id] : {} })
+  //       }
+  //     },
+  //     { type: 'set_main', app: 'form_actions', data: { CartStatus: false } }
+  //   ])
+
+  //   isEmpty(details)&& history.push('/order')
+
+
+  // }
   deleteCart = (d) => {
-    const modifiers = filter(details, v => v.parent == d.id)
+    // const modifiers = filter(details, v => v.parent == d.id)
     const { cart, history, setMain, details, setAll, appendPath } = this.props
     setAll([
-      { type: 'set_main', app: 'popup', data: { popup: {} } },
-      { type: 'set_main', app: 'form_actions', data: { details: { [d.id]: {} } } },
+      // { type: 'set_main', app: 'popup', data: { popup: {} } },
+      // { type: 'set_main', app: 'form_actions', data: { details: { [d.id]: {} } } },
       {
         type: 'set_main', app: 'form_actions', data: {
           details:
-            map(details, n => { n.parent ? [n.id] : {} })
+            omitBy(details, n => { return get(n,'parent',n.id) ==d.id })
         }
       },
       { type: 'set_main', app: 'form_actions', data: { CartStatus: false } }
     ])
+console.log(details,"ppppp")
+    if(isEmpty(details)){ 
+      console.log("d5ltttt hna")
+       history.push('/order')
+    }
 
-    isEmpty(details)&& history.push('/order')
 
-
+  }
+  handelEdit = (d) => {
+    const { history, details, setAll } = this.props
+    setAll([
+  
+      { type: 'set_main', app: 'form_actions', data: { CartStatus: false } }
+    ])
+    history.push('/details')
   }
   deletemodifer = (d) => {
     const { setMain, appendPath, details, setAll } = this.props
@@ -59,7 +89,7 @@ class Content extends Component {
       { type: 'set_main', app: 'form_actions', data: { CartStatus: false } }
 
     ])
-    appendPath("form_actions", `details.${[d.id]}`, {});
+    // appendPath("form_actions", `details.${[d.id]}`, {});
     this.setState({show: { ...this.state.show, [d]: false }})
   }
   handeltest(v) {
@@ -75,20 +105,7 @@ class Content extends Component {
       // this.setState({ show: true })
     }
   }
-  handelEdit = (d) => {
-    const { history, details, setAll } = this.props
-    setAll([
-      { type: 'set_main', app: 'form_actions', data: { details: { [d.id]: {} } } },
-      {
-        type: 'set_main', app: 'form_actions', data: {
-          details:
-            map(details, n => { n.parent ? [n.id] : {} })
-        }
-      },
-      { type: 'set_main', app: 'form_actions', data: { CartStatus: false } }
-    ])
-    history.push('/details')
-  }
+
   submenuListLoop = () => {
     const { details, data_filter,cart } = this.props
     return <div className={classes.allcon}>
@@ -138,7 +155,7 @@ class Content extends Component {
               <div className={classes.modfcont}>
                 <div className={classes.flex}>
                   <div className={classes.modfir}>
-                    <button className={classes.cancel} onClick={this.handelDelete.bind(this, d,'mod')}>x</button>
+                    <button type="button"className={classes.cancel} onClick={this.handelDelete.bind(this, d,'mod')}>x</button>
                    {!get(d,"parent",false)&& <button className={classes.cancel} onClick={() => this.handelEdit(d)}>
                     <img src={Edit} className={classes.editImg} />
                   </button>}
@@ -155,7 +172,7 @@ class Content extends Component {
               <div className={classes.modfcont}>
                 <div className={classes.flex}>
                   <div className={classes.modfir}>
-                    {<button className={classes.cancel} onClick={this.handelDelete.bind(this, d,'mod')}>x</button>}
+                    {<button type="button" className={classes.cancel} onClick={this.handelDelete.bind(this, d,'mod')}>x</button>}
                     {<p style={{ marginRight: "1%" }}>NO</p>}
 
                     <p>{d.name}</p>

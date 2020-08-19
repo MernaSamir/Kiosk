@@ -35,7 +35,7 @@ class Home extends Component {
                 : <div className={classes.Container}>
                     {/* {console.log(refundedItems)} */}
                     <p className={classes.Text}> Welcome To {chain.name}</p>
-                    <p className={classes.Text}>  klam gai mn database lama yt7at fel database yb2a y7lha rabna </p>
+                    {/* <p className={classes.Text}>  klam gai mn database lama yt7at fel database yb2a y7lha rabna </p> */}
                     <div className={classes.btnContainer}>
                         {this.renderItems()}
                     </div>

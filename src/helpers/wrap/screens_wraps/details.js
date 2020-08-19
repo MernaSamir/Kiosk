@@ -105,7 +105,7 @@ export default (Component, props = {}) => {
             else {
                 return {
                     quantity: 1,
-                    id: uuid(),
+                    id:activeDetail? activeDetail.id: uuid(),
                     item_type: item._type,
                     name: item.name,
                     size: size ? size.name : '',

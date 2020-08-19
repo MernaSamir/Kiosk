@@ -2,7 +2,7 @@
 import React, { Component } from 'react'
 import { withRouter } from 'react-router-dom';
 import Sub from './sub'
-import { map, get, isEmpty, filter, omit } from 'lodash'
+import { map, get, isEmpty, filter, omit, pickBy, omitBy } from 'lodash'
 import { withTranslation } from 'react-i18next'
 import { Collapse } from 'antd';
 import classes from '../style.less'
@@ -33,15 +33,15 @@ class Content extends Component {
     setMain('popup', { popup })
   }
   deleteCart = (d) => {
-    const modifiers = filter(details, v => v.parent == d.id)
+    // const modifiers = filter(details, v => v.parent == d.id)
     const { cart, history, setMain, details, setAll, appendPath } = this.props
     setAll([
-      { type: 'set_main', app: 'popup', data: { popup: {} } },
-      { type: 'set_main', app: 'form_actions', data: { details: { [d.id]: {} } } },
+      // { type: 'set_main', app: 'popup', data: { popup: {} } },
+      // { type: 'set_main', app: 'form_actions', data: { details: { [d.id]: {} } } },
       {
         type: 'set_main', app: 'form_actions', data: {
           details:
-            map(details, n => { n.parent ? [n.id] : {} })
+            omitBy(details, n =>{return  get(n,'parent',n.id) ==d.id })
         }
       },
       { type: 'set_main', app: 'form_actions', data: { CartStatus: false } }
@@ -54,30 +54,17 @@ class Content extends Component {
   handelEdit = (d) => {
     const { history, details, setAll } = this.props
     setAll([
-      { type: 'set_main', app: 'form_actions', data: { details: { [d.id]: {} } } },
-      {
-        type: 'set_main', app: 'form_actions', data: {
-          details:
-            map(details, n => { n.parent ? [n.id] : {} })
-        }
-      },
+      // { type: 'set_main', app: 'form_actions', data: { details: { [d.id]: {} } } },
+      // {
+      //   type: 'set_main', app: 'form_actions', data: {
+      //     details:
+      //       map(details, n => { n.parent ? [n.id] : {} })
+      //   }
+      // },
       { type: 'set_main', app: 'form_actions', data: { CartStatus: false } }
     ])
     history.push('/details')
   }
-  // DeleteMod(d) {
-  //   const { setMain } = this.props
-  //   const popup = {
-  //     type: 'CancelCustomer', visable: true, width: "50%",
-  //     childProps: {
-  //       Title: '',
-  //       first_msg: `Are you sure you want to delete ${d.quantity} x ${d.name}`,
-  //       pressYes: () => this.deletemodifer(d)
-  //     }
-  //   }
-  //   setMain('popup', { popup })
-  // }
-
   deletemodifer = (d) => {
     const { setMain, appendPath, details, setAll } = this.props
     setAll([
@@ -86,7 +73,7 @@ class Content extends Component {
       { type: 'set_main', app: 'form_actions', data: { CartStatus: false } }
 
     ])
-    appendPath("form_actions", `details.${[d.id]}`, {});
+    // appendPath("form_actions", `details.${[d.id]}`, {});
     this.setState({ show: { ...this.state.show, [d]: false } })
   }
   handeltest(v) {

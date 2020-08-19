@@ -20,19 +20,33 @@ class ModifierQtn extends Component {
     }
     handelClick = (action, max) => {
         const { setMain, cart } = this.props;
+        const {qtn}= this.state
         console.log(cart)
 
         if (action === "-") {
           this.setState({
-              qtn:this.state.qtn-1   
+              qtn:qtn-1   
           })
             // setMain("cart", { item: { ...cart, item: { ...cart.item, base_qtn: cart.item.base_qtn - 1 } } })
 
         }
         else {
+            if(max==qtn){
+                setMain('popup',
+                {
+                    popup: { type: 'ModifiersAlert', visable: true, width: '40%', border: '1.5px solid #d73f7c',
+                
+                    childProps: {
+                        only:true
+                    }
+                }
+                })
+            }
+            else{
             this.setState({
-                qtn:this.state.qtn+1    
+                qtn:qtn+1    
             })
+        }
             // setMain("cart", { item: { ...cart, item: { ...cart.item, base_qtn: cart.item.base_qtn + 1 } } })
         }
     }

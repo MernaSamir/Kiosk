@@ -102,7 +102,7 @@ class Content extends Component {
     const { details } = this.props;
     let sum_all = 0
     map(details, (d) => {
-      // console.log(p( sum_all + (d.quantity * d.price)),"hhhhhytyutyu")
+      console.log(details,"hhhhhytyutyu")
       if (!d.removal)
         sum_all += (parseInt(d.quantity) * parseInt(d.price))
     })

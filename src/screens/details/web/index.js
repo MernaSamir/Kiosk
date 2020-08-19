@@ -11,6 +11,8 @@ import Render from 'helpers/functions/field_mapper/renderfields'
 import Form from 'helpers/wrap/form.js'
 import Footer from './footer'
 import Cart from 'screens/global_cart'
+import ShowImage from 'components/show/image'
+
 class Details extends Component {
 
 
@@ -74,10 +76,9 @@ console.log(priceList,"plis")
           {/* <div className={classes.stContainer}> */}
           <p className={classes.title}>{item.name}</p>
           <div className={classes.picDes}>
-            <img src={Table} className={classes.image} />
-            <p className={classes.description}>
-              Item description from data base
-          </p>
+          {item.photo_path&&<ShowImage src={item.photo_path} />}
+
+            <p className={classes.description}>{item.desc} </p>
           </div>
           <div className={classes.sizeDoneCont}>
             <div className={classes.sizeContainer}>

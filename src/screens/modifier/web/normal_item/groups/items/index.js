@@ -33,7 +33,7 @@ class Items extends Component {
         const { detail, appendPath, modifierItems, group, onClick, setMain, cart } = this.props;
         const modifier_items = get(modifierItems, d.modifier_items, {})
         const free = ((group.max_point == 0) || (modifier_items.free_point <= (group.max_point - group.max_ordered_points)));
-
+console.log(group,"grrrrrr")
         if (group.add && free) {
             this.setState({
                 active: d.id
@@ -48,7 +48,7 @@ class Items extends Component {
             const popup = {
                 type: 'ModifQuantity', visable: true, width: "50%",
                 childProps: {
-                    max: this.props.group,
+                    max: group._max,
                     Title: '',
                     first_msg: `${data.name}`,
                     pressYes: this.addToOrder,
