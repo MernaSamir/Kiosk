@@ -75,21 +75,6 @@ class SelectOne extends InputComponent {
             })
             return size
         }
-        // else if (redux == 'orders__details') {
-        //     const item = applyFilters({
-        //         key: 'chain',
-        //         selectors: {
-        //             items__modifier_items: 'modifier_items',
-        //             items__prices: 'item',
-        //             items__sales_items: 'sales_item',
-        //         }
-        //     }, elment)
-        //     return item
-        // }
-        // else if (redux == 'items__combo_alters') {
-        //     const alter = applyFilters({ path: `items__sales_items.data.${elment.sales_item}` })
-        //     return alter
-        // }
     }
 
     renderBtnName = (elment) => {
@@ -98,56 +83,19 @@ class SelectOne extends InputComponent {
             const size = this.getName(elment)
             return `${size.name} (£${elment.price})`
         }
-        // else if (redux == 'orders__details') {
-        //     const item = this.getName(elment)
-        //     return elment.price > 0 ?
-        //         `${item.name} (+ £${elment.price})`
-        //         : item.name
-        // }
-        // else if (redux == 'items__combo_alters') {
-        //     // const alter = this.getName(elment)
-        //     const selector =  elment.item?'item':'alter_item'
-        //     const alter = applyFilters({
-        //         key:"chain",
-        //         selectors:{
-        //             items__prices: selector,
-        //             items__sales_items: 'sales_item',
-        //         }
-        //     }, elment)
-        //     return `${get(alter, 'name', '')} (£${get(elment, 'price_variance', '')})`
-        // }
+        
         return elment.name
     }
 
     renderClassName = (row) => {
         const { active, single, elment, details, parent = {}, field } = this.props
-
-        // const modItem = applyFilters({
-        //     path: `items__modifier_items.data.${row.modifier_items}`
-        // })
-        // const combo = applyFilters({
-        //     key: 'Find',
-        //     path: get(elment, 'path', ''),
-        //     params: {
-        //         [get(elment, 'priceRec', '')]: row.id
-        //     }
-        // })
-        // const item = applyFilters({
-        //     key: 'chain',
-        //     selectors: {
-        //         items__modifier_items: 'modifier_items',
-        //         items__prices: 'item',
-        //     }
-        // }, row)
         const foundValues = field.value == row.id
         //const found = find(details, d => (d.item == item.id && d.parent == parent.id)) 
         const found = find(field.value, { id:active?active: row.id })
         const values = field.value || []
         // if (active == row.id)
-        if( found || foundValues)
+        if( found || foundValues||active==row.id)
         // || foundInSingle || found || foundValues 
-
-        // ||get(combo, 'id', null) === get(get(elment, 'active', {}), 'id', '')
         {
             return classes.active
         }
@@ -346,7 +294,6 @@ class SelectOne extends InputComponent {
     // }
 
     render() {
-        console.log('iam here in render', this.props.field, active)
         const {field, active} = this.props
         if(!isEmpty(active)&&(!field.value || field.value!=active)) {
             field.onChange({
@@ -367,9 +314,6 @@ class SelectOne extends InputComponent {
 
 const mapStateToProps = (state, props) => ({
     active: get(get(state, props.redux, ''), 'active', ''),
-    // single: get(get(state, props.redux, ''), `${props.elment}`, {})
-    single: get(get(state, props.redux, ''), `single_modifiers_formik`, [])
-
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(SelectOne)

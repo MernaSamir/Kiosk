@@ -27,8 +27,8 @@ class Content extends Component {
       childProps: {
         Title: '',
         first_msg: `Are you sure you want to delete ${d.quantity} x ${d.name}`,
-        pressYes:type=='item'?  () => this.deleteCart(d):this.deletemodifer(d)
-    }
+        pressYes: type == 'item' ? () => this.deleteCart(d) : this.deletemodifer(d)
+      }
     }
     setMain('popup', { popup })
   }
@@ -47,7 +47,7 @@ class Content extends Component {
       { type: 'set_main', app: 'form_actions', data: { CartStatus: false } }
     ])
 
-    isEmpty(details)&& history.push('/order')
+    isEmpty(details) && history.push('/order')
 
 
   }
@@ -87,7 +87,7 @@ class Content extends Component {
 
     ])
     appendPath("form_actions", `details.${[d.id]}`, {});
-    this.setState({show: { ...this.state.show, [d]: false }})
+    this.setState({ show: { ...this.state.show, [d]: false } })
   }
   handeltest(v) {
     const { test, show } = this.state
@@ -103,7 +103,7 @@ class Content extends Component {
     }
   }
   submenuListLoop = () => {
-    const { details, data_filter,cart } = this.props
+    const { details, data_filter, cart } = this.props
     return <div className={classes.allcon}>
       {map(filter(details, d => d.parent == data_filter), (d, index) => {
         const modif = filter(details, m => m.parent == d.id)
@@ -126,7 +126,7 @@ class Content extends Component {
                 </div>
                 <p className={classes.et}>{d.price}</p>
                 <p >{(d.quantity * d.price)}</p>
-               {data_filter==null&& <p className={classes.note}
+                {data_filter == null && <p className={classes.note}
                   style={{ visibility: this.state.show[index] ? 'visible' : 'hidden' }}>Each haveing</p>}
                 {this.state.show[index] &&
 
@@ -150,7 +150,10 @@ class Content extends Component {
               <div className={classes.modfcont}>
                 <div className={classes.flex}>
                   <div className={classes.modfir}>
-                    {cart&&<button className={classes.cancel} onClick={this.handelDelete.bind(this, d,'mod')}>x</button>}
+                    {cart && <button className={classes.cancel} onClick={this.handelDelete.bind(this, d, 'mod')}>x</button>}
+                    {!d.parent && <button className={classes.cancel} onClick={() => this.handelEdit(d)}>
+                      <img src={Edit} className={classes.editImg} />
+                    </button>}
                     <p>{d.quantity} x {d.name}</p>
                   </div>
                   <p className={classes.et}>{d.price}</p>
@@ -164,7 +167,7 @@ class Content extends Component {
               <div className={classes.modfcont}>
                 <div className={classes.flex}>
                   <div className={classes.modfir}>
-                    {cart&&<button className={classes.cancel} onClick={this.handelDelete.bind(this, d,'mod')}>x</button>}
+                    {cart && <button className={classes.cancel} onClick={this.handelDelete.bind(this, d, 'mod')}>x</button>}
                     {<p style={{ marginRight: "1%" }}>NO</p>}
 
                     <p>{d.name}</p>

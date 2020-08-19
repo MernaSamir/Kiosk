@@ -27,7 +27,7 @@ class Content extends Component {
       childProps: {
         Title: '',
         first_msg: `Are you sure you want to delete ${d.quantity} x ${d.name}`,
-        pressYes:type=='item'?  () => this.deleteCart(d):this.deletemodifer(d)
+        pressYes:type=='item'?  this.deleteCart(d):this.deletemodifer(d)
     }
     }
     setMain('popup', { popup })
@@ -51,33 +51,6 @@ class Content extends Component {
 
 
   }
-  handelEdit = (d) => {
-    const { history, details, setAll } = this.props
-    setAll([
-      { type: 'set_main', app: 'form_actions', data: { details: { [d.id]: {} } } },
-      {
-        type: 'set_main', app: 'form_actions', data: {
-          details:
-            map(details, n => { n.parent ? [n.id] : {} })
-        }
-      },
-      { type: 'set_main', app: 'form_actions', data: { CartStatus: false } }
-    ])
-    history.push('/details')
-  }
-  // DeleteMod(d) {
-  //   const { setMain } = this.props
-  //   const popup = {
-  //     type: 'CancelCustomer', visable: true, width: "50%",
-  //     childProps: {
-  //       Title: '',
-  //       first_msg: `Are you sure you want to delete ${d.quantity} x ${d.name}`,
-  //       pressYes: () => this.deletemodifer(d)
-  //     }
-  //   }
-  //   setMain('popup', { popup })
-  // }
-
   deletemodifer = (d) => {
     const { setMain, appendPath, details, setAll } = this.props
     setAll([
@@ -101,6 +74,20 @@ class Content extends Component {
       // this.setState({ test: '^' })
       // this.setState({ show: true })
     }
+  }
+  handelEdit = (d) => {
+    const { history, details, setAll } = this.props
+    setAll([
+      { type: 'set_main', app: 'form_actions', data: { details: { [d.id]: {} } } },
+      {
+        type: 'set_main', app: 'form_actions', data: {
+          details:
+            map(details, n => { n.parent ? [n.id] : {} })
+        }
+      },
+      { type: 'set_main', app: 'form_actions', data: { CartStatus: false } }
+    ])
+    history.push('/details')
   }
   submenuListLoop = () => {
     const { details, data_filter,cart } = this.props
@@ -151,7 +138,10 @@ class Content extends Component {
               <div className={classes.modfcont}>
                 <div className={classes.flex}>
                   <div className={classes.modfir}>
-                    {cart&&<button className={classes.cancel} onClick={this.handelDelete.bind(this, d,'mod')}>x</button>}
+                    <button className={classes.cancel} onClick={this.handelDelete.bind(this, d,'mod')}>x</button>
+                   {!get(d,"parent",false)&& <button className={classes.cancel} onClick={() => this.handelEdit(d)}>
+                    <img src={Edit} className={classes.editImg} />
+                  </button>}
                     <p>{d.quantity} x {d.name}</p>
                   </div>
                   <p className={classes.et}>{d.price}</p>
@@ -165,7 +155,7 @@ class Content extends Component {
               <div className={classes.modfcont}>
                 <div className={classes.flex}>
                   <div className={classes.modfir}>
-                    {cart&&<button className={classes.cancel} onClick={this.handelDelete.bind(this, d,'mod')}>x</button>}
+                    {<button className={classes.cancel} onClick={this.handelDelete.bind(this, d,'mod')}>x</button>}
                     {<p style={{ marginRight: "1%" }}>NO</p>}
 
                     <p>{d.name}</p>
