@@ -42,8 +42,8 @@ class MainItems extends Component {
             }
 
             {/* <img src={Table} className={classes.pic}/> */}
-          </div>          <div className={classes.title}>{d.name}</div>
-          <div className={classes.price}>from EGP {getPrice(d.id)}</div>
+          </div>          <p className={classes.title}>{d.name}</p>
+          <p className={classes.price}>from EGP {getPrice(d.id)}</p>
         </button>
       );
     });

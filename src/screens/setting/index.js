@@ -41,12 +41,12 @@ class Setting extends Component {
 
   // }
   renderButon = () => {
-    const {setMode}= this.props
+    const {setMode, sub_modes}= this.props
 
-    return ButtonData.map((d, v) => {
+    return sub_modes.map((d, v) => {
       return (
         <button key={v} className={classes.btn} onClick={()=>setMode(d)}>
-          <div className={classes.title}>{d.title}</div>
+          <div className={classes.title}>{d.name}</div>
           <img src={d.icon} className={classes.pic} />
         </button>
       );

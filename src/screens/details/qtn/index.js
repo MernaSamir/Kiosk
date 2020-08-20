@@ -102,7 +102,7 @@ class Quantity extends Component {
           </div>
         </div>
 
-       {!isEmpty(cart.item)&& <div className={classes.note}>Each haveing</div>}
+       {!isEmpty(cart.item)&& <div className={classes.note}>Each having</div>}
 
 
         {!isEmpty(cart.item)&&

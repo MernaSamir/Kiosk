@@ -27,6 +27,12 @@ class GlobalCart extends Component {
   }
 
   checkOut = () => {
+    const {details, appendPath, history}= this.props
+    map(details,detail=>{
+      appendPath('form_actions', `details.${[detail.id]}`, {add:true})
+
+     })
+     history.push('./cart')
   }
   onClose=()=>{
     const { CartStatus, setMain } = this.props

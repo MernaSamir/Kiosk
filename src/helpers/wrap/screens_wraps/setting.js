@@ -13,20 +13,11 @@ export default (Component, props = {}) => {
         };
 
         setMode = (d) => {
-console.log(d,"moooooooooodddddddd")
             const { setMain, history } = this.props
             history.push('/home')
-            const mode = applyFilters({
-                key: 'Find',
-                path: 'settings__mode.data',
-                params: {
-                    name: d.mode
-                }
-            })
-        setMain('form_actions', { 'mode': d.title })
-            if (d.mode) {
-                setMain('settings__mode', { 'active': mode.id })
-            }
+           
+                setMain('form_actions', { 'mode': d.name })
+
         }
         setLanguage = (lang) => {
             const { setMain } = this.props
@@ -37,14 +28,22 @@ console.log(d,"moooooooooodddddddd")
             setMain("dropdowns__lang", { active: lang || 'EN' })
         }
         render() {
-
-            const { lang } = this.props
+            const { lang, mode } = this.props
+            console.log(mode,"mmmmmmmmmm")
+            const sub_modes = applyFilters({
+                key: 'Filter',
+                path: 'settings__sub_mode',
+                params: {
+                    mode
+                }
+            })
 
             return <Component
                 handelstart={this.handelstart}
                 setMode={this.setMode}
                 setLanguage={this.setLanguage}
                 lang={lang}
+                sub_modes={sub_modes}
 
 
             />
@@ -52,6 +51,7 @@ console.log(d,"moooooooooodddddddd")
     }
     const mapStateToProps = (state, props) => ({
         lang: state.dropdowns__lang.active,
+        mode:state.settings__mode.active,
 
     })
     return connect(mapStateToProps, mapDispatchToProps)(SettingWrap);

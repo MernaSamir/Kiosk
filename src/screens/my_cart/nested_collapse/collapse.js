@@ -114,7 +114,7 @@ class Content extends Component {
                 <p className={classes.et}>{d.price}</p>
                 <p >{(d.quantity * d.price)}</p>
                 {data_filter == null && <p className={classes.note}
-                  style={{ visibility: this.state.show[index] ? 'visible' : 'hidden' }}>Each haveing</p>}
+                  style={{ visibility: this.state.show[index] ? 'visible' : 'hidden' }}>Each having</p>}
                 {this.state.show[index] &&
 
                   <Sub index={1}
@@ -133,11 +133,12 @@ class Content extends Component {
         }
         else {
           if (!d.removal) {
+            let classN = d.parent ? classes.modfcont: classes.itemTo
             return (
-              <div className={classes.modfcont}>
+              <div className={classN}>
                 <div className={classes.flex}>
                   <div className={classes.modfir}>
-                    {cart && <button className={classes.cancel} onClick={this.handelDelete.bind(this, d, 'mod')}>x</button>}
+                     <button className={classes.cancel} onClick={this.handelDelete.bind(this, d, 'mod')}>x</button>
                     {!d.parent && <button className={classes.cancel} onClick={() => this.handelEdit(d)}>
                       <img src={Edit} className={classes.editImg} />
                     </button>}
@@ -154,7 +155,7 @@ class Content extends Component {
               <div className={classes.modfcont}>
                 <div className={classes.flex}>
                   <div className={classes.modfir}>
-                    {cart && <button className={classes.cancel} onClick={this.handelDelete.bind(this, d, 'mod')}>x</button>}
+                   <button className={classes.cancel} onClick={this.handelDelete.bind(this, d, 'mod')}>x</button>
                     {<p style={{ marginRight: "1%" }}>NO</p>}
 
                     <p>{d.name}</p>

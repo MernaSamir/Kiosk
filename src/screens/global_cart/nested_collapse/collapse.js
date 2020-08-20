@@ -126,7 +126,7 @@ class Content extends Component {
                 <p className={classes.et}>{d.price}</p>
                 <p >{(d.quantity * d.price)}</p>
                {data_filter==null&& <p className={classes.note}
-                  style={{ visibility: this.state.show[index] ? 'visible' : 'hidden' }}>Each haveing</p>}
+                  style={{ visibility: this.state.show[index] ? 'visible' : 'hidden' }}>Each having</p>}
                 {this.state.show[index] &&
 
                   <Sub index={1}

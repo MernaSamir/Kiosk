@@ -35,69 +35,6 @@ class Content extends Component {
     }
     return false;
   }
-  // handelDelete(d) {
-  //   console.log("hnaaaaaaa", "ddddddddd")
-  //   const { setMain } = this.props
-  //   const popup = {
-  //     type: 'CancelCustomer', visable: true, width: "50%",
-  //     childProps: {
-  //       Title: '',
-  //       first_msg: `Are you sure you want to delete ${d.quantity} x ${d.item_name}`,
-  //       pressYes: () => this.deleteCart(d)
-  //     }
-  //   }
-  //   setMain('popup', { popup })
-  // }
-  // deleteCart = (d) => {
-  //   const modifiers = filter(details, v => v.parent == d.id)
-  //   const { cart, history, setMain, details, setAll, appendPath } = this.props
-  //   setAll([
-  //     { type: 'set_main', app: 'popup', data: { popup: {} } },
-  //     { type: 'set_main', app: 'form_actions', data: { details: { [d.id]: {} } } },
-  //     {
-  //       type: 'set_main', app: 'form_actions', data: {
-  //         details:
-  //           map(details, n => { n.parent ? [n.id] : {} })
-  //       }
-  //     },
-  //     { type: 'set_main', app: 'form_actions', data: { CartStatus: false } }
-  //   ])
-
-  //   // history.push('/order')
-
-  // }
-  // handelEdit = (d) => {
-  //   const { history, details, setAll } = this.props
-  //   setAll([
-  //     { type: 'set_main', app: 'form_actions', data: { details: { [d.id]: {} } } },
-  //     {
-  //       type: 'set_main', app: 'form_actions', data: {
-  //         details:
-  //           map(details, n => { n.parent ? [n.id] : {} })
-  //       }
-  //     },
-  //     { type: 'set_main', app: 'form_actions', data: { CartStatus: false } }
-  //   ])
-  //   history.push('/details')
-  // }
-  // handeltest(v) {
-  //   console.log(this.state, "stttt")
-  //   const { test, show } = this.state
-
-  //   if (show[v]) {
-  //     console.log(this.state, "stttt")
-
-  //     this.setState({ test: { ...this.state.test, [v]: 'v' }, show: { ...this.state.show, [v]: false } })
-  //     console.log(this.state, "sthhhttt")
-
-  //   }
-  //   else {
-  //     this.setState({ test: { ...this.state.test, [v]: '^' }, show: { ...this.state.show, [v]: true } })
-
-  //     // this.setState({ test: '^' })
-  //     // this.setState({ show: true })
-  //   }
-  // }
   getItemTotal() {
     const { details } = this.props;
     let sum_all = 0
@@ -117,7 +54,7 @@ class Content extends Component {
   goToCart = () => {
     const { history, appendPath, activeDetail, details } = this.props
     const { qtn } = this.state
-    history.push('/cart')
+    history.push('/order')
     appendPath('form_actions', `details.${[activeDetail.id]}`, { quantity: qtn ,add:true})
      map(filter(details,d=>d.parent==activeDetail.id),detail=>{
       appendPath('form_actions', `details.${[detail.id]}`, {add:true})
@@ -151,7 +88,7 @@ class Content extends Component {
             className={classes.minus}
             onClick={() => this.handelClick("-")}
           >-</button>
-          <div className={classes.qantity}>{qtn}</div>
+          <div className={classes.qantity}>{ activeDetail.quantity}</div>
           <button
             className={classes.plus}
             onClick={() => this.handelClick("+")}

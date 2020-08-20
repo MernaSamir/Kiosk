@@ -39,12 +39,12 @@ class Setting extends Component {
   //    setMain("dropdowns__lang",{active: lang||'EN'})
   // }
   renderButon = () => {
-    const {setMode}= this.props
-    return ButtonData.map((d, v) => {
+    const {setMode, sub_modes}= this.props
+    return sub_modes.map((d, v) => {
       return (
         <button key={v} className={classes.btn} onClick={()=>setMode(d)}>
-          <p className={classes.title}>{d.title}</p>
-          <img src={d.icon} className={classes.pic} />
+          <p className={classes.title}>{d.name}</p>
+          <img src={ButtonData[v].icon} className={classes.pic} />
         </button>
       );
     });

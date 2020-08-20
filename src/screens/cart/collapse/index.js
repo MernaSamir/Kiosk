@@ -51,7 +51,7 @@ class Collapsee extends Component {
   rendermodifiers =(d)=>{
     return (
       <div className ={classes.contanier}>
-      <div className={classes.note}>Each haveing</div>
+      <div className={classes.note}>Each having</div>
        <div className={classes.flex} style={{marginLeft:'3%'}}>
        <p className={classes.itemInfo}>
        {d.item.base_qtn} x {d.item.name}
