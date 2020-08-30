@@ -50,7 +50,9 @@ const MyCart = loadable(() => import("screens/my_cart/cart"), {
 const Payment = loadable(() => import("screens/PaymentLocation/web"), {
   fallback: <Loading />,
 });
-
+const BeforeLogin = loadable(() => import("screens/before_login"), {
+  fallback: <Loading />,
+});
 const Final = loadable(() => import("screens/final"), {
   fallback: <Loading />,
 });
@@ -97,6 +99,7 @@ const Routes = (props) => (
       <Route exact path="/quantity" component={Quantity} />
       <Route exact path="/cart" component={MyCart} />
       <Route exact path="/payment" component={Payment} />
+      <Route exact path="/before" component={BeforeLogin} />
 
 
       {/* <Route exact path="/cart" component={Cart} /> */}

@@ -27,24 +27,51 @@ class Items extends Component {
         setMain('form_actions', { details: { ...formValues, [detail.id]: detail } })
 
     }
+    addItToOrder = (d, mod_name) => {
+        const { active_parent , appendPath, setMain, formValues} = this.props
+        const id = uuid()
+        const values = {
+            id,
+            quantity: 1,
+            price: d.price,
+            parent: active_parent,
+            name:mod_name
+        }
 
+        const detail = { ...values }
+        const old_details = formValues ? { ...formValues } : {}
+        setMain('form_actions', { details: { ...formValues, [detail.id]: detail } })
+        // appendPath('form_actions', `details.${[id]}`, {detail })
+        setMain('popup',
+        {
+            popup: { type: 'ModifiersAlert', visable: true, width: '40%', border: '1.5px solid #d73f7c',
+        
+            childProps: {
+                only:true,
+                msg: 'Modifier added successfully'
+            }
+        }
+        })
+
+
+    }
     addModifier(d, data) {
         console.log(d, "did dsds",)
         const { detail, appendPath, modifierItems, group, onClick, setMain, cart } = this.props;
         const modifier_items = get(modifierItems, d.modifier_items, {})
         const free = ((group.max_point == 0) || (modifier_items.free_point <= (group.max_point - group.max_ordered_points)));
-console.log(group,"grrrrrr")
         if (group.add && free) {
             this.setState({
                 active: d.id
             })
-            if (onClick) {
-                onClick({
-                    item: modifier_items.item,
-                    price: d.price,
-                })
-                return
-            }
+            // if (onClick) {
+            //     onClick({
+            //         item: modifier_items.item,
+            //         price: d.price,
+            //     })
+            //     return
+            // }
+            if(group._max!=1){
             const popup = {
                 type: 'ModifQuantity', visable: true, width: "50%",
                 childProps: {
@@ -58,6 +85,10 @@ console.log(group,"grrrrrr")
                 }
             }
             setMain('popup', { popup })
+       }
+        else{
+            this.addItToOrder(d, data.name)
+        }
 
         }
         else {

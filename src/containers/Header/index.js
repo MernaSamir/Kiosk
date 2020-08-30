@@ -2,6 +2,9 @@ import React, { Component } from 'react'
 import classes from './style.less'
 import Logo from './logo'
 import Busniss_day from "./buttons/Business_day_shift"
+import userLogo from 'assets/images/minlogo.png'
+
+
 class Header extends Component {
 
  
@@ -17,6 +20,7 @@ class Header extends Component {
           <div className={classes.logo}>
           <Logo />
           </div>
+          <userLogo/>
         </div>
       )
     

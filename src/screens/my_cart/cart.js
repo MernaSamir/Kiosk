@@ -84,17 +84,17 @@ class Content extends Component {
     history.push('./payment')
   }
   renderOrders = () => {
-    const { history, activeDetail } = this.props;
+    const { history, activeDetail , mode} = this.props;
     return (
       <div className={classes.allcon}>
         <div className={classes.above}>
           {/* <button onClick={history.goBack.bind(this)}>
             <FontAwesomeIcon icon="arrow-left" className={classes.icon} />
           </button> */}
-          <p className={classes.header}>{activeDetail.name}-{activeDetail.size}</p>
+          <p className={classes.header}></p>
         </div>
         <div className={classes.itemTo}>
-          <p ></p>
+          <p >{mode}</p>
           <p>Each</p>
           <p>Total</p>
         </div>
@@ -126,7 +126,7 @@ const mapStateToProps = (state) => ({
   data: state.form_actions,
   activeDetail: get(state.form_actions.details, state.form_actions.active),
   station: get(state.licensing__station, 'active'),
-  mode: get(state.settings__mode, 'active'),
+  mode: get(state, 'form_actions.mode', {}),
   location: get(state.licensing__location, 'active'),
   shift: get(state.orders__shifts, "active", undefined),
 

@@ -91,7 +91,6 @@ class Groups extends Component {
     renderItems = () => {
         const { list, active, onClick, detail } = this.props;
         const group = find(list, { id: active });
-            console.log(group,"grouuoppppp", active)
         return <>
             <div className={classes.choose_div}>
             <p className={classes.due}>{`Choose ${group ? group._max : "Items"}`}</p>
