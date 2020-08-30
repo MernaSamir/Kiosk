@@ -7,39 +7,25 @@ import {connect} from 'react-redux';
 import mapDispatchToProps from 'helpers/actions/main'
 import SettingWrap from "helpers/wrap/screens_wraps/setting"
 
+import Loading from "helpers/components/loading";
 
 class Setting extends Component {
-
-  // handelstart = () => {
-  //   const { history } = this.props;
-  //   history.push("/home");
-  // };
-
-  // setMode=(name)=>{
-  //     const {setMain,history}=this.props
-  //     history.push('/home')
-  //     const mode = applyFilters({
-  //       key: 'Find',
-  //       path: 'settings__mode.data',
-  //       params: {
-  //         name: name
-  //       }
-  //   })
-  //   if(mode){
-        
-  //       setMain('settings__mode',{'active':mode.id})
-  //   }
-  // }
-  // setLanguage=(lang)=>{
-  //   const {setMain}= this.props
-  //    this.setState({
-  //      active: lang
-  //    })
-
-  //    setMain("dropdowns__lang",{active: lang||'EN'})
-  // }
+  constructor(props) {
+    super(props);
+    console.log(props.mode,"mooooooooo")
+     this.sub_modes = applyFilters({
+      key: 'Filter',
+      path: 'settings__sub_mode',
+      params: {
+          mode:props.mode
+      }
+  })
+  console.log(this.sub_modes)
+}
   renderButon = () => {
-    const {setMode, sub_modes}= this.props
+    const {setMode,mode, sub_modes}= this.props
+
+
     return sub_modes.map((d, v) => {
       return (
         <button key={v} className={classes.btn} onClick={()=>setMode(d)}>
@@ -51,14 +37,13 @@ class Setting extends Component {
   };
 
   render() {
-    const { renderButon}= this.props
-
-
+    const { mode}= this.props
     return (
-        <div className={classes.flexContainer}>
+    mode?   <div className={classes.flexContainer}>
           <p>Select Service Type</p>
           <div className={classes.flexbox}>{this.renderButon()}</div>
-        </div>
+        </div>: <Loading />
+
     )
   }
 }

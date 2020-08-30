@@ -37,6 +37,7 @@ export default (Component, props = {}) => {
                     mode
                 }
             })
+            console.log(sub_modes,"subbbbbbbb")
 
             return <Component
                 handelstart={this.handelstart}
@@ -44,6 +45,7 @@ export default (Component, props = {}) => {
                 setLanguage={this.setLanguage}
                 lang={lang}
                 sub_modes={sub_modes}
+                mode={mode}
 
 
             />
