@@ -27,7 +27,7 @@ class Content extends Component {
       childProps: {
         Title: '',
         first_msg: `Are you sure you want to delete ${d.quantity} x ${d.name}`,
-        pressYes: type == 'item' ? () => this.deleteCart(d) : this.deletemodifer(d)
+        pressYes: type == 'item' ? () => this.deleteCart(d) :()=> this.deletemodifer(d)
       }
     }
     setMain('popup', { popup })
@@ -68,9 +68,10 @@ class Content extends Component {
   deletemodifer = (d) => {
     const { setMain, appendPath, details, setAll } = this.props
     setAll([
-      { type: 'set_main', app: 'popup', data: { popup: {} } },
       { type: 'set_main', app: 'form_actions', data: { details: omit(details, d.id) } },
-      { type: 'set_main', app: 'form_actions', data: { CartStatus: false } }
+      { type: 'set_main', app: 'form_actions', data: { CartStatus: false } },
+      // { type: 'set_main', app: 'popup', data: { popup: {} } },
+
 
     ])
     // appendPath("form_actions", `details.${[d.id]}`, {});
@@ -106,7 +107,7 @@ class Content extends Component {
                   <button type='button' className={classes.miniBtn} onClick={this.handelDelete.bind(this, d, 'item')}>X</button>
                   {/* <Collapse>
               <Panel header={d.name} className={classes.customPanelStyle} > */}
-                  <button type='button' className={classes.qtn}>{d.quantity}</button>
+                  <p style={{margin:' 0 1%'}}>{d.quantity}</p>
                   <p>{d.name} - {d.size}</p>
                   <button type='button' onClick={this.handeltest.bind(this, index)}
                     className={classes.showMore}>{this.state.test[index] || 'v'}</button>
@@ -133,7 +134,8 @@ class Content extends Component {
         }
         else {
           if (!d.removal) {
-            let classN = d.parent ? classes.modfcont: classes.itemTo
+            let classN = d.parent ? classes.modfcont: classes.single
+            console.log(classN,"nkkkkkkkkkk")
             return (
               <div className={classN}>
                 <div className={classes.flex}>

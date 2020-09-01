@@ -52,7 +52,7 @@ class Content extends Component {
     </div>
   }
   goToCart = () => {
-    const { history, appendPath, activeDetail, details } = this.props
+    const { history, appendPath, activeDetail, details, setMain } = this.props
     const { qtn } = this.state
     history.push('/order')
     appendPath('form_actions', `details.${[activeDetail.id]}`, { quantity: qtn ,add:true})
@@ -60,7 +60,7 @@ class Content extends Component {
       appendPath('form_actions', `details.${[detail.id]}`, {add:true})
 
      })
-
+      setMain('form_actions',{active:''})
 
   }
   renderOrders = () => {
@@ -103,7 +103,7 @@ class Content extends Component {
     );
   }
   render() {
-    const { details } = this.props
+    const { details , history } = this.props
     if (!isEmpty(details)) {
       return (
         <div>
@@ -111,8 +111,10 @@ class Content extends Component {
         </div>
       )
     }
-    else
+    else{
+      history.push('/order')
       return <p>No Details</p>
+    }
   }
 }
 

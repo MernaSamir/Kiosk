@@ -47,11 +47,13 @@
         display: flex;
         margin-top: 3%;       
         margin-right: 4%;
+
          p{
             
             font-size: 1.2rem;
             color: #000000;
             font-weight: bold;
+            margin: 0;
             &:nth-child(1){
                 padding-left: 8%;
                 width: 80%;
@@ -99,6 +101,38 @@
           }    
         }
       }
+      .single{
+       div{
+        display: flex;
+        width: 100%;
+        div{
+            width:80%;
+        }
+        }
+        p{
+            font-size: 1.2rem;
+            color: #000000;
+            margin: 0;
+
+        }
+        .et{ 
+            width: 10%;
+        }
+       button {
+        width: 22.5px;
+        height: 22.5px;
+        border-radius: 5px;
+        background-color: #b7b7b7;
+        box-shadow: 0 0 0;
+        text-align: center;
+        color: white;
+        margin: 0 1%;
+        .editImg {
+            width: 10px;
+            height: 10px;
+        }
+        }
+    }
     .incrementer {
         display: flex;
         flex-direction: row;
@@ -189,7 +223,7 @@
                 margin-right: 7%;
             } 
             &:nth-child(2){
-                width: 42%;
+                      width: 42%;
                 background-color: #306ab2;
             } 
         }

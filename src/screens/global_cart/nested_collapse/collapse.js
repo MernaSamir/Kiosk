@@ -27,7 +27,7 @@ class Content extends Component {
       childProps: {
         Title: '',
         first_msg: `Are you sure you want to delete ${d.quantity} x ${d.name}`,
-        pressYes:type=='item'? this.deleteCart.bind(this,d):this.deletemodifer.bind(this,d)
+        pressYes:type=='item'?()=> this.deleteCart.bind(this,d):()=>this.deletemodifer.bind(this,d)
     }
     }
     setMain('popup', { popup })
@@ -118,7 +118,7 @@ class Content extends Component {
                   <button type='button' className={classes.miniBtn} onClick={this.handelDelete.bind(this, d, 'item')}>X</button>
                   {/* <Collapse>
               <Panel header={d.name} className={classes.customPanelStyle} > */}
-                  <button type='button' className={classes.qtn}>{d.quantity}</button>
+                  <p style={{margin:' 0 1%'}}>{d.quantity}</p>
                   <p className={classes.item}>{d.name} - {d.size}</p>
                   <button type='button' onClick={this.handeltest.bind(this, index)}
                     className={classes.showMore}>{this.state.test[index] || 'v'}</button>
