@@ -30,3 +30,10 @@ export const isDesktop = ()=>{
 export const activeModes = ['pos', 'sma_w']
 
 export const MINIMUM_MS = 60 * 1000;
+export const Items = {
+    'ss': '/home/combo',
+    'cm': '/home/custom_mix',
+    'ssb': 'home/ssb',
+    'ci':'/home/custom_item'
+   
+}
