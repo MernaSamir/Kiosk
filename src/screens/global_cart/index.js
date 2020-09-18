@@ -10,6 +10,40 @@ import Collapse from './nested_collapse/collapse'
 import mapDispatchToProps from 'helpers/actions/main'
 
 class GlobalCart extends Component {
+    getCalculations = () => {
+
+    // const { history, setMain, station, shift, mode, details } = this.props;
+    // const order_id = uuid()
+    // this.handelDetails(order_id)
+    // const sub_mod = applyFilters({
+    //   key: 'Find',
+    //   path: 'settings__sub_mode',
+    //   params: {
+    //     mode: mode
+    //   }
+    // })
+    // const calc = applyFilters({
+    //   key: 'calculateOrderReceipt',
+    //   order: {
+    //     id: order_id,
+    //     station: station,
+    //     shift: shift,
+    //     mode: mode,
+    //     sub_mode: sub_mod.id,
+    //     _type: "loc",
+    //     start_time: new Date(),
+    //   }
+    // }, details)
+    // console.log(calc)
+
+    // setMain('total_order', { data: calc })
+    return <div className={classes.calcu}>
+      <p>{`Sub-total  ${0}`}</p>
+      <p>Service Charges</p>
+      <p>VAT</p>
+      <p>Grand Total {' '}</p>
+    </div>
+  }
     // shouldComponentUpdate(nextProps, nextState) {
     //     const compare = ['CartStatus']
     //     const su = !isEqual(pick(n0extProps, compare), pick(this.props, compare))
@@ -50,14 +84,17 @@ class GlobalCart extends Component {
         <p className={classes.mode} >{t(mode)}</p>
         <FontAwesomeIcon className={classes.icon} icon='shopping-cart' />
         </div>
-        {CartStatus == true &&<button className={classes.icon} type='button' onClick={this.onClose}>X</button>}
+        {CartStatus == true &&<button className={classes.icon} type='button' onClick={this.onClose}>
+        <FontAwesomeIcon icon="times" />
+          </button>}
         </div>
         
         {CartStatus == true ?
           <>
             <Collapse  details={details} />
+            <div className={classes.between}>{this.getCalculations}</div>
             <div className={classes.btnContainer}>
-              <button type='button' >Back</button>
+              <button type='button' >Cancel</button>
               <button type='button' onClick={this.checkOut} >Checkout</button></div>
           </>
           : <></>}

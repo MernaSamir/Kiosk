@@ -97,11 +97,11 @@ export default (Component, props = {}) => {
         }
 
         render() {
+            const { setMain } = this.props;
+            setMain('form_actions', { active: '' })
             const category = applyFilters({ path: "items__base_sales_cat.active" })
-            console.log("caaaaaaaaaats", category)
 
             const items = this.getItems(category)
-            console.log(items, 'ittt')
             const sub_cat = this.getData()
 
             return <Component

@@ -26,7 +26,9 @@ class Content extends Component {
       type: 'CancelCustomer', visable: true, width: "50%",
       childProps: {
         Title: '',
-        first_msg: `Are you sure you want to delete ${d.quantity} x ${d.name}`,
+        first_msg: `Are you sure you want to delete`,
+        second_msg: `${d.quantity} x ${d.name}`,
+
         pressYes: type == 'item' ? () => this.deleteCart(d) :()=> this.deletemodifer(d)
       }
     }
@@ -61,7 +63,9 @@ class Content extends Component {
       //       map(details, n => { n.parent ? [n.id] : {} })
       //   }
       // },
-      { type: 'set_main', app: 'form_actions', data: { CartStatus: false } }
+      { type: 'set_main', app: 'form_actions', data: { CartStatus: false } },
+      { type: 'set_main', app: 'form_actions', data: { active: d.id } },
+      { type: 'set_main', app: 'items__sales_items', data: { active: d.item_id } }
     ])
     history.push('/details')
   }

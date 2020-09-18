@@ -26,7 +26,8 @@ class Content extends Component {
       type: 'CancelCustomer', visable: true, width: "50%",
       childProps: {
         Title: '',
-        first_msg: `Are you sure you want to delete ${d.quantity} x ${d.name}`,
+        first_msg: `Are you sure you want to delete `,
+        second_msg: `${d.quantity} x ${d.name}`,
         pressYes:type=='item'?()=> this.deleteCart.bind(this,d):()=>this.deletemodifer.bind(this,d)
     }
     }
@@ -67,11 +68,27 @@ class Content extends Component {
       history.push('/order')
     }
   }
+  // handelEdit = (d) => {
+  //   const { history, details, setAll } = this.props
+  //   setAll([
+  
+  //     { type: 'set_main', app: 'form_actions', data: { CartStatus: false } }
+  //   ])
+  //   history.push('/details')
+  // }
   handelEdit = (d) => {
     const { history, details, setAll } = this.props
     setAll([
-  
-      { type: 'set_main', app: 'form_actions', data: { CartStatus: false } }
+      // { type: 'set_main', app: 'form_actions', data: { details: { [d.id]: {} } } },
+      // {
+      //   type: 'set_main', app: 'form_actions', data: {
+      //     details:
+      //       map(details, n => { n.parent ? [n.id] : {} })
+      //   }
+      // },
+      { type: 'set_main', app: 'form_actions', data: { CartStatus: false } },
+      { type: 'set_main', app: 'form_actions', data: { active: d.id } },
+      { type: 'set_main', app: 'items__sales_items', data: { active: d.item_id } }
     ])
     history.push('/details')
   }
@@ -145,8 +162,10 @@ class Content extends Component {
         }
         else {
           if (!d.removal) {
+            let classN = d.parent ? classes.modfcont: classes.single
+
             return (
-              <div className={classes.modfcont}>
+              <div className={classN}>
                 <div className={classes.flex}>
                   <div className={classes.modfir}>
                     <button type="button"className={classes.cancel} onClick={this.handelDelete.bind(this, d,'mod')}>x</button>
