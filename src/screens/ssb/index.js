@@ -42,7 +42,7 @@ class Main extends Component {
         // let price = applyFilters({ path: `items__prices.data.${l.item}`})
         let ac= ssb_group ? ssb_group.id :this.list[0].id
           // let ac =!isEmpty(active)?active.id:list[0].id
-          info = getInfo(l, 'item')
+          info = getInfo(l, 'item_size')
         return <button
           className={`${classes.title} ${(ac == l.id) && classes.active}`} type='button' key={key}
           onClick={() => this.gotoSubgroups(l)}>
