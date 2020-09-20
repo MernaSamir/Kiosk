@@ -10,40 +10,40 @@ import applyFilters from 'helpers/functions/filters'
 import uuid from 'uuid/v4'
 
 class Content extends Component {
-  // getCalculations = () => {
+  getCalculations = () => {
 
-  //   const { history, setMain, station, shift, mode, details } = this.props;
-  //   const order_id = uuid()
-  //   this.handelDetails(order_id)
-  //   const sub_mod = applyFilters({
-  //     key: 'Find',
-  //     path: 'settings__sub_mode',
-  //     params: {
-  //       mode: mode
-  //     }
-  //   })
-  //   // const calc = applyFilters({
-  //   //   key: 'calculateOrderReceipt',
-  //   //   order: {
-  //   //     id: order_id,
-  //   //     station: station,
-  //   //     shift: shift,
-  //   //     mode: mode,
-  //   //     sub_mode: sub_mod.id,
-  //   //     _type: "loc",
-  //   //     start_time: new Date(),
-  //   //   }
-  //   // }, details)
-  //   // console.log(calc)
+    const { history, setMain, station, shift, mode, details } = this.props;
+    const order_id = uuid()
+    // this.handelDetails(order_id)
+    const sub_mod = applyFilters({
+      key: 'Find',
+      path: 'settings__sub_mode',
+      params: {
+        mode: mode
+      }
+    })
+    const calc = applyFilters({
+      key: 'calculateOrderReceipt',
+      order: {
+        id: order_id,
+        station: station,
+        shift: shift,
+        mode: mode,
+        sub_mode: sub_mod.id,
+        _type: "loc",
+        start_time: new Date(),
+      }
+    }, details)
+    console.log(calc, 'cccccccccccc')
 
-  //   // setMain('total_order', { data: calc })
-  //   return <div className={classes.calcu}>
-  //     <p>{`Sub-total  ${0}`}</p>
-  //     <p>Service Charges</p>
-  //     <p>VAT</p>
-  //     <p>Grand Total {' '}</p>
-  //   </div>
-  // }
+    setMain('total_order', { data: calc })
+    return <div className={classes.calcu}>
+      <p>{`Sub-total  ${calc.sub_total}`}</p>
+      <p>{`Service Charges ${calc.service}`}</p>
+      <p>{`VAT ${calc.tax}`}</p>
+      <p>{`Grand Total ${calc.total}`}</p>
+    </div>
+  }
   handelDetails = (order) => {
     const { details, appendPath } = this.props;
     map(details, (d, v) => {
@@ -84,7 +84,7 @@ class Content extends Component {
     history.push('./payment')
   }
   renderOrders = () => {
-    const { history, activeDetail , mode} = this.props;
+    const { history, activeDetail , sub_mode} = this.props;
     return (
       <div className={classes.allcon}>
         <div className={classes.above}>
@@ -94,12 +94,12 @@ class Content extends Component {
           <p className={classes.header}></p>
         </div>
         <div className={classes.itemTo}>
-          <p >{mode}</p>
+          <p >{sub_mode}</p>
           <p>Each</p>
           <p>Total</p>
         </div>
         <Nested cart={true} />
-        {/* {this.getCalculations()} */}
+        {this.getCalculations()}
         <div className={classes.btnCont}>
           <button type='button' onClick={history.goBack.bind(this)}>Back</button>
           <button type='button' onClick={this.pay}>Pay</button>
@@ -126,7 +126,10 @@ const mapStateToProps = (state) => ({
   data: state.form_actions,
   activeDetail: get(state.form_actions.details, state.form_actions.active),
   station: get(state.licensing__station, 'active'),
-  mode: get(state, 'form_actions.mode', {}),
+  // mode: get(state, 'form_actions.mode', {}),
+  mode:state.settings__mode.active,
+  sub_mode: get(state, 'form_actions.mode', {}),
+
   location: get(state.licensing__location, 'active'),
   shift: get(state.orders__shifts, "active", undefined),
 

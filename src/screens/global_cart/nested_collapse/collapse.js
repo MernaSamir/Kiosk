@@ -88,7 +88,7 @@ class Content extends Component {
       // },
       { type: 'set_main', app: 'form_actions', data: { CartStatus: false } },
       { type: 'set_main', app: 'form_actions', data: { active: d.id } },
-      { type: 'set_main', app: 'items__sales_items', data: { active: d.item_id } }
+      { type: 'set_main', app: 'items__sales_items', data: { active: d.sales_item_id } }
     ])
     history.push('/details')
   }

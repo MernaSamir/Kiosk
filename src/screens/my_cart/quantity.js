@@ -17,15 +17,21 @@ class Content extends Component {
 
   }
   handelClick = (action) => {
+    const { history, appendPath, activeDetail } = this.props
+ 
     if (action === "-") {
-      this.setState({
-        qtn: this.state.qtn - 1
-      })
+      appendPath('form_actions', `details.${[activeDetail.id]}`, { quantity:  activeDetail.quantity -1})
+
+      // this.setState({
+      //   qtn: this.state.qtn - 1
+      // })
     }
     else {
-      this.setState({
-        qtn: this.state.qtn + 1
-      })
+      appendPath('form_actions', `details.${[activeDetail.id]}`, { quantity:  activeDetail.quantity +1})
+
+      // this.setState({
+      //   qtn: this.state.qtn + 1
+      // })
 
     }
   }
@@ -55,7 +61,7 @@ class Content extends Component {
     const { history, appendPath, activeDetail, details, setMain } = this.props
     const { qtn } = this.state
     history.push('/order')
-    appendPath('form_actions', `details.${[activeDetail.id]}`, { quantity: qtn ,add:true})
+    appendPath('form_actions', `details.${[activeDetail.id]}`, { add:true})
      map(filter(details,d=>d.parent==activeDetail.id),detail=>{
       appendPath('form_actions', `details.${[detail.id]}`, {add:true})
 

@@ -108,11 +108,11 @@ export default (Component, props = {}) => {
                     id:activeDetail? activeDetail.id: uuid(),
                     item_type: item._type,
                     name: item.name,
-                    item_id: item.id,
+                    sales_item_id: item.id,
+                    item:activePrice.id,
                     size: size ? size.name : '',
                     price: activePrice.price,
                     max_quantity:item.max_quantity
-                    // parent_check: true
                 }
             }
         }

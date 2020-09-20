@@ -8,41 +8,42 @@ import { withTranslation } from 'react-i18next'
 import applyFilters from 'helpers/functions/filters';
 import Collapse from './nested_collapse/collapse'
 import mapDispatchToProps from 'helpers/actions/main'
+import uuid from 'uuid/v4'
 
 class GlobalCart extends Component {
-    getCalculations = () => {
+  getCalculations = () => {
 
-    // const { history, setMain, station, shift, mode, details } = this.props;
-    // const order_id = uuid()
+    const { history, setMain, station, shift, mode, details } = this.props;
+    const order_id = uuid()
     // this.handelDetails(order_id)
-    // const sub_mod = applyFilters({
-    //   key: 'Find',
-    //   path: 'settings__sub_mode',
-    //   params: {
-    //     mode: mode
-    //   }
-    // })
-    // const calc = applyFilters({
-    //   key: 'calculateOrderReceipt',
-    //   order: {
-    //     id: order_id,
-    //     station: station,
-    //     shift: shift,
-    //     mode: mode,
-    //     sub_mode: sub_mod.id,
-    //     _type: "loc",
-    //     start_time: new Date(),
-    //   }
-    // }, details)
-    // console.log(calc)
+    const sub_mod = applyFilters({
+      key: 'Find',
+      path: 'settings__sub_mode',
+      params: {
+        mode: mode
+      }
+    })
+    const calc = applyFilters({
+      key: 'calculateOrderReceipt',
+      order: {
+        id: order_id,
+        station: station,
+        shift: shift,
+        mode: mode,
+        sub_mode: sub_mod.id,
+        _type: "loc",
+        start_time: new Date(),
+      }
+    }, details)
+    console.log(calc, 'cccccccccccc')
 
-    // setMain('total_order', { data: calc })
-    return <div className={classes.calcu}>
-      <p>{`Sub-total  ${0}`}</p>
-      <p>Service Charges</p>
-      <p>VAT</p>
-      <p>Grand Total {' '}</p>
-    </div>
+    setMain('total_order', { data: calc })
+    return <>
+      <p>{`Sub-total   ${calc.sub_total}`}</p>
+      <p>{`Service Charges   ${calc.service}`}</p>
+      <p>{`VAT   ${calc.tax}`}</p>
+      <p>{`Grand Total   ${calc.total}`}</p>
+    </>
   }
     // shouldComponentUpdate(nextProps, nextState) {
     //     const compare = ['CartStatus']
@@ -74,14 +75,14 @@ class GlobalCart extends Component {
 
   }
   render() {
-    const { element, t, mode, CartStatus , details, setMain, setAll} = this.props
+    const { element, t, sub_mode, CartStatus , details, setMain, setAll} = this.props
     const collapseStyle = CartStatus == false ? classes.closed : classes.open
 
     return (
       <div className={`${classes.header} ${collapseStyle}`}>
         <div className={classes.above}>
           <div  onClick={this.openCart}>
-        <p className={classes.mode} >{t(mode)}</p>
+        <p className={classes.mode} >{t(sub_mode)}</p>
         <FontAwesomeIcon className={classes.icon} icon='shopping-cart' />
         </div>
         {CartStatus == true &&<button className={classes.icon} type='button' onClick={this.onClose}>
@@ -92,7 +93,7 @@ class GlobalCart extends Component {
         {CartStatus == true ?
           <>
             <Collapse  details={details} />
-            <div className={classes.between}>{this.getCalculations}</div>
+            <div className={classes.between}>{this.getCalculations()}</div>
             <div className={classes.btnContainer}>
               <button type='button' >Cancel</button>
               <button type='button' onClick={this.checkOut} >Checkout</button></div>
@@ -124,7 +125,9 @@ class GlobalCart extends Component {
 
 
 const mapStateToProps = (state) => ({
-  mode: get(state, 'form_actions.mode', {}),
+  sub_mode: get(state, 'form_actions.mode', {}),
+  mode:state.settings__mode.active,
+
   CartStatus: get(state, 'form_actions.CartStatus', false),
   details: get(state.form_actions,'details',{}),
   data : state.form_actions
