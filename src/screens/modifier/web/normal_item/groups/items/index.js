@@ -80,7 +80,7 @@ class Items extends Component {
                     max: group._max,
                     Title: '',
                     first_msg: `${data.name}`,
-                    item_id: data.id,
+                    item_id: d.item,
                     pressYes: this.addToOrder,
                     modifier_item: d,
 
@@ -90,7 +90,7 @@ class Items extends Component {
             setMain('popup', { popup })
        }
         else{
-            this.addItToOrder(d, data.name, data.id)
+            this.addItToOrder(d, data.name, d.item)
         }
 
         }

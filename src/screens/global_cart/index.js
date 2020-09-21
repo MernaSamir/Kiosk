@@ -113,7 +113,7 @@ delete = () => {
             <Collapse  details={details} />
             <div className={classes.between}>{this.getCalculations()}</div>
             <div className={classes.btnContainer}>
-              <button type='button'  onClick={this.cancelOrder}>Cancel</button>
+              <button type='button'  onClick={this.cancelOrder}>Cancel Order</button>
               <button type='button' onClick={this.checkOut} >Checkout</button></div>
           </>
           : <></>}
