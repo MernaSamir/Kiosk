@@ -35,9 +35,9 @@ class GlobalCart extends Component {
         start_time: new Date(),
       }
     }, details)
-    console.log(calc, 'cccccccccccc')
+    // console.log(calc, 'cccccccccccc')
 
-    setMain('total_order', { data: calc })
+    // setMain('total_order', { data: calc })
     return <>
       <p>{`Sub-total   ${calc.sub_total}`}</p>
       <p>{`Service Charges   ${calc.service}`}</p>
@@ -145,7 +145,6 @@ delete = () => {
 const mapStateToProps = (state) => ({
   sub_mode: get(state, 'form_actions.mode', {}),
   mode:state.settings__mode.active,
-
   CartStatus: get(state, 'form_actions.CartStatus', false),
   details: get(state.form_actions,'details',{}),
   data : state.form_actions
