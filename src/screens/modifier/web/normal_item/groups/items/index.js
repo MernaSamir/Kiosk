@@ -12,14 +12,15 @@ class Items extends Component {
     state = {
         active: ''
     }
-    addToOrder = (qtn, modifier_item, modifier_name) => {
+    addToOrder = (qtn, modifier_item, modifier_name, item_id) => {
         const { group, cart, setMain, formValues, active_parent } = this.props
         const values = {
             id: uuid(),
             quantity: qtn,
             price: modifier_item.price,
             parent: active_parent,
-            name:modifier_name
+            name:modifier_name, 
+            item: item_id
         }
 
         const detail = { ...values }
@@ -27,7 +28,7 @@ class Items extends Component {
         setMain('form_actions', { details: { ...formValues, [detail.id]: detail } })
 
     }
-    addItToOrder = (d, mod_name) => {
+    addItToOrder = (d, mod_name, item_id) => {
         const { active_parent , appendPath, setMain, formValues} = this.props
         const id = uuid()
         const values = {
@@ -35,7 +36,8 @@ class Items extends Component {
             quantity: 1,
             price: d.price,
             parent: active_parent,
-            name:mod_name
+            name:mod_name,
+            item: item_id
         }
 
         const detail = { ...values }
@@ -78,6 +80,7 @@ class Items extends Component {
                     max: group._max,
                     Title: '',
                     first_msg: `${data.name}`,
+                    item_id: data.id,
                     pressYes: this.addToOrder,
                     modifier_item: d,
 
@@ -87,7 +90,7 @@ class Items extends Component {
             setMain('popup', { popup })
        }
         else{
-            this.addItToOrder(d, data.name)
+            this.addItToOrder(d, data.name, data.id)
         }
 
         }

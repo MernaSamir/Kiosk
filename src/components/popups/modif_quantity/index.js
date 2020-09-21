@@ -9,10 +9,10 @@ import { message } from 'antd'
 class ModifierQtn extends Component {
     ok = () => {
 
-        const { onCancel, pressYes , modifier_item,first_msg} = this.props
+        const { onCancel, pressYes , modifier_item,first_msg , item_id} = this.props
         const { qtn} = this.state
 
-        pressYes(qtn, modifier_item, first_msg)
+        pressYes(qtn, modifier_item, first_msg, item_id)
         onCancel()
     }
     state = {

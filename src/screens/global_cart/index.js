@@ -74,6 +74,24 @@ class GlobalCart extends Component {
     setMain('form_actions', { CartStatus: false })
 
   }
+  cancelOrder = () => {
+    const { setMain, title } = this.props
+    const popup = {
+        type: 'CancelCustomer', visable: true, width: "50%",
+        childProps: {
+            Title: '',
+            first_msg: 'Are you sure you want to Cancel the Order',
+            pressYes: this.delete
+        }
+    }
+    setMain('popup', { popup })
+}
+
+delete = () => {
+    const { item, setMain, history } = this.props
+    setMain('form_actions', {details:[] })
+    history.push('/')
+}
   render() {
     const { element, t, sub_mode, CartStatus , details, setMain, setAll} = this.props
     const collapseStyle = CartStatus == false ? classes.closed : classes.open
@@ -95,7 +113,7 @@ class GlobalCart extends Component {
             <Collapse  details={details} />
             <div className={classes.between}>{this.getCalculations()}</div>
             <div className={classes.btnContainer}>
-              <button type='button' >Cancel</button>
+              <button type='button'  onClick={this.cancelOrder}>Cancel</button>
               <button type='button' onClick={this.checkOut} >Checkout</button></div>
           </>
           : <></>}
