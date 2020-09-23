@@ -59,7 +59,6 @@ class Content extends Component {
   }
   goToCart = () => {
     const { history, appendPath, activeDetail, details, setMain } = this.props
-    const { qtn } = this.state
     history.push('/order')
     appendPath('form_actions', `details.${[activeDetail.id]}`, { add:true})
      map(filter(details,d=>d.parent==activeDetail.id),detail=>{
@@ -71,7 +70,6 @@ class Content extends Component {
   }
   renderOrders = () => {
     const { details, history, activeDetail } = this.props;
-    const { qtn } = this.state
     return (
       <div className={classes.allcon}>
         <div className={classes.above}>
@@ -90,7 +88,7 @@ class Content extends Component {
         <p className={classes.header}>Edit Item Details</p>
         <div className={classes.incrementer}>
           <button
-            disabled={this.setButton(qtn)}
+            disabled={this.setButton(activeDetail.quantity)}
             className={classes.minus}
             onClick={() => this.handelClick("-")}
           >-</button>
